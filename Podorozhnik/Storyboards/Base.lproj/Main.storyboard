@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Trip Record View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="TripRecordViewController" customModule="Podorozhnik" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="balance" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rwO-UZ-rkb">
+                                <rect key="frame" x="16" y="36" width="343" height="88"/>
+                                <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="FUw-g3-0IE"/>
+                                </connections>
+                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9NS-se-OOp">
+                                <rect key="frame" x="16" y="183" width="51" height="48"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Metro" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0y-le-SuI">
+                                        <rect key="frame" x="0.0" y="0.0" width="51" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04X-Rs-ORu">
+                                        <rect key="frame" x="0.0" y="24" width="51" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ytf-iS-4eh">
+                                <rect key="frame" x="75" y="187" width="235.5" height="40"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="xB7-yg-Tfv"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zdd-67-NUw">
+                                <rect key="frame" x="319" y="187" width="40" height="40"/>
+                                <color key="backgroundColor" red="0.83137254900000002" green="0.98431372549999996" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="72W-fJ-bSs"/>
+                                    <constraint firstAttribute="height" constant="40" id="e51-tS-847"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="+1"/>
+                                <connections>
+                                    <action selector="addMetroTrip:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5dR-IQ-t2j"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lA-8G-54f">
+                                <rect key="frame" x="16" y="615" width="343" height="36"/>
+                                <color key="backgroundColor" red="0.83137254900000002" green="0.98431372549999996" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Top up the balance"/>
+                                <connections>
+                                    <action selector="topUpTheBalance:" destination="BYZ-38-t0r" eventType="touchUpInside" id="grs-QM-Q7e"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Zdd-67-NUw" firstAttribute="top" secondItem="rwO-UZ-rkb" secondAttribute="bottom" constant="63" id="1Zh-EK-xfA"/>
+                            <constraint firstItem="rwO-UZ-rkb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2W9-gn-8iF"/>
+                            <constraint firstItem="Zdd-67-NUw" firstAttribute="trailing" secondItem="rwO-UZ-rkb" secondAttribute="trailing" id="2ur-zi-aF5"/>
+                            <constraint firstItem="rwO-UZ-rkb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="3mN-x7-1ib"/>
+                            <constraint firstItem="9NS-se-OOp" firstAttribute="centerY" secondItem="Zdd-67-NUw" secondAttribute="centerY" id="7p6-92-fIX"/>
+                            <constraint firstItem="Ytf-iS-4eh" firstAttribute="centerY" secondItem="Zdd-67-NUw" secondAttribute="centerY" id="9A5-YW-1kE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rwO-UZ-rkb" secondAttribute="trailing" constant="16" id="D8l-eD-CrA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8lA-8G-54f" secondAttribute="trailing" constant="16" id="Hr2-4s-LH5"/>
+                            <constraint firstItem="Ytf-iS-4eh" firstAttribute="leading" secondItem="9NS-se-OOp" secondAttribute="trailing" constant="8" id="OqU-J8-Fnz"/>
+                            <constraint firstItem="9NS-se-OOp" firstAttribute="leading" secondItem="rwO-UZ-rkb" secondAttribute="leading" id="ZsL-3t-eys"/>
+                            <constraint firstItem="rwO-UZ-rkb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="gAt-Fy-VgY"/>
+                            <constraint firstItem="8lA-8G-54f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="nRi-aK-ybX"/>
+                            <constraint firstItem="Zdd-67-NUw" firstAttribute="leading" secondItem="Ytf-iS-4eh" secondAttribute="trailing" constant="8" id="reK-Q4-BnG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8lA-8G-54f" secondAttribute="bottom" constant="16" id="v7Y-9c-jr6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="WyJ-1f-2mm" appends="YES" id="Yse-1T-k4F"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="balanceTextField" destination="rwO-UZ-rkb" id="ctZ-dj-B9v"/>
+                        <outlet property="metroFareLabel" destination="04X-Rs-ORu" id="fvG-c6-E5V"/>
+                        <outlet property="numberOfMetroTripsTextField" destination="Ytf-iS-4eh" id="Fol-CT-Yge"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="WyJ-1f-2mm">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="BYZ-38-t0r" id="gKX-q2-m8G"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="117.39130434782609"/>
+        </scene>
+    </scenes>
+</document>
