@@ -12,6 +12,8 @@
 		0451FBD121130C29001346C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0451FBD021130C29001346C4 /* Assets.xcassets */; };
 		0451FBD421130C29001346C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0451FBD221130C29001346C4 /* LaunchScreen.storyboard */; };
 		0451FBE1211314F3001346C4 /* TripRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451FBE0211314F3001346C4 /* TripRecordViewController.swift */; };
+		0462372421147982008AD497 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462372321147982008AD497 /* Card.swift */; };
+		046237282114A204008AD497 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046237272114A204008AD497 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		0451FBD321130C29001346C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0451FBD521130C29001346C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0451FBE0211314F3001346C4 /* TripRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRecordViewController.swift; sourceTree = "<group>"; };
+		0462372321147982008AD497 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		046237272114A204008AD497 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				0451FBDB21130C48001346C4 /* Application Delegate */,
+				046237222114796D008AD497 /* Model */,
 				0451FBDE21130C7E001346C4 /* Resources */,
 				0451FBDD21130C66001346C4 /* Storyboards */,
 				0451FBDF21130C94001346C4 /* Supporting Files */,
@@ -67,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				0451FBC921130C27001346C4 /* AppDelegate.swift */,
+				046237272114A204008AD497 /* Constants.swift */,
 			);
 			path = "Application Delegate";
 			sourceTree = "<group>";
@@ -102,6 +108,14 @@
 				0451FBD521130C29001346C4 /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		046237222114796D008AD497 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0462372321147982008AD497 /* Card.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,7 +190,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0451FBE1211314F3001346C4 /* TripRecordViewController.swift in Sources */,
+				0462372421147982008AD497 /* Card.swift in Sources */,
 				0451FBCA21130C27001346C4 /* AppDelegate.swift in Sources */,
+				046237282114A204008AD497 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

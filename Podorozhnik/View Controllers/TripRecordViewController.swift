@@ -11,84 +11,88 @@ import MessageUI
 
 class TripRecordViewController: UIViewController {
     
-    // MARK: - Constants
-    
-    let metroFare: Float = 36.0
-    let messageRecipient: String = "7878"
-    
     // MARK: - Properties
 
-    @IBOutlet weak var balanceTextField: UITextField!
-    @IBOutlet weak var numberOfMetroTripsTextField: UITextField!
+    @IBOutlet weak var cardBalanceTextField: UITextField!
+    @IBOutlet weak var tripsByMetroTextField: UITextField!
     @IBOutlet weak var metroFareLabel: UILabel!
     
     // MARK: -
-    
-    private var cardBalance: Float? = 0.0
-    private var numberOfMetroTrips: Int = 0
+
+    var card: Card?
     
     // MARK: - View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.card = Defaults.getCard()
         setupView()
     }
     
     // MARK: - View methods
     
     private func setupView() {
-        setupBalanceTextField()
+        setupCardBalanceTextField()
         setupMetroFareLabel()
-        setupNumberOfMetroTripsTextField()
+        setupTripsByMetroTextField()
     }
     
-    private func setupBalanceTextField() {
-        updateBalanceTextField()
+    private func setupCardBalanceTextField() {
+        updateCardBalanceTextField()
     }
     
     private func setupMetroFareLabel() {
-        metroFareLabel.text = "\(metroFare)"
+        metroFareLabel.text = "\(Fare.metro)"
     }
     
-    private func setupNumberOfMetroTripsTextField() {
-        updateNumberOfMetroTripsTextField()
+    private func setupTripsByMetroTextField() {
+        updateTripsByMetroTextField()
     }
     
     private func updateView() {
-        updateNumberOfMetroTripsTextField()
-        updateBalanceTextField()
+        updateTripsByMetroTextField()
+        updateCardBalanceTextField()
     }
     
-    private func updateBalanceTextField() {
-        guard let balance = self.cardBalance else {
-            balanceTextField.text = "\(0.0)"
+    private func updateCardBalanceTextField() {
+        guard let balance = card?.balance else {
+            cardBalanceTextField.text = "\(0.0)"
             return
         }
-        balanceTextField.text = "\(balance)"
+        cardBalanceTextField.text = "\(balance)"
     }
     
-    private func updateNumberOfMetroTripsTextField() {
-        numberOfMetroTripsTextField.text = "\(self.numberOfMetroTrips)"
+    private func updateTripsByMetroTextField() {
+        guard let tripsByMetro = card?.tripsByMetro else {
+            tripsByMetroTextField.text = "0"
+            return
+        }
+        tripsByMetroTextField.text = "\(tripsByMetro)"
     }
 
     // MARK: - Actions
 
     @IBAction func addMetroTrip(_ sender: UIButton) {
-        numberOfMetroTrips += 1
-        subtractFromBalance(amount: metroFare)
+        card?.addTripsByMetro(1)
         updateView()
     }
     
-    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        balanceTextField.resignFirstResponder()
+    @IBAction func topUpTheBalance(_ sender: UIButton) {
+        showTopUpTheBalanceAlert()
     }
     
-    fileprivate func composeMessage(cardNumber: String, amount: String) {
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        cardBalanceTextField.resignFirstResponder()
+    }
+    
+    // MARK: - Helper methods
+    
+    private func composeMessage(cardNumber: String, amount: String) {
         if MFMessageComposeViewController.canSendText() {
             let messageVC = MFMessageComposeViewController()
             
             messageVC.body = "pod \(cardNumber) \(amount)"
-            messageVC.recipients = [messageRecipient]
+            messageVC.recipients = [MessageSettings.recipient]
             messageVC.messageComposeDelegate = self
             self.present(messageVC, animated: true, completion: nil)
         } else {
@@ -96,17 +100,35 @@ class TripRecordViewController: UIViewController {
         }
     }
     
-    @IBAction func topUpTheBalance(_ sender: UIButton) {
-        composeMessage(cardNumber: "96433078[cardnumber]", amount: "[amount]")
-    }
-    
-    
-    // MARK: - Helper methods
-    
-    private func subtractFromBalance(amount: Float) {
-        if let balance = self.cardBalance {
-            self.cardBalance = balance - amount
+    private func showTopUpTheBalanceAlert() {
+        
+        let alertController = UIAlertController(title: "", message: "", preferredStyle: .alert)
+        
+        alertController.addTextField { (textField) in
+            textField.text = self.card?.number
+            textField.placeholder = "Card Number"
+            textField.keyboardType = .decimalPad
         }
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Amount"
+            textField.keyboardType = .decimalPad
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let confirmAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            let cardNumberTextField = alertController.textFields![0]
+            let amountTextField = alertController.textFields![1]
+            
+            self.card?.number = cardNumberTextField.text!
+            let amount = amountTextField.text!
+            
+            self.composeMessage(cardNumber: (self.card?.number)!, amount: amount)
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(confirmAction)
+        
+        present(alertController, animated: true)
     }
 }
 
@@ -145,12 +167,12 @@ extension TripRecordViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if let balanceText = self.balanceTextField.text, !balanceText.isEmpty {
-            self.cardBalance = Float(balanceText)
+        if let balanceText = self.cardBalanceTextField.text, !balanceText.isEmpty {
+            card?.balance = Double(balanceText)!
         } else {
-            self.cardBalance = 0.0
+            card?.balance = 0.0
         }
-        updateBalanceTextField()
+        updateCardBalanceTextField()
     }
     
 }
