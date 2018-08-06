@@ -57,12 +57,40 @@ class TripRecordViewController: UIViewController {
     
     // MARK: - Actions
 
+    @IBAction func topUpTheBalance(_ sender: UIButton) {
+        let alertController = UIAlertController(title: "Enter amount", message: "", preferredStyle: .alert)
+        
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Amount"
+            textField.keyboardType = .decimalPad
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (action) in
+            if let amountText = alertController.textFields?.first?.text,
+                let amount = Double(amountText) {
+                self.card?.balance += amount
+                self.cardBalanceTextField.update()
+            }
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(confirmAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
     @IBAction func addMetroTrip(_ sender: UIButton) {
         card?.addTripsByMetro(1)
         updateView()
     }
     
-    @IBAction func topUpTheBalance(_ sender: UIButton) {
+    @IBAction func reduceMetroTrip(_ sender: UIButton) {
+        card?.addTripsByMetro(-1)
+        updateView()
+    }
+    
+    @IBAction func topUpTheBalanceBySMS(_ sender: UIButton) {
         showTopUpTheBalanceAlert()
     }
     
@@ -103,7 +131,9 @@ class TripRecordViewController: UIViewController {
     
     private func showTopUpTheBalanceAlert() {
         
-        let alertController = UIAlertController(title: "", message: "", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Enter card number and amount",
+                                                message: "The application will generate an SMS-message for recharging the balance",
+                                                preferredStyle: .alert)
         
         alertController.addTextField { (textField) in
             textField.text = self.card?.number
@@ -144,37 +174,59 @@ extension TripRecordViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        cardBalanceTextField.update()
+        switch textField {
+        case cardBalanceTextField:
+            cardBalanceTextField.update()
+            
+        default:
+            break
+        }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        guard let oldText = textField.text, let r = Range(range, in: oldText) else { return true }
-        let newText = oldText.replacingCharacters(in: r, with: string)
+        // check for decimal digits
+        let allowedCharacters = CharacterSet(charactersIn: "1234567890.")
+        let characterSet = CharacterSet(charactersIn: string)
+        let isNumber = allowedCharacters.isSuperset(of: characterSet)
         
-        //check decimal separator
-        let hasMoreThanOneDecimalSeparator: Bool
-        
-        let existingTextHasDecimalSeparator = oldText.range(of: ".")
-        let replacementTextHasDecimalSeparator = string.range(of: ".")
-        
-        if existingTextHasDecimalSeparator != nil,
-            replacementTextHasDecimalSeparator != nil{
-            hasMoreThanOneDecimalSeparator = true
+        if !isNumber {
+            return false
         } else {
-            hasMoreThanOneDecimalSeparator = false
+            switch textField {
+            case cardBalanceTextField:
+                //check for more than one decimal separator
+                let hasMoreThanOneDecimalSeparator: Bool
+                
+                guard let oldText = textField.text, let r = Range(range, in: oldText) else { return true }
+                
+                let existingTextHasDecimalSeparator = oldText.range(of: ".")
+                let replacementTextHasDecimalSeparator = string.range(of: ".")
+                
+                if existingTextHasDecimalSeparator != nil,
+                    replacementTextHasDecimalSeparator != nil{
+                    hasMoreThanOneDecimalSeparator = true
+                } else {
+                    hasMoreThanOneDecimalSeparator = false
+                }
+                
+                //get number of decimal digits
+                let numberOfDecimalDigits: Int
+                
+                let newText = oldText.replacingCharacters(in: r, with: string)
+                
+                if let decimalSeparatorIndex = newText.index(of: "."){
+                    numberOfDecimalDigits = newText.distance(from: decimalSeparatorIndex, to: newText.endIndex) - 1
+                } else {
+                    numberOfDecimalDigits = 0
+                }
+                
+                return !hasMoreThanOneDecimalSeparator && numberOfDecimalDigits <= 2
+                
+            default:
+                return false
+            }
         }
-        
-        //check for 2 decimal digits
-        let numberOfDecimalDigits: Int
-        
-        if let decimalSeparatorIndex = newText.index(of: "."){
-            numberOfDecimalDigits = newText.distance(from: decimalSeparatorIndex, to: newText.endIndex) - 1
-        } else {
-            numberOfDecimalDigits = 0
-        }
-        
-        return !hasMoreThanOneDecimalSeparator && numberOfDecimalDigits <= 2
     }
     
 }
