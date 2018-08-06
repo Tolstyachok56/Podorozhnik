@@ -2,11 +2,15 @@
 //  Card.swift
 //  Podorozhnik
 //
-//  Created by Виктория Бадисова on 03.08.2018.
+//  Created by Виктория Бадисова on 06.08.2018.
 //  Copyright © 2018 Виктория Бадисова. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol CardDelegate {
+    func cardBalanceDidBecameLessThanFare(_ card: Card)
+}
 
 class Card {
     
@@ -16,6 +20,8 @@ class Card {
     var number: String = "" { didSet { Defaults.saveCard(self) }}
     
     var tripsByMetro: Int = 0
+    
+    var delegate: CardDelegate?
     
     // MARK: - Initializing
     
@@ -38,7 +44,7 @@ class Card {
     var propertyDictRepresentation: [String: Any] {
         var result: [String:Any] = [:]
         for case let (label, value) in Mirror(reflecting: self).children {
-            guard let key = label else{
+            guard let key = label, key != "delegate" else {
                 continue
             }
             result.updateValue(value, forKey: key)
@@ -57,42 +63,16 @@ class Card {
     
     private func reduceBalance(by amount: Double, completionHandler: @escaping () -> Void) {
         let reducedBalance = balance - amount
-        if reducedBalance >= 0 {
+        if reducedBalance >= Fare.metro{
             self.balance = reducedBalance
             completionHandler()
+        } else if reducedBalance >= 0 {
+            self.balance = reducedBalance
+            completionHandler()
+            delegate?.cardBalanceDidBecameLessThanFare(self)
         } else {
-            print("Balance can't be less than 0")
+            delegate?.cardBalanceDidBecameLessThanFare(self)
         }
     }
     
 }
-
-struct Defaults {
-    
-    // MARK: - Static properties
-    
-    static let userDefaults = UserDefaults.standard
-    static let userSessionKey = "myPodorozhnik"
-    
-    
-    // MARK: - Static methods
-    
-    static func saveCard(_ card: Card) {
-        userDefaults.set(card.propertyDictRepresentation, forKey: userSessionKey)
-    }
-    
-    static func getCard() -> Card {
-        if let dictionary = userDefaults.value(forKey: userSessionKey) as? [String: Any] {
-            return Card(dict: dictionary)
-        } else {
-            return Card()
-        }
-    }
-    
-    static func clear() {
-        userDefaults.removeObject(forKey: userSessionKey)
-    }
-    
-}
-
-

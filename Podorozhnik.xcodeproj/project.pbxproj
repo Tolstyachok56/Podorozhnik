@@ -12,8 +12,11 @@
 		0451FBD121130C29001346C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0451FBD021130C29001346C4 /* Assets.xcassets */; };
 		0451FBD421130C29001346C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0451FBD221130C29001346C4 /* LaunchScreen.storyboard */; };
 		0451FBE1211314F3001346C4 /* TripRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451FBE0211314F3001346C4 /* TripRecordViewController.swift */; };
-		0462372421147982008AD497 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462372321147982008AD497 /* Card.swift */; };
 		046237282114A204008AD497 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046237272114A204008AD497 /* Constants.swift */; };
+		0462372A2118409F008AD497 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046237292118409F008AD497 /* Defaults.swift */; };
+		0462372C21184117008AD497 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462372B21184117008AD497 /* Card.swift */; };
+		04623732211844CB008AD497 /* CardBalanceTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04623731211844CB008AD497 /* CardBalanceTextField.swift */; };
+		0462373421184540008AD497 /* TripsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462373321184540008AD497 /* TripsTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +27,11 @@
 		0451FBD321130C29001346C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0451FBD521130C29001346C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0451FBE0211314F3001346C4 /* TripRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRecordViewController.swift; sourceTree = "<group>"; };
-		0462372321147982008AD497 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		046237272114A204008AD497 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		046237292118409F008AD497 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		0462372B21184117008AD497 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		04623731211844CB008AD497 /* CardBalanceTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalanceTextField.swift; sourceTree = "<group>"; };
+		0462373321184540008AD497 /* TripsTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +86,7 @@
 		0451FBDC21130C5B001346C4 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0451FBE0211314F3001346C4 /* TripRecordViewController.swift */,
+				0462372F2118449E008AD497 /* Trip Record View Controller */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -113,9 +119,28 @@
 		046237222114796D008AD497 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0462372321147982008AD497 /* Card.swift */,
+				046237292118409F008AD497 /* Defaults.swift */,
+				0462372B21184117008AD497 /* Card.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0462372F2118449E008AD497 /* Trip Record View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0451FBE0211314F3001346C4 /* TripRecordViewController.swift */,
+				04623730211844AF008AD497 /* Text Fields */,
+			);
+			path = "Trip Record View Controller";
+			sourceTree = "<group>";
+		};
+		04623730211844AF008AD497 /* Text Fields */ = {
+			isa = PBXGroup;
+			children = (
+				04623731211844CB008AD497 /* CardBalanceTextField.swift */,
+				0462373321184540008AD497 /* TripsTextField.swift */,
+			);
+			path = "Text Fields";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,8 +214,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04623732211844CB008AD497 /* CardBalanceTextField.swift in Sources */,
+				0462372C21184117008AD497 /* Card.swift in Sources */,
+				0462373421184540008AD497 /* TripsTextField.swift in Sources */,
 				0451FBE1211314F3001346C4 /* TripRecordViewController.swift in Sources */,
-				0462372421147982008AD497 /* Card.swift in Sources */,
+				0462372A2118409F008AD497 /* Defaults.swift in Sources */,
 				0451FBCA21130C27001346C4 /* AppDelegate.swift in Sources */,
 				046237282114A204008AD497 /* Constants.swift in Sources */,
 			);

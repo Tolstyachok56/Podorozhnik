@@ -6,8 +6,9 @@
 //  Copyright © 2018 Виктория Бадисова. All rights reserved.
 //
 
-import Foundation
-
+enum Transport {
+    case Metro
+}
 
 enum Fare {
     static let metro: Double = 36.0

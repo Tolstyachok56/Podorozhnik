@@ -13,8 +13,8 @@ class TripRecordViewController: UIViewController {
     
     // MARK: - Properties
 
-    @IBOutlet weak var cardBalanceTextField: UITextField!
-    @IBOutlet weak var tripsByMetroTextField: UITextField!
+    @IBOutlet weak var cardBalanceTextField: CardBalanceTextField!
+    @IBOutlet weak var tripsByMetroTextField: TripsTextField!
     @IBOutlet weak var metroFareLabel: UILabel!
     
     // MARK: -
@@ -25,51 +25,36 @@ class TripRecordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.card = Defaults.getCard()
+        self.card?.delegate = self
+        
+        cardBalanceTextField.card = card
+        
+        tripsByMetroTextField.card = card
+        tripsByMetroTextField.transport = .Metro
+        
+        setupNotificationHandling()
         setupView()
     }
     
     // MARK: - View methods
     
     private func setupView() {
-        setupCardBalanceTextField()
+        cardBalanceTextField.setup()
+        tripsByMetroTextField.setup()
         setupMetroFareLabel()
-        setupTripsByMetroTextField()
-    }
-    
-    private func setupCardBalanceTextField() {
-        updateCardBalanceTextField()
     }
     
     private func setupMetroFareLabel() {
         metroFareLabel.text = "\(Fare.metro)"
     }
     
-    private func setupTripsByMetroTextField() {
-        updateTripsByMetroTextField()
-    }
-    
     private func updateView() {
-        updateTripsByMetroTextField()
-        updateCardBalanceTextField()
+        cardBalanceTextField.update()
+        tripsByMetroTextField.update()
     }
     
-    private func updateCardBalanceTextField() {
-        guard let balance = card?.balance else {
-            cardBalanceTextField.text = "\(0.0)"
-            return
-        }
-        cardBalanceTextField.text = "\(balance)"
-    }
-    
-    private func updateTripsByMetroTextField() {
-        guard let tripsByMetro = card?.tripsByMetro else {
-            tripsByMetroTextField.text = "0"
-            return
-        }
-        tripsByMetroTextField.text = "\(tripsByMetro)"
-    }
-
     // MARK: - Actions
 
     @IBAction func addMetroTrip(_ sender: UIButton) {
@@ -86,6 +71,22 @@ class TripRecordViewController: UIViewController {
     }
     
     // MARK: - Helper methods
+
+    private func setupNotificationHandling() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self,
+                                       selector: #selector(updateCardBalance),
+                                       name: NSNotification.Name.UITextFieldTextDidChange,
+                                       object: nil)
+    }
+    
+    @objc private func updateCardBalance() {
+        if let balanceText = self.cardBalanceTextField.text, !balanceText.isEmpty {
+            card?.balance = Double(balanceText)!
+        } else {
+            card?.balance = 0.0
+        }
+    }
     
     private func composeMessage(cardNumber: String, amount: String) {
         if MFMessageComposeViewController.canSendText() {
@@ -136,6 +137,16 @@ class TripRecordViewController: UIViewController {
 
 extension TripRecordViewController: UITextFieldDelegate {
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        DispatchQueue.main.async {
+            textField.selectAll(nil)
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        cardBalanceTextField.update()
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         guard let oldText = textField.text, let r = Range(range, in: oldText) else { return true }
@@ -166,16 +177,9 @@ extension TripRecordViewController: UITextFieldDelegate {
         return !hasMoreThanOneDecimalSeparator && numberOfDecimalDigits <= 2
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if let balanceText = self.cardBalanceTextField.text, !balanceText.isEmpty {
-            card?.balance = Double(balanceText)!
-        } else {
-            card?.balance = 0.0
-        }
-        updateCardBalanceTextField()
-    }
-    
 }
+
+// MARK: - MFMessageComposeViewControllerDelegate methods
 
 extension TripRecordViewController: MFMessageComposeViewControllerDelegate {
     
@@ -191,6 +195,26 @@ extension TripRecordViewController: MFMessageComposeViewControllerDelegate {
         }
         
         self.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+// MARK: - CardDelegate methods
+
+extension TripRecordViewController: CardDelegate {
+    
+    func cardBalanceDidBecameLessThanFare(_ card: Card) {
+        let alertController = UIAlertController(title: "Balance is less than fare", message: "Would you like to top up the balance?", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let confirmAction = UIAlertAction(title: "Yes", style: .default) { (action) in
+            self.showTopUpTheBalanceAlert()
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(confirmAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
     
 }
