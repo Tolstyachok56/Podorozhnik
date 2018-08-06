@@ -86,7 +86,7 @@ class TripRecordViewController: UIViewController {
     }
     
     @IBAction func reduceMetroTrip(_ sender: UIButton) {
-        card?.addTripsByMetro(-1)
+        card?.reduceTripsByMetro(1)
         updateView()
     }
     
@@ -125,7 +125,7 @@ class TripRecordViewController: UIViewController {
             messageVC.messageComposeDelegate = self
             self.present(messageVC, animated: true, completion: nil)
         } else {
-            print("This device is not configured to send messages")
+            showSimpleAlert(title: "Sorry...", message: "This device is not configured to send messages.")
         }
     }
     

@@ -61,6 +61,15 @@ class Card {
         }
     }
     
+    func reduceTripsByMetro(_ numberOfTrips: Int) {
+        if self.tripsByMetro - numberOfTrips >= 0 {
+            let amount = -(Double(numberOfTrips) * Fare.metro)
+            reduceBalance(by: amount) {
+                self.tripsByMetro -= numberOfTrips
+            }
+        }
+    }
+    
     private func reduceBalance(by amount: Double, completionHandler: @escaping () -> Void) {
         let reducedBalance = balance - amount
         if reducedBalance >= Fare.metro{
