@@ -69,7 +69,7 @@ class TripRecordViewController: UIViewController {
         let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (action) in
             if let amountText = alertController.textFields?.first?.text,
                 let amount = Double(amountText) {
-                self.card?.balance += amount
+                self.card?.topUpTheBalance(amount: amount)
                 self.cardBalanceTextField.update()
             }
         }

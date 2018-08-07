@@ -20,6 +20,7 @@ struct Defaults {
     
     static func saveCard(_ card: Card) {
         userDefaults.set(card.propertyDictRepresentation, forKey: userSessionKey)
+        print("Card saved")
     }
     
     static func getCard() -> Card {

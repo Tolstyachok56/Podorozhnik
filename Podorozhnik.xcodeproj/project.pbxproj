@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042679442119A771008BF17E /* MonthStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042679432119A771008BF17E /* MonthStatistics.swift */; };
+		042679462119B16C008BF17E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042679452119B16C008BF17E /* Date.swift */; };
 		0451FBCA21130C27001346C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451FBC921130C27001346C4 /* AppDelegate.swift */; };
 		0451FBCF21130C28001346C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0451FBCD21130C28001346C4 /* Main.storyboard */; };
 		0451FBD121130C29001346C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0451FBD021130C29001346C4 /* Assets.xcassets */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		042679432119A771008BF17E /* MonthStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthStatistics.swift; sourceTree = "<group>"; };
+		042679452119B16C008BF17E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		0451FBC621130C27001346C4 /* Podorozhnik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podorozhnik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0451FBC921130C27001346C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0451FBCE21130C28001346C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 			children = (
 				046237292118409F008AD497 /* Defaults.swift */,
 				0462372B21184117008AD497 /* Card.swift */,
+				042679432119A771008BF17E /* MonthStatistics.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				046237392118AE11008AD497 /* UIViewController.swift */,
+				042679452119B16C008BF17E /* Date.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -226,8 +232,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0462373A2118AE11008AD497 /* UIViewController.swift in Sources */,
+				042679462119B16C008BF17E /* Date.swift in Sources */,
 				04623732211844CB008AD497 /* CardBalanceTextField.swift in Sources */,
 				0462372C21184117008AD497 /* Card.swift in Sources */,
+				042679442119A771008BF17E /* MonthStatistics.swift in Sources */,
 				0462373421184540008AD497 /* TripsTextField.swift in Sources */,
 				0451FBE1211314F3001346C4 /* TripRecordViewController.swift in Sources */,
 				0462372A2118409F008AD497 /* Defaults.swift in Sources */,
