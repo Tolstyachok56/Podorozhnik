@@ -21,7 +21,6 @@ class Card {
     
     // MARK: -
     
-    var tripsByMetro: Int = 0
     var statistics: [MonthStatistics] = []
     
     // MARK: -
@@ -31,7 +30,6 @@ class Card {
     var propertyDictRepresentation: [String: Any] {
         var result: [String: Any] = ["number": self.number,
                                      "balance": self.balance,
-                                     "tripsByMetro": self.tripsByMetro,
                                      "statistics": []]
         if let encodedStatistics = try? JSONEncoder().encode(self.statistics) {
             result["statistics"] = encodedStatistics
@@ -43,16 +41,14 @@ class Card {
     
     init() {}
     
-    init(balance: Double, number: String, tripsByMetro: Int) {
+    init(balance: Double, number: String) {
         self.balance = balance
         self.number = number
-        self.tripsByMetro = tripsByMetro
     }
     
     init(dict: [String: Any]) {
         self.number = dict["number"] as! String
         self.balance = dict["balance"] as! Double
-        self.tripsByMetro = dict["tripsByMetro"] as! Int
         if let statistics = dict["statistics"] as? Data,
             let loadedStatistics = try? JSONDecoder().decode([MonthStatistics].self, from: statistics) {
                 self.statistics = loadedStatistics
@@ -61,58 +57,70 @@ class Card {
     
     // MARK: - Methods
     
+    func getCurrentMonthStatistics() -> MonthStatistics {
+        let currentMonth = Date.currentMonthString()
+        let monthStatistics = self.statistics.filter { $0.month == currentMonth }
+        if monthStatistics.isEmpty {
+            let newMonthStatistics = MonthStatistics(month: currentMonth, tripsByMetro: 0, costByMetro: 0)
+            self.statistics.append(newMonthStatistics)
+            return newMonthStatistics
+        } else {
+            return monthStatistics.first!
+        }
+    }
+    
+    func tripsByMetro() -> Int {
+        let currentStatistics = getCurrentMonthStatistics()
+        return currentStatistics.tripsByMetro
+    }
+    
     func topUpTheBalance(amount: Double) {
         self.balance += amount
     }
     
-    private func reduceBalance(by amount: Double, completionHandler: @escaping () -> Void) {
+    private func reduceBalance(by amount: Double, transport: Transport, completionHandler: @escaping () -> Void) {
         let reducedBalance = balance - amount
-        if reducedBalance >= Fare.metro{
+        
+        var nextTripFare: Double
+        switch transport {
+        case .Metro:
+            nextTripFare = Fare.metro(numberOfTrip: tripsByMetro() + 2)
+        }
+        
+        if reducedBalance >= nextTripFare {
             self.balance = reducedBalance
             completionHandler()
+            
         } else if reducedBalance >= 0 {
             self.balance = reducedBalance
             completionHandler()
             delegate?.cardBalanceDidBecameLessThanFare(self)
+            
         } else {
             delegate?.cardBalanceDidBecameLessThanFare(self)
         }
     }
     
-    func addTripsByMetro(_ numberOfTrips: Int) {
-        let amount = Double(numberOfTrips) * Fare.metro
-        reduceBalance(by: amount) {
-            self.tripsByMetro += numberOfTrips
-            let currentMonth = Date.currentMonthString()
-            let monthStatistics = self.statistics.filter {$0.month == currentMonth}
-            if monthStatistics.isEmpty {
-                self.statistics.append(MonthStatistics(month: currentMonth, tripsByMetro: 1, costByMetro: Fare.metro))
-                //
-                let statistics = monthStatistics.first
-                print("month: \((statistics?.month)!), trips: \((statistics?.tripsByMetro)!), cost: \((statistics?.costByMetro)!)")
-            } else {
-                let statistics = monthStatistics.first
-                statistics?.tripsByMetro += numberOfTrips
-                statistics?.costByMetro += amount
-                print("month: \((statistics?.month)!), trips: \((statistics?.tripsByMetro)!), cost: \((statistics?.costByMetro)!)")
-            }
+    func addTripByMetro() {
+        let amount = Fare.metro(numberOfTrip: tripsByMetro() + 1)
+        
+        reduceBalance(by: amount, transport: .Metro) {
+            
+            let currentStatistics = self.getCurrentMonthStatistics()
+            currentStatistics.tripsByMetro += 1
+            currentStatistics.costByMetro += amount
         }
         Defaults.saveCard(self)
     }
     
-    func reduceTripsByMetro(_ numberOfTrips: Int) {
-        if self.tripsByMetro - numberOfTrips >= 0 {
-            let amount = Double(numberOfTrips) * Fare.metro
+    func reduceTripByMetro() {
+        if self.tripsByMetro() - 1 >= 0 {
+            let amount = Fare.metro(numberOfTrip: tripsByMetro())
             topUpTheBalance(amount: amount)
-            self.tripsByMetro -= numberOfTrips
-            let currentMonth = Date.currentMonthString()
-            let monthStatistics = self.statistics.filter {$0.month == currentMonth}
-            if !monthStatistics.isEmpty {
-                let statistics = monthStatistics.first
-                statistics?.tripsByMetro -= numberOfTrips
-                statistics?.costByMetro -= amount
-                print("month: \((statistics?.month)!), trips: \((statistics?.tripsByMetro)!), cost: \((statistics?.costByMetro)!)")
-            }
+            
+            let currentStatistics = self.getCurrentMonthStatistics()
+            currentStatistics.tripsByMetro -= 1
+            currentStatistics.costByMetro -= amount
         }
         Defaults.saveCard(self)
     }

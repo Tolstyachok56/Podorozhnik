@@ -15,7 +15,7 @@ class TripRecordViewController: UIViewController {
 
     @IBOutlet weak var cardBalanceTextField: CardBalanceTextField!
     @IBOutlet weak var tripsByMetroTextField: TripsTextField!
-    @IBOutlet weak var metroFareLabel: UILabel!
+    @IBOutlet weak var metroFareLabel: FareLabel!
     
     // MARK: -
 
@@ -34,6 +34,9 @@ class TripRecordViewController: UIViewController {
         tripsByMetroTextField.card = card
         tripsByMetroTextField.transport = .Metro
         
+        metroFareLabel.card = card
+        metroFareLabel.transport = .Metro
+        
         setupNotificationHandling()
         setupView()
     }
@@ -43,16 +46,13 @@ class TripRecordViewController: UIViewController {
     private func setupView() {
         cardBalanceTextField.setup()
         tripsByMetroTextField.setup()
-        setupMetroFareLabel()
-    }
-    
-    private func setupMetroFareLabel() {
-        metroFareLabel.text = "\(Fare.metro)"
+        metroFareLabel.setup()
     }
     
     private func updateView() {
         cardBalanceTextField.update()
         tripsByMetroTextField.update()
+        metroFareLabel.update()
     }
     
     // MARK: - Actions
@@ -81,12 +81,12 @@ class TripRecordViewController: UIViewController {
     }
     
     @IBAction func addMetroTrip(_ sender: UIButton) {
-        card?.addTripsByMetro(1)
+        card?.addTripByMetro()
         updateView()
     }
     
     @IBAction func reduceMetroTrip(_ sender: UIButton) {
-        card?.reduceTripsByMetro(1)
+        card?.reduceTripByMetro()
         updateView()
     }
     
@@ -96,6 +96,19 @@ class TripRecordViewController: UIViewController {
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         cardBalanceTextField.resignFirstResponder()
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+        switch identifier {
+        case "ShowStatistics":
+            guard let destination = segue.destination as? StatisticsTableViewController else { return }
+            destination.statistics = card?.statistics
+        default:
+            fatalError("Unexpected segue identifier")
+        }
     }
     
     // MARK: - Helper methods
@@ -130,7 +143,6 @@ class TripRecordViewController: UIViewController {
     }
     
     private func showTopUpTheBalanceAlert() {
-        
         let alertController = UIAlertController(title: "Enter card number and amount",
                                                 message: "The application will generate an SMS-message for recharging the balance",
                                                 preferredStyle: .alert)
@@ -177,7 +189,6 @@ extension TripRecordViewController: UITextFieldDelegate {
         switch textField {
         case cardBalanceTextField:
             cardBalanceTextField.update()
-            
         default:
             break
         }

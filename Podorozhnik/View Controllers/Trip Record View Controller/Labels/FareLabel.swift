@@ -1,15 +1,14 @@
 //
-//  TripsTextField.swift
+//  FareLabel.swift
 //  Podorozhnik
 //
-//  Created by Виктория Бадисова on 06.08.2018.
+//  Created by Виктория Бадисова on 07.08.2018.
 //  Copyright © 2018 Виктория Бадисова. All rights reserved.
 //
 
 import UIKit
 
-
-class TripsTextField: UITextField {
+class FareLabel: UILabel {
 
     var card: Card?
     var transport: Transport?
@@ -21,19 +20,11 @@ class TripsTextField: UITextField {
     func update() {
         switch transport {
         case .Metro?:
-            setTextFrom(card?.tripsByMetro())
+            let fare = Fare.metro(numberOfTrip: (card?.tripsByMetro())! + 1)
+            self.text = "\(fare)"
         default:
             fatalError("Unexpected type of transport")
         }
     }
-    
-    private func setTextFrom(_ trips: Int?) {
-        if trips != nil {
-            self.text = "\(trips!)"
-        } else {
-            self.text = "0"
-            return
-        }
-    }
-    
+
 }

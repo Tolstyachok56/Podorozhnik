@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		042679442119A771008BF17E /* MonthStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042679432119A771008BF17E /* MonthStatistics.swift */; };
 		042679462119B16C008BF17E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042679452119B16C008BF17E /* Date.swift */; };
+		042679482119D7D5008BF17E /* FareLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042679472119D7D5008BF17E /* FareLabel.swift */; };
+		0426794B2119EA74008BF17E /* StatisticsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0426794A2119EA74008BF17E /* StatisticsTableViewController.swift */; };
 		0451FBCA21130C27001346C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451FBC921130C27001346C4 /* AppDelegate.swift */; };
 		0451FBCF21130C28001346C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0451FBCD21130C28001346C4 /* Main.storyboard */; };
 		0451FBD121130C29001346C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0451FBD021130C29001346C4 /* Assets.xcassets */; };
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		042679432119A771008BF17E /* MonthStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthStatistics.swift; sourceTree = "<group>"; };
 		042679452119B16C008BF17E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		042679472119D7D5008BF17E /* FareLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FareLabel.swift; path = "Podorozhnik/View Controllers/Trip Record View Controller/Labels/FareLabel.swift"; sourceTree = SOURCE_ROOT; };
+		0426794A2119EA74008BF17E /* StatisticsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsTableViewController.swift; sourceTree = "<group>"; };
 		0451FBC621130C27001346C4 /* Podorozhnik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podorozhnik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0451FBC921130C27001346C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0451FBCE21130C28001346C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,6 +55,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		042679492119D7DF008BF17E /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				042679472119D7D5008BF17E /* FareLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		0426794C2119EB19008BF17E /* Statistics Table View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0426794A2119EA74008BF17E /* StatisticsTableViewController.swift */,
+			);
+			path = "Statistics Table View Controller";
+			sourceTree = "<group>";
+		};
 		0451FBBD21130C27001346C4 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +113,7 @@
 		0451FBDC21130C5B001346C4 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0426794C2119EB19008BF17E /* Statistics Table View Controller */,
 				0462372F2118449E008AD497 /* Trip Record View Controller */,
 			);
 			path = "View Controllers";
@@ -138,6 +159,7 @@
 			children = (
 				0451FBE0211314F3001346C4 /* TripRecordViewController.swift */,
 				04623730211844AF008AD497 /* Text Fields */,
+				042679492119D7DF008BF17E /* Labels */,
 			);
 			path = "Trip Record View Controller";
 			sourceTree = "<group>";
@@ -239,7 +261,9 @@
 				0462373421184540008AD497 /* TripsTextField.swift in Sources */,
 				0451FBE1211314F3001346C4 /* TripRecordViewController.swift in Sources */,
 				0462372A2118409F008AD497 /* Defaults.swift in Sources */,
+				0426794B2119EA74008BF17E /* StatisticsTableViewController.swift in Sources */,
 				0451FBCA21130C27001346C4 /* AppDelegate.swift in Sources */,
+				042679482119D7D5008BF17E /* FareLabel.swift in Sources */,
 				046237282114A204008AD497 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
