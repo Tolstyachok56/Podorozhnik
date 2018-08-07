@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-class TripRecordViewController: UIViewController {
+class TripsRecordViewController: UIViewController {
     
     // MARK: - Properties
 
@@ -106,6 +106,8 @@ class TripRecordViewController: UIViewController {
         case "ShowStatistics":
             guard let destination = segue.destination as? StatisticsTableViewController else { return }
             destination.statistics = card?.statistics
+        case "ShowCalculator":
+            guard let destination = segue.destination as? CalculatorViewController else { return }
         default:
             fatalError("Unexpected segue identifier")
         }
@@ -177,7 +179,7 @@ class TripRecordViewController: UIViewController {
 
 // MARK: - UITextFieldDelegate methods
 
-extension TripRecordViewController: UITextFieldDelegate {
+extension TripsRecordViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         DispatchQueue.main.async {
@@ -244,7 +246,7 @@ extension TripRecordViewController: UITextFieldDelegate {
 
 // MARK: - MFMessageComposeViewControllerDelegate methods
 
-extension TripRecordViewController: MFMessageComposeViewControllerDelegate {
+extension TripsRecordViewController: MFMessageComposeViewControllerDelegate {
     
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         
@@ -264,7 +266,7 @@ extension TripRecordViewController: MFMessageComposeViewControllerDelegate {
 
 // MARK: - CardDelegate methods
 
-extension TripRecordViewController: CardDelegate {
+extension TripsRecordViewController: CardDelegate {
     
     func cardBalanceDidBecameLessThanFare(_ card: Card) {
         let alertController = UIAlertController(title: "Balance is less than fare", message: "Would you like to top up the balance?", preferredStyle: .alert)

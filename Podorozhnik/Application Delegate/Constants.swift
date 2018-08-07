@@ -11,7 +11,7 @@ enum Transport {
     case Metro
 }
 
-struct Fare {
+enum Fare {
     static func metro(numberOfTrip: Int) -> Double {
         switch numberOfTrip {
         case 1...10: return 36.00

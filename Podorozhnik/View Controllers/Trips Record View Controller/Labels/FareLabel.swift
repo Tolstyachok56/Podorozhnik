@@ -21,7 +21,7 @@ class FareLabel: UILabel {
         switch transport {
         case .Metro?:
             let fare = Fare.metro(numberOfTrip: (card?.tripsByMetro())! + 1)
-            self.text = "\(fare)"
+            self.text = "next: \(fare)"
         default:
             fatalError("Unexpected type of transport")
         }

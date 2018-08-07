@@ -14,8 +14,7 @@ class StatisticsTableViewController: UITableViewController {
     
     var statistics: [MonthStatistics]?
     
-    // MARK: - View life cycle
-    
+    // MARK: - View life cycle    
     override func viewDidLoad() {
         super.viewDidLoad()
         
