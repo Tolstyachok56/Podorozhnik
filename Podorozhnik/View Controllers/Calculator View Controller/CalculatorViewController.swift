@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class CalculatorViewController: UIViewController {
     
@@ -19,13 +20,17 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var tripsByMetroAtRestdayTextField: CalculatorTripsTextField!
     
     @IBOutlet weak var commercialAmountTextField: CalculatorCommercialTextField!
-    @IBOutlet weak var totalAmountLabel: TotalAmountLabel!
     
+    @IBOutlet weak var totalAmountLabel: TotalAmountLabel!
     
     // MARK: -
     
     var calculator: Calculator?
-
+    
+    // MARK: -
+    
+    var card: Card?
+    
     // MARK: - View life cycle
     
     override func viewDidLoad() {
@@ -51,7 +56,7 @@ class CalculatorViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func topUpTheBalanceBySMS(_ sender: UIButton) {
-        
+        showTopUpTheBalanceBySMSAlert()
     }
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
@@ -61,4 +66,73 @@ class CalculatorViewController: UIViewController {
         restdaysTextField.resignFirstResponder()
         commercialAmountTextField.resignFirstResponder()
     }
+    
+    // MARK: - Helper methods
+    
+    private func showTopUpTheBalanceBySMSAlert() {
+        let alertController = UIAlertController(title: "Enter card number and amount",
+                                                message: "The application will generate an SMS-message for recharging the balance",
+                                                preferredStyle: .alert)
+        
+        alertController.addTextField { (textField) in
+            textField.text = self.card?.number
+            textField.placeholder = "Card Number"
+            textField.keyboardType = .decimalPad
+        }
+        alertController.addTextField { (textField) in
+            textField.text = "\(self.calculator!.getAmountInt())"
+            textField.placeholder = "Amount"
+            textField.keyboardType = .decimalPad
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let confirmAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            let cardNumberTextField = alertController.textFields![0]
+            let amountTextField = alertController.textFields![1]
+            
+            self.card?.number = cardNumberTextField.text!
+            let amount = amountTextField.text!
+            
+            self.composeMessage(cardNumber: (self.card?.number)!, amount: amount)
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(confirmAction)
+        
+        present(alertController, animated: true)
+    }
+
+    private func composeMessage(cardNumber: String, amount: String) {
+        if MFMessageComposeViewController.canSendText() {
+            let messageVC = MFMessageComposeViewController()
+            
+            messageVC.body = "pod \(cardNumber) \(amount)"
+            messageVC.recipients = [MessageSettings.recipient]
+            messageVC.messageComposeDelegate = self
+            self.present(messageVC, animated: true, completion: nil)
+        } else {
+            showSimpleAlert(title: "Sorry...", message: "This device is not configured to send messages.")
+        }
+    }
+    
+}
+
+// MARK: - MFMessageComposeViewControllerDelegate methods
+
+extension CalculatorViewController: MFMessageComposeViewControllerDelegate {
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        
+        switch result {
+        case .cancelled:
+            print("Message was cancelled")
+        case .failed:
+            print("Message failed")
+        case .sent:
+            print("Message was sent")
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }

@@ -14,6 +14,14 @@ class StatisticsTableViewController: UITableViewController {
     
     var statistics: [MonthStatistics]?
     
+    // MARK: -
+    
+    let numberFormatter: NumberFormatter = {
+        let nf = NumberFormatter()
+        nf.maximumFractionDigits = 2
+        return nf
+    }()
+    
     // MARK: - View life cycle    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,22 +40,44 @@ class StatisticsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: StatisticsTableViewCell.reuseIdentifier, for: indexPath) as? StatisticsTableViewCell else {
+            fatalError("Unexpected Index Path")
+        }
 
         let section = indexPath.section
+        var trips: Int = 0
+        var cost: Double = 0
+        var averageFare: String = "0"
         
         switch indexPath.row {
         case 0:
-            let trips = statistics![section].tripsByMetro
-            let cost = statistics![section].costByMetro
-            cell.textLabel?.text = "Metro trips: \(trips), cost: \(cost)"
+            cell.transportImageView.image = UIImage(named: "BlueTrain")
+            trips = statistics![section].tripsByMetro
+            cost = statistics![section].costByMetro
+            
         case 1:
-            cell.textLabel?.text = "Ground transport"
+            cell.transportImageView.image = UIImage(named: "BlueTrain")
+            trips = 0
+            cost = 0
+            
         case 2:
-            cell.textLabel?.text = "Commercial transport"
+            cell.transportImageView.image = UIImage(named: "BlueTrain")
+            trips = 0
+            cost = 0
+            
         default:
             break
         }
+        
+        if trips != 0 {
+            averageFare = numberFormatter.string(from: (cost / Double(trips)) as NSNumber)!
+        } else {
+            averageFare = "0"
+        }
+        
+        cell.tripsLabel.text = "\(trips)"
+        cell.averageFareLabel.text = averageFare
+        cell.costLabel.text = "\(cost)"
 
         return cell
     }

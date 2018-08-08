@@ -99,6 +99,7 @@ class TripsRecordViewController: UIViewController {
             destination.statistics = card?.statistics
         case "ShowCalculator":
             guard let destination = segue.destination as? CalculatorViewController else { return }
+            destination.card = self.card
         default:
             fatalError("Unexpected segue identifier")
         }

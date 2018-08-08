@@ -42,4 +42,8 @@ class Calculator {
         return getMetroAmount() + commercialAmount
     }
     
+    func getAmountInt() -> Int {
+        return Int(getAmount())
+    }
+    
 }

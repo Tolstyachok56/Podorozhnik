@@ -15,6 +15,7 @@
 		043010D8211AE4F400ECA72B /* CalculatorDaysTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010D7211AE4F400ECA72B /* CalculatorDaysTextField.swift */; };
 		043010DA211AE7DF00ECA72B /* CalculatorCommercialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010D9211AE7DF00ECA72B /* CalculatorCommercialTextField.swift */; };
 		043010DD211AE96800ECA72B /* TotalAmountLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010DC211AE96800ECA72B /* TotalAmountLabel.swift */; };
+		043010E0211B432A00ECA72B /* StatisticsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010DF211B432A00ECA72B /* StatisticsTableViewCell.swift */; };
 		0451FBCA21130C27001346C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451FBC921130C27001346C4 /* AppDelegate.swift */; };
 		0451FBCF21130C28001346C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0451FBCD21130C28001346C4 /* Main.storyboard */; };
 		0451FBD121130C29001346C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0451FBD021130C29001346C4 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		043010D7211AE4F400ECA72B /* CalculatorDaysTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorDaysTextField.swift; sourceTree = "<group>"; };
 		043010D9211AE7DF00ECA72B /* CalculatorCommercialTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorCommercialTextField.swift; sourceTree = "<group>"; };
 		043010DC211AE96800ECA72B /* TotalAmountLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalAmountLabel.swift; sourceTree = "<group>"; };
+		043010DF211B432A00ECA72B /* StatisticsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsTableViewCell.swift; sourceTree = "<group>"; };
 		0451FBC621130C27001346C4 /* Podorozhnik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podorozhnik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0451FBC921130C27001346C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0451FBCE21130C28001346C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				0426794A2119EA74008BF17E /* StatisticsTableViewController.swift */,
+				043010DE211B42E600ECA72B /* Table View Cells */,
 			);
 			path = "Statistics Table View Controller";
 			sourceTree = "<group>";
@@ -99,6 +102,14 @@
 				043010DC211AE96800ECA72B /* TotalAmountLabel.swift */,
 			);
 			path = Labels;
+			sourceTree = "<group>";
+		};
+		043010DE211B42E600ECA72B /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				043010DF211B432A00ECA72B /* StatisticsTableViewCell.swift */,
+			);
+			path = "Table View Cells";
 			sourceTree = "<group>";
 		};
 		0451FBBD21130C27001346C4 = {
@@ -312,6 +323,7 @@
 				043010D8211AE4F400ECA72B /* CalculatorDaysTextField.swift in Sources */,
 				0451FBCA21130C27001346C4 /* AppDelegate.swift in Sources */,
 				0479A65D211A03E600766A38 /* CalculatorViewController.swift in Sources */,
+				043010E0211B432A00ECA72B /* StatisticsTableViewCell.swift in Sources */,
 				046237282114A204008AD497 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,7 +401,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -443,7 +455,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
