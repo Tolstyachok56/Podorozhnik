@@ -12,10 +12,10 @@ class Calculator {
     var weekdays: Int = 22
     var restdays: Int = 8
     
-    var tripsByMetroAtWeekday: Int = 1
-    var tripsByMetroAtRestday: Int = 1
+    var tripsByMetroAtWeekday: Int = 0
+    var tripsByMetroAtRestday: Int = 0
     
-    var commercialAmount: Double = 0.5
+    var commercialAmount: Double = 0.0
     
     init() {}
     
@@ -41,4 +41,5 @@ class Calculator {
     func getAmount() -> Double {
         return getMetroAmount() + commercialAmount
     }
+    
 }

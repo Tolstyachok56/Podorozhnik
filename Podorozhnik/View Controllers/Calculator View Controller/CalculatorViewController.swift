@@ -48,14 +48,17 @@ class CalculatorViewController: UIViewController {
         totalAmountLabel.setup(calculator: calculator!)
     }
     
-    private func updateView() {
-        
-    }
-    
     // MARK: - Actions
     
     @IBAction func topUpTheBalanceBySMS(_ sender: UIButton) {
         
     }
     
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        tripsByMetroAtWeekdayTextField.resignFirstResponder()
+        tripsByMetroAtRestdayTextField.resignFirstResponder()
+        weekdaysTextField.resignFirstResponder()
+        restdaysTextField.resignFirstResponder()
+        commercialAmountTextField.resignFirstResponder()
+    }
 }

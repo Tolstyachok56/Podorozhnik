@@ -238,13 +238,13 @@
                                         <rect key="frame" x="69" y="41.5" width="105.5" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dYB-VL-d2i" customClass="CalculatorDaysTextField" customModule="Podorozhnik" customModuleProvider="target">
                                         <rect key="frame" x="200.5" y="41.5" width="108.5" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueTrain" translatesAutoresizingMaskIntoConstraints="NO" id="TSz-wM-OeH">
                                         <rect key="frame" x="16" y="34" width="45" height="45"/>
@@ -305,13 +305,13 @@
                                         <rect key="frame" x="69" y="39.5" width="105.5" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d6Y-wY-Qwo" customClass="CalculatorDaysTextField" customModule="Podorozhnik" customModuleProvider="target">
                                         <rect key="frame" x="200.5" y="39.5" width="103.5" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueTrain" translatesAutoresizingMaskIntoConstraints="NO" id="Qcd-Oq-OSq">
                                         <rect key="frame" x="16" y="32" width="45" height="45"/>
@@ -360,8 +360,8 @@
                                         <rect key="frame" x="196" y="11" width="125" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.8007241262" green="0.86880188300000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -396,6 +396,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Mnq-RD-m3g" firstAttribute="top" secondItem="kuu-i0-aCe" secondAttribute="top" id="1kL-5y-Ee7"/>
                             <constraint firstItem="hiv-WS-2f5" firstAttribute="leading" secondItem="kuu-i0-aCe" secondAttribute="leading" id="2Ej-GY-Pre"/>
@@ -417,6 +418,9 @@
                             <constraint firstItem="Uy9-fl-MwE" firstAttribute="top" secondItem="F6e-9Y-86x" secondAttribute="bottom" constant="27" id="zaW-hS-ZwL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kuu-i0-aCe"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="GM5-JN-DeY" appends="YES" id="qnP-CB-vgh"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="commercialAmountTextField" destination="iMX-7C-ycR" id="6Qf-2s-ib1"/>
@@ -428,6 +432,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Btd-hL-274" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="GM5-JN-DeY">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="qyZ-yf-8N0" id="gga-VS-xgS"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2093.5999999999999" y="453.82308845577217"/>
         </scene>
