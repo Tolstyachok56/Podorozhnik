@@ -10,26 +10,26 @@ import Foundation
 
 class Calculator {
     var weekdays: Int = 22
-    var restDays: Int = 8
+    var restdays: Int = 8
     
     var tripsByMetroAtWeekday: Int = 1
-    var tripsByMetroAtRestDay: Int = 1
+    var tripsByMetroAtRestday: Int = 1
     
-    var commercialAmount: Double = 0
+    var commercialAmount: Double = 0.5
     
     init() {}
     
-    init(workDays: Int, restDays: Int, tripsByMetroAtWeekday: Int, tripsByMetroAtRestDay: Int) {
-        self.weekdays = workDays
-        self.restDays = restDays
+    init(weekdays: Int, restdays: Int, tripsByMetroAtWeekday: Int, tripsByMetroAtRestday: Int) {
+        self.weekdays = weekdays
+        self.restdays = restdays
         self.tripsByMetroAtWeekday = tripsByMetroAtWeekday
-        self.tripsByMetroAtRestDay = tripsByMetroAtRestDay
+        self.tripsByMetroAtRestday = tripsByMetroAtRestday
     }
     
     private func getMetroAmount() -> Double {
         var amount: Double = 0
         
-        let totalTripsByMetro = weekdays * tripsByMetroAtWeekday + restDays * tripsByMetroAtRestDay
+        let totalTripsByMetro = weekdays * tripsByMetroAtWeekday + restdays * tripsByMetroAtRestday
         if totalTripsByMetro != 0 {
             for numberOfTrip in 1...totalTripsByMetro  {
                 amount += Fare.metro(numberOfTrip: numberOfTrip)

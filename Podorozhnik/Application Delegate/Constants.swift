@@ -28,4 +28,9 @@ enum MessageSettings {
     static let recipient: String = "7878"
 }
 
+enum DayOfWeek {
+    case Weekday
+    case Restday
+}
+
 

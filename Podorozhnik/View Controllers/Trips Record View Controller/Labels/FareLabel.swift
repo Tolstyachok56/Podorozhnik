@@ -13,7 +13,9 @@ class FareLabel: UILabel {
     var card: Card?
     var transport: Transport?
     
-    func setup() {
+    func setup(card: Card, transport: Transport) {
+        self.card = card
+        self.transport = transport
         update()
     }
     

@@ -11,6 +11,10 @@
 		042679462119B16C008BF17E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042679452119B16C008BF17E /* Date.swift */; };
 		0426794B2119EA74008BF17E /* StatisticsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0426794A2119EA74008BF17E /* StatisticsTableViewController.swift */; };
 		0426794E2119F881008BF17E /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0426794D2119F881008BF17E /* Calculator.swift */; };
+		043010D6211ADB3C00ECA72B /* CalculatorTripsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010D5211ADB3C00ECA72B /* CalculatorTripsTextField.swift */; };
+		043010D8211AE4F400ECA72B /* CalculatorDaysTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010D7211AE4F400ECA72B /* CalculatorDaysTextField.swift */; };
+		043010DA211AE7DF00ECA72B /* CalculatorCommercialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010D9211AE7DF00ECA72B /* CalculatorCommercialTextField.swift */; };
+		043010DD211AE96800ECA72B /* TotalAmountLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010DC211AE96800ECA72B /* TotalAmountLabel.swift */; };
 		0451FBCA21130C27001346C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451FBC921130C27001346C4 /* AppDelegate.swift */; };
 		0451FBCF21130C28001346C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0451FBCD21130C28001346C4 /* Main.storyboard */; };
 		0451FBD121130C29001346C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0451FBD021130C29001346C4 /* Assets.xcassets */; };
@@ -31,6 +35,10 @@
 		042679452119B16C008BF17E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		0426794A2119EA74008BF17E /* StatisticsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsTableViewController.swift; sourceTree = "<group>"; };
 		0426794D2119F881008BF17E /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
+		043010D5211ADB3C00ECA72B /* CalculatorTripsTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTripsTextField.swift; sourceTree = "<group>"; };
+		043010D7211AE4F400ECA72B /* CalculatorDaysTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorDaysTextField.swift; sourceTree = "<group>"; };
+		043010D9211AE7DF00ECA72B /* CalculatorCommercialTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorCommercialTextField.swift; sourceTree = "<group>"; };
+		043010DC211AE96800ECA72B /* TotalAmountLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalAmountLabel.swift; sourceTree = "<group>"; };
 		0451FBC621130C27001346C4 /* Podorozhnik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podorozhnik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0451FBC921130C27001346C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0451FBCE21130C28001346C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -73,6 +81,24 @@
 				0426794A2119EA74008BF17E /* StatisticsTableViewController.swift */,
 			);
 			path = "Statistics Table View Controller";
+			sourceTree = "<group>";
+		};
+		043010D2211ADA7900ECA72B /* Text Fields */ = {
+			isa = PBXGroup;
+			children = (
+				043010D5211ADB3C00ECA72B /* CalculatorTripsTextField.swift */,
+				043010D7211AE4F400ECA72B /* CalculatorDaysTextField.swift */,
+				043010D9211AE7DF00ECA72B /* CalculatorCommercialTextField.swift */,
+			);
+			path = "Text Fields";
+			sourceTree = "<group>";
+		};
+		043010DB211AE94400ECA72B /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				043010DC211AE96800ECA72B /* TotalAmountLabel.swift */,
+			);
+			path = Labels;
 			sourceTree = "<group>";
 		};
 		0451FBBD21130C27001346C4 = {
@@ -192,6 +218,8 @@
 			isa = PBXGroup;
 			children = (
 				0479A65C211A03E600766A38 /* CalculatorViewController.swift */,
+				043010D2211ADA7900ECA72B /* Text Fields */,
+				043010DB211AE94400ECA72B /* Labels */,
 			);
 			path = "Calculator View Controller";
 			sourceTree = "<group>";
@@ -271,13 +299,17 @@
 				042679462119B16C008BF17E /* Date.swift in Sources */,
 				04623732211844CB008AD497 /* CardBalanceTextField.swift in Sources */,
 				0462372C21184117008AD497 /* Card.swift in Sources */,
+				043010DA211AE7DF00ECA72B /* CalculatorCommercialTextField.swift in Sources */,
 				0479A65A2119FC8200766A38 /* FareLabel.swift in Sources */,
 				042679442119A771008BF17E /* MonthStatistics.swift in Sources */,
+				043010DD211AE96800ECA72B /* TotalAmountLabel.swift in Sources */,
 				0426794E2119F881008BF17E /* Calculator.swift in Sources */,
 				0462373421184540008AD497 /* TripsTextField.swift in Sources */,
+				043010D6211ADB3C00ECA72B /* CalculatorTripsTextField.swift in Sources */,
 				0451FBE1211314F3001346C4 /* TripsRecordViewController.swift in Sources */,
 				0462372A2118409F008AD497 /* Defaults.swift in Sources */,
 				0426794B2119EA74008BF17E /* StatisticsTableViewController.swift in Sources */,
+				043010D8211AE4F400ECA72B /* CalculatorDaysTextField.swift in Sources */,
 				0451FBCA21130C27001346C4 /* AppDelegate.swift in Sources */,
 				0479A65D211A03E600766A38 /* CalculatorViewController.swift in Sources */,
 				046237282114A204008AD497 /* Constants.swift in Sources */,

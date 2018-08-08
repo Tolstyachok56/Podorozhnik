@@ -12,14 +12,14 @@ class CalculatorViewController: UIViewController {
     
     // MARK: - Properties
     
-    @IBOutlet weak var weekdaysTextField: UITextField!
-    @IBOutlet weak var restdaysTextField: UITextField!
+    @IBOutlet weak var weekdaysTextField: CalculatorDaysTextField!
+    @IBOutlet weak var restdaysTextField: CalculatorDaysTextField!
     
-    @IBOutlet weak var tripsByMetroAtWeekdayTextField: UITextField!
-    @IBOutlet weak var tripsByMetroAtRestDayTextField: UITextField!
+    @IBOutlet weak var tripsByMetroAtWeekdayTextField: CalculatorTripsTextField!
+    @IBOutlet weak var tripsByMetroAtRestdayTextField: CalculatorTripsTextField!
     
-    @IBOutlet weak var commercialAmountTextField: UITextField!
-    @IBOutlet weak var totalAmountLabel: UILabel!
+    @IBOutlet weak var commercialAmountTextField: CalculatorCommercialTextField!
+    @IBOutlet weak var totalAmountLabel: TotalAmountLabel!
     
     
     // MARK: -
@@ -30,35 +30,32 @@ class CalculatorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         calculator = Calculator()
-        
         setupView()
     }
     
     // MARK: - View methods
     
     private func setupView() {
-        tripsByMetroAtWeekdayTextField.text = "\((calculator?.tripsByMetroAtWeekday)!)"
-        tripsByMetroAtRestDayTextField.text = "\((calculator?.tripsByMetroAtRestDay)!)"
+        tripsByMetroAtWeekdayTextField.setup(calculator: calculator!, transport: .Metro, dayOfWeek: .Weekday)
+        tripsByMetroAtRestdayTextField.setup(calculator: calculator!, transport: .Metro, dayOfWeek: .Restday)
         
-        weekdaysTextField.text = "\((calculator?.weekdays)!)"
-        restdaysTextField.text = "\((calculator?.restDays)!)"
+        weekdaysTextField.setup(calculator: calculator!, dayOfWeek: .Weekday)
+        restdaysTextField.setup(calculator: calculator!, dayOfWeek: .Restday)
         
-        commercialAmountTextField.text = "\((calculator?.commercialAmount)!)"
+        commercialAmountTextField.setup(calculator: calculator!)
         
-        totalAmountLabel.text = "\((calculator?.getAmount())!)"
+        totalAmountLabel.setup(calculator: calculator!)
+    }
+    
+    private func updateView() {
+        
     }
     
     // MARK: - Actions
     
     @IBAction func topUpTheBalanceBySMS(_ sender: UIButton) {
+        
     }
-    
-}
-
-// MARK: - UITextFieldDelegate methods
-
-extension CalculatorViewController: UITextFieldDelegate {
     
 }

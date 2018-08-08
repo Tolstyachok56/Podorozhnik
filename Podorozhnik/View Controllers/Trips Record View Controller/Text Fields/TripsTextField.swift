@@ -8,13 +8,14 @@
 
 import UIKit
 
-
 class TripsTextField: UITextField {
 
     var card: Card?
     var transport: Transport?
     
-    func setup() {
+    func setup(card: Card, transport: Transport) {
+        self.card = card
+        self.transport = transport
         update()
     }
     
@@ -32,7 +33,6 @@ class TripsTextField: UITextField {
             self.text = "\(trips!)"
         } else {
             self.text = "0"
-            return
         }
     }
     

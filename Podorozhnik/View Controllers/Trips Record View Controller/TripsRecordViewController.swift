@@ -29,24 +29,15 @@ class TripsRecordViewController: UIViewController {
         self.card = Defaults.getCard()
         self.card?.delegate = self
         
-        cardBalanceTextField.card = card
-        
-        tripsByMetroTextField.card = card
-        tripsByMetroTextField.transport = .Metro
-        
-        metroFareLabel.card = card
-        metroFareLabel.transport = .Metro
-        
-        setupNotificationHandling()
         setupView()
     }
     
     // MARK: - View methods
     
     private func setupView() {
-        cardBalanceTextField.setup()
-        tripsByMetroTextField.setup()
-        metroFareLabel.setup()
+        cardBalanceTextField.setup(card: card!)
+        tripsByMetroTextField.setup(card: card!, transport: .Metro)
+        metroFareLabel.setup(card: card!, transport: .Metro)
     }
     
     private func updateView() {
@@ -91,7 +82,7 @@ class TripsRecordViewController: UIViewController {
     }
     
     @IBAction func topUpTheBalanceBySMS(_ sender: UIButton) {
-        showTopUpTheBalanceAlert()
+        showTopUpTheBalanceBySMSAlert()
     }
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
@@ -114,22 +105,6 @@ class TripsRecordViewController: UIViewController {
     }
     
     // MARK: - Helper methods
-
-    private func setupNotificationHandling() {
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self,
-                                       selector: #selector(updateCardBalance),
-                                       name: NSNotification.Name.UITextFieldTextDidChange,
-                                       object: nil)
-    }
-    
-    @objc private func updateCardBalance() {
-        if let balanceText = self.cardBalanceTextField.text, !balanceText.isEmpty {
-            card?.balance = Double(balanceText)!
-        } else {
-            card?.balance = 0.0
-        }
-    }
     
     private func composeMessage(cardNumber: String, amount: String) {
         if MFMessageComposeViewController.canSendText() {
@@ -144,7 +119,7 @@ class TripsRecordViewController: UIViewController {
         }
     }
     
-    private func showTopUpTheBalanceAlert() {
+    private func showTopUpTheBalanceBySMSAlert() {
         let alertController = UIAlertController(title: "Enter card number and amount",
                                                 message: "The application will generate an SMS-message for recharging the balance",
                                                 preferredStyle: .alert)
@@ -174,72 +149,6 @@ class TripsRecordViewController: UIViewController {
         alertController.addAction(confirmAction)
         
         present(alertController, animated: true)
-    }
-}
-
-// MARK: - UITextFieldDelegate methods
-
-extension TripsRecordViewController: UITextFieldDelegate {
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        DispatchQueue.main.async {
-            textField.selectAll(nil)
-        }
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        switch textField {
-        case cardBalanceTextField:
-            cardBalanceTextField.update()
-        default:
-            break
-        }
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        // check for decimal digits
-        let allowedCharacters = CharacterSet(charactersIn: "1234567890.")
-        let characterSet = CharacterSet(charactersIn: string)
-        let isNumber = allowedCharacters.isSuperset(of: characterSet)
-        
-        if !isNumber {
-            return false
-        } else {
-            switch textField {
-            case cardBalanceTextField:
-                //check for more than one decimal separator
-                let hasMoreThanOneDecimalSeparator: Bool
-                
-                guard let oldText = textField.text, let r = Range(range, in: oldText) else { return true }
-                
-                let existingTextHasDecimalSeparator = oldText.range(of: ".")
-                let replacementTextHasDecimalSeparator = string.range(of: ".")
-                
-                if existingTextHasDecimalSeparator != nil,
-                    replacementTextHasDecimalSeparator != nil{
-                    hasMoreThanOneDecimalSeparator = true
-                } else {
-                    hasMoreThanOneDecimalSeparator = false
-                }
-                
-                //get number of decimal digits
-                let numberOfDecimalDigits: Int
-                
-                let newText = oldText.replacingCharacters(in: r, with: string)
-                
-                if let decimalSeparatorIndex = newText.index(of: "."){
-                    numberOfDecimalDigits = newText.distance(from: decimalSeparatorIndex, to: newText.endIndex) - 1
-                } else {
-                    numberOfDecimalDigits = 0
-                }
-                
-                return !hasMoreThanOneDecimalSeparator && numberOfDecimalDigits <= 2
-                
-            default:
-                return false
-            }
-        }
     }
     
 }
@@ -273,7 +182,7 @@ extension TripsRecordViewController: CardDelegate {
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let confirmAction = UIAlertAction(title: "Yes", style: .default) { (action) in
-            self.showTopUpTheBalanceAlert()
+            self.showTopUpTheBalanceBySMSAlert()
         }
         
         alertController.addAction(cancelAction)
