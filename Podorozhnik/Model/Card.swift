@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CardDelegate {
-    func cardBalanceDidBecameLessThanFare(_ card: Card)
+    func cardBalanceDidBecameLessThanTariff(_ card: Card)
 }
 
 class Card {
@@ -61,7 +61,7 @@ class Card {
         let currentMonth = Date.currentMonthString()
         let monthStatistics = self.statistics.filter { $0.month == currentMonth }
         if monthStatistics.isEmpty {
-            let newMonthStatistics = MonthStatistics(month: currentMonth, tripsByMetro: 0, costByMetro: 0)
+            let newMonthStatistics = MonthStatistics(month: currentMonth)
             self.statistics.append(newMonthStatistics)
             return newMonthStatistics
         } else {
@@ -81,28 +81,28 @@ class Card {
     private func reduceBalance(by amount: Double, transport: Transport, completionHandler: @escaping () -> Void) {
         let reducedBalance = balance - amount
         
-        var nextTripFare: Double
+        var nextTripTariff: Double
         switch transport {
         case .Metro:
-            nextTripFare = Fare.metro(numberOfTrip: tripsByMetro() + 2)
+            nextTripTariff = Tariff.metro(numberOfTrip: tripsByMetro() + 2)
         }
         
-        if reducedBalance >= nextTripFare {
+        if reducedBalance >= nextTripTariff {
             self.balance = reducedBalance
             completionHandler()
             
         } else if reducedBalance >= 0 {
             self.balance = reducedBalance
             completionHandler()
-            delegate?.cardBalanceDidBecameLessThanFare(self)
+            delegate?.cardBalanceDidBecameLessThanTariff(self)
             
         } else {
-            delegate?.cardBalanceDidBecameLessThanFare(self)
+            delegate?.cardBalanceDidBecameLessThanTariff(self)
         }
     }
     
     func addTripByMetro() {
-        let amount = Fare.metro(numberOfTrip: tripsByMetro() + 1)
+        let amount = Tariff.metro(numberOfTrip: tripsByMetro() + 1)
         
         reduceBalance(by: amount, transport: .Metro) {
             
@@ -115,7 +115,7 @@ class Card {
     
     func reduceTripByMetro() {
         if self.tripsByMetro() - 1 >= 0 {
-            let amount = Fare.metro(numberOfTrip: tripsByMetro())
+            let amount = Tariff.metro(numberOfTrip: tripsByMetro())
             topUpTheBalance(amount: amount)
             
             let currentStatistics = self.getCurrentMonthStatistics()

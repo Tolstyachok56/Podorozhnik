@@ -9,9 +9,13 @@
 import UIKit
 
 class TripsTextField: UITextField {
+    
+    // MARK: - Properties
 
     var card: Card?
     var transport: Transport?
+    
+    // MARK: - Methods
     
     func setup(card: Card, transport: Transport) {
         self.card = card

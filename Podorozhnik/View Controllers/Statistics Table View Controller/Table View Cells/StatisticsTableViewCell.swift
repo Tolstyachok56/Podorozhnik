@@ -18,7 +18,7 @@ class StatisticsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var transportImageView: UIImageView!
     @IBOutlet weak var tripsLabel: UILabel!
-    @IBOutlet weak var averageFareLabel: UILabel!
+    @IBOutlet weak var averageTariffLabel: UILabel!
     @IBOutlet weak var costLabel: UILabel!
     
     // MARK: - Initializing

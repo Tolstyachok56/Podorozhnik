@@ -32,7 +32,7 @@ class Calculator {
         let totalTripsByMetro = weekdays * tripsByMetroAtWeekday + restdays * tripsByMetroAtRestday
         if totalTripsByMetro != 0 {
             for numberOfTrip in 1...totalTripsByMetro  {
-                amount += Fare.metro(numberOfTrip: numberOfTrip)
+                amount += Tariff.metro(numberOfTrip: numberOfTrip)
             }
         }
         return amount

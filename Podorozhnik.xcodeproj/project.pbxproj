@@ -16,6 +16,7 @@
 		043010DA211AE7DF00ECA72B /* CalculatorCommercialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010D9211AE7DF00ECA72B /* CalculatorCommercialTextField.swift */; };
 		043010DD211AE96800ECA72B /* TotalAmountLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010DC211AE96800ECA72B /* TotalAmountLabel.swift */; };
 		043010E0211B432A00ECA72B /* StatisticsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010DF211B432A00ECA72B /* StatisticsTableViewCell.swift */; };
+		043010E2211C897800ECA72B /* TotalAmountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010E1211C897800ECA72B /* TotalAmountTableViewCell.swift */; };
 		0451FBCA21130C27001346C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451FBC921130C27001346C4 /* AppDelegate.swift */; };
 		0451FBCF21130C28001346C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0451FBCD21130C28001346C4 /* Main.storyboard */; };
 		0451FBD121130C29001346C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0451FBD021130C29001346C4 /* Assets.xcassets */; };
@@ -27,7 +28,7 @@
 		04623732211844CB008AD497 /* CardBalanceTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04623731211844CB008AD497 /* CardBalanceTextField.swift */; };
 		0462373421184540008AD497 /* TripsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462373321184540008AD497 /* TripsTextField.swift */; };
 		0462373A2118AE11008AD497 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046237392118AE11008AD497 /* UIViewController.swift */; };
-		0479A65A2119FC8200766A38 /* FareLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0479A6592119FC8200766A38 /* FareLabel.swift */; };
+		0479A65A2119FC8200766A38 /* TariffLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0479A6592119FC8200766A38 /* TariffLabel.swift */; };
 		0479A65D211A03E600766A38 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0479A65C211A03E600766A38 /* CalculatorViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		043010D9211AE7DF00ECA72B /* CalculatorCommercialTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorCommercialTextField.swift; sourceTree = "<group>"; };
 		043010DC211AE96800ECA72B /* TotalAmountLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalAmountLabel.swift; sourceTree = "<group>"; };
 		043010DF211B432A00ECA72B /* StatisticsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsTableViewCell.swift; sourceTree = "<group>"; };
+		043010E1211C897800ECA72B /* TotalAmountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalAmountTableViewCell.swift; sourceTree = "<group>"; };
 		0451FBC621130C27001346C4 /* Podorozhnik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podorozhnik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0451FBC921130C27001346C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0451FBCE21130C28001346C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,7 +56,7 @@
 		04623731211844CB008AD497 /* CardBalanceTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalanceTextField.swift; sourceTree = "<group>"; };
 		0462373321184540008AD497 /* TripsTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTextField.swift; sourceTree = "<group>"; };
 		046237392118AE11008AD497 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		0479A6592119FC8200766A38 /* FareLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FareLabel.swift; sourceTree = "<group>"; };
+		0479A6592119FC8200766A38 /* TariffLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TariffLabel.swift; sourceTree = "<group>"; };
 		0479A65C211A03E600766A38 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,7 +74,7 @@
 		042679492119D7DF008BF17E /* Labels */ = {
 			isa = PBXGroup;
 			children = (
-				0479A6592119FC8200766A38 /* FareLabel.swift */,
+				0479A6592119FC8200766A38 /* TariffLabel.swift */,
 			);
 			path = Labels;
 			sourceTree = "<group>";
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				043010DF211B432A00ECA72B /* StatisticsTableViewCell.swift */,
+				043010E1211C897800ECA72B /* TotalAmountTableViewCell.swift */,
 			);
 			path = "Table View Cells";
 			sourceTree = "<group>";
@@ -311,7 +314,7 @@
 				04623732211844CB008AD497 /* CardBalanceTextField.swift in Sources */,
 				0462372C21184117008AD497 /* Card.swift in Sources */,
 				043010DA211AE7DF00ECA72B /* CalculatorCommercialTextField.swift in Sources */,
-				0479A65A2119FC8200766A38 /* FareLabel.swift in Sources */,
+				0479A65A2119FC8200766A38 /* TariffLabel.swift in Sources */,
 				042679442119A771008BF17E /* MonthStatistics.swift in Sources */,
 				043010DD211AE96800ECA72B /* TotalAmountLabel.swift in Sources */,
 				0426794E2119F881008BF17E /* Calculator.swift in Sources */,
@@ -322,6 +325,7 @@
 				0426794B2119EA74008BF17E /* StatisticsTableViewController.swift in Sources */,
 				043010D8211AE4F400ECA72B /* CalculatorDaysTextField.swift in Sources */,
 				0451FBCA21130C27001346C4 /* AppDelegate.swift in Sources */,
+				043010E2211C897800ECA72B /* TotalAmountTableViewCell.swift in Sources */,
 				0479A65D211A03E600766A38 /* CalculatorViewController.swift in Sources */,
 				043010E0211B432A00ECA72B /* StatisticsTableViewCell.swift in Sources */,
 				046237282114A204008AD497 /* Constants.swift in Sources */,

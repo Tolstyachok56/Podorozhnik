@@ -15,7 +15,7 @@ class TripsRecordViewController: UIViewController {
 
     @IBOutlet weak var cardBalanceTextField: CardBalanceTextField!
     @IBOutlet weak var tripsByMetroTextField: TripsTextField!
-    @IBOutlet weak var metroFareLabel: FareLabel!
+    @IBOutlet weak var metroTariffLabel: TariffLabel!
     
     // MARK: -
 
@@ -37,13 +37,13 @@ class TripsRecordViewController: UIViewController {
     private func setupView() {
         cardBalanceTextField.setup(card: card!)
         tripsByMetroTextField.setup(card: card!, transport: .Metro)
-        metroFareLabel.setup(card: card!, transport: .Metro)
+        metroTariffLabel.setup(card: card!, transport: .Metro)
     }
     
     private func updateView() {
         cardBalanceTextField.update()
         tripsByMetroTextField.update()
-        metroFareLabel.update()
+        metroTariffLabel.update()
     }
     
     // MARK: - Actions
@@ -79,10 +79,6 @@ class TripsRecordViewController: UIViewController {
     @IBAction func reduceMetroTrip(_ sender: UIButton) {
         card?.reduceTripByMetro()
         updateView()
-    }
-    
-    @IBAction func topUpTheBalanceBySMS(_ sender: UIButton) {
-        showTopUpTheBalanceBySMSAlert()
     }
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
@@ -178,10 +174,10 @@ extension TripsRecordViewController: MFMessageComposeViewControllerDelegate {
 
 extension TripsRecordViewController: CardDelegate {
     
-    func cardBalanceDidBecameLessThanFare(_ card: Card) {
-        let alertController = UIAlertController(title: "Balance is less than fare", message: "Would you like to top up the balance?", preferredStyle: .alert)
+    func cardBalanceDidBecameLessThanTariff(_ card: Card) {
+        let alertController = UIAlertController(title: "Balance is less than tariff", message: "Would you like to top up the balance by SMS?", preferredStyle: .alert)
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
         let confirmAction = UIAlertAction(title: "Yes", style: .default) { (action) in
             self.showTopUpTheBalanceBySMSAlert()
         }
