@@ -80,6 +80,8 @@ class Card {
         switch transport {
         case .Metro:
             nextTripTariff = Tariff.metro(numberOfTrip: tripsByMetro() + 2)
+        case .Ground:
+            nextTripTariff = Tariff.ground(numberOfTrip: tripsByGround() + 2)
         case .Commercial:
             nextTripTariff = amount
         }
@@ -103,6 +105,11 @@ class Card {
         return currentStatistics.tripsByMetro
     }
     
+    func tripsByGround() -> Int {
+        let currentStatistics = getCurrentMonthStatistics()
+        return currentStatistics.tripsByGround
+    }
+    
     func tripsByCommercial() -> Int {
         let currentStatistics = getCurrentMonthStatistics()
         return currentStatistics.tripsByCommercial
@@ -116,6 +123,18 @@ class Card {
             let currentStatistics = self.getCurrentMonthStatistics()
             currentStatistics.tripsByMetro += 1
             currentStatistics.costByMetro += amount
+        }
+        Defaults.saveCard(self)
+    }
+    
+    func addTripByGround() {
+        let amount = Tariff.ground(numberOfTrip: tripsByGround() + 1)
+        
+        reduceBalance(by: amount, transport: .Metro) {
+            
+            let currentStatistics = self.getCurrentMonthStatistics()
+            currentStatistics.tripsByGround += 1
+            currentStatistics.costByGround += amount
         }
         Defaults.saveCard(self)
     }
@@ -139,6 +158,18 @@ class Card {
             let currentStatistics = self.getCurrentMonthStatistics()
             currentStatistics.tripsByMetro -= 1
             currentStatistics.costByMetro -= amount
+        }
+        Defaults.saveCard(self)
+    }
+    
+    func reduceTripByGround() {
+        if self.tripsByGround() - 1 >= 0 {
+            let amount = Tariff.ground(numberOfTrip: tripsByGround())
+            topUpTheBalance(amount: amount)
+            
+            let currentStatistics = self.getCurrentMonthStatistics()
+            currentStatistics.tripsByGround -= 1
+            currentStatistics.costByGround -= amount
         }
         Defaults.saveCard(self)
     }

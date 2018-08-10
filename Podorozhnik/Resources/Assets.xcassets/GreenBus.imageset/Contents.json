@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "BlueTrain-2.png",
+      "filename" : "GreenBus-2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "BlueTrain-1.png",
+      "filename" : "GreenBus-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "BlueTrain.png",
+      "filename" : "GreenBus.png",
       "scale" : "3x"
     }
   ],

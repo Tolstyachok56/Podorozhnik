@@ -25,6 +25,9 @@ class TripsRecordViewController: UIViewController {
     @IBOutlet weak var tripsByMetroTextField: TripsTextField!
     @IBOutlet weak var metroTariffLabel: TariffLabel!
     
+    @IBOutlet weak var tripsByGroundTextField: TripsTextField!
+    @IBOutlet weak var groundTariffLabel: TariffLabel!
+    
     @IBOutlet weak var tripsByCommercialTextField: TripsTextField!
     @IBOutlet weak var commercialTariffTextField: CommercialTariffTextField!
     
@@ -47,16 +50,26 @@ class TripsRecordViewController: UIViewController {
     
     private func setupView() {
         cardBalanceTextField.setup(card: card!)
+        
         tripsByMetroTextField.setup(card: card!, transport: .Metro)
         metroTariffLabel.setup(card: card!, transport: .Metro)
+        
+        tripsByGroundTextField.setup(card: card!, transport: .Ground)
+        groundTariffLabel.setup(card: card!, transport: .Ground)
+        
         commercialTariffTextField.setup(card: card!)
         tripsByCommercialTextField.setup(card: card!, transport: .Commercial)
     }
     
     private func updateView() {
         cardBalanceTextField.update()
+        
         tripsByMetroTextField.update()
         metroTariffLabel.update()
+        
+        tripsByGroundTextField.update()
+        groundTariffLabel.update()
+        
         commercialTariffTextField.update()
         tripsByCommercialTextField.update()
     }
@@ -98,6 +111,16 @@ class TripsRecordViewController: UIViewController {
     
     @IBAction func reduceMetroTrip(_ sender: UIButton) {
         card?.reduceTripByMetro()
+        updateView()
+    }
+    
+    @IBAction func addGroundTrip(_ sender: UIButton) {
+        card?.addTripByGround()
+        updateView()
+    }
+    
+    @IBAction func reduceGroundTrip(_ sender: UIButton) {
+        card?.reduceTripByGround()
         updateView()
     }
     

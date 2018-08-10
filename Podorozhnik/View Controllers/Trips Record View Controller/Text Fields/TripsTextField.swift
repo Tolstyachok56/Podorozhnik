@@ -27,6 +27,8 @@ class TripsTextField: UITextField {
         switch transport {
         case .Metro?:
             setTextFrom(card?.tripsByMetro())
+        case .Ground?:
+            setTextFrom(card?.tripsByGround())
         case .Commercial?:
             setTextFrom(card?.tripsByCommercial())
         default:

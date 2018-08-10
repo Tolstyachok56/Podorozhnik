@@ -35,6 +35,12 @@ class CalculatorTripsTextField: UITextField {
             } else if dayOfWeek == .Restday {
                 setTextFrom(calculator?.tripsByMetroAtRestday)
             }
+        case .Ground?:
+            if dayOfWeek == .Weekday {
+                setTextFrom(calculator?.tripsByGroundAtWeekday)
+            } else if dayOfWeek == .Restday {
+                setTextFrom(calculator?.tripsByGroundAtRestday)
+            }
         default:
             fatalError("Unexpected type of transport")
         }
@@ -74,6 +80,22 @@ class CalculatorTripsTextField: UITextField {
                     calculator?.tripsByMetroAtRestday = Int(tripsText)!
                 } else {
                     calculator?.tripsByMetroAtRestday = 0
+                }
+            }
+            
+        case .Ground?:
+            if dayOfWeek == .Weekday {
+                if let tripsText = self.text, !tripsText.isEmpty {
+                    calculator?.tripsByGroundAtWeekday = Int(tripsText)!
+                } else {
+                    calculator?.tripsByGroundAtWeekday = 0
+                }
+                
+            } else if dayOfWeek == .Restday {
+                if let tripsText = self.text, !tripsText.isEmpty {
+                    calculator?.tripsByGroundAtRestday = Int(tripsText)!
+                } else {
+                    calculator?.tripsByGroundAtRestday = 0
                 }
             }
             

@@ -17,7 +17,10 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var restdaysTextField: CalculatorDaysTextField!
     
     @IBOutlet weak var tripsByMetroAtWeekdayTextField: CalculatorTripsTextField!
+    @IBOutlet weak var tripsByGroundAtWeekdayTextField: CalculatorTripsTextField!
+    
     @IBOutlet weak var tripsByMetroAtRestdayTextField: CalculatorTripsTextField!
+    @IBOutlet weak var tripsByGroundAtRestdayTextField: CalculatorTripsTextField!
     
     @IBOutlet weak var commercialAmountTextField: CalculatorCommercialTextField!
     
@@ -43,7 +46,10 @@ class CalculatorViewController: UIViewController {
     
     private func setupView() {
         tripsByMetroAtWeekdayTextField.setup(calculator: calculator!, transport: .Metro, dayOfWeek: .Weekday)
+        tripsByGroundAtWeekdayTextField.setup(calculator: calculator!, transport: .Ground, dayOfWeek: .Weekday)
+        
         tripsByMetroAtRestdayTextField.setup(calculator: calculator!, transport: .Metro, dayOfWeek: .Restday)
+        tripsByGroundAtRestdayTextField.setup(calculator: calculator!, transport: .Ground, dayOfWeek: .Restday)
         
         weekdaysTextField.setup(calculator: calculator!, dayOfWeek: .Weekday)
         restdaysTextField.setup(calculator: calculator!, dayOfWeek: .Restday)
@@ -61,9 +67,14 @@ class CalculatorViewController: UIViewController {
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         tripsByMetroAtWeekdayTextField.resignFirstResponder()
+        tripsByGroundAtWeekdayTextField.resignFirstResponder()
+        
         tripsByMetroAtRestdayTextField.resignFirstResponder()
+        tripsByGroundAtRestdayTextField.resignFirstResponder()
+        
         weekdaysTextField.resignFirstResponder()
         restdaysTextField.resignFirstResponder()
+        
         commercialAmountTextField.resignFirstResponder()
     }
     

@@ -60,14 +60,14 @@ class StatisticsTableViewController: UITableViewController {
                 cost = statistics![section].costByMetro
                 
             case 1:
-                cell.transportImageView.image = UIImage(named: "BlueTrain")
-                trips = 0
-                cost = 0
+                cell.transportImageView.image = UIImage(named: "GreenBus")
+                trips = statistics![section].tripsByGround
+                cost = statistics![section].costByGround
                 
             case 2:
-                cell.transportImageView.image = UIImage(named: "BlueTrain")
-                trips = 0
-                cost = 0
+                cell.transportImageView.image = UIImage(named: "YellowCommercial")
+                trips = statistics![section].tripsByCommercial
+                cost = statistics![section].costByCommercial
                 
             default:
                 break

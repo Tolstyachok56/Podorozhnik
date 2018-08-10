@@ -38,6 +38,9 @@ class TariffLabel: UILabel {
         case .Metro?:
             let tariff = Tariff.metro(numberOfTrip: (card?.tripsByMetro())! + 1)
             self.text = "next: " + numberFormatter.string(from: tariff as NSNumber)!
+        case .Ground?:
+            let tariff = Tariff.ground(numberOfTrip: (card?.tripsByGround())! + 1)
+            self.text = "next: " + numberFormatter.string(from: tariff as NSNumber)!
         default:
             fatalError("Unexpected type of transport")
         }
