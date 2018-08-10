@@ -11,11 +11,22 @@ import MessageUI
 
 class TripsRecordViewController: UIViewController {
     
+    // MARK: - Segues
+    
+    private enum Segue {
+        static let ShowStatistics = "ShowStatistics"
+        static let ShowCalculator = "ShowCalculator"
+    }
+    
     // MARK: - Properties
 
     @IBOutlet weak var cardBalanceTextField: CardBalanceTextField!
+    
     @IBOutlet weak var tripsByMetroTextField: TripsTextField!
     @IBOutlet weak var metroTariffLabel: TariffLabel!
+    
+    @IBOutlet weak var tripsByCommercialTextField: TripsTextField!
+    @IBOutlet weak var commercialTariffTextField: CommercialTariffTextField!
     
     // MARK: -
 
@@ -38,15 +49,24 @@ class TripsRecordViewController: UIViewController {
         cardBalanceTextField.setup(card: card!)
         tripsByMetroTextField.setup(card: card!, transport: .Metro)
         metroTariffLabel.setup(card: card!, transport: .Metro)
+        commercialTariffTextField.setup(card: card!)
+        tripsByCommercialTextField.setup(card: card!, transport: .Commercial)
     }
     
     private func updateView() {
         cardBalanceTextField.update()
         tripsByMetroTextField.update()
         metroTariffLabel.update()
+        commercialTariffTextField.update()
+        tripsByCommercialTextField.update()
     }
     
     // MARK: - Actions
+    
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        cardBalanceTextField.resignFirstResponder()
+        commercialTariffTextField.resignFirstResponder()
+    }
 
     @IBAction func topUpTheBalance(_ sender: UIButton) {
         let alertController = UIAlertController(title: "Enter amount", message: "", preferredStyle: .alert)
@@ -81,19 +101,25 @@ class TripsRecordViewController: UIViewController {
         updateView()
     }
     
-    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        cardBalanceTextField.resignFirstResponder()
+    @IBAction func addCommercialTrip(_ sender: UIButton) {
+        card?.addTripByCommercial(tariff: commercialTariffTextField.getTariff())
+        updateView()
     }
     
+    @IBAction func reduceCommercialTrip(_ sender: UIButton) {
+        card?.reduceTripByCommercial(tariff: commercialTariffTextField.getTariff())
+        updateView()
+    }
+
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else { return }
         switch identifier {
-        case "ShowStatistics":
+        case Segue.ShowStatistics:
             guard let destination = segue.destination as? StatisticsTableViewController else { return }
             destination.statistics = card?.statistics
-        case "ShowCalculator":
+        case Segue.ShowCalculator:
             guard let destination = segue.destination as? CalculatorViewController else { return }
             destination.card = self.card
         default:
@@ -101,7 +127,7 @@ class TripsRecordViewController: UIViewController {
         }
     }
     
-    // MARK: - Helper methods
+    // MARK: - Message methods
     
     private func composeMessage(cardNumber: String, amount: String) {
         if MFMessageComposeViewController.canSendText() {

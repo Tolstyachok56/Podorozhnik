@@ -42,8 +42,9 @@ class Calculator {
         return getMetroAmount() + commercialAmount
     }
     
-    func getAmountInt() -> Int {
-        return Int(getAmount())
+    func getRoundedAmount() -> Int {
+        let roundedAmount = Double(Int(getAmount())) < getAmount() ? Int(getAmount()) + 1 : Int(getAmount())
+        return roundedAmount
     }
     
 }

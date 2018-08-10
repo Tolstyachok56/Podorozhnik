@@ -14,6 +14,16 @@ class TotalAmountLabel: UILabel {
 
     var calculator: Calculator?
     
+    // MARK: -
+    
+    private let numberFormatter: NumberFormatter = {
+        let nf = NumberFormatter()
+        nf.minimumIntegerDigits = 1
+        nf.minimumFractionDigits = 2
+        nf.maximumFractionDigits = 2
+        return nf
+    }()
+    
     // MARK: - Methods
     
     func setup(calculator: Calculator) {
@@ -24,9 +34,9 @@ class TotalAmountLabel: UILabel {
     
     @objc func update() {
         if let amount = calculator?.getAmount() {
-            self.text = "\(amount)"
+            self.text = numberFormatter.string(from: amount as NSNumber)
         } else {
-            self.text = "0.0"
+            self.text = "0.00"
         }
     }
     

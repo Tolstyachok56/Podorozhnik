@@ -9,6 +9,7 @@
 
 enum Transport {
     case Metro
+    case Commercial
 }
 
 enum Tariff {

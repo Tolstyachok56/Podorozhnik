@@ -1,15 +1,15 @@
 //
-//  CardBalanceTextField.swift
+//  CommercialTariffTextField.swift
 //  Podorozhnik
 //
-//  Created by Виктория Бадисова on 06.08.2018.
+//  Created by Виктория Бадисова on 10.08.2018.
 //  Copyright © 2018 Виктория Бадисова. All rights reserved.
 //
 
 import UIKit
 
-class CardBalanceTextField: UITextField {
-    
+class CommercialTariffTextField: UITextField {
+
     // MARK: - Properties
     
     var card: Card?
@@ -29,41 +29,26 @@ class CardBalanceTextField: UITextField {
     func setup(card: Card) {
         self.delegate = self
         self.card = card
-        setupNotificationHandling()
         update()
     }
     
     func update() {
-        if let balance = card?.balance {
-            self.text = numberFormatter.string(from: balance as NSNumber)
-        } else {
-            self.text = "\(0.00)"
+        self.text = numberFormatter.string(from: getTariff() as NSNumber)
+    }
+    
+    // MARK: - Helper methods
+    
+    func getTariff() -> Double {
+        var commercialTariff: Double = 0.00
+        if let commercialTariffText = self.text, !commercialTariffText.isEmpty {
+            commercialTariff = Double(commercialTariffText)!
         }
+        return commercialTariff
     }
-    
-    // MARK: - Notiification handling
-    
-    private func setupNotificationHandling() {
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self,
-                                       selector: #selector(updateCardBalance),
-                                       name: NSNotification.Name.UITextFieldTextDidChange,
-                                       object: nil)
-    }
-    
-    @objc private func updateCardBalance() {
-        if let balanceText = self.text, !balanceText.isEmpty {
-            card?.balance = Double(balanceText)!
-        } else {
-            card?.balance = 0.0
-        }
-    }
-    
+
 }
 
-// MARK: - UITextFieldDelegate methods
-
-extension CardBalanceTextField: UITextFieldDelegate {
+extension CommercialTariffTextField: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         DispatchQueue.main.async {
@@ -72,8 +57,8 @@ extension CardBalanceTextField: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if let cardBalanceTextField = textField as? CardBalanceTextField {
-            cardBalanceTextField.update()
+        if let commercialTariffTextField = textField as? CommercialTariffTextField {
+            commercialTariffTextField.update()
         }
     }
     
@@ -119,4 +104,3 @@ extension CardBalanceTextField: UITextFieldDelegate {
     }
     
 }
-

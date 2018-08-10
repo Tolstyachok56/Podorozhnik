@@ -27,6 +27,8 @@ class TripsTextField: UITextField {
         switch transport {
         case .Metro?:
             setTextFrom(card?.tripsByMetro())
+        case .Commercial?:
+            setTextFrom(card?.tripsByCommercial())
         default:
             fatalError("Unexpected type of transport")
         }

@@ -17,6 +17,7 @@
 		043010DD211AE96800ECA72B /* TotalAmountLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010DC211AE96800ECA72B /* TotalAmountLabel.swift */; };
 		043010E0211B432A00ECA72B /* StatisticsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010DF211B432A00ECA72B /* StatisticsTableViewCell.swift */; };
 		043010E2211C897800ECA72B /* TotalAmountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010E1211C897800ECA72B /* TotalAmountTableViewCell.swift */; };
+		043010E4211CE31D00ECA72B /* CommercialTariffTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010E3211CE31D00ECA72B /* CommercialTariffTextField.swift */; };
 		0451FBCA21130C27001346C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451FBC921130C27001346C4 /* AppDelegate.swift */; };
 		0451FBCF21130C28001346C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0451FBCD21130C28001346C4 /* Main.storyboard */; };
 		0451FBD121130C29001346C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0451FBD021130C29001346C4 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 		043010DC211AE96800ECA72B /* TotalAmountLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalAmountLabel.swift; sourceTree = "<group>"; };
 		043010DF211B432A00ECA72B /* StatisticsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsTableViewCell.swift; sourceTree = "<group>"; };
 		043010E1211C897800ECA72B /* TotalAmountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalAmountTableViewCell.swift; sourceTree = "<group>"; };
+		043010E3211CE31D00ECA72B /* CommercialTariffTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommercialTariffTextField.swift; sourceTree = "<group>"; };
 		0451FBC621130C27001346C4 /* Podorozhnik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podorozhnik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0451FBC921130C27001346C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0451FBCE21130C28001346C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 			children = (
 				04623731211844CB008AD497 /* CardBalanceTextField.swift */,
 				0462373321184540008AD497 /* TripsTextField.swift */,
+				043010E3211CE31D00ECA72B /* CommercialTariffTextField.swift */,
 			);
 			path = "Text Fields";
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				0462373A2118AE11008AD497 /* UIViewController.swift in Sources */,
 				042679462119B16C008BF17E /* Date.swift in Sources */,
 				04623732211844CB008AD497 /* CardBalanceTextField.swift in Sources */,
+				043010E4211CE31D00ECA72B /* CommercialTariffTextField.swift in Sources */,
 				0462372C21184117008AD497 /* Card.swift in Sources */,
 				043010DA211AE7DF00ECA72B /* CalculatorCommercialTextField.swift in Sources */,
 				0479A65A2119FC8200766A38 /* TariffLabel.swift in Sources */,

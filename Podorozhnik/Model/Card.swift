@@ -69,11 +69,6 @@ class Card {
         }
     }
     
-    func tripsByMetro() -> Int {
-        let currentStatistics = getCurrentMonthStatistics()
-        return currentStatistics.tripsByMetro
-    }
-    
     func topUpTheBalance(amount: Double) {
         self.balance += amount
     }
@@ -85,6 +80,8 @@ class Card {
         switch transport {
         case .Metro:
             nextTripTariff = Tariff.metro(numberOfTrip: tripsByMetro() + 2)
+        case .Commercial:
+            nextTripTariff = amount
         }
         
         if reducedBalance >= nextTripTariff {
@@ -101,6 +98,16 @@ class Card {
         }
     }
     
+    func tripsByMetro() -> Int {
+        let currentStatistics = getCurrentMonthStatistics()
+        return currentStatistics.tripsByMetro
+    }
+    
+    func tripsByCommercial() -> Int {
+        let currentStatistics = getCurrentMonthStatistics()
+        return currentStatistics.tripsByCommercial
+    }
+    
     func addTripByMetro() {
         let amount = Tariff.metro(numberOfTrip: tripsByMetro() + 1)
         
@@ -113,6 +120,17 @@ class Card {
         Defaults.saveCard(self)
     }
     
+    func addTripByCommercial(tariff: Double) {
+        if tariff != 0 {
+            reduceBalance(by: tariff, transport: .Commercial) {
+                let currentStatistics = self.getCurrentMonthStatistics()
+                currentStatistics.tripsByCommercial += 1
+                currentStatistics.costByCommercial += tariff
+            }
+        }
+        Defaults.saveCard(self)
+    }
+    
     func reduceTripByMetro() {
         if self.tripsByMetro() - 1 >= 0 {
             let amount = Tariff.metro(numberOfTrip: tripsByMetro())
@@ -121,6 +139,17 @@ class Card {
             let currentStatistics = self.getCurrentMonthStatistics()
             currentStatistics.tripsByMetro -= 1
             currentStatistics.costByMetro -= amount
+        }
+        Defaults.saveCard(self)
+    }
+    
+    func reduceTripByCommercial(tariff: Double) {
+        if self.tripsByCommercial() - 1 >= 0, tariff != 0 {
+            topUpTheBalance(amount: tariff)
+            
+            let currentStatistics = self.getCurrentMonthStatistics()
+            currentStatistics.tripsByCommercial -= 1
+            currentStatistics.costByCommercial -= tariff
         }
         Defaults.saveCard(self)
     }

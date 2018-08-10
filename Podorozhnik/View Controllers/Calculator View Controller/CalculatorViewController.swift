@@ -80,7 +80,7 @@ class CalculatorViewController: UIViewController {
             textField.keyboardType = .decimalPad
         }
         alertController.addTextField { (textField) in
-            textField.text = "\(self.calculator!.getAmountInt())"
+            textField.text = "\(self.calculator!.getRoundedAmount())"
             textField.placeholder = "Amount"
             textField.keyboardType = .decimalPad
         }
