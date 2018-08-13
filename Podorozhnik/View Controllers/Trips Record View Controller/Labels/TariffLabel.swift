@@ -35,10 +35,10 @@ class TariffLabel: UILabel {
     
     func update() {
         switch transport {
-        case .Metro?:
+        case .metro?:
             let tariff = Tariff.metro(numberOfTrip: (card?.tripsByMetro())! + 1)
             self.text = "next: " + numberFormatter.string(from: tariff as NSNumber)!
-        case .Ground?:
+        case .ground?:
             let tariff = Tariff.ground(numberOfTrip: (card?.tripsByGround())! + 1)
             self.text = "next: " + numberFormatter.string(from: tariff as NSNumber)!
         default:

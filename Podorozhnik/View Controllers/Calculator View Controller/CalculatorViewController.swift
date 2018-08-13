@@ -13,8 +13,7 @@ class CalculatorViewController: UIViewController {
     
     // MARK: - Properties
     
-    @IBOutlet weak var weekdaysTextField: CalculatorDaysTextField!
-    @IBOutlet weak var restdaysTextField: CalculatorDaysTextField!
+    @IBOutlet weak var daysTextField: CalculatorDaysTextField!
     
     @IBOutlet weak var tripsByMetroAtWeekdayTextField: CalculatorTripsTextField!
     @IBOutlet weak var tripsByGroundAtWeekdayTextField: CalculatorTripsTextField!
@@ -39,24 +38,43 @@ class CalculatorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         calculator = Calculator()
+        calculator?.card = card
         setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateView()
     }
     
     // MARK: - View methods
     
     private func setupView() {
-        tripsByMetroAtWeekdayTextField.setup(calculator: calculator!, transport: .Metro, dayOfWeek: .Weekday)
-        tripsByGroundAtWeekdayTextField.setup(calculator: calculator!, transport: .Ground, dayOfWeek: .Weekday)
+        tripsByMetroAtWeekdayTextField.setup(calculator: calculator!, transport: .metro, dayOfWeek: .weekday)
+        tripsByGroundAtWeekdayTextField.setup(calculator: calculator!, transport: .ground, dayOfWeek: .weekday)
         
-        tripsByMetroAtRestdayTextField.setup(calculator: calculator!, transport: .Metro, dayOfWeek: .Restday)
-        tripsByGroundAtRestdayTextField.setup(calculator: calculator!, transport: .Ground, dayOfWeek: .Restday)
+        tripsByMetroAtRestdayTextField.setup(calculator: calculator!, transport: .metro, dayOfWeek: .restday)
+        tripsByGroundAtRestdayTextField.setup(calculator: calculator!, transport: .ground, dayOfWeek: .restday)
         
-        weekdaysTextField.setup(calculator: calculator!, dayOfWeek: .Weekday)
-        restdaysTextField.setup(calculator: calculator!, dayOfWeek: .Restday)
+        daysTextField.setup(calculator: calculator!)
         
         commercialAmountTextField.setup(calculator: calculator!)
         
-        totalAmountLabel.setup(calculator: calculator!)
+        totalAmountLabel.setup(calculator: calculator!)    }
+    
+    private func updateView() {
+        tripsByMetroAtWeekdayTextField.update()
+        tripsByGroundAtWeekdayTextField.update()
+        
+        tripsByMetroAtRestdayTextField.update()
+        tripsByGroundAtRestdayTextField.update()
+        
+        daysTextField.update()
+        
+        commercialAmountTextField.update()
+        
+        totalAmountLabel.update()
     }
     
     // MARK: - Actions
@@ -72,8 +90,7 @@ class CalculatorViewController: UIViewController {
         tripsByMetroAtRestdayTextField.resignFirstResponder()
         tripsByGroundAtRestdayTextField.resignFirstResponder()
         
-        weekdaysTextField.resignFirstResponder()
-        restdaysTextField.resignFirstResponder()
+        daysTextField.resignFirstResponder()
         
         commercialAmountTextField.resignFirstResponder()
     }
@@ -91,7 +108,7 @@ class CalculatorViewController: UIViewController {
             textField.keyboardType = .decimalPad
         }
         alertController.addTextField { (textField) in
-            textField.text = "\(self.calculator!.getRoundedAmount())"
+            textField.text = "\(self.calculator!.getRoundedTotalAmount())"
             textField.placeholder = "Amount"
             textField.keyboardType = .decimalPad
         }

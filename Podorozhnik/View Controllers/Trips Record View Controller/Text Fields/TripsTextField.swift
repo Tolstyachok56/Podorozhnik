@@ -25,11 +25,11 @@ class TripsTextField: UITextField {
     
     func update() {
         switch transport {
-        case .Metro?:
+        case .metro?:
             setTextFrom(card?.tripsByMetro())
-        case .Ground?:
+        case .ground?:
             setTextFrom(card?.tripsByGround())
-        case .Commercial?:
+        case .commercial?:
             setTextFrom(card?.tripsByCommercial())
         default:
             fatalError("Unexpected type of transport")

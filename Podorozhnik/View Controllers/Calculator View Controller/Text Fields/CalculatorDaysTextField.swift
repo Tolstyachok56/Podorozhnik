@@ -13,27 +13,18 @@ class CalculatorDaysTextField: UITextField {
     // MARK: - Properties
 
     var calculator: Calculator?
-    var dayOfWeek: DayOfWeek?
     
     // MARK: - Methods
     
-    func setup(calculator: Calculator, dayOfWeek: DayOfWeek) {
+    func setup(calculator: Calculator) {
         self.delegate = self
         self.calculator = calculator
-        self.dayOfWeek = dayOfWeek
         setupNotificationHandling()
         update()
     }
     
     func update() {
-        switch dayOfWeek {
-        case .Weekday?:
-            setTextFrom(calculator?.weekdays)
-        case .Restday?:
-            setTextFrom(calculator?.restdays)
-        default:
-            fatalError("Unexpected day of week")
-        }
+        setTextFrom(calculator?.calculatingDays)
     }
     
     private func setTextFrom(_ days: Int?) {
@@ -55,22 +46,10 @@ class CalculatorDaysTextField: UITextField {
     }
     
     @objc private func updateCalculatorDays() {
-        
-        switch dayOfWeek {
-        case .Weekday?:
-            if let daysText = self.text, !daysText.isEmpty {
-                calculator?.weekdays = Int(daysText)!
-            } else {
-                calculator?.weekdays = 0
-            }
-        case .Restday?:
-            if let daysText = self.text, !daysText.isEmpty {
-                calculator?.restdays = Int(daysText)!
-            } else {
-                calculator?.restdays = 0
-            }
-        default:
-            fatalError("Unexpected day of week")
+        if let daysText = self.text, !daysText.isEmpty {
+            calculator?.calculatingDays = Int(daysText)!
+        } else {
+            calculator?.calculatingDays = 0
         }
     }
 

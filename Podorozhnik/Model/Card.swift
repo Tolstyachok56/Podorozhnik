@@ -58,7 +58,7 @@ class Card {
     // MARK: - Methods
     
     func getCurrentMonthStatistics() -> MonthStatistics {
-        let currentMonth = Date.currentMonthString()
+        let currentMonth = Date().currentMonthString()
         let monthStatistics = self.statistics.filter { $0.month == currentMonth }
         if monthStatistics.isEmpty {
             let newMonthStatistics = MonthStatistics(month: currentMonth)
@@ -78,11 +78,11 @@ class Card {
         
         var nextTripTariff: Double
         switch transport {
-        case .Metro:
+        case .metro:
             nextTripTariff = Tariff.metro(numberOfTrip: tripsByMetro() + 2)
-        case .Ground:
+        case .ground:
             nextTripTariff = Tariff.ground(numberOfTrip: tripsByGround() + 2)
-        case .Commercial:
+        case .commercial:
             nextTripTariff = amount
         }
         
@@ -118,7 +118,7 @@ class Card {
     func addTripByMetro() {
         let amount = Tariff.metro(numberOfTrip: tripsByMetro() + 1)
         
-        reduceBalance(by: amount, transport: .Metro) {
+        reduceBalance(by: amount, transport: .metro) {
             
             let currentStatistics = self.getCurrentMonthStatistics()
             currentStatistics.tripsByMetro += 1
@@ -130,7 +130,7 @@ class Card {
     func addTripByGround() {
         let amount = Tariff.ground(numberOfTrip: tripsByGround() + 1)
         
-        reduceBalance(by: amount, transport: .Metro) {
+        reduceBalance(by: amount, transport: .metro) {
             
             let currentStatistics = self.getCurrentMonthStatistics()
             currentStatistics.tripsByGround += 1
@@ -141,7 +141,7 @@ class Card {
     
     func addTripByCommercial(tariff: Double) {
         if tariff != 0 {
-            reduceBalance(by: tariff, transport: .Commercial) {
+            reduceBalance(by: tariff, transport: .commercial) {
                 let currentStatistics = self.getCurrentMonthStatistics()
                 currentStatistics.tripsByCommercial += 1
                 currentStatistics.costByCommercial += tariff

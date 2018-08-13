@@ -93,9 +93,9 @@
 		043010D2211ADA7900ECA72B /* Text Fields */ = {
 			isa = PBXGroup;
 			children = (
-				043010D5211ADB3C00ECA72B /* CalculatorTripsTextField.swift */,
-				043010D7211AE4F400ECA72B /* CalculatorDaysTextField.swift */,
 				043010D9211AE7DF00ECA72B /* CalculatorCommercialTextField.swift */,
+				043010D7211AE4F400ECA72B /* CalculatorDaysTextField.swift */,
+				043010D5211ADB3C00ECA72B /* CalculatorTripsTextField.swift */,
 			);
 			path = "Text Fields";
 			sourceTree = "<group>";
@@ -206,8 +206,8 @@
 			isa = PBXGroup;
 			children = (
 				0451FBE0211314F3001346C4 /* TripsRecordViewController.swift */,
-				04623730211844AF008AD497 /* Text Fields */,
 				042679492119D7DF008BF17E /* Labels */,
+				04623730211844AF008AD497 /* Text Fields */,
 			);
 			path = "Trips Record View Controller";
 			sourceTree = "<group>";
@@ -216,8 +216,8 @@
 			isa = PBXGroup;
 			children = (
 				04623731211844CB008AD497 /* CardBalanceTextField.swift */,
-				0462373321184540008AD497 /* TripsTextField.swift */,
 				043010E3211CE31D00ECA72B /* CommercialTariffTextField.swift */,
+				0462373321184540008AD497 /* TripsTextField.swift */,
 			);
 			path = "Text Fields";
 			sourceTree = "<group>";
@@ -225,8 +225,8 @@
 		046237382118AE03008AD497 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
-				046237392118AE11008AD497 /* UIViewController.swift */,
 				042679452119B16C008BF17E /* Date.swift */,
+				046237392118AE11008AD497 /* UIViewController.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -235,8 +235,8 @@
 			isa = PBXGroup;
 			children = (
 				0479A65C211A03E600766A38 /* CalculatorViewController.swift */,
-				043010D2211ADA7900ECA72B /* Text Fields */,
 				043010DB211AE94400ECA72B /* Labels */,
+				043010D2211ADA7900ECA72B /* Text Fields */,
 			);
 			path = "Calculator View Controller";
 			sourceTree = "<group>";

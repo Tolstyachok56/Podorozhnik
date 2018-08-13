@@ -12,24 +12,26 @@ class Calculator {
     
     // MARK: - Properties
     
-    var weekdays: Int = 22
-    var restdays: Int = 8
+    var calculatingDays: Int = 30
     
-    var tripsByMetroAtWeekday: Int = 0
+    var tripsByMetroAtWeekday: Int = 2
     var tripsByMetroAtRestday: Int = 0
     
-    var tripsByGroundAtWeekday: Int = 0
+    var tripsByGroundAtWeekday: Int = 2
     var tripsByGroundAtRestday: Int = 0
     
     var commercialAmount: Double = 0.0
+    
+    // MARK: -
+    
+    var card: Card?
     
     // MARK: - Initializing
     
     init() {}
     
-    init(weekdays: Int, restdays: Int, tripsByMetroAtWeekday: Int, tripsByMetroAtRestday: Int, tripsByGroundAtWeekday: Int, tripsByGroundAtRestday: Int, commercialAmount: Double) {
-        self.weekdays = weekdays
-        self.restdays = restdays
+    init(calculatingDays: Int, tripsByMetroAtWeekday: Int, tripsByMetroAtRestday: Int, tripsByGroundAtWeekday: Int, tripsByGroundAtRestday: Int, commercialAmount: Double) {
+        self.calculatingDays = calculatingDays
         
         self.tripsByMetroAtWeekday = tripsByMetroAtWeekday
         self.tripsByMetroAtRestday = tripsByMetroAtRestday
@@ -42,36 +44,119 @@ class Calculator {
     
     // MARK: - Methods
     
-    func getAmount() -> Double {
+    func getTotalAmount() -> Double {
+        // counting of days begins tommorow
         return getMetroAmount() + getGroundAmount() + commercialAmount
     }
     
-    func getRoundedAmount() -> Int {
-        let roundedAmount = Double(Int(getAmount())) < getAmount() ? Int(getAmount()) + 1 : Int(getAmount())
-        return roundedAmount
+    func getRoundedTotalAmount() -> Int {
+        let roundedTotalAmount = Double(Int(getTotalAmount())) < getTotalAmount() ? Int(getTotalAmount()) + 1 : Int(getTotalAmount())
+        return roundedTotalAmount
     }
     
     private func getMetroAmount() -> Double {
         var amount: Double = 0
         
-        let totalTripsByMetro = weekdays * tripsByMetroAtWeekday + restdays * tripsByMetroAtRestday
-        if totalTripsByMetro != 0 {
-            for numberOfTrip in 1...totalTripsByMetro  {
-                amount += Tariff.metro(numberOfTrip: numberOfTrip)
+        let today = Date()
+        var startOfNextMonth = today.startOfNextMonth()
+        
+        if calculatingDays > 0 {
+            var numberOfTripsInAMonth = (card?.tripsByMetro())!
+            
+            for numberOfDay in 1...calculatingDays {
+                let day = today.add(days: numberOfDay)
+                let dayOfWeek = day.dayOfWeek()
+                
+                switch dayOfWeek {
+                    
+                case 2...6:
+                    if tripsByMetroAtWeekday > 0 {
+                        if day < startOfNextMonth {
+                            for _ in 1...tripsByMetroAtWeekday {
+                                numberOfTripsInAMonth += 1
+                                amount += Tariff.metro(numberOfTrip: numberOfTripsInAMonth)
+                            }
+                        } else {
+                            numberOfTripsInAMonth = 1
+                            startOfNextMonth = startOfNextMonth.startOfNextMonth()
+                            amount += Tariff.metro(numberOfTrip: numberOfTripsInAMonth)
+                        }
+                    }
+                    
+                case 1, 7:
+                    if tripsByMetroAtRestday > 0 {
+                        if day < startOfNextMonth {
+                            for _ in 1...tripsByMetroAtRestday {
+                                numberOfTripsInAMonth += 1
+                                amount += Tariff.metro(numberOfTrip: numberOfTripsInAMonth)
+                            }
+                        } else {
+                            numberOfTripsInAMonth = 1
+                            startOfNextMonth = startOfNextMonth.startOfNextMonth()
+                            amount += Tariff.metro(numberOfTrip: numberOfTripsInAMonth)
+                        }
+                    }
+                    
+                default:
+                    fatalError("Unexpected day of week")
+                }
+                
             }
         }
+        
         return amount
     }
     
     private func getGroundAmount() -> Double {
         var amount: Double = 0
         
-        let totalTripsByGround = weekdays * tripsByGroundAtWeekday + restdays * tripsByGroundAtRestday
-        if totalTripsByGround != 0 {
-            for numberOfTrip in 1...totalTripsByGround  {
-                amount += Tariff.ground(numberOfTrip: numberOfTrip)
+        let today = Date()
+        var startOfNextMonth = today.startOfNextMonth()
+    
+        if calculatingDays > 0 {
+            var numberOfTripsInAMonth = (card?.tripsByGround())!
+            
+            for numberOfDay in 1...calculatingDays {
+                let day = today.add(days: numberOfDay)
+                let dayOfWeek = day.dayOfWeek()
+                
+                switch dayOfWeek {
+                    
+                case 2...6:
+                    if tripsByGroundAtWeekday > 0 {
+                        if day < startOfNextMonth {
+                            for _ in 1...tripsByGroundAtWeekday {
+                                numberOfTripsInAMonth += 1
+                                amount += Tariff.ground(numberOfTrip: numberOfTripsInAMonth)
+                            }
+                        } else {
+                            numberOfTripsInAMonth = 1
+                            startOfNextMonth = startOfNextMonth.startOfNextMonth()
+                            amount += Tariff.ground(numberOfTrip: numberOfTripsInAMonth)
+                        }
+                    }
+                    
+                case 1, 7:
+                    if tripsByGroundAtRestday > 0 {
+                        if day < startOfNextMonth {
+                            for _ in 1...tripsByGroundAtRestday {
+                                numberOfTripsInAMonth += 1
+                                amount += Tariff.ground(numberOfTrip: numberOfTripsInAMonth)
+                            }
+                        } else {
+                            numberOfTripsInAMonth = 1
+                            startOfNextMonth = startOfNextMonth.startOfNextMonth()
+                            amount += Tariff.ground(numberOfTrip: numberOfTripsInAMonth)
+                        }
+                    }
+                    
+                default:
+                    fatalError("Unexpected day of week")
+                }
+                
             }
         }
+        
         return amount
     }
     

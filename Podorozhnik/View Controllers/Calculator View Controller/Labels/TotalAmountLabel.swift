@@ -33,7 +33,7 @@ class TotalAmountLabel: UILabel {
     }
     
     @objc func update() {
-        if let amount = calculator?.getAmount() {
+        if let amount = calculator?.getTotalAmount() {
             self.text = numberFormatter.string(from: amount as NSNumber)
         } else {
             self.text = "0.00"

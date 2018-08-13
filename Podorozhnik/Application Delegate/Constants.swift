@@ -6,11 +6,10 @@
 //  Copyright © 2018 Виктория Бадисова. All rights reserved.
 //
 
-
 enum Transport {
-    case Metro
-    case Commercial
-    case Ground
+    case metro
+    case ground
+    case commercial
 }
 
 enum Tariff {
@@ -43,8 +42,8 @@ enum MessageSettings {
 }
 
 enum DayOfWeek {
-    case Weekday
-    case Restday
+    case weekday
+    case restday
 }
 
 

@@ -43,7 +43,17 @@ class TripsRecordViewController: UIViewController {
         self.card = Defaults.getCard()
         self.card?.delegate = self
         
+        for viewController in (tabBarController?.viewControllers)! {
+            if let statisticsVC = viewController as? StatisticsTableViewController {
+                statisticsVC.statistics = self.card?.statistics
+            } else if let calculatorVC = viewController as? CalculatorViewController {
+                calculatorVC.card = self.card
+            }
+        }
+        
         setupView()
+        
+        print(Date().dayOfWeek())
     }
     
     // MARK: - View methods
@@ -51,14 +61,14 @@ class TripsRecordViewController: UIViewController {
     private func setupView() {
         cardBalanceTextField.setup(card: card!)
         
-        tripsByMetroTextField.setup(card: card!, transport: .Metro)
-        metroTariffLabel.setup(card: card!, transport: .Metro)
+        tripsByMetroTextField.setup(card: card!, transport: .metro)
+        metroTariffLabel.setup(card: card!, transport: .metro)
         
-        tripsByGroundTextField.setup(card: card!, transport: .Ground)
-        groundTariffLabel.setup(card: card!, transport: .Ground)
+        tripsByGroundTextField.setup(card: card!, transport: .ground)
+        groundTariffLabel.setup(card: card!, transport: .ground)
         
         commercialTariffTextField.setup(card: card!)
-        tripsByCommercialTextField.setup(card: card!, transport: .Commercial)
+        tripsByCommercialTextField.setup(card: card!, transport: .commercial)
     }
     
     private func updateView() {

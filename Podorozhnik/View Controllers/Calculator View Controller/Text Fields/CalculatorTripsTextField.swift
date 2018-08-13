@@ -29,16 +29,16 @@ class CalculatorTripsTextField: UITextField {
     
     func update() {
         switch transport {
-        case .Metro?:
-            if dayOfWeek == .Weekday {
+        case .metro?:
+            if dayOfWeek == .weekday {
                 setTextFrom(calculator?.tripsByMetroAtWeekday)
-            } else if dayOfWeek == .Restday {
+            } else if dayOfWeek == .restday {
                 setTextFrom(calculator?.tripsByMetroAtRestday)
             }
-        case .Ground?:
-            if dayOfWeek == .Weekday {
+        case .ground?:
+            if dayOfWeek == .weekday {
                 setTextFrom(calculator?.tripsByGroundAtWeekday)
-            } else if dayOfWeek == .Restday {
+            } else if dayOfWeek == .restday {
                 setTextFrom(calculator?.tripsByGroundAtRestday)
             }
         default:
@@ -67,15 +67,15 @@ class CalculatorTripsTextField: UITextField {
     @objc private func updateCalculatorTrips() {
         switch transport {
         
-        case .Metro?:
-            if dayOfWeek == .Weekday {
+        case .metro?:
+            if dayOfWeek == .weekday {
                 if let tripsText = self.text, !tripsText.isEmpty {
                     calculator?.tripsByMetroAtWeekday = Int(tripsText)!
                 } else {
                     calculator?.tripsByMetroAtWeekday = 0
                 }
                 
-            } else if dayOfWeek == .Restday {
+            } else if dayOfWeek == .restday {
                 if let tripsText = self.text, !tripsText.isEmpty {
                     calculator?.tripsByMetroAtRestday = Int(tripsText)!
                 } else {
@@ -83,15 +83,15 @@ class CalculatorTripsTextField: UITextField {
                 }
             }
             
-        case .Ground?:
-            if dayOfWeek == .Weekday {
+        case .ground?:
+            if dayOfWeek == .weekday {
                 if let tripsText = self.text, !tripsText.isEmpty {
                     calculator?.tripsByGroundAtWeekday = Int(tripsText)!
                 } else {
                     calculator?.tripsByGroundAtWeekday = 0
                 }
                 
-            } else if dayOfWeek == .Restday {
+            } else if dayOfWeek == .restday {
                 if let tripsText = self.text, !tripsText.isEmpty {
                     calculator?.tripsByGroundAtRestday = Int(tripsText)!
                 } else {

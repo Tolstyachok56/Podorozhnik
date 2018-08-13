@@ -10,12 +10,33 @@ import Foundation
 
 extension Date {
     
-    static func currentMonthString() -> String {
+    func currentMonthString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy.MM"
-//        let dayMonthAgo = Calendar.current.date(byAdding: .day, value: -30, to: Date())
-        let str = dateFormatter.string(from: Date())
+        let str = dateFormatter.string(from: self)
         return str
+    }
+    
+    func startOfDay() -> Date {
+        return Calendar(identifier: .gregorian).startOfDay(for: self)
+    }
+    
+    func add(days: Int) -> Date {
+        return Calendar(identifier: .gregorian).date(byAdding: .day, value: days, to: startOfDay())!
+    }
+    
+    func startOfMonth() -> Date {
+        let components = Calendar(identifier: .gregorian).dateComponents([.year, .month], from: startOfDay())
+        return Calendar(identifier: .gregorian).date(from: components)!
+    }
+    
+    func startOfNextMonth() -> Date {
+        let dayInAMonth = Calendar(identifier: .gregorian).date(byAdding: .month, value: 1, to: startOfDay())
+        return (dayInAMonth?.startOfMonth())!
+    }
+    
+    func dayOfWeek() -> Int {
+        return Calendar(identifier: .gregorian).component(.weekday, from: startOfDay())
     }
     
 }

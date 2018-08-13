@@ -24,11 +24,17 @@ class StatisticsTableViewController: UITableViewController {
         return nf
     }()
     
-    // MARK: - View life cycle    
+    // MARK: - View life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         statistics?.sort(by: { $0.month < $1.month})
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
