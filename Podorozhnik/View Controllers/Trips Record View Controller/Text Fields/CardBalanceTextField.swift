@@ -79,8 +79,10 @@ extension CardBalanceTextField: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
+        let decimalSeparator = Locale.current.decimalSeparator ?? "."
+        
         // check for decimal digits
-        let allowedCharacters = CharacterSet(charactersIn: "1234567890.")
+        let allowedCharacters = CharacterSet(charactersIn: "1234567890\(decimalSeparator)")
         let characterSet = CharacterSet(charactersIn: string)
         let isNumber = allowedCharacters.isSuperset(of: characterSet)
         
@@ -93,8 +95,8 @@ extension CardBalanceTextField: UITextFieldDelegate {
             
             guard let oldText = textField.text, let r = Range(range, in: oldText) else { return true }
             
-            let existingTextHasDecimalSeparator = oldText.range(of: ".")
-            let replacementTextHasDecimalSeparator = string.range(of: ".")
+            let existingTextHasDecimalSeparator = oldText.range(of: decimalSeparator)
+            let replacementTextHasDecimalSeparator = string.range(of: decimalSeparator)
             
             if existingTextHasDecimalSeparator != nil,
                 replacementTextHasDecimalSeparator != nil{
@@ -108,7 +110,7 @@ extension CardBalanceTextField: UITextFieldDelegate {
             
             let newText = oldText.replacingCharacters(in: r, with: string)
             
-            if let decimalSeparatorIndex = newText.index(of: "."){
+            if let decimalSeparatorIndex = newText.index(of: Character(decimalSeparator)){
                 numberOfDecimalDigits = newText.distance(from: decimalSeparatorIndex, to: newText.endIndex) - 1
             } else {
                 numberOfDecimalDigits = 0
