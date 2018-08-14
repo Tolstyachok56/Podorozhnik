@@ -9,37 +9,42 @@
 import UIKit
 import MessageUI
 
-class TripsRecordViewController: UIViewController {
-    
-    // MARK: - Segues
-    
-    private enum Segue {
-        static let ShowStatistics = "ShowStatistics"
-        static let ShowCalculator = "ShowCalculator"
-    }
+class TripsTrackerViewController: UIViewController {
     
     // MARK: - Properties
 
-    @IBOutlet weak var cardBalanceTextField: CardBalanceTextField!
+    @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var cardBalanceTextField: CardBalanceTextField!
+
     @IBOutlet weak var tripsByMetroTextField: TripsTextField!
     @IBOutlet weak var metroTariffLabel: TariffLabel!
-    
+
     @IBOutlet weak var tripsByGroundTextField: TripsTextField!
     @IBOutlet weak var groundTariffLabel: TariffLabel!
-    
+
     @IBOutlet weak var tripsByCommercialTextField: TripsTextField!
     @IBOutlet weak var commercialTariffTextField: CommercialTariffTextField!
-    
-    // MARK: -
 
-    var card: Card?
+    // MARK: -
+    
+    private var card: Card?
     
     // MARK: - View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getCard()
+        
+        registerForKeyboardNotifications()
+        
+        setupView()
+    }
+    
+    // MARK: - Methods
+    
+    private func getCard() {
         self.card = Defaults.getCard()
         self.card?.delegate = self
         
@@ -48,14 +53,13 @@ class TripsRecordViewController: UIViewController {
                 statisticsVC.statistics = self.card?.statistics
             } else if let calculatorVC = viewController as? CalculatorViewController {
                 calculatorVC.card = self.card
+            } else if let smsVC = viewController as? SMSViewController {
+                smsVC.card = self.card
+                smsVC.amount = 0
             }
         }
-        
-        setupView()
-        
-        print(Date().dayOfWeek())
     }
-    
+
     // MARK: - View methods
     
     private func setupView() {
@@ -123,7 +127,7 @@ class TripsRecordViewController: UIViewController {
         card?.reduceTripByMetro()
         updateView()
     }
-    
+
     @IBAction func addGroundTrip(_ sender: UIButton) {
         card?.addTripByGround()
         updateView()
@@ -133,7 +137,7 @@ class TripsRecordViewController: UIViewController {
         card?.reduceTripByGround()
         updateView()
     }
-    
+
     @IBAction func addCommercialTrip(_ sender: UIButton) {
         card?.addTripByCommercial(tariff: commercialTariffTextField.getTariff())
         updateView()
@@ -143,37 +147,29 @@ class TripsRecordViewController: UIViewController {
         card?.reduceTripByCommercial(tariff: commercialTariffTextField.getTariff())
         updateView()
     }
-
-    // MARK: - Navigation
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let identifier = segue.identifier else { return }
-        switch identifier {
-        case Segue.ShowStatistics:
-            guard let destination = segue.destination as? StatisticsTableViewController else { return }
-            destination.statistics = card?.statistics
-        case Segue.ShowCalculator:
-            guard let destination = segue.destination as? CalculatorViewController else { return }
-            destination.card = self.card
-        default:
-            fatalError("Unexpected segue identifier")
+    // MARK: - Notifications methods
+
+    private func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(_:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(_:)), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
+    }
+
+    @objc private func keyboardWasShown(_ notification: Notification) {
+        if let keyboardSize = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? CGRect, let tabBarHeight = tabBarController?.tabBar.frame.height {
+            let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height - tabBarHeight + 10, right: 0)
+            scrollView.contentInset = contentInsets
+            scrollView.scrollIndicatorInsets = contentInsets
         }
+    }
+
+    @objc private func keyboardWillBeHidden(_ notification: Notification) {
+        let contentInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
     }
     
     // MARK: - Message methods
-    
-    private func composeMessage(cardNumber: String, amount: String) {
-        if MFMessageComposeViewController.canSendText() {
-            let messageVC = MFMessageComposeViewController()
-            
-            messageVC.body = "pod \(cardNumber) \(amount)"
-            messageVC.recipients = [MessageSettings.recipient]
-            messageVC.messageComposeDelegate = self
-            self.present(messageVC, animated: true, completion: nil)
-        } else {
-            showSimpleAlert(title: "Sorry...", message: "This device is not configured to send messages.")
-        }
-    }
     
     private func showTopUpTheBalanceBySMSAlert() {
         let alertController = UIAlertController(title: "Enter card number and amount",
@@ -207,11 +203,24 @@ class TripsRecordViewController: UIViewController {
         present(alertController, animated: true)
     }
     
+    private func composeMessage(cardNumber: String, amount: String) {
+        if MFMessageComposeViewController.canSendText() {
+            let messageVC = MFMessageComposeViewController()
+            
+            messageVC.body = "pod \(cardNumber) \(amount)"
+            messageVC.recipients = [MessageSettings.recipient]
+            messageVC.messageComposeDelegate = self
+            self.present(messageVC, animated: true, completion: nil)
+        } else {
+            showSimpleAlert(title: "Sorry...", message: "This device is not configured to send messages.")
+        }
+    }
+    
 }
 
 // MARK: - MFMessageComposeViewControllerDelegate methods
 
-extension TripsRecordViewController: MFMessageComposeViewControllerDelegate {
+extension TripsTrackerViewController: MFMessageComposeViewControllerDelegate {
     
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         
@@ -231,7 +240,7 @@ extension TripsRecordViewController: MFMessageComposeViewControllerDelegate {
 
 // MARK: - CardDelegate methods
 
-extension TripsRecordViewController: CardDelegate {
+extension TripsTrackerViewController: CardDelegate {
     
     func cardBalanceDidBecameLessThanTariff(_ card: Card) {
         let alertController = UIAlertController(title: "Balance is less than tariff", message: "Would you like to top up the balance by SMS?", preferredStyle: .alert)

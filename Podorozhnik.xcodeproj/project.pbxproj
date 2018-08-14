@@ -18,11 +18,14 @@
 		043010E0211B432A00ECA72B /* StatisticsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010DF211B432A00ECA72B /* StatisticsTableViewCell.swift */; };
 		043010E2211C897800ECA72B /* TotalAmountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010E1211C897800ECA72B /* TotalAmountTableViewCell.swift */; };
 		043010E4211CE31D00ECA72B /* CommercialTariffTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010E3211CE31D00ECA72B /* CommercialTariffTextField.swift */; };
+		0448A0D7212320B700C8D0E3 /* SMSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0448A0D6212320B700C8D0E3 /* SMSViewController.swift */; };
+		0448A0DA2123218500C8D0E3 /* CardNumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0448A0D92123218500C8D0E3 /* CardNumberTextField.swift */; };
+		0448A0DC2123219300C8D0E3 /* AmountTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0448A0DB2123219300C8D0E3 /* AmountTextField.swift */; };
 		0451FBCA21130C27001346C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451FBC921130C27001346C4 /* AppDelegate.swift */; };
 		0451FBCF21130C28001346C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0451FBCD21130C28001346C4 /* Main.storyboard */; };
 		0451FBD121130C29001346C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0451FBD021130C29001346C4 /* Assets.xcassets */; };
 		0451FBD421130C29001346C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0451FBD221130C29001346C4 /* LaunchScreen.storyboard */; };
-		0451FBE1211314F3001346C4 /* TripsRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451FBE0211314F3001346C4 /* TripsRecordViewController.swift */; };
+		0451FBE1211314F3001346C4 /* TripsTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451FBE0211314F3001346C4 /* TripsTrackerViewController.swift */; };
 		046237282114A204008AD497 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046237272114A204008AD497 /* Constants.swift */; };
 		0462372A2118409F008AD497 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046237292118409F008AD497 /* Defaults.swift */; };
 		0462372C21184117008AD497 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462372B21184117008AD497 /* Card.swift */; };
@@ -45,13 +48,16 @@
 		043010DF211B432A00ECA72B /* StatisticsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsTableViewCell.swift; sourceTree = "<group>"; };
 		043010E1211C897800ECA72B /* TotalAmountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalAmountTableViewCell.swift; sourceTree = "<group>"; };
 		043010E3211CE31D00ECA72B /* CommercialTariffTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommercialTariffTextField.swift; sourceTree = "<group>"; };
+		0448A0D6212320B700C8D0E3 /* SMSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSViewController.swift; sourceTree = "<group>"; };
+		0448A0D92123218500C8D0E3 /* CardNumberTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNumberTextField.swift; sourceTree = "<group>"; };
+		0448A0DB2123219300C8D0E3 /* AmountTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountTextField.swift; sourceTree = "<group>"; };
 		0451FBC621130C27001346C4 /* Podorozhnik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podorozhnik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0451FBC921130C27001346C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0451FBCE21130C28001346C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0451FBD021130C29001346C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0451FBD321130C29001346C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0451FBD521130C29001346C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0451FBE0211314F3001346C4 /* TripsRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsRecordViewController.swift; sourceTree = "<group>"; };
+		0451FBE0211314F3001346C4 /* TripsTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTrackerViewController.swift; sourceTree = "<group>"; };
 		046237272114A204008AD497 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		046237292118409F008AD497 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		0462372B21184117008AD497 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -117,6 +123,24 @@
 			path = "Table View Cells";
 			sourceTree = "<group>";
 		};
+		0448A0D52123207500C8D0E3 /* SMS View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0448A0D6212320B700C8D0E3 /* SMSViewController.swift */,
+				0448A0D82123216300C8D0E3 /* TextFields */,
+			);
+			path = "SMS View Controller";
+			sourceTree = "<group>";
+		};
+		0448A0D82123216300C8D0E3 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				0448A0D92123218500C8D0E3 /* CardNumberTextField.swift */,
+				0448A0DB2123219300C8D0E3 /* AmountTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
 		0451FBBD21130C27001346C4 = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +186,7 @@
 				0462372F2118449E008AD497 /* Trips Record View Controller */,
 				0426794C2119EB19008BF17E /* Statistics Table View Controller */,
 				0479A65B211A03A800766A38 /* Calculator View Controller */,
+				0448A0D52123207500C8D0E3 /* SMS View Controller */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -205,7 +230,7 @@
 		0462372F2118449E008AD497 /* Trips Record View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0451FBE0211314F3001346C4 /* TripsRecordViewController.swift */,
+				0451FBE0211314F3001346C4 /* TripsTrackerViewController.swift */,
 				042679492119D7DF008BF17E /* Labels */,
 				04623730211844AF008AD497 /* Text Fields */,
 			);
@@ -314,17 +339,20 @@
 			files = (
 				0462373A2118AE11008AD497 /* UIViewController.swift in Sources */,
 				042679462119B16C008BF17E /* Date.swift in Sources */,
+				0448A0D7212320B700C8D0E3 /* SMSViewController.swift in Sources */,
 				04623732211844CB008AD497 /* CardBalanceTextField.swift in Sources */,
 				043010E4211CE31D00ECA72B /* CommercialTariffTextField.swift in Sources */,
 				0462372C21184117008AD497 /* Card.swift in Sources */,
 				043010DA211AE7DF00ECA72B /* CalculatorCommercialTextField.swift in Sources */,
 				0479A65A2119FC8200766A38 /* TariffLabel.swift in Sources */,
 				042679442119A771008BF17E /* MonthStatistics.swift in Sources */,
+				0448A0DA2123218500C8D0E3 /* CardNumberTextField.swift in Sources */,
 				043010DD211AE96800ECA72B /* TotalAmountLabel.swift in Sources */,
+				0448A0DC2123219300C8D0E3 /* AmountTextField.swift in Sources */,
 				0426794E2119F881008BF17E /* Calculator.swift in Sources */,
 				0462373421184540008AD497 /* TripsTextField.swift in Sources */,
 				043010D6211ADB3C00ECA72B /* CalculatorTripsTextField.swift in Sources */,
-				0451FBE1211314F3001346C4 /* TripsRecordViewController.swift in Sources */,
+				0451FBE1211314F3001346C4 /* TripsTrackerViewController.swift in Sources */,
 				0462372A2118409F008AD497 /* Defaults.swift in Sources */,
 				0426794B2119EA74008BF17E /* StatisticsTableViewController.swift in Sources */,
 				043010D8211AE4F400ECA72B /* CalculatorDaysTextField.swift in Sources */,

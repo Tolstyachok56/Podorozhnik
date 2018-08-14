@@ -12,6 +12,7 @@ import MessageUI
 class CalculatorViewController: UIViewController {
     
     // MARK: - Properties
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var daysTextField: CalculatorDaysTextField!
     
@@ -37,8 +38,12 @@ class CalculatorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         calculator = Calculator()
         calculator?.card = card
+        
+        registerForKeyboardNotifications()
+        
         setupView()
     }
     
@@ -95,7 +100,28 @@ class CalculatorViewController: UIViewController {
         commercialAmountTextField.resignFirstResponder()
     }
     
-    // MARK: - Helper methods
+    // MARK: - Notifications methods
+    
+    private func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(_:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(_:)), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
+    }
+    
+    @objc private func keyboardWasShown(_ notification: Notification) {
+        if let keyboardSize = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? CGRect, let tabBarHeight = tabBarController?.tabBar.frame.height {
+            let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height - tabBarHeight + 10, right: 0)
+            scrollView.contentInset = contentInsets
+            scrollView.scrollIndicatorInsets = contentInsets
+        }
+    }
+    
+    @objc private func keyboardWillBeHidden(_ notification: Notification) {
+        let contentInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
+    
+    // MARK: - Message methods
     
     private func showTopUpTheBalanceBySMSAlert() {
         let alertController = UIAlertController(title: "Enter card number and amount",
