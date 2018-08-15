@@ -46,6 +46,51 @@ class SMSViewController: UIViewController {
     private func setupView() {
         cardNumberTextField.setup(card: card!)
         amountTextField.setup(amount: amount!)
+        setupTopTextView()
+        setupBottomTextView()
+    }
+    
+    private func setupTopTextView() {
+        let attributedString = getAttributedStringWithLink(
+            string: "You can replenish the card from your mobile phone account by sending SMS to number 7878 (Information on the subway's website)",
+            link: Link.metroInfo,
+            rangeOfLinkInString: NSMakeRange(89, 35)
+        )
+
+        self.topTextView.attributedText = attributedString
+    }
+    
+    private func setupBottomTextView() {
+        let attributedString = getAttributedStringWithLink(
+            string: "In response, a SMS will come with the amount of the commission and a request for confirmation of payment. (Trust the commission fee in advance).\n\nAfter replenishing the card account, the accrued funds must be activated by attaching the card to any card verification device in the metro.",
+            link: Link.commission,
+            rangeOfLinkInString: NSMakeRange(107, 35)
+        )
+        
+        self.bottomTextView.attributedText = attributedString
+    }
+    
+    private func getAttributedStringWithLink(string: String, link: String, rangeOfLinkInString range: NSRange) -> NSMutableAttributedString {
+        let attributedString = NSMutableAttributedString(string: string)
+        
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.alignment = .justified
+        
+        let textAttributes: [NSAttributedStringKey: Any] = [
+            .font: UIFont.systemFont(ofSize: 17),
+            .paragraphStyle: paragraph
+        ]
+        
+        let linkAttributes: [NSAttributedStringKey: Any] = [
+            .link: NSURL(string: link)!,
+            .foregroundColor: UIColor.blue,
+            .font: UIFont.systemFont(ofSize: 17)
+        ]
+        
+        attributedString.setAttributes(textAttributes, range: NSMakeRange(0, attributedString.length))
+        attributedString.setAttributes(linkAttributes, range: range)
+        
+        return attributedString
     }
     
     private func updateView() {
@@ -116,5 +161,11 @@ extension SMSViewController: MFMessageComposeViewControllerDelegate {
         
         self.dismiss(animated: true, completion: nil)
     }
+    
+}
+
+// MARK: - UITextViewDelegate methods
+
+extension SMSViewController: UITextViewDelegate {
     
 }

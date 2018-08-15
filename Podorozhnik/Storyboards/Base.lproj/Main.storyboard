@@ -495,7 +495,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFa-Em-qOd" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="680"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="You can replenish the card from your mobile phone account by sending SMS to number 7878 (Information on the subway's website)" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvb-g9-KKf">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="You can replenish the card from your mobile phone account by sending SMS to number 7878 (Information on the subway's website)" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uvb-g9-KKf">
                                                 <rect key="frame" x="16" y="15.999999999999993" width="343" height="97.333333333333314"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -505,39 +505,40 @@
                                                 </connections>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJk-Hf-CK8">
-                                                <rect key="frame" x="16" y="121" width="343" height="24"/>
+                                                <rect key="frame" x="16" y="129.33333333333334" width="343" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                 <color key="textColor" red="0.118096848" green="0.47866434009999997" blue="0.31611054700000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="card number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fUQ-Ku-Jg4" customClass="CardNumberTextField" customModule="Podorozhnik" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="153.33333333333334" width="343" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="card number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fUQ-Ku-Jg4" customClass="CardNumberTextField" customModule="Podorozhnik" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="161.66666666666666" width="343" height="28"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eem-kH-srn">
-                                                <rect key="frame" x="16" y="199" width="343" height="24"/>
+                                                <rect key="frame" x="16" y="205.33333333333334" width="343" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                 <color key="textColor" red="0.118096848" green="0.47866434009999997" blue="0.31611054700000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="amount" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tx0-mE-0fO" customClass="AmountTextField" customModule="Podorozhnik" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="231.33333333333331" width="343" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="amount" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tx0-mE-0fO" customClass="AmountTextField" customModule="Podorozhnik" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="237.66666666666669" width="343" height="28"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tie-AQ-GjA">
-                                                <rect key="frame" x="140.66666666666666" y="277.33333333333331" width="94" height="36"/>
+                                                <rect key="frame" x="20" y="281.66666666666669" width="335" height="36"/>
+                                                <color key="backgroundColor" red="0.97254901960784312" green="0.81176470588235294" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="Make SMS"/>
                                                 <connections>
                                                     <action selector="makeTopUpTheBalanceMessage:" destination="dTI-Sd-RFH" eventType="touchUpInside" id="qE7-Ks-q0S"/>
                                                 </connections>
                                             </button>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vn-O2-xsr">
-                                                <rect key="frame" x="16" y="329.33333333333331" width="343" height="198.66666666666669"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0vn-O2-xsr">
+                                                <rect key="frame" x="16" y="333.66666666666669" width="343" height="198.66666666666669"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">In response, a SMS will come with the amount of the commission and a request for confirmation of payment. (Trust the commission fee in advance).
 
@@ -552,11 +553,12 @@ After replenishing the card account, the accrued funds must be activated by atta
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="tie-AQ-GjA" firstAttribute="top" secondItem="Tx0-mE-0fO" secondAttribute="bottom" constant="16" id="0gA-Lt-yEB"/>
-                                            <constraint firstItem="OJk-Hf-CK8" firstAttribute="top" secondItem="uvb-g9-KKf" secondAttribute="bottom" constant="8" id="5Fu-KT-0Wk"/>
+                                            <constraint firstItem="OJk-Hf-CK8" firstAttribute="top" secondItem="uvb-g9-KKf" secondAttribute="bottom" constant="16" id="5Fu-KT-0Wk"/>
                                             <constraint firstItem="eem-kH-srn" firstAttribute="top" secondItem="fUQ-Ku-Jg4" secondAttribute="bottom" constant="16" id="6dr-ev-FPb"/>
                                             <constraint firstItem="eem-kH-srn" firstAttribute="leading" secondItem="cFa-Em-qOd" secondAttribute="leading" constant="16" id="6qM-76-2T9"/>
                                             <constraint firstItem="fUQ-Ku-Jg4" firstAttribute="leading" secondItem="cFa-Em-qOd" secondAttribute="leading" constant="16" id="8kx-HL-4WN"/>
                                             <constraint firstItem="uvb-g9-KKf" firstAttribute="leading" secondItem="cFa-Em-qOd" secondAttribute="leading" constant="16" id="DsG-OT-rV2"/>
+                                            <constraint firstItem="tie-AQ-GjA" firstAttribute="leading" secondItem="cFa-Em-qOd" secondAttribute="leading" constant="20" id="Rhf-Vl-E2h"/>
                                             <constraint firstAttribute="trailing" secondItem="fUQ-Ku-Jg4" secondAttribute="trailing" constant="16" id="SHN-rH-8GW"/>
                                             <constraint firstItem="fUQ-Ku-Jg4" firstAttribute="top" secondItem="OJk-Hf-CK8" secondAttribute="bottom" constant="8" id="Vas-PR-swS"/>
                                             <constraint firstAttribute="trailing" secondItem="0vn-O2-xsr" secondAttribute="trailing" constant="16" id="WBm-YM-jFH"/>
@@ -572,6 +574,7 @@ After replenishing the card account, the accrued funds must be activated by atta
                                             <constraint firstItem="0vn-O2-xsr" firstAttribute="leading" secondItem="cFa-Em-qOd" secondAttribute="leading" constant="16" id="vNT-V0-Lrm"/>
                                             <constraint firstItem="Tx0-mE-0fO" firstAttribute="leading" secondItem="cFa-Em-qOd" secondAttribute="leading" constant="16" id="wZL-VX-Rvn"/>
                                             <constraint firstAttribute="trailing" secondItem="uvb-g9-KKf" secondAttribute="trailing" constant="16" id="wq3-pN-lA3"/>
+                                            <constraint firstAttribute="trailing" secondItem="tie-AQ-GjA" secondAttribute="trailing" constant="20" id="x9I-8e-e1c"/>
                                             <constraint firstItem="tie-AQ-GjA" firstAttribute="centerX" secondItem="cFa-Em-qOd" secondAttribute="centerX" id="zIu-Pf-zMB"/>
                                         </constraints>
                                     </view>
@@ -635,7 +638,7 @@ After replenishing the card account, the accrued funds must be activated by atta
                                                 <rect key="frame" x="0.0" y="8" width="375" height="94.666666666666671"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="number of" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MSy-sJ-Lpc" customClass="CalculatorDaysTextField" customModule="Podorozhnik" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="26" width="293" height="43"/>
+                                                        <rect key="frame" x="16" y="25.666666666666671" width="293" height="43"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>

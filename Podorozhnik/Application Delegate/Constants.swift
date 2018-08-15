@@ -46,4 +46,9 @@ enum DayOfWeek {
     case restday
 }
 
+enum Link {
+    static let metroInfo = "http://www.metro.spb.ru/bznlpodorojnik1.html"
+    static let commission = "https://www.ruru.ru/init-payment/46752"
+}
+
 

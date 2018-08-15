@@ -94,7 +94,7 @@ class StatisticsTableViewController: UITableViewController {
                 fatalError("Unexpected Index Path")
             }
             let monthStatistic = statistics![section]
-            let totalAmount = monthStatistic.costByMetro
+            let totalAmount = monthStatistic.costByMetro + monthStatistic.costByGround + monthStatistic.costByCommercial
             
             cell.totalAmountLabel.text = numberFormatter.string(from: totalAmount as NSNumber)
             
