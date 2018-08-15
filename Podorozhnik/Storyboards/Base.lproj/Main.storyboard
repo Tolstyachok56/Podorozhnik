@@ -479,52 +479,55 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EAj-7J-D34" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1814" y="921"/>
+            <point key="canvasLocation" x="2566" y="921"/>
         </scene>
         <!--SMS-->
         <scene sceneID="Rc1-FQ-uHD">
             <objects>
                 <viewController id="dTI-Sd-RFH" customClass="SMSViewController" customModule="Podorozhnik" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KWt-co-7B5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="680"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3g4-JM-qpY">
-                                <rect key="frame" x="0.0" y="44" width="375" height="685"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="553"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFa-Em-qOd">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="685"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFa-Em-qOd" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="680"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="card number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fUQ-Ku-Jg4" customClass="CardNumberTextField" customModule="Podorozhnik" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="153.33333333333334" width="343" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="amount" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tx0-mE-0fO" customClass="AmountTextField" customModule="Podorozhnik" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="231.33333333333331" width="343" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJk-Hf-CK8">
-                                                <rect key="frame" x="16" y="121.33333333333334" width="343" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                                <color key="textColor" red="0.118096848" green="0.47866434009999997" blue="0.31611054700000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eem-kH-srn">
-                                                <rect key="frame" x="16" y="199.33333333333334" width="343" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                                <color key="textColor" red="0.118096848" green="0.47866434009999997" blue="0.31611054700000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="You can replenish the card from your mobile phone account by sending SMS to number 7878 (Information on the subway's website)" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvb-g9-KKf">
                                                 <rect key="frame" x="16" y="15.999999999999993" width="343" height="97.333333333333314"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="dTI-Sd-RFH" id="SLO-l5-SYf"/>
+                                                </connections>
                                             </textView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJk-Hf-CK8">
+                                                <rect key="frame" x="16" y="121" width="343" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                                <color key="textColor" red="0.118096848" green="0.47866434009999997" blue="0.31611054700000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="card number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fUQ-Ku-Jg4" customClass="CardNumberTextField" customModule="Podorozhnik" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="153.33333333333334" width="343" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eem-kH-srn">
+                                                <rect key="frame" x="16" y="199" width="343" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                                <color key="textColor" red="0.118096848" green="0.47866434009999997" blue="0.31611054700000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="amount" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tx0-mE-0fO" customClass="AmountTextField" customModule="Podorozhnik" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="231.33333333333331" width="343" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
+                                            </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tie-AQ-GjA">
                                                 <rect key="frame" x="140.66666666666666" y="277.33333333333331" width="94" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -541,6 +544,9 @@
 After replenishing the card account, the accrued funds must be activated by attaching the card to any card verification device in the metro.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="dTI-Sd-RFH" id="04X-mL-5yc"/>
+                                                </connections>
                                             </textView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -558,12 +564,12 @@ After replenishing the card account, the accrued funds must be activated by atta
                                             <constraint firstItem="Tx0-mE-0fO" firstAttribute="top" secondItem="eem-kH-srn" secondAttribute="bottom" constant="8" id="YmD-gP-wih"/>
                                             <constraint firstAttribute="trailing" secondItem="OJk-Hf-CK8" secondAttribute="trailing" constant="16" id="c3z-aF-Xj4"/>
                                             <constraint firstItem="OJk-Hf-CK8" firstAttribute="leading" secondItem="cFa-Em-qOd" secondAttribute="leading" constant="16" id="dhA-mQ-6xb"/>
+                                            <constraint firstAttribute="height" constant="680" id="e7f-Kz-RAI"/>
                                             <constraint firstAttribute="trailing" secondItem="eem-kH-srn" secondAttribute="trailing" constant="16" id="gi8-Ep-kQ3"/>
                                             <constraint firstAttribute="trailing" secondItem="Tx0-mE-0fO" secondAttribute="trailing" constant="16" id="ijo-Hn-gvs"/>
                                             <constraint firstItem="tie-AQ-GjA" firstAttribute="centerX" secondItem="cFa-Em-qOd" secondAttribute="centerX" id="qRw-C7-qpV"/>
                                             <constraint firstItem="0vn-O2-xsr" firstAttribute="top" secondItem="tie-AQ-GjA" secondAttribute="bottom" constant="16" id="rzg-bJ-pcb"/>
                                             <constraint firstItem="0vn-O2-xsr" firstAttribute="leading" secondItem="cFa-Em-qOd" secondAttribute="leading" constant="16" id="vNT-V0-Lrm"/>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="0vn-O2-xsr" secondAttribute="bottom" constant="16" id="wMk-OV-RdY"/>
                                             <constraint firstItem="Tx0-mE-0fO" firstAttribute="leading" secondItem="cFa-Em-qOd" secondAttribute="leading" constant="16" id="wZL-VX-Rvn"/>
                                             <constraint firstAttribute="trailing" secondItem="uvb-g9-KKf" secondAttribute="trailing" constant="16" id="wq3-pN-lA3"/>
                                             <constraint firstItem="tie-AQ-GjA" firstAttribute="centerX" secondItem="cFa-Em-qOd" secondAttribute="centerX" id="zIu-Pf-zMB"/>
@@ -583,7 +589,6 @@ After replenishing the card account, the accrued funds must be activated by atta
                         <constraints>
                             <constraint firstItem="3g4-JM-qpY" firstAttribute="leading" secondItem="Qqr-7U-Hne" secondAttribute="leading" id="23Y-V1-MYd"/>
                             <constraint firstItem="3g4-JM-qpY" firstAttribute="top" secondItem="Qqr-7U-Hne" secondAttribute="top" id="7t9-9u-HXM"/>
-                            <constraint firstItem="cFa-Em-qOd" firstAttribute="height" secondItem="Qqr-7U-Hne" secondAttribute="height" id="KZY-UF-0Q5"/>
                             <constraint firstItem="3g4-JM-qpY" firstAttribute="bottom" secondItem="Qqr-7U-Hne" secondAttribute="bottom" id="T4f-Kp-W45"/>
                             <constraint firstItem="cFa-Em-qOd" firstAttribute="width" secondItem="Qqr-7U-Hne" secondAttribute="width" id="Tef-iQ-Bl5"/>
                             <constraint firstItem="3g4-JM-qpY" firstAttribute="trailing" secondItem="Qqr-7U-Hne" secondAttribute="trailing" id="neJ-d8-1Nt"/>
@@ -594,10 +599,13 @@ After replenishing the card account, the accrued funds must be activated by atta
                         </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="SMS" id="QPg-0a-Jsf"/>
+                    <size key="freeformSize" width="375" height="680"/>
                     <connections>
                         <outlet property="amountTextField" destination="Tx0-mE-0fO" id="vwW-tq-YLS"/>
+                        <outlet property="bottomTextView" destination="0vn-O2-xsr" id="YKd-Hs-eOR"/>
                         <outlet property="cardNumberTextField" destination="fUQ-Ku-Jg4" id="sAE-KV-f5X"/>
                         <outlet property="scrollView" destination="3g4-JM-qpY" id="FPc-GO-5eB"/>
+                        <outlet property="topTextView" destination="uvb-g9-KKf" id="gKl-s9-GTZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7dL-Zd-eez" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -607,7 +615,7 @@ After replenishing the card account, the accrued funds must be activated by atta
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2581.5999999999999" y="920.68965517241384"/>
+            <point key="canvasLocation" x="1814" y="872"/>
         </scene>
         <!--Calculator-->
         <scene sceneID="KZV-1h-bfr">
@@ -933,14 +941,15 @@ After replenishing the card account, the accrued funds must be activated by atta
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="jdD-b6-9Lz" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7Iy-Su-ulk">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="jyV-Hv-kdm" kind="relationship" relationship="viewControllers" id="8nn-Ip-Ofg"/>
                         <segue destination="zmn-Va-8Zh" kind="relationship" relationship="viewControllers" id="NMf-Zj-prU"/>
-                        <segue destination="VZm-hy-GYt" kind="relationship" relationship="viewControllers" id="xQc-ry-Lea"/>
                         <segue destination="dTI-Sd-RFH" kind="relationship" relationship="viewControllers" id="gUW-Qy-2sQ"/>
+                        <segue destination="VZm-hy-GYt" kind="relationship" relationship="viewControllers" id="xQc-ry-Lea"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ncd-LO-E15" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class SMSViewController: UIViewController {
     
@@ -17,10 +18,13 @@ class SMSViewController: UIViewController {
     @IBOutlet weak var cardNumberTextField: CardNumberTextField!
     @IBOutlet weak var amountTextField: AmountTextField!
     
+    @IBOutlet weak var topTextView: UITextView!
+    @IBOutlet weak var bottomTextView: UITextView!
+    
     // MARK: -
     
     var card: Card?
-    var amount: Int?
+    var amount: Int? = 0
     
     // MARK: - View life cycle
 
@@ -31,10 +35,21 @@ class SMSViewController: UIViewController {
         setupView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateView()
+    }
+    
     // MARK: - View methods
     
     private func setupView() {
         cardNumberTextField.setup(card: card!)
+        amountTextField.setup(amount: amount!)
+    }
+    
+    private func updateView() {
+        cardNumberTextField.update()
         amountTextField.setup(amount: amount!)
     }
     
@@ -46,7 +61,19 @@ class SMSViewController: UIViewController {
     }
     
     @IBAction func makeTopUpTheBalanceMessage(_ sender: UIButton) {
+        let cardNumber = (card?.number)!
+        self.amount = Int(amountTextField.text!)
         
+        if MFMessageComposeViewController.canSendText() {
+            let messageVC = MFMessageComposeViewController()
+            
+            messageVC.body = "pod \(cardNumber) \(amount!)"
+            messageVC.recipients = [MessageSettings.recipient]
+            messageVC.messageComposeDelegate = self
+            self.present(messageVC, animated: true, completion: nil)
+        } else {
+            showSimpleAlert(title: "Sorry...", message: "This device is not configured to send messages.")
+        }
     }
     
     // MARK: - Notifications methods
@@ -70,4 +97,24 @@ class SMSViewController: UIViewController {
         scrollView.scrollIndicatorInsets = contentInsets
     }
 
+}
+
+// MARK: - MFMessageComposeViewControllerDelegate methods
+
+extension SMSViewController: MFMessageComposeViewControllerDelegate {
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        
+        switch result {
+        case .cancelled:
+            print("Message was cancelled")
+        case .failed:
+            print("Message failed")
+        case .sent:
+            print("Message was sent")
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }

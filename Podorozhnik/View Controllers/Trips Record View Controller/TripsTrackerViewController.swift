@@ -169,73 +169,6 @@ class TripsTrackerViewController: UIViewController {
         scrollView.scrollIndicatorInsets = contentInsets
     }
     
-    // MARK: - Message methods
-    
-    private func showTopUpTheBalanceBySMSAlert() {
-        let alertController = UIAlertController(title: "Enter card number and amount",
-                                                message: "The application will generate an SMS-message for recharging the balance",
-                                                preferredStyle: .alert)
-        
-        alertController.addTextField { (textField) in
-            textField.text = self.card?.number
-            textField.placeholder = "Card Number"
-            textField.keyboardType = .decimalPad
-        }
-        alertController.addTextField { (textField) in
-            textField.placeholder = "Amount"
-            textField.keyboardType = .decimalPad
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let confirmAction = UIAlertAction(title: "OK", style: .default) { (action) in
-            let cardNumberTextField = alertController.textFields![0]
-            let amountTextField = alertController.textFields![1]
-            
-            self.card?.number = cardNumberTextField.text!
-            let amount = amountTextField.text!
-            
-            self.composeMessage(cardNumber: (self.card?.number)!, amount: amount)
-        }
-        
-        alertController.addAction(cancelAction)
-        alertController.addAction(confirmAction)
-        
-        present(alertController, animated: true)
-    }
-    
-    private func composeMessage(cardNumber: String, amount: String) {
-        if MFMessageComposeViewController.canSendText() {
-            let messageVC = MFMessageComposeViewController()
-            
-            messageVC.body = "pod \(cardNumber) \(amount)"
-            messageVC.recipients = [MessageSettings.recipient]
-            messageVC.messageComposeDelegate = self
-            self.present(messageVC, animated: true, completion: nil)
-        } else {
-            showSimpleAlert(title: "Sorry...", message: "This device is not configured to send messages.")
-        }
-    }
-    
-}
-
-// MARK: - MFMessageComposeViewControllerDelegate methods
-
-extension TripsTrackerViewController: MFMessageComposeViewControllerDelegate {
-    
-    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-        
-        switch result {
-        case .cancelled:
-            print("Message was cancelled")
-        case .failed:
-            print("Message failed")
-        case .sent:
-            print("Message was sent")
-        }
-        
-        self.dismiss(animated: true, completion: nil)
-    }
-    
 }
 
 // MARK: - CardDelegate methods
@@ -247,7 +180,13 @@ extension TripsTrackerViewController: CardDelegate {
         
         let cancelAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
         let confirmAction = UIAlertAction(title: "Yes", style: .default) { (action) in
-            self.showTopUpTheBalanceBySMSAlert()
+            for viewController in (self.tabBarController?.viewControllers)! {
+                if let smsVC = viewController as? SMSViewController {
+                    smsVC.amount = 0
+                    let index = self.tabBarController?.viewControllers?.index(of: smsVC)
+                    self.tabBarController?.selectedIndex = index!
+                }
+            }
         }
         
         alertController.addAction(cancelAction)
