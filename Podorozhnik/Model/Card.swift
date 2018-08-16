@@ -6,7 +6,7 @@
 //  Copyright © 2018 Виктория Бадисова. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 protocol CardDelegate {
     func cardBalanceDidBecameLessThanTariff(_ card: Card)
@@ -40,11 +40,6 @@ class Card {
     // MARK: - Initializing
     
     init() {}
-    
-    init(balance: Double, number: String) {
-        self.balance = balance
-        self.number = number
-    }
     
     init(dict: [String: Any]) {
         self.number = dict["number"] as! String

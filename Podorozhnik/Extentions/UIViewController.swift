@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 extension UIViewController {
     
     func showSimpleAlert(title: String, message: String) {

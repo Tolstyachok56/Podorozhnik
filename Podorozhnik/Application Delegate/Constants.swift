@@ -6,31 +6,6 @@
 //  Copyright © 2018 Виктория Бадисова. All rights reserved.
 //
 
-enum Transport {
-    case metro
-    case ground
-    case commercial(tariff: Double)
-    
-    func getTariff(numberOfTrip: Int?) -> Double? {
-        if let numberOfTrip = numberOfTrip {
-            switch self {
-            case .metro:
-                return Tariff.metro(numberOfTrip: numberOfTrip)
-            case .ground:
-                return Tariff.ground(numberOfTrip: numberOfTrip)
-            case let .commercial(tariff):
-                return tariff
-            }
-        }
-        return nil
-    }
-}
-
-enum DayOfWeek {
-    case weekday
-    case restday
-}
-
 enum Tariff {
     static func metro(numberOfTrip: Int) -> Double {
         switch numberOfTrip {
@@ -63,5 +38,4 @@ enum Link {
     static let metroInfo = "http://www.metro.spb.ru/bznlpodorojnik1.html"
     static let commission = "https://www.ruru.ru/init-payment/46752"
 }
-
 

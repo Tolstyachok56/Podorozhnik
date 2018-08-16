@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum DayOfWeek {
+    case weekday
+    case restday
+}
+
 class Calculator {
     
     // MARK: - Properties
@@ -26,27 +31,10 @@ class Calculator {
     
     var card: Card?
     
-    // MARK: - Initializing
-    
-    init() {}
-    
-    init(calculatingDays: Int, tripsByMetroAtWeekday: Int, tripsByMetroAtRestday: Int, tripsByGroundAtWeekday: Int, tripsByGroundAtRestday: Int, commercialAmount: Double) {
-        self.calculatingDays = calculatingDays
-        
-        self.tripsByMetroAtWeekday = tripsByMetroAtWeekday
-        self.tripsByMetroAtRestday = tripsByMetroAtRestday
-        
-        self.tripsByGroundAtWeekday = tripsByGroundAtWeekday
-        self.tripsByGroundAtRestday = tripsByGroundAtRestday
-        
-        self.commercialAmount = commercialAmount
-    }
-    
     // MARK: - Methods
     
     func getTotalAmount() -> Double {
-        // counting of days begins tommorow
-        return getMetroAmount() + getGroundAmount() + commercialAmount
+        return getAmount(transport: .metro) + getAmount(transport: .ground) + commercialAmount
     }
     
     func getRoundedTotalAmount() -> Int {
@@ -54,17 +42,7 @@ class Calculator {
         return roundedTotalAmount
     }
     
-    private func getMetroAmount() -> Double {
-        return getPublicTransportAmount(transport: .metro)
-    }
-    
-    private func getGroundAmount() -> Double {
-        return getPublicTransportAmount(transport: .ground)
-    }
-    
-    // MARK: - Helper methods
-    
-    private func getPublicTransportAmount(transport: Transport) -> Double {
+    private func getAmount(transport: Transport) -> Double {
         var amount: Double = 0
         
         let today = Date()
@@ -91,7 +69,7 @@ class Calculator {
             var numberOfTripsInAMonth = currentNumberOfTrips
             
             for numberOfDay in 1...calculatingDays {
-                let day = today.add(days: numberOfDay)
+                let day = today.add(days: numberOfDay) // counting of days begins tommorow
                 let dayOfWeek = day.dayOfWeek()
                 let trips: Int
                 
