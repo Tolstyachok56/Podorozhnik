@@ -147,7 +147,7 @@ class Card {
                 currentStatistics.costByGround -= amount
             case .commercial(_):
                 currentStatistics.tripsByCommercial -= 1
-                currentStatistics.costByCommercial -= 1
+                currentStatistics.costByCommercial -= amount
             }
         }
         Defaults.saveCard(self)

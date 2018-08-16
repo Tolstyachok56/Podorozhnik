@@ -109,7 +109,7 @@ class StatisticsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let headerView = view as! UITableViewHeaderFooterView
-        headerView.textLabel?.font = headerView.textLabel?.font.withSize(CGFloat(20))
+        headerView.textLabel?.font = UIFont.systemFont(ofSize: CGFloat(24), weight: .semibold)
         headerView.textLabel?.textColor = UIColor.black
     }
     
