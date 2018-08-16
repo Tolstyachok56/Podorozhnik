@@ -12,6 +12,11 @@ enum Transport {
     case commercial
 }
 
+enum DayOfWeek {
+    case weekday
+    case restday
+}
+
 enum Tariff {
     static func metro(numberOfTrip: Int) -> Double {
         switch numberOfTrip {
@@ -39,11 +44,6 @@ enum Tariff {
 
 enum MessageSettings {
     static let recipient: String = "7878"
-}
-
-enum DayOfWeek {
-    case weekday
-    case restday
 }
 
 enum Link {

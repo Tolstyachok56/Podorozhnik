@@ -183,7 +183,7 @@
 		0451FBDC21130C5B001346C4 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0462372F2118449E008AD497 /* Trips Record View Controller */,
+				0462372F2118449E008AD497 /* Trips Tracker View Controller */,
 				0426794C2119EB19008BF17E /* Statistics Table View Controller */,
 				0479A65B211A03A800766A38 /* Calculator View Controller */,
 				0448A0D52123207500C8D0E3 /* SMS View Controller */,
@@ -227,14 +227,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		0462372F2118449E008AD497 /* Trips Record View Controller */ = {
+		0462372F2118449E008AD497 /* Trips Tracker View Controller */ = {
 			isa = PBXGroup;
 			children = (
 				0451FBE0211314F3001346C4 /* TripsTrackerViewController.swift */,
 				042679492119D7DF008BF17E /* Labels */,
 				04623730211844AF008AD497 /* Text Fields */,
 			);
-			path = "Trips Record View Controller";
+			path = "Trips Tracker View Controller";
 			sourceTree = "<group>";
 		};
 		04623730211844AF008AD497 /* Text Fields */ = {

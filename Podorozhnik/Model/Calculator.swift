@@ -55,109 +55,83 @@ class Calculator {
     }
     
     private func getMetroAmount() -> Double {
+        return getPublicTransportAmount(transport: .metro)
+    }
+    
+    private func getGroundAmount() -> Double {
+        return getPublicTransportAmount(transport: .ground)
+    }
+    
+    // MARK: - Helper methods
+    
+    private func getPublicTransportAmount(transport: Transport) -> Double {
         var amount: Double = 0
         
         let today = Date()
         var startOfNextMonth = today.startOfNextMonth()
         
+        let currentNumberOfTrips: Int
+        let tripsAtWeekday: Int
+        let tripsAtRestday: Int
+        
+        switch transport {
+        case .metro:
+            currentNumberOfTrips = (card?.tripsByMetro())!
+            tripsAtWeekday = tripsByMetroAtWeekday
+            tripsAtRestday = tripsByMetroAtRestday
+        case .ground:
+            currentNumberOfTrips = (card?.tripsByGround())!
+            tripsAtWeekday = tripsByGroundAtWeekday
+            tripsAtRestday = tripsByGroundAtRestday
+        default:
+            fatalError("Unexpected type of transport")
+        }
+        
         if calculatingDays > 0 {
-            var numberOfTripsInAMonth = (card?.tripsByMetro())!
+            var numberOfTripsInAMonth = currentNumberOfTrips
             
             for numberOfDay in 1...calculatingDays {
                 let day = today.add(days: numberOfDay)
                 let dayOfWeek = day.dayOfWeek()
+                let trips: Int
                 
                 switch dayOfWeek {
-                    
                 case 2...6:
-                    if tripsByMetroAtWeekday > 0 {
-                        if day < startOfNextMonth {
-                            for _ in 1...tripsByMetroAtWeekday {
-                                numberOfTripsInAMonth += 1
-                                amount += Tariff.metro(numberOfTrip: numberOfTripsInAMonth)
-                            }
-                        } else {
-                            numberOfTripsInAMonth = 1
-                            startOfNextMonth = startOfNextMonth.startOfNextMonth()
-                            amount += Tariff.metro(numberOfTrip: numberOfTripsInAMonth)
-                        }
-                    }
-                    
+                    trips = tripsAtWeekday
                 case 1, 7:
-                    if tripsByMetroAtRestday > 0 {
-                        if day < startOfNextMonth {
-                            for _ in 1...tripsByMetroAtRestday {
-                                numberOfTripsInAMonth += 1
-                                amount += Tariff.metro(numberOfTrip: numberOfTripsInAMonth)
-                            }
-                        } else {
-                            numberOfTripsInAMonth = 1
-                            startOfNextMonth = startOfNextMonth.startOfNextMonth()
-                            amount += Tariff.metro(numberOfTrip: numberOfTripsInAMonth)
-                        }
-                    }
-                    
+                    trips = tripsAtRestday
                 default:
                     fatalError("Unexpected day of week")
                 }
                 
+                if trips > 0 {
+                    if day < startOfNextMonth {
+                        for _ in 1...trips {
+                            numberOfTripsInAMonth += 1
+                            amount += getPublicTransportTariff(transport: transport, numberOfTrip: numberOfTripsInAMonth)
+                        }
+                    } else {
+                        numberOfTripsInAMonth = 1
+                        startOfNextMonth = startOfNextMonth.startOfNextMonth()
+                        amount += getPublicTransportTariff(transport: transport, numberOfTrip: numberOfTripsInAMonth)
+                    }
+                }
             }
         }
         
         return amount
     }
     
-    private func getGroundAmount() -> Double {
-        var amount: Double = 0
-        
-        let today = Date()
-        var startOfNextMonth = today.startOfNextMonth()
-    
-        if calculatingDays > 0 {
-            var numberOfTripsInAMonth = (card?.tripsByGround())!
-            
-            for numberOfDay in 1...calculatingDays {
-                let day = today.add(days: numberOfDay)
-                let dayOfWeek = day.dayOfWeek()
-                
-                switch dayOfWeek {
-                    
-                case 2...6:
-                    if tripsByGroundAtWeekday > 0 {
-                        if day < startOfNextMonth {
-                            for _ in 1...tripsByGroundAtWeekday {
-                                numberOfTripsInAMonth += 1
-                                amount += Tariff.ground(numberOfTrip: numberOfTripsInAMonth)
-                            }
-                        } else {
-                            numberOfTripsInAMonth = 1
-                            startOfNextMonth = startOfNextMonth.startOfNextMonth()
-                            amount += Tariff.ground(numberOfTrip: numberOfTripsInAMonth)
-                        }
-                    }
-                    
-                case 1, 7:
-                    if tripsByGroundAtRestday > 0 {
-                        if day < startOfNextMonth {
-                            for _ in 1...tripsByGroundAtRestday {
-                                numberOfTripsInAMonth += 1
-                                amount += Tariff.ground(numberOfTrip: numberOfTripsInAMonth)
-                            }
-                        } else {
-                            numberOfTripsInAMonth = 1
-                            startOfNextMonth = startOfNextMonth.startOfNextMonth()
-                            amount += Tariff.ground(numberOfTrip: numberOfTripsInAMonth)
-                        }
-                    }
-                    
-                default:
-                    fatalError("Unexpected day of week")
-                }
-                
-            }
+    private func getPublicTransportTariff(transport: Transport, numberOfTrip: Int) -> Double {
+        switch transport {
+        case .metro:
+            return Tariff.metro(numberOfTrip: numberOfTrip)
+        case .ground:
+            return Tariff.ground(numberOfTrip: numberOfTrip)
+        case .commercial:
+            print("Commercial transport has no constant tariff")
+            return 0
         }
-        
-        return amount
     }
     
 }

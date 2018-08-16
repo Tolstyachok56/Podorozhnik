@@ -569,13 +569,11 @@ After replenishing the card account, the accrued funds must be activated by atta
                                             <constraint firstAttribute="height" constant="680" id="e7f-Kz-RAI"/>
                                             <constraint firstAttribute="trailing" secondItem="eem-kH-srn" secondAttribute="trailing" constant="16" id="gi8-Ep-kQ3"/>
                                             <constraint firstAttribute="trailing" secondItem="Tx0-mE-0fO" secondAttribute="trailing" constant="16" id="ijo-Hn-gvs"/>
-                                            <constraint firstItem="tie-AQ-GjA" firstAttribute="centerX" secondItem="cFa-Em-qOd" secondAttribute="centerX" id="qRw-C7-qpV"/>
                                             <constraint firstItem="0vn-O2-xsr" firstAttribute="top" secondItem="tie-AQ-GjA" secondAttribute="bottom" constant="16" id="rzg-bJ-pcb"/>
                                             <constraint firstItem="0vn-O2-xsr" firstAttribute="leading" secondItem="cFa-Em-qOd" secondAttribute="leading" constant="16" id="vNT-V0-Lrm"/>
                                             <constraint firstItem="Tx0-mE-0fO" firstAttribute="leading" secondItem="cFa-Em-qOd" secondAttribute="leading" constant="16" id="wZL-VX-Rvn"/>
                                             <constraint firstAttribute="trailing" secondItem="uvb-g9-KKf" secondAttribute="trailing" constant="16" id="wq3-pN-lA3"/>
                                             <constraint firstAttribute="trailing" secondItem="tie-AQ-GjA" secondAttribute="trailing" constant="20" id="x9I-8e-e1c"/>
-                                            <constraint firstItem="tie-AQ-GjA" firstAttribute="centerX" secondItem="cFa-Em-qOd" secondAttribute="centerX" id="zIu-Pf-zMB"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -848,6 +846,7 @@ After replenishing the card account, the accrued funds must be activated by atta
                                                     </label>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstItem="sUb-rj-GVE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RCv-T0-ShL" secondAttribute="leading" constant="16" id="SsX-38-EQQ"/>
                                                     <constraint firstItem="NpE-9h-Spx" firstAttribute="leading" secondItem="RCv-T0-ShL" secondAttribute="centerX" id="eWq-IM-3Z7"/>
                                                     <constraint firstItem="sUb-rj-GVE" firstAttribute="trailing" secondItem="RCv-T0-ShL" secondAttribute="centerX" constant="-16" id="lk1-32-vst"/>
                                                     <constraint firstItem="sUb-rj-GVE" firstAttribute="centerY" secondItem="RCv-T0-ShL" secondAttribute="centerY" id="oj9-1z-QDm"/>
