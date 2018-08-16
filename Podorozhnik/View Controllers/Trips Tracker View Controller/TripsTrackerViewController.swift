@@ -72,7 +72,7 @@ class TripsTrackerViewController: UIViewController {
         groundTariffLabel.setup(card: card!, transport: .ground)
         
         commercialTariffTextField.setup(card: card!)
-        tripsByCommercialTextField.setup(card: card!, transport: .commercial)
+        tripsByCommercialTextField.setup(card: card!, transport: .commercial(tariff: 0))
     }
     
     private func updateView() {
@@ -119,32 +119,32 @@ class TripsTrackerViewController: UIViewController {
     }
     
     @IBAction func addMetroTrip(_ sender: UIButton) {
-        card?.addTripByMetro()
+        card?.addTrip(by: .metro)
         updateView()
     }
     
     @IBAction func reduceMetroTrip(_ sender: UIButton) {
-        card?.reduceTripByMetro()
+        card?.reduceTrip(by: .metro)
         updateView()
     }
 
     @IBAction func addGroundTrip(_ sender: UIButton) {
-        card?.addTripByGround()
+        card?.addTrip(by: .ground)
         updateView()
     }
     
     @IBAction func reduceGroundTrip(_ sender: UIButton) {
-        card?.reduceTripByGround()
+        card?.reduceTrip(by: .ground)
         updateView()
     }
 
     @IBAction func addCommercialTrip(_ sender: UIButton) {
-        card?.addTripByCommercial(tariff: commercialTariffTextField.getTariff())
+        card?.addTrip(by: .commercial(tariff: commercialTariffTextField.getTariff()))
         updateView()
     }
     
     @IBAction func reduceCommercialTrip(_ sender: UIButton) {
-        card?.reduceTripByCommercial(tariff: commercialTariffTextField.getTariff())
+        card?.reduceTrip(by: .commercial(tariff: commercialTariffTextField.getTariff()))
         updateView()
     }
     

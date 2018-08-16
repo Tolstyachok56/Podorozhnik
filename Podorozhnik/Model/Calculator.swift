@@ -76,11 +76,11 @@ class Calculator {
         
         switch transport {
         case .metro:
-            currentNumberOfTrips = (card?.tripsByMetro())!
+            currentNumberOfTrips = (card?.trips(by: .metro))!
             tripsAtWeekday = tripsByMetroAtWeekday
             tripsAtRestday = tripsByMetroAtRestday
         case .ground:
-            currentNumberOfTrips = (card?.tripsByGround())!
+            currentNumberOfTrips = (card?.trips(by: .ground))!
             tripsAtWeekday = tripsByGroundAtWeekday
             tripsAtRestday = tripsByGroundAtRestday
         default:
@@ -108,30 +108,18 @@ class Calculator {
                     if day < startOfNextMonth {
                         for _ in 1...trips {
                             numberOfTripsInAMonth += 1
-                            amount += getPublicTransportTariff(transport: transport, numberOfTrip: numberOfTripsInAMonth)
+                            amount += transport.getTariff(numberOfTrip: numberOfTripsInAMonth)!
                         }
                     } else {
                         numberOfTripsInAMonth = 1
                         startOfNextMonth = startOfNextMonth.startOfNextMonth()
-                        amount += getPublicTransportTariff(transport: transport, numberOfTrip: numberOfTripsInAMonth)
+                        amount += transport.getTariff(numberOfTrip: numberOfTripsInAMonth)!
                     }
                 }
             }
         }
         
         return amount
-    }
-    
-    private func getPublicTransportTariff(transport: Transport, numberOfTrip: Int) -> Double {
-        switch transport {
-        case .metro:
-            return Tariff.metro(numberOfTrip: numberOfTrip)
-        case .ground:
-            return Tariff.ground(numberOfTrip: numberOfTrip)
-        case .commercial:
-            print("Commercial transport has no constant tariff")
-            return 0
-        }
     }
     
 }

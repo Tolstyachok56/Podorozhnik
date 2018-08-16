@@ -9,7 +9,21 @@
 enum Transport {
     case metro
     case ground
-    case commercial
+    case commercial(tariff: Double)
+    
+    func getTariff(numberOfTrip: Int?) -> Double? {
+        if let numberOfTrip = numberOfTrip {
+            switch self {
+            case .metro:
+                return Tariff.metro(numberOfTrip: numberOfTrip)
+            case .ground:
+                return Tariff.ground(numberOfTrip: numberOfTrip)
+            case let .commercial(tariff):
+                return tariff
+            }
+        }
+        return nil
+    }
 }
 
 enum DayOfWeek {
@@ -39,7 +53,6 @@ enum Tariff {
         default: return 31.00
         }
     }
-    
 }
 
 enum MessageSettings {

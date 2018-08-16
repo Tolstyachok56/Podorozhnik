@@ -76,15 +76,7 @@ class Card {
     private func reduceBalance(by amount: Double, transport: Transport, completionHandler: @escaping () -> Void) {
         let reducedBalance = balance - amount
         
-        var nextTripTariff: Double
-        switch transport {
-        case .metro:
-            nextTripTariff = Tariff.metro(numberOfTrip: tripsByMetro() + 2)
-        case .ground:
-            nextTripTariff = Tariff.ground(numberOfTrip: tripsByGround() + 2)
-        case .commercial:
-            nextTripTariff = amount
-        }
+        let nextTripTariff: Double = transport.getTariff(numberOfTrip: trips(by: transport) + 2)!
         
         if reducedBalance >= nextTripTariff {
             self.balance = reducedBalance
@@ -100,87 +92,68 @@ class Card {
         }
     }
     
-    func tripsByMetro() -> Int {
+    func trips(by transport: Transport) -> Int {
         let currentStatistics = getCurrentMonthStatistics()
-        return currentStatistics.tripsByMetro
-    }
-    
-    func tripsByGround() -> Int {
-        let currentStatistics = getCurrentMonthStatistics()
-        return currentStatistics.tripsByGround
-    }
-    
-    func tripsByCommercial() -> Int {
-        let currentStatistics = getCurrentMonthStatistics()
-        return currentStatistics.tripsByCommercial
-    }
-    
-    func addTripByMetro() {
-        let amount = Tariff.metro(numberOfTrip: tripsByMetro() + 1)
-        
-        reduceBalance(by: amount, transport: .metro) {
-            
-            let currentStatistics = self.getCurrentMonthStatistics()
-            currentStatistics.tripsByMetro += 1
-            currentStatistics.costByMetro += amount
+        switch transport {
+        case .metro:
+            return currentStatistics.tripsByMetro
+        case .ground:
+            return currentStatistics.tripsByGround
+        case .commercial:
+            return currentStatistics.tripsByCommercial
         }
-        Defaults.saveCard(self)
     }
     
-    func addTripByGround() {
-        let amount = Tariff.ground(numberOfTrip: tripsByGround() + 1)
+    func addTrip(by transport: Transport) {
+        let currentStatistics = getCurrentMonthStatistics()
+        let amount: Double
         
-        reduceBalance(by: amount, transport: .metro) {
-            
-            let currentStatistics = self.getCurrentMonthStatistics()
-            currentStatistics.tripsByGround += 1
-            currentStatistics.costByGround += amount
+        switch transport {
+        case .metro, .ground:
+            amount = transport.getTariff(numberOfTrip: trips(by: transport) + 1)!
+        case let .commercial(tariff):
+            amount = tariff
         }
-        Defaults.saveCard(self)
-    }
-    
-    func addTripByCommercial(tariff: Double) {
-        if tariff != 0 {
-            reduceBalance(by: tariff, transport: .commercial) {
-                let currentStatistics = self.getCurrentMonthStatistics()
-                currentStatistics.tripsByCommercial += 1
-                currentStatistics.costByCommercial += tariff
+        
+        if amount > 0 {
+            reduceBalance(by: amount, transport: transport) {
+                switch transport {
+                case .metro:
+                    currentStatistics.tripsByMetro += 1
+                    currentStatistics.costByMetro += amount
+                case .ground:
+                    currentStatistics.tripsByGround += 1
+                    currentStatistics.costByGround += amount
+                case .commercial(_):
+                    currentStatistics.tripsByCommercial += 1
+                    currentStatistics.costByCommercial += amount
+                }
             }
         }
+        
         Defaults.saveCard(self)
+        
     }
     
-    func reduceTripByMetro() {
-        if self.tripsByMetro() - 1 >= 0 {
-            let amount = Tariff.metro(numberOfTrip: tripsByMetro())
+    func reduceTrip(by transport: Transport) {
+        let trips = self.trips(by: transport)
+        let amount = transport.getTariff(numberOfTrip: trips)!
+        
+        if trips - 1 >= 0 && amount != 0 {
             topUpTheBalance(amount: amount)
             
             let currentStatistics = self.getCurrentMonthStatistics()
-            currentStatistics.tripsByMetro -= 1
-            currentStatistics.costByMetro -= amount
-        }
-        Defaults.saveCard(self)
-    }
-    
-    func reduceTripByGround() {
-        if self.tripsByGround() - 1 >= 0 {
-            let amount = Tariff.ground(numberOfTrip: tripsByGround())
-            topUpTheBalance(amount: amount)
-            
-            let currentStatistics = self.getCurrentMonthStatistics()
-            currentStatistics.tripsByGround -= 1
-            currentStatistics.costByGround -= amount
-        }
-        Defaults.saveCard(self)
-    }
-    
-    func reduceTripByCommercial(tariff: Double) {
-        if self.tripsByCommercial() - 1 >= 0, tariff != 0 {
-            topUpTheBalance(amount: tariff)
-            
-            let currentStatistics = self.getCurrentMonthStatistics()
-            currentStatistics.tripsByCommercial -= 1
-            currentStatistics.costByCommercial -= tariff
+            switch transport {
+            case .metro:
+                currentStatistics.tripsByMetro -= 1
+                currentStatistics.costByMetro -= amount
+            case .ground:
+                currentStatistics.tripsByGround -= 1
+                currentStatistics.costByGround -= amount
+            case .commercial(_):
+                currentStatistics.tripsByCommercial -= 1
+                currentStatistics.costByCommercial -= 1
+            }
         }
         Defaults.saveCard(self)
     }

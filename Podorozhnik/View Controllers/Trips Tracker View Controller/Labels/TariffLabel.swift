@@ -34,16 +34,18 @@ class TariffLabel: UILabel {
     }
     
     func update() {
+        let numberOfTrip: Int
         switch transport {
         case .metro?:
-            let tariff = Tariff.metro(numberOfTrip: (card?.tripsByMetro())! + 1)
-            self.text = "next: " + numberFormatter.string(from: tariff as NSNumber)!
+            numberOfTrip = (card?.trips(by: .metro))! + 1
         case .ground?:
-            let tariff = Tariff.ground(numberOfTrip: (card?.tripsByGround())! + 1)
-            self.text = "next: " + numberFormatter.string(from: tariff as NSNumber)!
+            numberOfTrip = (card?.trips(by: .ground))! + 1
         default:
             fatalError("Unexpected type of transport")
         }
+        
+        let tariff = transport!.getTariff(numberOfTrip: numberOfTrip)!
+        self.text = "next: " + numberFormatter.string(from: tariff as NSNumber)!
     }
 
 }
