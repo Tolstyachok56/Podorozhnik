@@ -41,7 +41,7 @@ class CommercialTariffTextField: UITextField {
     func getTariff() -> Double {
         var commercialTariff: Double = 0.00
         if let commercialTariffText = self.text, !commercialTariffText.isEmpty {
-            commercialTariff = Double(commercialTariffText)!
+            commercialTariff = commercialTariffText.double()!
         }
         return commercialTariff
     }

@@ -53,7 +53,7 @@ class CalculatorCommercialTextField: UITextField {
     
     @objc private func updateCalculatorCommercialAmount() {
         if let commercialAmountText = self.text, !commercialAmountText.isEmpty {
-            calculator?.commercialAmount = Double(commercialAmountText)!
+            calculator?.commercialAmount = commercialAmountText.double()!
         } else {
             calculator?.commercialAmount = 0.0
         }

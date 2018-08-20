@@ -9,6 +9,7 @@
 enum Transport {
     
     // MARK: - Cases
+    
     case metro
     case ground
     case commercial(tariff: Double)

@@ -94,7 +94,8 @@ class TripsTrackerViewController: UIViewController {
         cardBalanceTextField.resignFirstResponder()
         commercialTariffTextField.resignFirstResponder()
     }
-
+    
+    
     @IBAction func topUpTheBalance(_ sender: UIButton) {
         let alertController = UIAlertController(title: "Enter amount", message: "", preferredStyle: .alert)
         
@@ -106,7 +107,7 @@ class TripsTrackerViewController: UIViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (action) in
             if let amountText = alertController.textFields?.first?.text,
-                let amount = Double(amountText) {
+                let amount = amountText.double() {
                 self.card?.topUpTheBalance(amount: amount)
                 self.cardBalanceTextField.update()
             }
@@ -147,6 +148,8 @@ class TripsTrackerViewController: UIViewController {
         card?.reduceTrip(by: .commercial(tariff: commercialTariffTextField.getTariff()))
         updateView()
     }
+    
+    
     
     // MARK: - Notifications methods
 

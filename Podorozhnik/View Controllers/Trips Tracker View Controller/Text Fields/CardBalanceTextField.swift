@@ -53,7 +53,7 @@ class CardBalanceTextField: UITextField {
     
     @objc private func updateCardBalance() {
         if let balanceText = self.text, !balanceText.isEmpty {
-            card?.balance = Double(balanceText)!
+            card?.balance = balanceText.double()!
         } else {
             card?.balance = 0.0
         }

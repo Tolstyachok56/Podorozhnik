@@ -330,7 +330,7 @@
                             <outletCollection property="gestureRecognizers" destination="0wp-8V-j40" appends="YES" id="61M-Es-UH2"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Tracker" id="1eR-CF-L06"/>
+                    <tabBarItem key="tabBarItem" title="Tracker" image="TrackerDark" id="1eR-CF-L06"/>
                     <connections>
                         <outlet property="cardBalanceTextField" destination="NPr-eO-djZ" id="Cas-Tv-Dah"/>
                         <outlet property="commercialTariffTextField" destination="2yr-Mb-fOQ" id="D7W-M2-SrO"/>
@@ -475,7 +475,7 @@
                             <outlet property="delegate" destination="VZm-hy-GYt" id="zQU-OA-5mZ"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Statistics" id="1Vf-2w-OyL"/>
+                    <tabBarItem key="tabBarItem" title="Statistics" image="Charts Dark" id="1Vf-2w-OyL"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EAj-7J-D34" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -599,7 +599,7 @@ After replenishing the card account, the accrued funds must be activated by atta
                             <outletCollection property="gestureRecognizers" destination="dYD-r7-ngz" appends="YES" id="o2x-XM-NjG"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="SMS" id="QPg-0a-Jsf"/>
+                    <tabBarItem key="tabBarItem" title="SMS" image="SMS" id="QPg-0a-Jsf"/>
                     <size key="freeformSize" width="375" height="680"/>
                     <connections>
                         <outlet property="amountTextField" destination="Tx0-mE-0fO" id="vwW-tq-YLS"/>
@@ -916,7 +916,7 @@ After replenishing the card account, the accrued funds must be activated by atta
                             <outletCollection property="gestureRecognizers" destination="1bT-qH-n40" appends="YES" id="t5h-Ko-Zfi"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Calculator" id="fFC-Mw-eCv"/>
+                    <tabBarItem key="tabBarItem" title="Calculator" image="CalculatorDark" id="fFC-Mw-eCv"/>
                     <connections>
                         <outlet property="commercialAmountTextField" destination="5v3-BZ-G50" id="dka-Wk-aus"/>
                         <outlet property="daysTextField" destination="MSy-sJ-Lpc" id="Ugj-qZ-xZe"/>
@@ -961,7 +961,11 @@ After replenishing the card account, the accrued funds must be activated by atta
     </scenes>
     <resources>
         <image name="BlueTrain" width="166" height="166"/>
+        <image name="CalculatorDark" width="23" height="23"/>
+        <image name="Charts Dark" width="23" height="23"/>
         <image name="GreenBus" width="166" height="166"/>
+        <image name="SMS" width="23" height="23"/>
+        <image name="TrackerDark" width="23" height="23"/>
         <image name="YellowCommercial" width="166" height="166"/>
     </resources>
 </document>
