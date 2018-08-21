@@ -35,7 +35,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ST7-vw-d2P">
+                                                    <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ST7-vw-d2P">
                                                         <rect key="frame" x="303" y="57.666666666666671" width="40" height="40"/>
                                                         <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
@@ -44,6 +44,11 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                         <state key="normal" title="+"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="topUpTheBalance:" destination="jyV-Hv-kdm" eventType="touchUpInside" id="CzE-Y8-en4"/>
                                                         </connections>
@@ -56,7 +61,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N3h-2s-HcN" userLabel="Metro View">
                                                         <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="334.66666666666669"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="BlueTrain" translatesAutoresizingMaskIntoConstraints="NO" id="oHl-yh-nbN">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="Train" translatesAutoresizingMaskIntoConstraints="NO" id="oHl-yh-nbN">
                                                                 <rect key="frame" x="0.0" y="8" width="163.66666666666666" height="134"/>
                                                             </imageView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pIH-E5-ZNK">
@@ -77,7 +82,7 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NJ9-e3-nEo">
                                                                         <rect key="frame" x="8" y="123.00000000000001" width="147.66666666666666" height="53.666666666666671"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDi-Wu-31f">
+                                                                            <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDi-Wu-31f">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="68.666666666666671" height="53.666666666666664"/>
                                                                                 <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <constraints>
@@ -85,11 +90,16 @@
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                                 <state key="normal" title="-"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                        <integer key="value" value="5"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
                                                                                 <connections>
                                                                                     <action selector="reduceMetroTrip:" destination="jyV-Hv-kdm" eventType="touchUpInside" id="77F-f3-GQ3"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvz-yo-4Ty">
+                                                                            <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvz-yo-4Ty">
                                                                                 <rect key="frame" x="78.666666666666671" y="0.0" width="69.000000000000014" height="53.666666666666664"/>
                                                                                 <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <constraints>
@@ -97,6 +107,11 @@
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                                 <state key="normal" title="+"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                        <integer key="value" value="5"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
                                                                                 <connections>
                                                                                     <action selector="addMetroTrip:" destination="jyV-Hv-kdm" eventType="touchUpInside" id="aVK-aW-pcI"/>
                                                                                 </connections>
@@ -112,7 +127,7 @@
                                                                 </constraints>
                                                             </stackView>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.65092881570000005" green="0.75513918660000001" blue="0.96620899439999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="backgroundColor" red="0.65098039215686276" green="0.75513918660000001" blue="0.96620899439999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstItem="pIH-E5-ZNK" firstAttribute="top" secondItem="oHl-yh-nbN" secondAttribute="bottom" constant="8" id="08S-BE-e3T"/>
                                                             <constraint firstItem="pIH-E5-ZNK" firstAttribute="leading" secondItem="N3h-2s-HcN" secondAttribute="leading" id="2iD-Iw-KGV"/>
@@ -123,11 +138,16 @@
                                                             <constraint firstAttribute="bottom" secondItem="pIH-E5-ZNK" secondAttribute="bottom" constant="8" id="hyQ-QA-gfc"/>
                                                             <constraint firstItem="oHl-yh-nbN" firstAttribute="height" secondItem="N3h-2s-HcN" secondAttribute="height" multiplier="0.4" id="rXa-WM-kAj"/>
                                                         </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VNI-mb-nHF" userLabel="Ground View">
                                                         <rect key="frame" x="179.66666666666663" y="0.0" width="163.33333333333337" height="334.66666666666669"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="GreenBus" translatesAutoresizingMaskIntoConstraints="NO" id="aiR-ZT-8JK">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="Bus" translatesAutoresizingMaskIntoConstraints="NO" id="aiR-ZT-8JK">
                                                                 <rect key="frame" x="0.0" y="8" width="163.33333333333334" height="134"/>
                                                             </imageView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UsF-3f-08p">
@@ -148,7 +168,7 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MtN-NG-5Pr">
                                                                         <rect key="frame" x="8" y="123.00000000000001" width="147.33333333333334" height="53.666666666666671"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHR-fu-EbC">
+                                                                            <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHR-fu-EbC">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="68.666666666666671" height="53.666666666666664"/>
                                                                                 <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <constraints>
@@ -156,11 +176,16 @@
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                                 <state key="normal" title="-"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                        <integer key="value" value="5"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
                                                                                 <connections>
                                                                                     <action selector="reduceGroundTrip:" destination="jyV-Hv-kdm" eventType="touchUpInside" id="KcN-z9-AoR"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qg0-lm-LtO">
+                                                                            <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qg0-lm-LtO">
                                                                                 <rect key="frame" x="78.666666666666657" y="0.0" width="68.666666666666657" height="53.666666666666664"/>
                                                                                 <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <constraints>
@@ -168,6 +193,11 @@
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                                 <state key="normal" title="+"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                        <integer key="value" value="5"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
                                                                                 <connections>
                                                                                     <action selector="addGroundTrip:" destination="jyV-Hv-kdm" eventType="touchUpInside" id="yFD-QB-oJi"/>
                                                                                 </connections>
@@ -194,13 +224,18 @@
                                                             <constraint firstItem="aiR-ZT-8JK" firstAttribute="top" secondItem="VNI-mb-nHF" secondAttribute="top" constant="8" id="ogF-g1-e74"/>
                                                             <constraint firstItem="aiR-ZT-8JK" firstAttribute="leading" secondItem="VNI-mb-nHF" secondAttribute="leading" id="rar-3z-tMP"/>
                                                         </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </view>
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KoJ-AJ-aGo" userLabel="Commercial View">
                                                 <rect key="frame" x="16" y="522" width="343" height="147"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="YellowCommercial" translatesAutoresizingMaskIntoConstraints="NO" id="Yqk-81-FEj">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="Commercial" translatesAutoresizingMaskIntoConstraints="NO" id="Yqk-81-FEj">
                                                         <rect key="frame" x="2" y="0.0" width="147" height="147"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Yqk-81-FEj" secondAttribute="height" multiplier="1:1" id="MB6-IN-Jie"/>
@@ -236,7 +271,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Jxa-fs-kae">
                                                                 <rect key="frame" x="0.0" y="59.333333333333378" width="177.66666666666666" height="71.666666666666686"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oox-f1-Ar9">
+                                                                    <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oox-f1-Ar9">
                                                                         <rect key="frame" x="0.0" y="16" width="51.333333333333336" height="40"/>
                                                                         <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                         <constraints>
@@ -245,6 +280,11 @@
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                         <state key="normal" title="-"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                <integer key="value" value="5"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="reduceCommercialTrip:" destination="jyV-Hv-kdm" eventType="touchUpInside" id="xc2-2m-duy"/>
                                                                         </connections>
@@ -258,7 +298,7 @@
                                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbv-s4-6mh">
+                                                                    <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbv-s4-6mh">
                                                                         <rect key="frame" x="125.3333333333333" y="16" width="52.333333333333329" height="40"/>
                                                                         <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                         <constraints>
@@ -267,6 +307,11 @@
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                         <state key="normal" title="+"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                <integer key="value" value="5"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="addCommercialTrip:" destination="jyV-Hv-kdm" eventType="touchUpInside" id="gAJ-53-Cqa"/>
                                                                         </connections>
@@ -287,6 +332,11 @@
                                                     <constraint firstItem="Yqk-81-FEj" firstAttribute="leading" secondItem="KoJ-AJ-aGo" secondAttribute="leading" constant="2" id="mEr-Ss-wFG"/>
                                                     <constraint firstAttribute="trailing" secondItem="vtq-w2-rR1" secondAttribute="trailing" constant="8" id="tJv-ai-jZV"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -479,7 +529,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EAj-7J-D34" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2566" y="921"/>
+            <point key="canvasLocation" x="1906" y="921"/>
         </scene>
         <!--SMS-->
         <scene sceneID="Rc1-FQ-uHD">
@@ -529,8 +579,8 @@
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tie-AQ-GjA">
-                                                <rect key="frame" x="20" y="281.66666666666669" width="335" height="36"/>
-                                                <color key="backgroundColor" red="0.97254901960784312" green="0.81176470588235294" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <rect key="frame" x="16" y="285.66666666666669" width="343" height="36"/>
+                                                <color key="backgroundColor" red="0.83078686746481156" green="1" blue="0.76087536069096284" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="Make SMS"/>
                                                 <connections>
@@ -538,7 +588,7 @@
                                                 </connections>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0vn-O2-xsr">
-                                                <rect key="frame" x="16" y="333.66666666666669" width="343" height="198.66666666666669"/>
+                                                <rect key="frame" x="16" y="337.66666666666669" width="343" height="198.66666666666669"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">In response, a SMS will come with the amount of the commission and a request for confirmation of payment. (Trust the commission fee in advance).
 
@@ -552,13 +602,13 @@ After replenishing the card account, the accrued funds must be activated by atta
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="tie-AQ-GjA" firstAttribute="top" secondItem="Tx0-mE-0fO" secondAttribute="bottom" constant="16" id="0gA-Lt-yEB"/>
+                                            <constraint firstItem="tie-AQ-GjA" firstAttribute="top" secondItem="Tx0-mE-0fO" secondAttribute="bottom" constant="20" id="0gA-Lt-yEB"/>
                                             <constraint firstItem="OJk-Hf-CK8" firstAttribute="top" secondItem="uvb-g9-KKf" secondAttribute="bottom" constant="16" id="5Fu-KT-0Wk"/>
                                             <constraint firstItem="eem-kH-srn" firstAttribute="top" secondItem="fUQ-Ku-Jg4" secondAttribute="bottom" constant="16" id="6dr-ev-FPb"/>
                                             <constraint firstItem="eem-kH-srn" firstAttribute="leading" secondItem="cFa-Em-qOd" secondAttribute="leading" constant="16" id="6qM-76-2T9"/>
                                             <constraint firstItem="fUQ-Ku-Jg4" firstAttribute="leading" secondItem="cFa-Em-qOd" secondAttribute="leading" constant="16" id="8kx-HL-4WN"/>
                                             <constraint firstItem="uvb-g9-KKf" firstAttribute="leading" secondItem="cFa-Em-qOd" secondAttribute="leading" constant="16" id="DsG-OT-rV2"/>
-                                            <constraint firstItem="tie-AQ-GjA" firstAttribute="leading" secondItem="cFa-Em-qOd" secondAttribute="leading" constant="20" id="Rhf-Vl-E2h"/>
+                                            <constraint firstItem="tie-AQ-GjA" firstAttribute="leading" secondItem="cFa-Em-qOd" secondAttribute="leading" constant="16" id="Rhf-Vl-E2h"/>
                                             <constraint firstAttribute="trailing" secondItem="fUQ-Ku-Jg4" secondAttribute="trailing" constant="16" id="SHN-rH-8GW"/>
                                             <constraint firstItem="fUQ-Ku-Jg4" firstAttribute="top" secondItem="OJk-Hf-CK8" secondAttribute="bottom" constant="8" id="Vas-PR-swS"/>
                                             <constraint firstAttribute="trailing" secondItem="0vn-O2-xsr" secondAttribute="trailing" constant="16" id="WBm-YM-jFH"/>
@@ -573,7 +623,7 @@ After replenishing the card account, the accrued funds must be activated by atta
                                             <constraint firstItem="0vn-O2-xsr" firstAttribute="leading" secondItem="cFa-Em-qOd" secondAttribute="leading" constant="16" id="vNT-V0-Lrm"/>
                                             <constraint firstItem="Tx0-mE-0fO" firstAttribute="leading" secondItem="cFa-Em-qOd" secondAttribute="leading" constant="16" id="wZL-VX-Rvn"/>
                                             <constraint firstAttribute="trailing" secondItem="uvb-g9-KKf" secondAttribute="trailing" constant="16" id="wq3-pN-lA3"/>
-                                            <constraint firstAttribute="trailing" secondItem="tie-AQ-GjA" secondAttribute="trailing" constant="20" id="x9I-8e-e1c"/>
+                                            <constraint firstAttribute="trailing" secondItem="tie-AQ-GjA" secondAttribute="trailing" constant="16" id="x9I-8e-e1c"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -605,6 +655,7 @@ After replenishing the card account, the accrued funds must be activated by atta
                         <outlet property="amountTextField" destination="Tx0-mE-0fO" id="vwW-tq-YLS"/>
                         <outlet property="bottomTextView" destination="0vn-O2-xsr" id="YKd-Hs-eOR"/>
                         <outlet property="cardNumberTextField" destination="fUQ-Ku-Jg4" id="sAE-KV-f5X"/>
+                        <outlet property="makeSMSButton" destination="tie-AQ-GjA" id="rIa-Ul-AK7"/>
                         <outlet property="scrollView" destination="3g4-JM-qpY" id="FPc-GO-5eB"/>
                         <outlet property="topTextView" destination="uvb-g9-KKf" id="gKl-s9-GTZ"/>
                     </connections>
@@ -616,7 +667,7 @@ After replenishing the card account, the accrued funds must be activated by atta
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1814" y="872"/>
+            <point key="canvasLocation" x="2738" y="871"/>
         </scene>
         <!--Calculator-->
         <scene sceneID="KZV-1h-bfr">
@@ -669,7 +720,7 @@ After replenishing the card account, the accrued funds must be activated by atta
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hv6-oH-GQG" userLabel="Trips Numbers View">
                                                         <rect key="frame" x="0.0" y="32" width="375" height="97"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueTrain" translatesAutoresizingMaskIntoConstraints="NO" id="DdA-RA-g2Z">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Train" translatesAutoresizingMaskIntoConstraints="NO" id="DdA-RA-g2Z">
                                                                 <rect key="frame" x="16" y="26" width="45" height="45"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="45" id="25H-zI-gN6"/>
@@ -682,7 +733,7 @@ After replenishing the card account, the accrued funds must be activated by atta
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
                                                             </textField>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GreenBus" translatesAutoresizingMaskIntoConstraints="NO" id="tN1-uU-dJ0">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bus" translatesAutoresizingMaskIntoConstraints="NO" id="tN1-uU-dJ0">
                                                                 <rect key="frame" x="195" y="26" width="45" height="45"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="45" id="KFJ-WK-0te"/>
@@ -735,7 +786,7 @@ After replenishing the card account, the accrued funds must be activated by atta
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHs-dE-WSj" userLabel="Trips Numbers View">
                                                         <rect key="frame" x="0.0" y="32" width="375" height="97"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueTrain" translatesAutoresizingMaskIntoConstraints="NO" id="ZwF-A1-GAU">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Train" translatesAutoresizingMaskIntoConstraints="NO" id="ZwF-A1-GAU">
                                                                 <rect key="frame" x="16" y="26.333333333333314" width="45" height="45"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="45" id="ESw-9a-sje"/>
@@ -748,7 +799,7 @@ After replenishing the card account, the accrued funds must be activated by atta
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
                                                             </textField>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GreenBus" translatesAutoresizingMaskIntoConstraints="NO" id="LXJ-lX-h3k">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bus" translatesAutoresizingMaskIntoConstraints="NO" id="LXJ-lX-h3k">
                                                                 <rect key="frame" x="195.66666666666666" y="26.333333333333314" width="45" height="45"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="45" id="DR3-7n-tQe"/>
@@ -793,18 +844,18 @@ After replenishing the card account, the accrued funds must be activated by atta
                                                 <rect key="frame" x="0.0" y="384.66666666666669" width="375" height="94.666666666666686"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Commercial" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKJ-yd-fOn">
-                                                        <rect key="frame" x="69" y="35" width="105" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <rect key="frame" x="69" y="35" width="107.66666666666669" height="24"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="amount" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5v3-BZ-G50" customClass="CalculatorCommercialTextField" customModule="Podorozhnik" customModuleProvider="target">
-                                                        <rect key="frame" x="182" y="32" width="177" height="30"/>
+                                                        <rect key="frame" x="184.66666666666663" y="32" width="174.33333333333337" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
                                                     </textField>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowCommercial" translatesAutoresizingMaskIntoConstraints="NO" id="E4C-KR-CXB">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Commercial" translatesAutoresizingMaskIntoConstraints="NO" id="E4C-KR-CXB">
                                                         <rect key="frame" x="16" y="25" width="45" height="45"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="Lvu-2S-B27"/>
@@ -856,7 +907,7 @@ After replenishing the card account, the accrued funds must be activated by atta
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yu8-7v-CBr">
                                                 <rect key="frame" x="16" y="590" width="343" height="36"/>
-                                                <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="0.83078686749999997" green="1" blue="0.76087536069999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="Top up the balance by SMS"/>
                                                 <connections>
@@ -921,6 +972,7 @@ After replenishing the card account, the accrued funds must be activated by atta
                         <outlet property="commercialAmountTextField" destination="5v3-BZ-G50" id="dka-Wk-aus"/>
                         <outlet property="daysTextField" destination="MSy-sJ-Lpc" id="Ugj-qZ-xZe"/>
                         <outlet property="scrollView" destination="DVM-0a-zpx" id="zdS-Ke-ZWH"/>
+                        <outlet property="topUpTheBalanceButton" destination="Yu8-7v-CBr" id="4AM-WH-pac"/>
                         <outlet property="totalAmountLabel" destination="NpE-9h-Spx" id="oo3-QF-SYY"/>
                         <outlet property="tripsByGroundAtRestdayTextField" destination="Bie-4O-h3o" id="17r-ev-GLh"/>
                         <outlet property="tripsByGroundAtWeekdayTextField" destination="SNB-pz-yrz" id="K2f-UW-Uwr"/>
@@ -950,22 +1002,22 @@ After replenishing the card account, the accrued funds must be activated by atta
                     <connections>
                         <segue destination="jyV-Hv-kdm" kind="relationship" relationship="viewControllers" id="8nn-Ip-Ofg"/>
                         <segue destination="zmn-Va-8Zh" kind="relationship" relationship="viewControllers" id="NMf-Zj-prU"/>
-                        <segue destination="dTI-Sd-RFH" kind="relationship" relationship="viewControllers" id="gUW-Qy-2sQ"/>
                         <segue destination="VZm-hy-GYt" kind="relationship" relationship="viewControllers" id="xQc-ry-Lea"/>
+                        <segue destination="dTI-Sd-RFH" kind="relationship" relationship="viewControllers" id="gUW-Qy-2sQ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ncd-LO-E15" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1447" y="177"/>
+            <point key="canvasLocation" x="1446" y="180"/>
         </scene>
     </scenes>
     <resources>
-        <image name="BlueTrain" width="166" height="166"/>
+        <image name="Bus" width="166" height="166"/>
         <image name="CalculatorDark" width="23" height="23"/>
         <image name="Charts Dark" width="23" height="23"/>
-        <image name="GreenBus" width="166" height="166"/>
+        <image name="Commercial" width="166" height="166"/>
         <image name="SMS" width="23" height="23"/>
         <image name="TrackerDark" width="23" height="23"/>
-        <image name="YellowCommercial" width="166" height="166"/>
+        <image name="Train" width="166" height="166"/>
     </resources>
 </document>

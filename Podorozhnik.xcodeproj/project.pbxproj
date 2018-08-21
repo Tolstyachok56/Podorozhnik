@@ -188,8 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				0462372F2118449E008AD497 /* Trips Tracker View Controller */,
-				0426794C2119EB19008BF17E /* Statistics Table View Controller */,
 				0479A65B211A03A800766A38 /* Calculator View Controller */,
+				0426794C2119EB19008BF17E /* Statistics Table View Controller */,
 				0448A0D52123207500C8D0E3 /* SMS View Controller */,
 			);
 			path = "View Controllers";

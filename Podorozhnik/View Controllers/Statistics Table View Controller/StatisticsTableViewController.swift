@@ -32,9 +32,12 @@ class StatisticsTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        statistics?.sort(by: { $0.month < $1.month})
-        self.tableView.reloadData()
+        if (statistics?.isEmpty)! {
+            self.showSimpleAlert(title: "There is no statistics yet", message: "")
+        } else {
+            statistics?.sort(by: { $0.month < $1.month})
+            self.tableView.reloadData()
+        }
     }
 
     // MARK: - Table view data source
@@ -61,17 +64,17 @@ class StatisticsTableViewController: UITableViewController {
             
             switch indexPath.row {
             case 0:
-                cell.transportImageView.image = UIImage(named: "BlueTrain")
+                cell.transportImageView.image = UIImage(named: TransportImageName.metro)
                 trips = statistics![section].tripsByMetro
                 cost = statistics![section].costByMetro
                 
             case 1:
-                cell.transportImageView.image = UIImage(named: "GreenBus")
+                cell.transportImageView.image = UIImage(named: TransportImageName.ground)
                 trips = statistics![section].tripsByGround
                 cost = statistics![section].costByGround
                 
             case 2:
-                cell.transportImageView.image = UIImage(named: "YellowCommercial")
+                cell.transportImageView.image = UIImage(named: TransportImageName.commercial)
                 trips = statistics![section].tripsByCommercial
                 cost = statistics![section].costByCommercial
                 

@@ -39,3 +39,9 @@ enum Link {
     static let commission = "https://www.ruru.ru/init-payment/46752"
 }
 
+enum TransportImageName {
+    static let metro = "Train"
+    static let ground = "Bus"
+    static let commercial = "Commercial"
+}
+

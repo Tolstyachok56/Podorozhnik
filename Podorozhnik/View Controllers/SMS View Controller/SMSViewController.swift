@@ -21,6 +21,8 @@ class SMSViewController: UIViewController {
     @IBOutlet weak var topTextView: UITextView!
     @IBOutlet weak var bottomTextView: UITextView!
     
+    @IBOutlet weak var makeSMSButton: UIButton!
+    
     // MARK: -
     
     var card: Card?
@@ -46,8 +48,13 @@ class SMSViewController: UIViewController {
     private func setupView() {
         cardNumberTextField.setup(card: card!)
         amountTextField.setup(amount: amount!)
+        setupMakeSMSButton()
         setupTopTextView()
         setupBottomTextView()
+    }
+    
+    private func setupMakeSMSButton() {
+        makeSMSButton.layer.cornerRadius = 5
     }
     
     private func setupTopTextView() {
@@ -107,17 +114,22 @@ class SMSViewController: UIViewController {
     
     @IBAction func makeTopUpTheBalanceMessage(_ sender: UIButton) {
         let cardNumber = (card?.number)!
-        self.amount = Int(amountTextField.text!)
         
-        if MFMessageComposeViewController.canSendText() {
-            let messageVC = MFMessageComposeViewController()
-            
-            messageVC.body = "pod \(cardNumber) \(amount!)"
-            messageVC.recipients = [MessageSettings.recipient]
-            messageVC.messageComposeDelegate = self
-            self.present(messageVC, animated: true, completion: nil)
+        if cardNumber == "" {
+            self.showSimpleAlert(title: "Card number missing", message: "Enter card number")
         } else {
-            showSimpleAlert(title: "Sorry...", message: "This device is not configured to send messages.")
+            self.amount = Int(amountTextField.text!)
+            
+            if MFMessageComposeViewController.canSendText() {
+                let messageVC = MFMessageComposeViewController()
+                
+                messageVC.body = "pod \(cardNumber) \(amount!)"
+                messageVC.recipients = [MessageSettings.recipient]
+                messageVC.messageComposeDelegate = self
+                self.present(messageVC, animated: true, completion: nil)
+            } else {
+                showSimpleAlert(title: "Sorry...", message: "This device is not configured to send messages.")
+            }
         }
     }
     

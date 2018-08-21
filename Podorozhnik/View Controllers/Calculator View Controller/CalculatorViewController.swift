@@ -26,6 +26,7 @@ class CalculatorViewController: UIViewController {
     
     @IBOutlet weak var totalAmountLabel: TotalAmountLabel!
     
+    @IBOutlet weak var topUpTheBalanceButton: UIButton!
     // MARK: -
     
     var calculator: Calculator?
@@ -66,7 +67,14 @@ class CalculatorViewController: UIViewController {
         
         commercialAmountTextField.setup(calculator: calculator!)
         
-        totalAmountLabel.setup(calculator: calculator!)    }
+        totalAmountLabel.setup(calculator: calculator!)
+        
+        setupTopUpTheBalanceButton()
+    }
+    
+    private func setupTopUpTheBalanceButton() {
+        topUpTheBalanceButton.layer.cornerRadius = 5
+    }
     
     private func updateView() {
         tripsByMetroAtWeekdayTextField.update()
