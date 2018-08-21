@@ -967,7 +967,7 @@ After replenishing the card account, the accrued funds must be activated by atta
                             <outletCollection property="gestureRecognizers" destination="1bT-qH-n40" appends="YES" id="t5h-Ko-Zfi"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Calculator" image="CalculatorDark" id="fFC-Mw-eCv"/>
+                    <tabBarItem key="tabBarItem" title="Calculator" image="CalculatorSimple" id="fFC-Mw-eCv"/>
                     <connections>
                         <outlet property="commercialAmountTextField" destination="5v3-BZ-G50" id="dka-Wk-aus"/>
                         <outlet property="daysTextField" destination="MSy-sJ-Lpc" id="Ugj-qZ-xZe"/>
@@ -1013,7 +1013,7 @@ After replenishing the card account, the accrued funds must be activated by atta
     </scenes>
     <resources>
         <image name="Bus" width="166" height="166"/>
-        <image name="CalculatorDark" width="23" height="23"/>
+        <image name="CalculatorSimple" width="21" height="21"/>
         <image name="Charts Dark" width="23" height="23"/>
         <image name="Commercial" width="166" height="166"/>
         <image name="SMS" width="23" height="23"/>
