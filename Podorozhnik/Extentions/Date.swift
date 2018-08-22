@@ -30,6 +30,10 @@ extension Date {
         return Calendar(identifier: .gregorian).date(from: components)!
     }
     
+    func endOfMonth() -> Date {
+        return startOfNextMonth().add(days: -1)
+    }
+    
     func startOfNextMonth() -> Date {
         let dayInAMonth = Calendar(identifier: .gregorian).date(byAdding: .month, value: 1, to: startOfDay())
         return (dayInAMonth?.startOfMonth())!

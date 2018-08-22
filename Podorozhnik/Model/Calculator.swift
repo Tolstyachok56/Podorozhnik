@@ -17,12 +17,12 @@ class Calculator {
     
     // MARK: - Properties
     
-    var calculatingDays: Int = 30
+    var calculatingDays: Int //= 30
     
-    var tripsByMetroAtWeekday: Int = 2
+    var tripsByMetroAtWeekday: Int = 0
     var tripsByMetroAtRestday: Int = 0
     
-    var tripsByGroundAtWeekday: Int = 2
+    var tripsByGroundAtWeekday: Int = 0
     var tripsByGroundAtRestday: Int = 0
     
     var commercialAmount: Double = 0.0
@@ -30,6 +30,15 @@ class Calculator {
     // MARK: -
     
     var card: Card?
+    
+    init() {
+        let date = Date()
+        let endOfMonthDate = date.endOfMonth()
+        let today = Calendar.current.component(.day, from: date)
+        let endOfMonth = Calendar.current.component(.day, from: endOfMonthDate)
+        
+        self.calculatingDays = endOfMonth - today
+    }
     
     // MARK: - Methods
     

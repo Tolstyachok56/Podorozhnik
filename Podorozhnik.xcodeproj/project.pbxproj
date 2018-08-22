@@ -34,6 +34,7 @@
 		04623732211844CB008AD497 /* CardBalanceTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04623731211844CB008AD497 /* CardBalanceTextField.swift */; };
 		0462373421184540008AD497 /* TripsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462373321184540008AD497 /* TripsTextField.swift */; };
 		0462373A2118AE11008AD497 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046237392118AE11008AD497 /* UIViewController.swift */; };
+		046F8CC6212D580500E9518A /* DateIntervalLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F8CC5212D580500E9518A /* DateIntervalLabel.swift */; };
 		0479A65A2119FC8200766A38 /* TariffLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0479A6592119FC8200766A38 /* TariffLabel.swift */; };
 		0479A65D211A03E600766A38 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0479A65C211A03E600766A38 /* CalculatorViewController.swift */; };
 /* End PBXBuildFile section */
@@ -68,6 +69,7 @@
 		04623731211844CB008AD497 /* CardBalanceTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalanceTextField.swift; sourceTree = "<group>"; };
 		0462373321184540008AD497 /* TripsTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTextField.swift; sourceTree = "<group>"; };
 		046237392118AE11008AD497 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		046F8CC5212D580500E9518A /* DateIntervalLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIntervalLabel.swift; sourceTree = "<group>"; };
 		0479A6592119FC8200766A38 /* TariffLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TariffLabel.swift; sourceTree = "<group>"; };
 		0479A65C211A03E600766A38 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				043010DC211AE96800ECA72B /* TotalAmountLabel.swift */,
+				046F8CC5212D580500E9518A /* DateIntervalLabel.swift */,
 			);
 			path = Labels;
 			sourceTree = "<group>";
@@ -256,8 +259,8 @@
 			isa = PBXGroup;
 			children = (
 				042679452119B16C008BF17E /* Date.swift */,
-				046237392118AE11008AD497 /* UIViewController.swift */,
 				04223ED921271E2800FFECC9 /* String.swift */,
+				046237392118AE11008AD497 /* UIViewController.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				0448A0DC2123219300C8D0E3 /* AmountTextField.swift in Sources */,
 				0426794E2119F881008BF17E /* Calculator.swift in Sources */,
 				04223EDA21271E2800FFECC9 /* String.swift in Sources */,
+				046F8CC6212D580500E9518A /* DateIntervalLabel.swift in Sources */,
 				0462373421184540008AD497 /* TripsTextField.swift in Sources */,
 				043010D6211ADB3C00ECA72B /* CalculatorTripsTextField.swift in Sources */,
 				0451FBE1211314F3001346C4 /* TripsTrackerViewController.swift in Sources */,
