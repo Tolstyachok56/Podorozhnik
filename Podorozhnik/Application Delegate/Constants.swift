@@ -6,6 +6,8 @@
 //  Copyright © 2018 Виктория Бадисова. All rights reserved.
 //
 
+import Foundation
+
 enum Tariff {
     static func metro(numberOfTrip: Int) -> Double {
         switch numberOfTrip {
@@ -30,18 +32,18 @@ enum Tariff {
     }
 }
 
-enum MessageSettings {
-    static let recipient: String = "7878"
-}
-
-enum Link {
-    static let metroInfo = "http://www.metro.spb.ru/bznlpodorojnik1.html"
-    static let commission = "https://www.ruru.ru/init-payment/46752"
-}
-
 enum TransportImageName {
     static let metro = "Train"
     static let ground = "Bus"
     static let commercial = "Commercial"
 }
+
+enum MessageSettings {
+    static let recipient: String = "7878"
+}
+
+enum Link {
+        static let isppMetro = "http://ispp.spbmetropoliten.ru/"
+}
+
 

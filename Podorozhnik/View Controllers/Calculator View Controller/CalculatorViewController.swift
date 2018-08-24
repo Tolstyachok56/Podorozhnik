@@ -96,13 +96,7 @@ class CalculatorViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func topUpTheBalanceBySMS(_ sender: UIButton) {
-        for viewController in (tabBarController?.viewControllers)! {
-            if let smsVC = viewController as? SMSViewController {
-                smsVC.amount = calculator?.getRoundedTotalAmount()
-                let index = tabBarController?.viewControllers?.index(of: smsVC)
-                self.tabBarController?.selectedIndex = index!
-            }
-        }
+        UIApplication.shared.open(URL(string: Link.isppMetro)!)
     }
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {

@@ -16,7 +16,6 @@ class Card {
     
     // MARK: - Properties
     
-    var number: String = "" { didSet { Defaults.saveCard(self) }}
     var balance: Double = 0 { didSet { Defaults.saveCard(self) }}
     
     // MARK: -
@@ -28,8 +27,7 @@ class Card {
     var delegate: CardDelegate?
     
     var propertyDictRepresentation: [String: Any] {
-        var result: [String: Any] = ["number": self.number,
-                                     "balance": self.balance,
+        var result: [String: Any] = ["balance": self.balance,
                                      "statistics": []]
         if let encodedStatistics = try? JSONEncoder().encode(self.statistics) {
             result["statistics"] = encodedStatistics
@@ -42,7 +40,6 @@ class Card {
     init() {}
     
     init(dict: [String: Any]) {
-        self.number = dict["number"] as! String
         self.balance = dict["balance"] as! Double
         if let statistics = dict["statistics"] as? Data,
             let loadedStatistics = try? JSONDecoder().decode([MonthStatistics].self, from: statistics) {

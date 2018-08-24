@@ -26,35 +26,51 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGP-zf-Ryd" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="685"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="FCp-lL-4lE" userLabel="Top Stack View">
-                                                <rect key="frame" x="16" y="8" width="343" height="155.33333333333334"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBK-QP-CmB" userLabel="Top View">
+                                                <rect key="frame" x="16" y="0.0" width="343" height="155.33333333333334"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="balance" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NPr-eO-djZ" customClass="CardBalanceTextField" customModule="Podorozhnik" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="33.666666666666671" width="287" height="88"/>
-                                                        <color key="textColor" red="0.098039215690000001" green="0.5568627451" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="70"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
-                                                    </textField>
-                                                    <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ST7-vw-d2P">
-                                                        <rect key="frame" x="303" y="57.666666666666671" width="40" height="40"/>
-                                                        <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="40" id="3a0-sK-hUV"/>
-                                                            <constraint firstAttribute="height" constant="40" id="R5v-SI-M7c"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                        <state key="normal" title="+"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="5"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="topUpTheBalance:" destination="jyV-Hv-kdm" eventType="touchUpInside" id="CzE-Y8-en4"/>
-                                                        </connections>
-                                                    </button>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FCp-lL-4lE" userLabel="Top Stack View">
+                                                        <rect key="frame" x="8" y="0.0" width="327" height="155.33333333333334"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="balance" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NPr-eO-djZ" customClass="CardBalanceTextField" customModule="Podorozhnik" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="39.666666666666671" width="279" height="76"/>
+                                                                <color key="textColor" red="0.098039215690000001" green="0.5568627451" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
+                                                            </textField>
+                                                            <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ST7-vw-d2P">
+                                                                <rect key="frame" x="287" y="57.666666666666671" width="40" height="40"/>
+                                                                <color key="backgroundColor" red="1" green="0.81960784310000001" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="40" id="3a0-sK-hUV"/>
+                                                                    <constraint firstAttribute="height" constant="40" id="R5v-SI-M7c"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                <state key="normal" title="+"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="topUpTheBalance:" destination="jyV-Hv-kdm" eventType="touchUpInside" id="CzE-Y8-en4"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
-                                            </stackView>
+                                                <constraints>
+                                                    <constraint firstItem="FCp-lL-4lE" firstAttribute="top" secondItem="bBK-QP-CmB" secondAttribute="top" id="2wv-fs-U2N"/>
+                                                    <constraint firstAttribute="trailing" secondItem="FCp-lL-4lE" secondAttribute="trailing" constant="8" id="3wP-d4-KcT"/>
+                                                    <constraint firstItem="FCp-lL-4lE" firstAttribute="leading" secondItem="bBK-QP-CmB" secondAttribute="leading" constant="8" id="W7P-0m-Chx"/>
+                                                    <constraint firstItem="FCp-lL-4lE" firstAttribute="height" secondItem="bBK-QP-CmB" secondAttribute="height" id="YAG-zu-pFQ"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="jDu-l0-iJU" userLabel="Metro Bus Stack View">
                                                 <rect key="frame" x="16" y="171.33333333333334" width="343" height="334.66666666666663"/>
                                                 <subviews>
@@ -341,18 +357,18 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="FCp-lL-4lE" firstAttribute="leading" secondItem="LGP-zf-Ryd" secondAttribute="leading" constant="16" id="0YW-vF-lBQ"/>
-                                            <constraint firstItem="jDu-l0-iJU" firstAttribute="top" secondItem="FCp-lL-4lE" secondAttribute="bottom" constant="8" id="4DD-uY-dpn"/>
-                                            <constraint firstItem="FCp-lL-4lE" firstAttribute="top" secondItem="LGP-zf-Ryd" secondAttribute="top" constant="8" id="8on-ea-88A"/>
+                                            <constraint firstAttribute="trailing" secondItem="bBK-QP-CmB" secondAttribute="trailing" constant="16" id="ANV-iX-zsO"/>
                                             <constraint firstItem="jDu-l0-iJU" firstAttribute="height" secondItem="LGP-zf-Ryd" secondAttribute="height" multiplier="0.5" constant="-8" id="BLG-5g-exK"/>
                                             <constraint firstItem="KoJ-AJ-aGo" firstAttribute="height" secondItem="LGP-zf-Ryd" secondAttribute="height" multiplier="0.25" priority="999" constant="-8" id="BPh-xe-ZwD"/>
+                                            <constraint firstItem="bBK-QP-CmB" firstAttribute="leading" secondItem="LGP-zf-Ryd" secondAttribute="leading" constant="16" id="CO8-CH-Bsr"/>
                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="KoJ-AJ-aGo" secondAttribute="bottom" constant="16" id="Duh-iB-L0Q"/>
-                                            <constraint firstAttribute="trailing" secondItem="FCp-lL-4lE" secondAttribute="trailing" constant="16" id="MYV-FA-AhA"/>
                                             <constraint firstAttribute="trailing" secondItem="KoJ-AJ-aGo" secondAttribute="trailing" constant="16" id="Pzk-Lw-BH6"/>
                                             <constraint firstAttribute="trailing" secondItem="jDu-l0-iJU" secondAttribute="trailing" constant="16" id="RjH-fj-PCa"/>
-                                            <constraint firstItem="FCp-lL-4lE" firstAttribute="height" secondItem="LGP-zf-Ryd" secondAttribute="height" multiplier="0.25" constant="-16" id="Stp-RO-M98"/>
+                                            <constraint firstItem="jDu-l0-iJU" firstAttribute="top" secondItem="bBK-QP-CmB" secondAttribute="bottom" constant="16" id="Wn0-JN-rKu"/>
                                             <constraint firstItem="KoJ-AJ-aGo" firstAttribute="top" secondItem="jDu-l0-iJU" secondAttribute="bottom" constant="16" id="efv-eu-DII"/>
+                                            <constraint firstItem="bBK-QP-CmB" firstAttribute="height" secondItem="LGP-zf-Ryd" secondAttribute="height" multiplier="0.25" constant="-16" id="fEq-1t-Q2J"/>
                                             <constraint firstItem="jDu-l0-iJU" firstAttribute="leading" secondItem="LGP-zf-Ryd" secondAttribute="leading" constant="16" id="oWf-do-C4b"/>
+                                            <constraint firstItem="bBK-QP-CmB" firstAttribute="top" secondItem="LGP-zf-Ryd" secondAttribute="top" id="se9-V6-TqA"/>
                                             <constraint firstItem="KoJ-AJ-aGo" firstAttribute="leading" secondItem="LGP-zf-Ryd" secondAttribute="leading" constant="16" id="yB6-Bs-hpA"/>
                                         </constraints>
                                     </view>
@@ -529,145 +545,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EAj-7J-D34" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1906" y="921"/>
-        </scene>
-        <!--SMS-->
-        <scene sceneID="Rc1-FQ-uHD">
-            <objects>
-                <viewController id="dTI-Sd-RFH" customClass="SMSViewController" customModule="Podorozhnik" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="KWt-co-7B5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="680"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3g4-JM-qpY">
-                                <rect key="frame" x="0.0" y="44" width="375" height="553"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFa-Em-qOd" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="680"/>
-                                        <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="You can replenish the card from your mobile phone account by sending SMS to number 7878 (Information on the subway's website)" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uvb-g9-KKf">
-                                                <rect key="frame" x="16" y="15.999999999999993" width="343" height="97.333333333333314"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                <connections>
-                                                    <outlet property="delegate" destination="dTI-Sd-RFH" id="SLO-l5-SYf"/>
-                                                </connections>
-                                            </textView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJk-Hf-CK8">
-                                                <rect key="frame" x="16" y="129.33333333333334" width="343" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                                <color key="textColor" red="0.118096848" green="0.47866434009999997" blue="0.31611054700000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="card number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fUQ-Ku-Jg4" customClass="CardNumberTextField" customModule="Podorozhnik" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="161.66666666666666" width="343" height="28"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
-                                            </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eem-kH-srn">
-                                                <rect key="frame" x="16" y="205.33333333333334" width="343" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                                <color key="textColor" red="0.118096848" green="0.47866434009999997" blue="0.31611054700000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="amount" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tx0-mE-0fO" customClass="AmountTextField" customModule="Podorozhnik" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="237.66666666666669" width="343" height="28"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tie-AQ-GjA">
-                                                <rect key="frame" x="16" y="285.66666666666669" width="343" height="36"/>
-                                                <color key="backgroundColor" red="0.83078686746481156" green="1" blue="0.76087536069096284" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="Make SMS"/>
-                                                <connections>
-                                                    <action selector="makeTopUpTheBalanceMessage:" destination="dTI-Sd-RFH" eventType="touchUpInside" id="qE7-Ks-q0S"/>
-                                                </connections>
-                                            </button>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0vn-O2-xsr">
-                                                <rect key="frame" x="16" y="337.66666666666669" width="343" height="198.66666666666669"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <string key="text">In response, a SMS will come with the amount of the commission and a request for confirmation of payment. (Trust the commission fee in advance).
-
-After replenishing the card account, the accrued funds must be activated by attaching the card to any card verification device in the metro.</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                <connections>
-                                                    <outlet property="delegate" destination="dTI-Sd-RFH" id="04X-mL-5yc"/>
-                                                </connections>
-                                            </textView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="tie-AQ-GjA" firstAttribute="top" secondItem="Tx0-mE-0fO" secondAttribute="bottom" constant="20" id="0gA-Lt-yEB"/>
-                                            <constraint firstItem="OJk-Hf-CK8" firstAttribute="top" secondItem="uvb-g9-KKf" secondAttribute="bottom" constant="16" id="5Fu-KT-0Wk"/>
-                                            <constraint firstItem="eem-kH-srn" firstAttribute="top" secondItem="fUQ-Ku-Jg4" secondAttribute="bottom" constant="16" id="6dr-ev-FPb"/>
-                                            <constraint firstItem="eem-kH-srn" firstAttribute="leading" secondItem="cFa-Em-qOd" secondAttribute="leading" constant="16" id="6qM-76-2T9"/>
-                                            <constraint firstItem="fUQ-Ku-Jg4" firstAttribute="leading" secondItem="cFa-Em-qOd" secondAttribute="leading" constant="16" id="8kx-HL-4WN"/>
-                                            <constraint firstItem="uvb-g9-KKf" firstAttribute="leading" secondItem="cFa-Em-qOd" secondAttribute="leading" constant="16" id="DsG-OT-rV2"/>
-                                            <constraint firstItem="tie-AQ-GjA" firstAttribute="leading" secondItem="cFa-Em-qOd" secondAttribute="leading" constant="16" id="Rhf-Vl-E2h"/>
-                                            <constraint firstAttribute="trailing" secondItem="fUQ-Ku-Jg4" secondAttribute="trailing" constant="16" id="SHN-rH-8GW"/>
-                                            <constraint firstItem="fUQ-Ku-Jg4" firstAttribute="top" secondItem="OJk-Hf-CK8" secondAttribute="bottom" constant="8" id="Vas-PR-swS"/>
-                                            <constraint firstAttribute="trailing" secondItem="0vn-O2-xsr" secondAttribute="trailing" constant="16" id="WBm-YM-jFH"/>
-                                            <constraint firstItem="uvb-g9-KKf" firstAttribute="top" secondItem="cFa-Em-qOd" secondAttribute="top" constant="16" id="WeH-i8-Rsw"/>
-                                            <constraint firstItem="Tx0-mE-0fO" firstAttribute="top" secondItem="eem-kH-srn" secondAttribute="bottom" constant="8" id="YmD-gP-wih"/>
-                                            <constraint firstAttribute="trailing" secondItem="OJk-Hf-CK8" secondAttribute="trailing" constant="16" id="c3z-aF-Xj4"/>
-                                            <constraint firstItem="OJk-Hf-CK8" firstAttribute="leading" secondItem="cFa-Em-qOd" secondAttribute="leading" constant="16" id="dhA-mQ-6xb"/>
-                                            <constraint firstAttribute="height" constant="680" id="e7f-Kz-RAI"/>
-                                            <constraint firstAttribute="trailing" secondItem="eem-kH-srn" secondAttribute="trailing" constant="16" id="gi8-Ep-kQ3"/>
-                                            <constraint firstAttribute="trailing" secondItem="Tx0-mE-0fO" secondAttribute="trailing" constant="16" id="ijo-Hn-gvs"/>
-                                            <constraint firstItem="0vn-O2-xsr" firstAttribute="top" secondItem="tie-AQ-GjA" secondAttribute="bottom" constant="16" id="rzg-bJ-pcb"/>
-                                            <constraint firstItem="0vn-O2-xsr" firstAttribute="leading" secondItem="cFa-Em-qOd" secondAttribute="leading" constant="16" id="vNT-V0-Lrm"/>
-                                            <constraint firstItem="Tx0-mE-0fO" firstAttribute="leading" secondItem="cFa-Em-qOd" secondAttribute="leading" constant="16" id="wZL-VX-Rvn"/>
-                                            <constraint firstAttribute="trailing" secondItem="uvb-g9-KKf" secondAttribute="trailing" constant="16" id="wq3-pN-lA3"/>
-                                            <constraint firstAttribute="trailing" secondItem="tie-AQ-GjA" secondAttribute="trailing" constant="16" id="x9I-8e-e1c"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="cFa-Em-qOd" firstAttribute="leading" secondItem="3g4-JM-qpY" secondAttribute="leading" id="5FX-ey-reu"/>
-                                    <constraint firstAttribute="trailing" secondItem="cFa-Em-qOd" secondAttribute="trailing" id="9fS-43-ODA"/>
-                                    <constraint firstAttribute="bottom" secondItem="cFa-Em-qOd" secondAttribute="bottom" id="VZ3-XC-R8p"/>
-                                    <constraint firstItem="cFa-Em-qOd" firstAttribute="top" secondItem="3g4-JM-qpY" secondAttribute="top" id="VkS-eZ-Ztg"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstItem="3g4-JM-qpY" firstAttribute="leading" secondItem="Qqr-7U-Hne" secondAttribute="leading" id="23Y-V1-MYd"/>
-                            <constraint firstItem="3g4-JM-qpY" firstAttribute="top" secondItem="Qqr-7U-Hne" secondAttribute="top" id="7t9-9u-HXM"/>
-                            <constraint firstItem="3g4-JM-qpY" firstAttribute="bottom" secondItem="Qqr-7U-Hne" secondAttribute="bottom" id="T4f-Kp-W45"/>
-                            <constraint firstItem="cFa-Em-qOd" firstAttribute="width" secondItem="Qqr-7U-Hne" secondAttribute="width" id="Tef-iQ-Bl5"/>
-                            <constraint firstItem="3g4-JM-qpY" firstAttribute="trailing" secondItem="Qqr-7U-Hne" secondAttribute="trailing" id="neJ-d8-1Nt"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Qqr-7U-Hne"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="dYD-r7-ngz" appends="YES" id="o2x-XM-NjG"/>
-                        </connections>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="SMS" image="SMS" id="QPg-0a-Jsf"/>
-                    <size key="freeformSize" width="375" height="680"/>
-                    <connections>
-                        <outlet property="amountTextField" destination="Tx0-mE-0fO" id="vwW-tq-YLS"/>
-                        <outlet property="bottomTextView" destination="0vn-O2-xsr" id="YKd-Hs-eOR"/>
-                        <outlet property="cardNumberTextField" destination="fUQ-Ku-Jg4" id="sAE-KV-f5X"/>
-                        <outlet property="makeSMSButton" destination="tie-AQ-GjA" id="rIa-Ul-AK7"/>
-                        <outlet property="scrollView" destination="3g4-JM-qpY" id="FPc-GO-5eB"/>
-                        <outlet property="topTextView" destination="uvb-g9-KKf" id="gKl-s9-GTZ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7dL-Zd-eez" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="dYD-r7-ngz">
-                    <connections>
-                        <action selector="dismissKeyboard:" destination="dTI-Sd-RFH" id="xOp-67-Qsf"/>
-                    </connections>
-                </tapGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="2738" y="871"/>
+            <point key="canvasLocation" x="1825" y="921"/>
         </scene>
         <!--Calculator-->
         <scene sceneID="KZV-1h-bfr">
@@ -925,7 +803,7 @@ After replenishing the card account, the accrued funds must be activated by atta
                                                 <rect key="frame" x="16" y="624.33333333333337" width="343" height="36"/>
                                                 <color key="backgroundColor" red="0.83078686749999997" green="1" blue="0.76087536069999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="Top up the balance by SMS"/>
+                                                <state key="normal" title="Top up the card's balance"/>
                                                 <connections>
                                                     <action selector="topUpTheBalanceBySMS:" destination="zmn-Va-8Zh" eventType="touchUpInside" id="ECN-4c-xv0"/>
                                                 </connections>
@@ -1020,12 +898,11 @@ After replenishing the card account, the accrued funds must be activated by atta
                         <segue destination="jyV-Hv-kdm" kind="relationship" relationship="viewControllers" id="8nn-Ip-Ofg"/>
                         <segue destination="zmn-Va-8Zh" kind="relationship" relationship="viewControllers" id="NMf-Zj-prU"/>
                         <segue destination="VZm-hy-GYt" kind="relationship" relationship="viewControllers" id="xQc-ry-Lea"/>
-                        <segue destination="dTI-Sd-RFH" kind="relationship" relationship="viewControllers" id="gUW-Qy-2sQ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ncd-LO-E15" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1446" y="180"/>
+            <point key="canvasLocation" x="1057" y="179"/>
         </scene>
     </scenes>
     <resources>
@@ -1033,7 +910,6 @@ After replenishing the card account, the accrued funds must be activated by atta
         <image name="CalculatorSimple" width="23" height="23"/>
         <image name="Charts Dark" width="23" height="23"/>
         <image name="Commercial" width="166" height="166"/>
-        <image name="SMS" width="23" height="23"/>
         <image name="TrackerDark" width="23" height="23"/>
         <image name="Train" width="166" height="166"/>
     </resources>

@@ -53,9 +53,6 @@ class TripsTrackerViewController: UIViewController {
                 statisticsVC.statistics = self.card?.statistics
             } else if let calculatorVC = viewController as? CalculatorViewController {
                 calculatorVC.card = self.card
-            } else if let smsVC = viewController as? SMSViewController {
-                smsVC.card = self.card
-                smsVC.amount = 0
             }
         }
     }
@@ -179,17 +176,11 @@ class TripsTrackerViewController: UIViewController {
 extension TripsTrackerViewController: CardDelegate {
     
     func cardBalanceDidBecameLessThanTariff(_ card: Card) {
-        let alertController = UIAlertController(title: "Balance is less than tariff", message: "Would you like to top up the balance by SMS?", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Balance is less than tariff", message: "Would you like to top up the balance?", preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
         let confirmAction = UIAlertAction(title: "Yes", style: .default) { (action) in
-            for viewController in (self.tabBarController?.viewControllers)! {
-                if let smsVC = viewController as? SMSViewController {
-                    smsVC.amount = 0
-                    let index = self.tabBarController?.viewControllers?.index(of: smsVC)
-                    self.tabBarController?.selectedIndex = index!
-                }
-            }
+            UIApplication.shared.open(URL(string: Link.isppMetro)!)
         }
         
         alertController.addAction(cancelAction)
