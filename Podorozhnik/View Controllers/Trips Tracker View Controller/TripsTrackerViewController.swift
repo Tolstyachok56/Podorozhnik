@@ -51,8 +51,6 @@ class TripsTrackerViewController: UIViewController {
         for viewController in (tabBarController?.viewControllers)! {
             if let statisticsVC = viewController as? StatisticsTableViewController {
                 statisticsVC.statistics = self.card?.statistics
-            } else if let calculatorVC = viewController as? CalculatorViewController {
-                calculatorVC.card = self.card
             } else if let calculatorTVC = viewController as? CalculatorTableViewController {
                 calculatorTVC.card = self.card
             }
