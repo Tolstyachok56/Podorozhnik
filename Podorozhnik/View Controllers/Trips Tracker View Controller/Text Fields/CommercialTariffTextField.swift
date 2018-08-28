@@ -14,16 +14,6 @@ class CommercialTariffTextField: UITextField {
     
     var card: Card?
     
-    // MARK: -
-    
-    private let numberFormatter: NumberFormatter = {
-        let nf = NumberFormatter()
-        nf.minimumIntegerDigits = 1
-        nf.minimumFractionDigits = 2
-        nf.maximumFractionDigits = 2
-        return nf
-    }()
-    
     // MARK: - Methods
     
     func setup(card: Card) {
@@ -33,7 +23,7 @@ class CommercialTariffTextField: UITextField {
     }
     
     func update() {
-        self.text = numberFormatter.string(from: getTariff() as NSNumber)
+        self.text = getTariff().priceFormat()
     }
     
     // MARK: - Helper methods

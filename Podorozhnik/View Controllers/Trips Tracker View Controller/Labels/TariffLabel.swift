@@ -15,16 +15,6 @@ class TariffLabel: UILabel {
     var card: Card?
     var transport: Transport?
     
-    // MARK: -
-    
-    private let numberFormatter: NumberFormatter = {
-        let nf = NumberFormatter()
-        nf.minimumIntegerDigits = 1
-        nf.minimumFractionDigits = 2
-        nf.maximumFractionDigits = 2
-        return nf
-    }()
-    
     // MARK: - Methods
     
     func setup(card: Card, transport: Transport) {
@@ -45,7 +35,7 @@ class TariffLabel: UILabel {
         }
         
         let tariff = transport!.getTariff(numberOfTrip: numberOfTrip)!
-        self.text = "next: " + numberFormatter.string(from: tariff as NSNumber)!
+        self.text = "next: " + tariff.priceFormat()!
     }
 
 }

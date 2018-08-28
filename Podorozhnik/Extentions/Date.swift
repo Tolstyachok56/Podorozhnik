@@ -43,4 +43,10 @@ extension Date {
         return Calendar(identifier: .gregorian).component(.weekday, from: startOfDay())
     }
     
+    func mediumFormat() -> String {
+        let df = DateFormatter()
+        df.dateStyle = .medium
+        return df.string(from: self)
+    }
+    
 }

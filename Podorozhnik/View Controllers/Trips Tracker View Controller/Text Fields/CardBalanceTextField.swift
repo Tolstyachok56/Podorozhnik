@@ -14,16 +14,6 @@ class CardBalanceTextField: UITextField {
     
     var card: Card?
     
-    // MARK: -
-    
-    private let numberFormatter: NumberFormatter = {
-        let nf = NumberFormatter()
-        nf.minimumIntegerDigits = 1
-        nf.minimumFractionDigits = 2
-        nf.maximumFractionDigits = 2
-        return nf
-    }()
-    
     // MARK: - Methods
     
     func setup(card: Card) {
@@ -35,7 +25,7 @@ class CardBalanceTextField: UITextField {
     
     func update() {
         if let balance = card?.balance {
-            self.text = numberFormatter.string(from: balance as NSNumber)
+            self.text = balance.priceFormat()
         } else {
             self.text = "\(0.00)"
         }

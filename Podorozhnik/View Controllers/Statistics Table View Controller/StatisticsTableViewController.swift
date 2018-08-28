@@ -14,16 +14,6 @@ class StatisticsTableViewController: UITableViewController {
     
     var statistics: [MonthStatistics]?
     
-    // MARK: -
-    
-    private let numberFormatter: NumberFormatter = {
-        let nf = NumberFormatter()
-        nf.minimumIntegerDigits = 1
-        nf.minimumFractionDigits = 2
-        nf.maximumFractionDigits = 2
-        return nf
-    }()
-    
     // MARK: - View life cycle
     
     override func viewDidLoad() {
@@ -83,12 +73,12 @@ class StatisticsTableViewController: UITableViewController {
             }
             
             if trips != 0 {
-                averageTariff = numberFormatter.string(from: (cost / Double(trips)) as NSNumber)!
+                averageTariff = (cost / Double(trips)).priceFormat()!
             }
             
             cell.tripsLabel.text = "\(trips)"
             cell.averageTariffLabel.text = averageTariff
-            cell.costLabel.text = numberFormatter.string(from: cost as NSNumber)
+            cell.costLabel.text = cost.priceFormat()
             
             return cell
             
@@ -99,7 +89,7 @@ class StatisticsTableViewController: UITableViewController {
             let monthStatistic = statistics![section]
             let totalAmount = monthStatistic.costByMetro + monthStatistic.costByGround + monthStatistic.costByCommercial
             
-            cell.totalAmountLabel.text = numberFormatter.string(from: totalAmount as NSNumber)
+            cell.totalAmountLabel.text = totalAmount.priceFormat()
             
             return cell
         }

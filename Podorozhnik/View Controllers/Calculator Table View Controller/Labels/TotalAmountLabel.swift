@@ -1,26 +1,18 @@
 //
-//  DateIntervalLabel.swift
+//  TotalAmountLabel.swift
 //  Podorozhnik
 //
-//  Created by Виктория Бадисова on 22.08.2018.
+//  Created by Виктория Бадисова on 08.08.2018.
 //  Copyright © 2018 Виктория Бадисова. All rights reserved.
 //
 
 import UIKit
 
-class DateIntervalLabel: UILabel {
-
+class TotalAmountLabel: UILabel {
+    
     // MARK: - Properties
-    
+
     var calculator: Calculator?
-    
-    // MARK: -
-    
-    private let dateFormatter: DateFormatter = {
-        let df = DateFormatter()
-        df.dateStyle = .medium
-        return df
-    }()
     
     // MARK: - Methods
     
@@ -31,12 +23,10 @@ class DateIntervalLabel: UILabel {
     }
     
     @objc func update() {
-        if let days = calculator?.calculatingDays, days > 0{
-            let firstDate = dateFormatter.string(from: Date().add(days: 1))
-            let lastDate = dateFormatter.string(from: Date().add(days: days))
-            self.text = "\(firstDate) - \(lastDate)"
+        if let amount = calculator?.getTotalAmount() {
+            self.text = amount.priceFormat()
         } else {
-            self.text = "-"
+            self.text = "0.00"
         }
     }
     

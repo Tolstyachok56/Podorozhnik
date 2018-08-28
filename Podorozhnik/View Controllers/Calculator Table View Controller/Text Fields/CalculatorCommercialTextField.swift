@@ -14,16 +14,6 @@ class CalculatorCommercialTextField: UITextField {
 
     var calculator: Calculator?
     
-    // MARK: -
-    
-    private let numberFormatter: NumberFormatter = {
-        let nf = NumberFormatter()
-        nf.minimumIntegerDigits = 1
-        nf.minimumFractionDigits = 2
-        nf.maximumFractionDigits = 2
-        return nf
-    }()
-    
     // MARK: - Methods
     
     func setup(calculator: Calculator) {
@@ -35,7 +25,7 @@ class CalculatorCommercialTextField: UITextField {
     
     func update() {
         if let amount = calculator?.commercialAmount {
-            self.text = numberFormatter.string(from: amount as NSNumber)
+            self.text = amount.priceFormat()
         } else {
             self.text = "0.00"
         }
