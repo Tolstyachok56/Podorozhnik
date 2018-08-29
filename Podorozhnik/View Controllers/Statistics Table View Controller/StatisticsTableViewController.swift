@@ -50,7 +50,7 @@ class StatisticsTableViewController: UITableViewController {
             
             var trips: Int = 0
             var cost: Double = 0
-            var averageTariff: String = Double(0).priceFormat()
+            var averageTariff: String = Double(0).priceFormat()!
             
             switch indexPath.row {
             case 0:
