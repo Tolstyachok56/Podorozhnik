@@ -19,6 +19,10 @@ class CommercialTariffTextField: UITextField {
     func setup(card: Card) {
         self.delegate = self
         self.card = card
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = 5
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.black.cgColor
         update()
     }
     

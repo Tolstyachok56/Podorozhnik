@@ -25,7 +25,8 @@ class CalculatorTableViewController: UITableViewController {
     @IBOutlet weak var commercialAmountTextField: CalculatorCommercialTextField!
     
     @IBOutlet weak var totalAmountLabel: TotalAmountLabel!
-
+    @IBOutlet weak var missingAmountLabel: MissingAmountLabel!
+    
     // MARK: -
     
     var calculator: Calculator?
@@ -68,6 +69,7 @@ class CalculatorTableViewController: UITableViewController {
         commercialAmountTextField.setup(calculator: calculator!)
         
         totalAmountLabel.setup(calculator: calculator!)
+        missingAmountLabel.setup(calculator: calculator!)
     }
     
     private func updateView() {
@@ -83,6 +85,7 @@ class CalculatorTableViewController: UITableViewController {
         commercialAmountTextField.update()
         
         totalAmountLabel.update()
+        missingAmountLabel.update()
     }
     
     // MARK: - Actions
@@ -93,10 +96,6 @@ class CalculatorTableViewController: UITableViewController {
     
     @IBAction func chooseEndDate(_ sender: UIButton) {
         showDatePickerAlert(.end)
-    }
-    
-    @IBAction func topUpTheBalance(_ sender: UIButton) {
-        UIApplication.shared.open(URL(string: Link.isppMetro)!)
     }
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
@@ -113,7 +112,9 @@ class CalculatorTableViewController: UITableViewController {
     // MARK: - Methods
     
     private func showDatePickerAlert(_ dateIntervalEdge: DateIntervalEdge) {
-        let alertController = UIAlertController(title: "Choose date", message: nil, preferredStyle: .actionSheet)
+        
+        
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         
         let contentViewController = UIViewController()
@@ -128,7 +129,9 @@ class CalculatorTableViewController: UITableViewController {
         alertController.setValue(contentViewController, forKey: "contentViewController")
         
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+        
+        let actionTitle = dateIntervalEdge == .start ? "Set start date" : "Set end date"
+        alertController.addAction(UIAlertAction(title: actionTitle, style: .default, handler: { (action) in
             let newDate = Calendar.current.startOfDay(for: datePicker.date)
             
             switch dateIntervalEdge {
@@ -175,10 +178,10 @@ class CalculatorTableViewController: UITableViewController {
             return (safeAreaHeight * 0.2 - headerHeight - footerHeight) / 2
         case 1,2:
             return safeAreaHeight * 0.2 - headerHeight - footerHeight
-        case 3,4:
+        case 3:
             return safeAreaHeight * 0.15 - headerHeight - footerHeight
-        case 5:
-            return safeAreaHeight * 0.1 - headerHeight - footerHeight
+        case 4:
+            return (safeAreaHeight * 0.2 - headerHeight - footerHeight) / 2
         default:
             return super.tableView(tableView, heightForRowAt: indexPath)
         }

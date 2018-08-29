@@ -34,6 +34,7 @@
 		0494013F2134152B002FC706 /* CalculatorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0494013E2134152B002FC706 /* CalculatorTableViewController.swift */; };
 		0494014621345DE9002FC706 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0494014521345DE9002FC706 /* Double.swift */; };
 		0494014821346286002FC706 /* DateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0494014721346286002FC706 /* DateButton.swift */; };
+		04BAD5D72136D63E0094FCCC /* MissingAmountLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BAD5D62136D63E0094FCCC /* MissingAmountLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		0494013E2134152B002FC706 /* CalculatorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTableViewController.swift; sourceTree = "<group>"; };
 		0494014521345DE9002FC706 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		0494014721346286002FC706 /* DateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateButton.swift; sourceTree = "<group>"; };
+		04BAD5D62136D63E0094FCCC /* MissingAmountLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissingAmountLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				043010DC211AE96800ECA72B /* TotalAmountLabel.swift */,
+				04BAD5D62136D63E0094FCCC /* MissingAmountLabel.swift */,
 			);
 			path = Labels;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 			files = (
 				0462373A2118AE11008AD497 /* UIViewController.swift in Sources */,
 				042679462119B16C008BF17E /* Date.swift in Sources */,
+				04BAD5D72136D63E0094FCCC /* MissingAmountLabel.swift in Sources */,
 				04223ED82125BEB700FFECC9 /* Transport.swift in Sources */,
 				04623732211844CB008AD497 /* CardBalanceTextField.swift in Sources */,
 				043010E4211CE31D00ECA72B /* CommercialTariffTextField.swift in Sources */,

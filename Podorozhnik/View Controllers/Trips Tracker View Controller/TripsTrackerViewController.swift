@@ -176,17 +176,7 @@ class TripsTrackerViewController: UIViewController {
 extension TripsTrackerViewController: CardDelegate {
     
     func cardBalanceDidBecameLessThanTariff(_ card: Card) {
-        let alertController = UIAlertController(title: "Balance is less than tariff", message: "Would you like to top up the balance?", preferredStyle: .alert)
-        
-        let cancelAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
-        let confirmAction = UIAlertAction(title: "Yes", style: .default) { (action) in
-            UIApplication.shared.open(URL(string: Link.isppMetro)!)
-        }
-        
-        alertController.addAction(cancelAction)
-        alertController.addAction(confirmAction)
-        
-        present(alertController, animated: true, completion: nil)
+        showSimpleAlert(title: "Balance is running low", message: "Card's balance is less than tariff. You need to top up the balance.")
     }
     
 }

@@ -42,8 +42,4 @@ enum MessageSettings {
     static let recipient: String = "7878"
 }
 
-enum Link {
-        static let isppMetro = "http://ispp.spbmetropoliten.ru/"
-}
-
 
