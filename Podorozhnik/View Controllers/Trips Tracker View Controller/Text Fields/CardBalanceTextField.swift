@@ -31,7 +31,7 @@ class CardBalanceTextField: UITextField {
         if let balance = card?.balance {
             self.text = balance.priceFormat()
         } else {
-            self.text = "\(0.00)"
+            self.text = Double(0).priceFormat()
         }
     }
     

@@ -27,7 +27,7 @@ class CalculatorCommercialTextField: UITextField {
         if let amount = calculator?.commercialAmount {
             self.text = amount.priceFormat()
         } else {
-            self.text = "0.00"
+            self.text = Double(0).priceFormat()
         }
     }
     

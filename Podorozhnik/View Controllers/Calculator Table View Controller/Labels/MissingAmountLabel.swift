@@ -31,7 +31,7 @@ class MissingAmountLabel: UILabel {
             self.text = (amount - cardBalance).priceFormat()
         } else {
             self.textColor = UIColor.black
-            self.text = "0.00"
+            self.text = Double(0).priceFormat()
         }
     }
     

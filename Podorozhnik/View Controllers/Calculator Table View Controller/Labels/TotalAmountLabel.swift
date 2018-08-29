@@ -26,7 +26,7 @@ class TotalAmountLabel: UILabel {
         if let amount = calculator?.getTotalAmount() {
             self.text = amount.priceFormat()
         } else {
-            self.text = "0.00"
+            self.text = Double(0).priceFormat()
         }
     }
     
