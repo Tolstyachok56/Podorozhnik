@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0415DFC1228ED735003C2A0A /* Cards.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0415DFC0228ED735003C2A0A /* Cards.plist */; };
+		0415DFC3228ED9F1003C2A0A /* PublicTransportFares.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0415DFC2228ED9F1003C2A0A /* PublicTransportFares.plist */; };
+		0415DFC8228EF074003C2A0A /* PublicTransportFaresController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415DFC7228EF074003C2A0A /* PublicTransportFaresController.swift */; };
+		0415DFCB228EF0CD003C2A0A /* TransportCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415DFCA228EF0CD003C2A0A /* TransportCard.swift */; };
+		0415DFCD228EF0DF003C2A0A /* TransportCardsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415DFCC228EF0DF003C2A0A /* TransportCardsController.swift */; };
+		0415DFCF228EF11E003C2A0A /* TransportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415DFCE228EF11E003C2A0A /* TransportType.swift */; };
+		0415DFD1228EF138003C2A0A /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415DFD0228EF138003C2A0A /* Trip.swift */; };
+		0415DFD3228EF162003C2A0A /* PublicTransportFare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415DFD2228EF162003C2A0A /* PublicTransportFare.swift */; };
+		0415DFD6228EF344003C2A0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415DFD5228EF344003C2A0A /* ViewController.swift */; };
 		04223ED82125BEB700FFECC9 /* Transport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04223ED72125BEB700FFECC9 /* Transport.swift */; };
 		04223EDA21271E2800FFECC9 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04223ED921271E2800FFECC9 /* String+Extensions.swift */; };
 		042679442119A771008BF17E /* MonthStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042679432119A771008BF17E /* MonthStatistics.swift */; };
@@ -38,6 +47,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0415DFC0228ED735003C2A0A /* Cards.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Cards.plist; sourceTree = "<group>"; };
+		0415DFC2228ED9F1003C2A0A /* PublicTransportFares.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PublicTransportFares.plist; sourceTree = "<group>"; };
+		0415DFC7228EF074003C2A0A /* PublicTransportFaresController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicTransportFaresController.swift; sourceTree = "<group>"; };
+		0415DFCA228EF0CD003C2A0A /* TransportCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportCard.swift; sourceTree = "<group>"; };
+		0415DFCC228EF0DF003C2A0A /* TransportCardsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportCardsController.swift; sourceTree = "<group>"; };
+		0415DFCE228EF11E003C2A0A /* TransportType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportType.swift; sourceTree = "<group>"; };
+		0415DFD0228EF138003C2A0A /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		0415DFD2228EF162003C2A0A /* PublicTransportFare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicTransportFare.swift; sourceTree = "<group>"; };
+		0415DFD5228EF344003C2A0A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		04223ED72125BEB700FFECC9 /* Transport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transport.swift; sourceTree = "<group>"; };
 		04223ED921271E2800FFECC9 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		042679432119A771008BF17E /* MonthStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthStatistics.swift; sourceTree = "<group>"; };
@@ -81,6 +99,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0415DFC4228EF03F003C2A0A /* New Structure */ = {
+			isa = PBXGroup;
+			children = (
+				0415DFD4228EF31F003C2A0A /* View Controllers */,
+				0415DFC6228EF058003C2A0A /* Model Controllers */,
+				0415DFC5228EF052003C2A0A /* Model */,
+			);
+			path = "New Structure";
+			sourceTree = "<group>";
+		};
+		0415DFC5228EF052003C2A0A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0415DFD2228EF162003C2A0A /* PublicTransportFare.swift */,
+				0415DFCA228EF0CD003C2A0A /* TransportCard.swift */,
+				0415DFCE228EF11E003C2A0A /* TransportType.swift */,
+				0415DFD0228EF138003C2A0A /* Trip.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0415DFC6228EF058003C2A0A /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0415DFC7228EF074003C2A0A /* PublicTransportFaresController.swift */,
+				0415DFCC228EF0DF003C2A0A /* TransportCardsController.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		0415DFD4228EF31F003C2A0A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0415DFD5228EF344003C2A0A /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
 		042679492119D7DF008BF17E /* Labels */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +213,8 @@
 			children = (
 				0451FBD021130C29001346C4 /* Assets.xcassets */,
 				0451FBDD21130C66001346C4 /* Storyboards */,
+				0415DFC0228ED735003C2A0A /* Cards.plist */,
+				0415DFC2228ED9F1003C2A0A /* PublicTransportFares.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -215,6 +273,7 @@
 		04738DB622785ABE005A0523 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				0415DFC4228EF03F003C2A0A /* New Structure */,
 				0451FBC921130C27001346C4 /* AppDelegate.swift */,
 				04738DB822785B34005A0523 /* Utility */,
 				046237222114796D008AD497 /* Model */,
@@ -328,8 +387,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0451FBD421130C29001346C4 /* LaunchScreen.storyboard in Resources */,
+				0415DFC1228ED735003C2A0A /* Cards.plist in Resources */,
 				0451FBD121130C29001346C4 /* Assets.xcassets in Resources */,
 				0451FBCF21130C28001346C4 /* Main.storyboard in Resources */,
+				0415DFC3228ED9F1003C2A0A /* PublicTransportFares.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +403,8 @@
 			files = (
 				0462373A2118AE11008AD497 /* UIViewController+Extensions.swift in Sources */,
 				042679462119B16C008BF17E /* Date+Extensions.swift in Sources */,
+				0415DFC8228EF074003C2A0A /* PublicTransportFaresController.swift in Sources */,
+				0415DFCF228EF11E003C2A0A /* TransportType.swift in Sources */,
 				04BAD5D72136D63E0094FCCC /* MissingAmountLabel.swift in Sources */,
 				04223ED82125BEB700FFECC9 /* Transport.swift in Sources */,
 				04623732211844CB008AD497 /* CardBalanceTextField.swift in Sources */,
@@ -352,18 +415,23 @@
 				0494013F2134152B002FC706 /* CalculatorTableViewController.swift in Sources */,
 				0479A65A2119FC8200766A38 /* TariffLabel.swift in Sources */,
 				042679442119A771008BF17E /* MonthStatistics.swift in Sources */,
+				0415DFD6228EF344003C2A0A /* ViewController.swift in Sources */,
 				043010DD211AE96800ECA72B /* TotalAmountLabel.swift in Sources */,
 				04223EDA21271E2800FFECC9 /* String+Extensions.swift in Sources */,
 				0462373421184540008AD497 /* TripsTextField.swift in Sources */,
 				043010D6211ADB3C00ECA72B /* CalculatorTripsTextField.swift in Sources */,
 				0451FBE1211314F3001346C4 /* TripsTrackerViewController.swift in Sources */,
+				0415DFD1228EF138003C2A0A /* Trip.swift in Sources */,
 				0462372A2118409F008AD497 /* Defaults.swift in Sources */,
 				0494014821346286002FC706 /* DateButton.swift in Sources */,
 				0426794B2119EA74008BF17E /* StatisticsTableViewController.swift in Sources */,
 				0451FBCA21130C27001346C4 /* AppDelegate.swift in Sources */,
 				043010E2211C897800ECA72B /* TotalAmountTableViewCell.swift in Sources */,
+				0415DFCD228EF0DF003C2A0A /* TransportCardsController.swift in Sources */,
 				04940119213403FD002FC706 /* Calculator.swift in Sources */,
+				0415DFCB228EF0CD003C2A0A /* TransportCard.swift in Sources */,
 				043010E0211B432A00ECA72B /* StatisticsTableViewCell.swift in Sources */,
+				0415DFD3228EF162003C2A0A /* PublicTransportFare.swift in Sources */,
 				046237282114A204008AD497 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

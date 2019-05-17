@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jdD-b6-9Lz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g7k-GB-1qV">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,19 +25,19 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="685"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBK-QP-CmB" userLabel="Top View">
-                                                <rect key="frame" x="16" y="0.0" width="343" height="155.66666666666666"/>
+                                                <rect key="frame" x="16" y="0.0" width="343" height="155.33333333333334"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FCp-lL-4lE" userLabel="Top Stack View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="155.66666666666666"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="155.33333333333334"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="balance" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NPr-eO-djZ" customClass="CardBalanceTextField" customModule="Podorozhnik" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="40" width="295" height="76"/>
+                                                                <rect key="frame" x="0.0" y="39.666666666666671" width="295" height="76"/>
                                                                 <color key="textColor" red="0.1501838358" green="0.57057027279999994" blue="0.35528497980000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
                                                             </textField>
                                                             <button opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ST7-vw-d2P">
-                                                                <rect key="frame" x="303" y="58" width="40" height="40"/>
+                                                                <rect key="frame" x="303" y="57.666666666666671" width="40" height="40"/>
                                                                 <color key="backgroundColor" red="0.1501838358" green="0.57057027279999994" blue="0.35528497980000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="40" id="3a0-sK-hUV"/>
@@ -74,16 +72,16 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="jDu-l0-iJU" userLabel="Metro Bus Stack View">
-                                                <rect key="frame" x="16" y="171.66666666666666" width="343" height="334.66666666666674"/>
+                                                <rect key="frame" x="16" y="171.33333333333334" width="343" height="334.33333333333326"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N3h-2s-HcN" userLabel="Metro View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="334.66666666666669"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="334.33333333333331"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="Train" translatesAutoresizingMaskIntoConstraints="NO" id="oHl-yh-nbN">
                                                                 <rect key="frame" x="0.0" y="8" width="163.66666666666666" height="133.66666666666666"/>
                                                             </imageView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pIH-E5-ZNK">
-                                                                <rect key="frame" x="0.0" y="149.66666666666666" width="163.66666666666666" height="176.99999999999997"/>
+                                                                <rect key="frame" x="0.0" y="149.66666666666669" width="163.66666666666666" height="176.66666666666669"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4F-i8-WCa" customClass="TariffLabel" customModule="Podorozhnik" customModuleProvider="target">
                                                                         <rect key="frame" x="55.666666666666671" y="0.0" width="52.333333333333329" height="53.666666666666664"/>
@@ -97,10 +95,10 @@
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NJ9-e3-nEo">
-                                                                        <rect key="frame" x="8" y="123.33333333333339" width="147.66666666666666" height="53.666666666666671"/>
+                                                                        <rect key="frame" x="8" y="123.3333333333333" width="147.66666666666666" height="53.333333333333329"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDi-Wu-31f">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="68.666666666666671" height="53.666666666666664"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="68.666666666666671" height="53.333333333333336"/>
                                                                                 <color key="backgroundColor" red="0.1501838358" green="0.57057027279999994" blue="0.35528497980000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="5YK-6p-ObL"/>
@@ -119,7 +117,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvz-yo-4Ty">
-                                                                                <rect key="frame" x="78.666666666666671" y="0.0" width="69.000000000000014" height="53.666666666666664"/>
+                                                                                <rect key="frame" x="78.666666666666671" y="0.0" width="69.000000000000014" height="53.333333333333336"/>
                                                                                 <color key="backgroundColor" red="0.1501838358" green="0.57057027279999994" blue="0.35528497980000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="n6k-pE-ZMg"/>
@@ -168,13 +166,13 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VNI-mb-nHF" userLabel="Ground View">
-                                                        <rect key="frame" x="179.66666666666663" y="0.0" width="163.33333333333337" height="334.66666666666669"/>
+                                                        <rect key="frame" x="179.66666666666663" y="0.0" width="163.33333333333337" height="334.33333333333331"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="Bus" translatesAutoresizingMaskIntoConstraints="NO" id="aiR-ZT-8JK">
                                                                 <rect key="frame" x="0.0" y="8" width="163.33333333333334" height="133.66666666666666"/>
                                                             </imageView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UsF-3f-08p">
-                                                                <rect key="frame" x="0.0" y="149.66666666666666" width="163.33333333333334" height="176.99999999999997"/>
+                                                                <rect key="frame" x="0.0" y="149.66666666666669" width="163.33333333333334" height="176.66666666666669"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJw-pb-slT" customClass="TariffLabel" customModule="Podorozhnik" customModuleProvider="target">
                                                                         <rect key="frame" x="55.333333333333343" y="0.0" width="52.333333333333343" height="53.666666666666664"/>
@@ -188,10 +186,10 @@
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MtN-NG-5Pr">
-                                                                        <rect key="frame" x="8" y="123.33333333333339" width="147.33333333333334" height="53.666666666666671"/>
+                                                                        <rect key="frame" x="8" y="123.3333333333333" width="147.33333333333334" height="53.333333333333329"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHR-fu-EbC">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="68.666666666666671" height="53.666666666666664"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="68.666666666666671" height="53.333333333333336"/>
                                                                                 <color key="backgroundColor" red="0.1501838358" green="0.57057027279999994" blue="0.35528497980000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="8Op-8G-qh8"/>
@@ -210,7 +208,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qg0-lm-LtO">
-                                                                                <rect key="frame" x="78.666666666666657" y="0.0" width="68.666666666666657" height="53.666666666666664"/>
+                                                                                <rect key="frame" x="78.666666666666657" y="0.0" width="68.666666666666657" height="53.333333333333336"/>
                                                                                 <color key="backgroundColor" red="0.1501838358" green="0.57057027279999994" blue="0.35528497980000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="FfC-6r-IaT"/>
@@ -261,28 +259,28 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KoJ-AJ-aGo" userLabel="Commercial View">
-                                                <rect key="frame" x="16" y="522.33333333333337" width="343" height="146.66666666666663"/>
+                                                <rect key="frame" x="16" y="521.66666666666663" width="343" height="147.33333333333337"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="Commercial" translatesAutoresizingMaskIntoConstraints="NO" id="Yqk-81-FEj">
-                                                        <rect key="frame" x="2" y="0.0" width="147" height="146.66666666666666"/>
+                                                        <rect key="frame" x="2" y="0.0" width="147.33333333333334" height="147.33333333333334"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Yqk-81-FEj" secondAttribute="height" multiplier="1:1" id="MB6-IN-Jie"/>
                                                         </constraints>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vtq-w2-rR1">
-                                                        <rect key="frame" x="157" y="8" width="177.66666666666663" height="130.66666666666666"/>
+                                                        <rect key="frame" x="157.33333333333337" y="8" width="177.66666666666663" height="131.33333333333334"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PGK-9x-cYC">
-                                                                <rect key="frame" x="0.0" y="0.0" width="177.66666666666666" height="51.333333333333336"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="177.66666666666666" height="51.666666666666664"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="next:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZmI-1h-Q2n">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="67.666666666666671" height="51.333333333333336"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="67.666666666666671" height="51.666666666666664"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="tariff" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2yr-Mb-fOQ" customClass="CommercialTariffTextField" customModule="Podorozhnik" customModuleProvider="target">
-                                                                        <rect key="frame" x="75.666666666666657" y="10" width="102" height="31"/>
+                                                                        <rect key="frame" x="75.666666666666657" y="10.333333333333371" width="102" height="31"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="102" id="uSe-Dd-OiL"/>
                                                                         </constraints>
@@ -297,10 +295,10 @@
                                                                 </constraints>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Jxa-fs-kae">
-                                                                <rect key="frame" x="0.0" y="59.33333333333325" width="177.66666666666666" height="71.333333333333314"/>
+                                                                <rect key="frame" x="0.0" y="59.66666666666675" width="177.66666666666666" height="71.666666666666686"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oox-f1-Ar9">
-                                                                        <rect key="frame" x="0.0" y="15.666666666666742" width="51.333333333333336" height="40"/>
+                                                                        <rect key="frame" x="0.0" y="15.666666666666629" width="51.666666666666664" height="40"/>
                                                                         <color key="backgroundColor" red="0.1501838358" green="0.57057027279999994" blue="0.35528497980000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="SN4-1N-Ua4"/>
@@ -320,7 +318,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qGt-wG-T9H" customClass="TripsTextField" customModule="Podorozhnik" customModuleProvider="target">
-                                                                        <rect key="frame" x="59.333333333333343" y="17.666666666666742" width="58" height="36"/>
+                                                                        <rect key="frame" x="59.666666666666657" y="17.666666666666629" width="58" height="36"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="58" id="NrO-kC-9s0"/>
                                                                         </constraints>
@@ -328,7 +326,7 @@
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbv-s4-6mh">
-                                                                        <rect key="frame" x="125.3333333333333" y="15.666666666666742" width="52.333333333333329" height="40"/>
+                                                                        <rect key="frame" x="125.66666666666666" y="15.666666666666629" width="52" height="40"/>
                                                                         <color key="backgroundColor" red="0.1501838358" green="0.57057027279999994" blue="0.35528497980000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="Mp0-UZ-nxg"/>
@@ -538,7 +536,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Puz-1T-ONa">
-                                            <rect key="frame" x="16" y="8" width="343" height="44.666666666666664"/>
+                                            <rect key="frame" x="16" y="8" width="343" height="45"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -675,7 +673,7 @@
                                                                     <rect key="frame" x="0.0" y="32" width="375" height="43"/>
                                                                     <subviews>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Train" translatesAutoresizingMaskIntoConstraints="NO" id="ehF-uJ-gbA">
-                                                                            <rect key="frame" x="16" y="-0.3333333333333357" width="45" height="45"/>
+                                                                            <rect key="frame" x="16" y="-1" width="45" height="45"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="45" id="B8W-fy-wSr"/>
                                                                                 <constraint firstAttribute="height" constant="45" id="UIa-Dp-DRs"/>
@@ -688,14 +686,14 @@
                                                                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
                                                                         </textField>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bus" translatesAutoresizingMaskIntoConstraints="NO" id="VMP-gF-IXK">
-                                                                            <rect key="frame" x="195.66666666666666" y="-0.3333333333333357" width="45" height="45"/>
+                                                                            <rect key="frame" x="195.66666666666666" y="-1" width="45" height="45"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="45" id="1fl-vl-PVI"/>
                                                                                 <constraint firstAttribute="width" constant="45" id="nHa-x2-wMs"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ground" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wjj-1Y-iW3" customClass="CalculatorTripsTextField" customModule="Podorozhnik" customModuleProvider="target">
-                                                                            <rect key="frame" x="248.66666666666663" y="6.6666666666666643" width="110" height="30"/>
+                                                                            <rect key="frame" x="248.66666666666666" y="6.6666666666666643" width="110.33333333333334" height="30"/>
                                                                             <nil key="textColor"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
@@ -763,27 +761,27 @@
                                                                     <rect key="frame" x="0.0" y="32" width="375" height="43"/>
                                                                     <subviews>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Train" translatesAutoresizingMaskIntoConstraints="NO" id="etM-im-VdY">
-                                                                            <rect key="frame" x="16" y="-0.6666666666666643" width="45" height="45"/>
+                                                                            <rect key="frame" x="16" y="-1" width="45" height="45"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="45" id="KS5-GE-4pT"/>
                                                                                 <constraint firstAttribute="height" constant="45" id="nfd-cx-rom"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="metro" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7gF-p5-Hw4" customClass="CalculatorTripsTextField" customModule="Podorozhnik" customModuleProvider="target">
-                                                                            <rect key="frame" x="69" y="7.3333333333333357" width="110.66666666666669" height="30"/>
+                                                                            <rect key="frame" x="69" y="6.6666666666666643" width="110.66666666666669" height="30"/>
                                                                             <nil key="textColor"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
                                                                         </textField>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bus" translatesAutoresizingMaskIntoConstraints="NO" id="UPS-5T-hqd">
-                                                                            <rect key="frame" x="195.66666666666666" y="-0.6666666666666643" width="45" height="45"/>
+                                                                            <rect key="frame" x="195.66666666666666" y="-1" width="45" height="45"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="45" id="obJ-5G-xrz"/>
                                                                                 <constraint firstAttribute="height" constant="45" id="sHO-HZ-uS5"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ground" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j3O-21-q97" customClass="CalculatorTripsTextField" customModule="Podorozhnik" customModuleProvider="target">
-                                                                            <rect key="frame" x="248.66666666666666" y="7.3333333333333357" width="110.33333333333334" height="30"/>
+                                                                            <rect key="frame" x="248.66666666666666" y="6.6666666666666643" width="110.33333333333334" height="30"/>
                                                                             <nil key="textColor"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
@@ -851,7 +849,7 @@
                                                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
                                                         </textField>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Commercial" translatesAutoresizingMaskIntoConstraints="NO" id="h5e-OF-z7H">
-                                                            <rect key="frame" x="16" y="8" width="45" height="45"/>
+                                                            <rect key="frame" x="16" y="7.6666666666666679" width="45" height="45"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="45" id="Clt-ht-GPt"/>
                                                                 <constraint firstAttribute="height" constant="45" id="FzQ-cA-bDF"/>
@@ -891,13 +889,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeY-Gd-SKd">
-                                                    <rect key="frame" x="16.000000000000004" y="6.6666666666666661" width="55.333333333333343" height="31.333333333333336"/>
+                                                    <rect key="frame" x="16.000000000000004" y="6.3333333333333339" width="55.333333333333343" height="31.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Wi-Fl-Z7d" customClass="TotalAmountLabel" customModule="Podorozhnik" customModuleProvider="target">
-                                                    <rect key="frame" x="295.66666666666669" y="6.9999999999999982" width="63.333333333333314" height="31.333333333333329"/>
+                                                    <rect key="frame" x="295.66666666666669" y="6.3333333333333339" width="63.333333333333314" height="31.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -993,13 +991,43 @@
             </objects>
             <point key="canvasLocation" x="1057" y="178"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="a3E-be-J11">
+            <objects>
+                <viewController id="g7k-GB-1qV" customClass="ViewController" customModule="Podorozhnik" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mQr-9i-UG2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0a-XH-dLx">
+                                <rect key="frame" x="166.66666666666666" y="395.66666666666669" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="X0a-XH-dLx" firstAttribute="centerY" secondItem="mQr-9i-UG2" secondAttribute="centerY" id="KvL-f7-nBL"/>
+                            <constraint firstItem="X0a-XH-dLx" firstAttribute="centerX" secondItem="mQr-9i-UG2" secondAttribute="centerX" id="nAu-zr-Dm5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YzH-nj-71a"/>
+                    </view>
+                    <connections>
+                        <outlet property="cardNumberLabel" destination="X0a-XH-dLx" id="52y-0b-mrA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aLW-Cm-8ib" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2582" y="-447"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="Bus" width="166" height="166"/>
+        <image name="Bus" width="166.66667175292969" height="166.66667175292969"/>
         <image name="CalculatorSimple" width="23" height="23"/>
         <image name="Charts Dark" width="23" height="23"/>
-        <image name="Commercial" width="166" height="166"/>
+        <image name="Commercial" width="166.66667175292969" height="166.66667175292969"/>
         <image name="TrackerDark" width="23" height="23"/>
-        <image name="Train" width="166" height="166"/>
+        <image name="Train" width="166.66667175292969" height="166.66667175292969"/>
     </resources>
 </document>

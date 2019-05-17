@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>code</key>
+		<string>1234</string>
+		<key>balance</key>
+		<integer>500</integer>
+		<key>trips</key>
+		<array>
+			<dict>
+				<key>transportType</key>
+				<string>metro</string>
+				<key>numberOfTrip</key>
+				<integer>1</integer>
+				<key>fare</key>
+				<integer>35</integer>
+				<key>month</key>
+				<date>2019-04-30T21:00:00Z</date>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>
