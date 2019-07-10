@@ -1,13 +1,13 @@
 //
-//  PublicTransportFare.swift
+//  PublicTransportFares.swift
 //  Podorozhnik
 //
 //  Created by Виктория Бадисова on 17/05/2019.
 //  Copyright © 2019 Виктория Бадисова. All rights reserved.
 //
 
-struct PublicTransportFare {
-    let transportTypeString: String
+struct PublicTransportFares {
+    let transportType: TransportType
     let fareForTripsFrom1To10: Double
     let fareForTripsFrom11To20: Double
     let fareForTripsFrom21To30: Double
@@ -15,19 +15,9 @@ struct PublicTransportFare {
     let fareForTripsFrom41: Double
 }
 
-extension PublicTransportFare {
-    var transportType: TransportType {
-        if self.transportTypeString == "metro" {
-            return TransportType.metro
-        } else {
-            return TransportType.ground
-        }
-    }
-}
-
-extension PublicTransportFare: Codable {
-    enum CodingKeys: String, CodingKey {
-        case transportTypeString = "transportType"
+extension PublicTransportFares: Codable {
+    private enum CodingKeys: String, CodingKey {
+        case transportType
         case fareForTripsFrom1To10
         case fareForTripsFrom11To20
         case fareForTripsFrom21To30

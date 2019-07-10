@@ -10,13 +10,19 @@ import UIKit
 
 class CalculatorTripsTextField: UITextField {
     
+    // MARK: - Enums
+    enum DayOfWeek {
+        case weekday
+        case restday
+    }
+    
     // MARK: - Properties
-    var calculator: Calculator?
+    var calculator: CalculatorOld?
     var transport: Transport?
     var dayOfWeek: DayOfWeek?
     
     // MARK: - Methods
-    func setup(calculator: Calculator, transport: Transport, dayOfWeek: DayOfWeek) {
+    func setup(calculator: CalculatorOld, transport: Transport, dayOfWeek: DayOfWeek) {
         self.delegate = self
         self.calculator = calculator
         self.transport = transport
@@ -57,7 +63,7 @@ class CalculatorTripsTextField: UITextField {
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
                                        selector: #selector(updateCalculatorTrips),
-                                       name: NSNotification.Name.UITextFieldTextDidChange,
+                                       name: UITextField.textDidChangeNotification,
                                        object: nil)
     }
     
@@ -112,9 +118,9 @@ extension CalculatorTripsTextField: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if let tripsTextField = textField as? CalculatorTripsTextField {
-            tripsTextField.update()
-        }
+//        if let tripsTextField = textField as? CalculatorTripsTextField {
+//            tripsTextField.update()
+//        }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -128,3 +134,5 @@ extension CalculatorTripsTextField: UITextFieldDelegate {
     }
     
 }
+
+

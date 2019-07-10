@@ -1,71 +1,61 @@
 //
-//  CalculatorCommercialTextField.swift
+//  CurrencyTextFieldDelegate.swift
 //  Podorozhnik
 //
-//  Created by Виктория Бадисова on 08.08.2018.
-//  Copyright © 2018 Виктория Бадисова. All rights reserved.
+//  Created by Виктория Бадисова on 17/05/2019.
+//  Copyright © 2019 Виктория Бадисова. All rights reserved.
 //
 
 import UIKit
 
-class CalculatorCommercialTextField: UITextField {
-    
-    // MARK: - Properties
-    var calculator: CalculatorOld?
-    
-    // MARK: - Methods
-    func setup(calculator: CalculatorOld) {
-        self.delegate = self
-        self.calculator = calculator
-        self.setupNotificationHandling()
-        self.update()
-    }
-    
-    func update() {
-        if let amount = self.calculator?.commercialAmount {
-            self.text = amount.priceFormat()
-        } else {
-            self.text = Double(0).priceFormat()
-        }
-    }
-    
-    // MARK: - Notiification handling
-    private func setupNotificationHandling() {
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self,
-                                       selector: #selector(updateCalculatorCommercialAmount),
-                                       name: UITextField.textDidChangeNotification,
-                                       object: nil)
-    }
-    
-    @objc private func updateCalculatorCommercialAmount() {
-        if let commercialAmountText = self.text, !commercialAmountText.isEmpty {
-            self.calculator?.commercialAmount = commercialAmountText.double!
-        } else {
-            self.calculator?.commercialAmount = 0.0
-        }
-    }
-
+protocol TransportCardBalanceDelegate: class {
+    func transportCardBalanceTextField(_ textField: UITextField, cardBalanceDidEndEditing newBalance: Double)
+}
+protocol CalculatorCommercialAmountDelegate: class {
+    func calculatorCommercialAmountTextField(_ textField: UITextField, commercialAmountDidEndEditing newAmount: Double)
 }
 
-// MARK: - UITextFieldDelegate
-extension CalculatorCommercialTextField: UITextFieldDelegate {
+class CurrencyTextFieldDelegate: NSObject {
+    weak var transportCardBalanceDelegate: TransportCardBalanceDelegate?
+    weak var calculatorCommercialAmountDelegate: CalculatorCommercialAmountDelegate?
+    
+    enum Tag: Int {
+        case defaultTag = 0
+        case transportCardBalance, calculatorCommercialAmount
+    }
+}
+
+extension CurrencyTextFieldDelegate: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if let text = textField.text,
+            let currencyText = text.rublesFormatting {
+            textField.text = currencyText
+        }
+        return true
+    }
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        DispatchQueue.main.async {
-            textField.selectAll(nil)
-        }
+        textField.selectAll(nil)
     }
-    
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if let cardBalanceTextField = textField as? CalculatorCommercialTextField {
-            cardBalanceTextField.update()
+        guard let text = textField.text else { return }
+        
+        if textField.tag == Tag.transportCardBalance.rawValue,
+            let balance = Double(text) {
+            self.transportCardBalanceDelegate?.transportCardBalanceTextField(textField, cardBalanceDidEndEditing: balance)
+        }
+        
+        if textField.tag == Tag.calculatorCommercialAmount.rawValue,
+            let amount = Double(text) {
+            self.calculatorCommercialAmountDelegate?.calculatorCommercialAmountTextField(textField, commercialAmountDidEndEditing: amount)
+        }
+        
+        if let currencyText = text.rublesGroupedFormatting {
+            textField.text = currencyText
         }
     }
-    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
         let decimalSeparator = Locale.current.decimalSeparator ?? "."
-        
+    
         // check for decimal digits
         let allowedCharacters = CharacterSet(charactersIn: "1234567890\(decimalSeparator)")
         let characterSet = CharacterSet(charactersIn: string)
@@ -104,5 +94,4 @@ extension CalculatorCommercialTextField: UITextFieldDelegate {
             return !hasMoreThanOneDecimalSeparator && numberOfDecimalDigits <= 2
         }
     }
-    
 }

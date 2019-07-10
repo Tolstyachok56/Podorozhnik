@@ -1,5 +1,5 @@
 //
-//  Calculator.swift
+//  CalculatorOld.swift
 //  Podorozhnik
 //
 //  Created by Виктория Бадисова on 27.08.2018.
@@ -8,12 +8,7 @@
 
 import Foundation
 
-enum DayOfWeek {
-    case weekday
-    case restday
-}
-
-class Calculator {
+class CalculatorOld {
     
     // MARK: - Properties
     var startDate: Date = Date()
@@ -28,16 +23,13 @@ class Calculator {
     var commercialAmount: Double = 0.0
     
     var calculatingDays: Int {
-        let start = self.startDate.startOfDay()
-        let end = self.endDate.startOfDay()
-        
-        return Calendar.current.dateComponents([.day], from: start, to: end).day! + 1
+        return Calendar.current.dateComponents([.day], from: self.startDate.startOfDay, to: self.endDate.startOfDay).day! + 1
     }
     var card: Card?
     
     // MARK: - Initializing
     init() {
-        self.endDate = Date().endOfMonth()
+        self.endDate = Date().endOfMonth
     }
     
     // MARK: - Methods
@@ -45,16 +37,11 @@ class Calculator {
         return self.getAmount(transport: .metro) + self.getAmount(transport: .ground) + self.commercialAmount
     }
     
-    func getRoundedTotalAmount() -> Int {
-        let roundedTotalAmount = Double(Int(self.getTotalAmount())) < self.getTotalAmount() ? Int(self.getTotalAmount()) + 1 : Int(self.getTotalAmount())
-        return roundedTotalAmount
-    }
-    
     private func getAmount(transport: Transport) -> Double {
         var amount: Double = 0
         
         let today = Date()
-        var startOfNextMonth = today.startOfNextMonth()
+        var startOfNextMonth = today.startOfNextMonth
         
         var currentNumberOfTrips: Int
         let tripsAtWeekday: Int
@@ -76,7 +63,7 @@ class Calculator {
         if self.calculatingDays > 0 {
             for numberOfDay in 1...self.calculatingDays {
                 let day = self.startDate.add(days: numberOfDay - 1)
-                let dayOfWeek = day.dayOfWeek()
+                let dayOfWeek = day.dayOfWeek
                 let trips: Int
                 
                 switch dayOfWeek {
@@ -91,7 +78,7 @@ class Calculator {
                 if trips > 0 {
                     if day >= startOfNextMonth {
                         currentNumberOfTrips = 0
-                        startOfNextMonth = startOfNextMonth.startOfNextMonth()
+                        startOfNextMonth = startOfNextMonth.startOfNextMonth
                     }
                     
                     for _ in 1...trips {

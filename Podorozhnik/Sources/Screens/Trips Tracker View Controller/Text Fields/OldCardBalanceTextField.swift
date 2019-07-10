@@ -1,5 +1,5 @@
 //
-//  CardBalanceTextField.swift
+//  OldCardBalanceTextField.swift
 //  Podorozhnik
 //
 //  Created by Виктория Бадисова on 06.08.2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CardBalanceTextField: UITextField {
+class OldCardBalanceTextField: UITextField {
     
     // MARK: - Properties
     var card: Card?
@@ -38,13 +38,13 @@ class CardBalanceTextField: UITextField {
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
                                        selector: #selector(updateCardBalance),
-                                       name: NSNotification.Name.UITextFieldTextDidChange,
+                                       name: UITextField.textDidChangeNotification,
                                        object: nil)
     }
     
     @objc private func updateCardBalance() {
         if let balanceText = self.text, !balanceText.isEmpty {
-            self.card?.balance = balanceText.double()!
+            self.card?.balance = balanceText.double!
         } else {
             self.card?.balance = 0.0
         }
@@ -53,7 +53,7 @@ class CardBalanceTextField: UITextField {
 }
 
 // MARK: - UITextFieldDelegate
-extension CardBalanceTextField: UITextFieldDelegate {
+extension OldCardBalanceTextField: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         DispatchQueue.main.async {
             textField.selectAll(nil)
@@ -61,7 +61,7 @@ extension CardBalanceTextField: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if let cardBalanceTextField = textField as? CardBalanceTextField {
+        if let cardBalanceTextField = textField as? OldCardBalanceTextField {
             cardBalanceTextField.update()
         }
     }
@@ -99,7 +99,7 @@ extension CardBalanceTextField: UITextFieldDelegate {
             
             let newText = oldText.replacingCharacters(in: r, with: string)
             
-            if let decimalSeparatorIndex = newText.index(of: Character(decimalSeparator)){
+            if let decimalSeparatorIndex = newText.firstIndex(of: Character(decimalSeparator)){
                 numberOfDecimalDigits = newText.distance(from: decimalSeparatorIndex, to: newText.endIndex) - 1
             } else {
                 numberOfDecimalDigits = 0

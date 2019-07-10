@@ -11,10 +11,10 @@ import UIKit
 class TotalAmountLabel: UILabel {
     
     // MARK: - Properties
-    var calculator: Calculator?
+    var calculator: CalculatorOld?
     
     // MARK: - Methods
-    func setup(calculator: Calculator) {
+    func setup(calculator: CalculatorOld) {
         self.calculator = calculator
         self.setupNotificationHandling()
         self.update()
@@ -33,7 +33,7 @@ class TotalAmountLabel: UILabel {
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
                                        selector: #selector(update),
-                                       name: NSNotification.Name.UITextFieldTextDidChange,
+                                       name: UITextField.textDidChangeNotification,
                                        object: nil)
     }
 

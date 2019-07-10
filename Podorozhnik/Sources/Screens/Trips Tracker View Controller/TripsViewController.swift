@@ -9,12 +9,12 @@
 import UIKit
 import MessageUI
 
-class TripsTrackerViewController: UIViewController {
+class TripsViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var scrollView: UIScrollView!
     
-    @IBOutlet weak var cardBalanceTextField: CardBalanceTextField!
+    @IBOutlet weak var cardBalanceTextField: OldCardBalanceTextField!
 
     @IBOutlet weak var tripsByMetroTextField: TripsTextField!
     @IBOutlet weak var metroTariffLabel: TariffLabel!
@@ -72,7 +72,7 @@ class TripsTrackerViewController: UIViewController {
         for viewController in (tabBarController?.viewControllers)! {
             if let statisticsVC = viewController as? StatisticsTableViewController {
                 statisticsVC.statistics = self.card?.statistics
-            } else if let calculatorTVC = viewController as? CalculatorTableViewController {
+            } else if let calculatorTVC = viewController as? OldCalculatorTableViewController {
                 calculatorTVC.card = self.card
             }
         }
@@ -95,7 +95,7 @@ class TripsTrackerViewController: UIViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (action) in
             if let amountText = alertController.textFields?.first?.text,
-                let amount = amountText.double() {
+                let amount = amountText.double {
                 self.card?.topUpTheBalance(amount: amount)
                 self.cardBalanceTextField.update()
             }
@@ -140,11 +140,11 @@ class TripsTrackerViewController: UIViewController {
     
     // MARK: - Notification Methods
     private func registerForKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide(_:)), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide(_:)), name: UIResponder.keyboardDidHideNotification, object: nil)
     }
     @objc private func keyboardDidShow(_ notification: Notification) {
-        if let keyboardSize = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? CGRect, let tabBarHeight = tabBarController?.tabBar.frame.height {
+        if let keyboardSize = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect, let tabBarHeight = tabBarController?.tabBar.frame.height {
             let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height - tabBarHeight + 10, right: 0)
             self.scrollView.contentInset = contentInsets
             self.scrollView.scrollIndicatorInsets = contentInsets
@@ -159,7 +159,7 @@ class TripsTrackerViewController: UIViewController {
 }
 
 // MARK: - CardDelegate
-extension TripsTrackerViewController: CardDelegate {
+extension TripsViewController: CardDelegate {
     
     func cardBalanceDidBecameLessThanTariff(_ card: Card) {
         self.showSimpleAlert(title: "Balance is running low", message: "Card's balance is less than tariff. You need to top up the balance.")

@@ -32,7 +32,7 @@ class CommercialTariffTextField: UITextField {
     func getTariff() -> Double {
         var commercialTariff: Double = 0.00
         if let commercialTariffText = self.text, !commercialTariffText.isEmpty {
-            commercialTariff = commercialTariffText.double()!
+            commercialTariff = commercialTariffText.double!
         }
         return commercialTariff
     }
@@ -86,7 +86,7 @@ extension CommercialTariffTextField: UITextFieldDelegate {
             
             let newText = oldText.replacingCharacters(in: r, with: string)
             
-            if let decimalSeparatorIndex = newText.index(of: Character(decimalSeparator)){
+            if let decimalSeparatorIndex = newText.firstIndex(of: Character(decimalSeparator)){
                 numberOfDecimalDigits = newText.distance(from: decimalSeparatorIndex, to: newText.endIndex) - 1
             } else {
                 numberOfDecimalDigits = 0

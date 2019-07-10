@@ -16,11 +16,11 @@ enum DateIntervalEdge {
 class DateButton: UIButton {
     
     // MARK: - Properties
-    var calculator: Calculator?
+    var calculator: CalculatorOld?
     var dateIntervalEdge: DateIntervalEdge?
     
     // MARK: - Methods
-    func setup(calculator: Calculator, dateIntervalEdge: DateIntervalEdge) {
+    func setup(calculator: CalculatorOld, dateIntervalEdge: DateIntervalEdge) {
         self.calculator = calculator
         self.dateIntervalEdge = dateIntervalEdge
         self.update()
@@ -29,9 +29,9 @@ class DateButton: UIButton {
     func update() {
         switch dateIntervalEdge {
         case .start?:
-            self.setTitle(self.calculator?.startDate.mediumFormat(), for: .normal)
+            self.setTitle(self.calculator?.startDate.mediumFormatting, for: .normal)
         case .end?:
-            self.setTitle(self.calculator?.endDate.mediumFormat(), for: .normal)
+            self.setTitle(self.calculator?.endDate.mediumFormatting, for: .normal)
         default:
             fatalError("Unexpected date interval edge")
         }

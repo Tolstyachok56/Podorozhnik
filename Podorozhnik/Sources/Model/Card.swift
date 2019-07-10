@@ -45,7 +45,7 @@ class Card {
     
     // MARK: - Methods
     func getCurrentMonthStatistics() -> MonthStatistics {
-        let currentMonth = Date().currentMonthString()
+        let currentMonth = Date().monthFormatting
         let monthStatistics = self.statistics.filter { $0.month == currentMonth }
         if monthStatistics.isEmpty {
             let newMonthStatistics = MonthStatistics(month: currentMonth)

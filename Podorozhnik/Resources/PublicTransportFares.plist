@@ -4,7 +4,10 @@
 <array>
 	<dict>
 		<key>transportType</key>
-		<string>metro</string>
+		<dict>
+			<key>rawValue</key>
+			<string>metro</string>
+		</dict>
 		<key>fareForTripsFrom1To10</key>
 		<integer>36</integer>
 		<key>fareForTripsFrom11To20</key>
@@ -18,7 +21,10 @@
 	</dict>
 	<dict>
 		<key>transportType</key>
-		<string>ground</string>
+		<dict>
+			<key>rawValue</key>
+			<string>ground</string>
+		</dict>
 		<key>fareForTripsFrom1To10</key>
 		<integer>31</integer>
 		<key>fareForTripsFrom11To20</key>

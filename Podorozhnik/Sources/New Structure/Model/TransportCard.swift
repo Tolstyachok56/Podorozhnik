@@ -15,9 +15,29 @@ struct TransportCard {
 }
 
 extension TransportCard: Codable {
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case code
         case balance
         case trips
+    }
+}
+
+extension TransportCard {
+    var numberOfTripsByMetro: Int {
+        return self.getNumberOfTrips(by: .metro)
+    }
+    var numberOfTripsByGround: Int {
+        return self.getNumberOfTrips(by: .ground)
+    }
+    var numberOfTripsByCommercial: Int {
+        return self.getNumberOfTrips(by: .commercial)
+    }
+    
+    private func getNumberOfTrips(by transportType: TransportType, at date: Date = Date()) -> Int {
+        return self.trips.filter {
+            $0.transportType == transportType &&
+            $0.date >= date.startOfMonth.startOfDay &&
+            $0.date < date.startOfNextMonth.startOfDay }
+            .count
     }
 }

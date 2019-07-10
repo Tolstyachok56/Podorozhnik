@@ -1,5 +1,5 @@
 //
-//  CalculatorTableViewController.swift
+//  OldCalculatorTableViewController.swift
 //  Podorozhnik
 //
 //  Created by Виктория Бадисова on 27.08.2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CalculatorTableViewController: UITableViewController {
+class OldCalculatorTableViewController: UITableViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var startDateButton: DateButton!
@@ -26,14 +26,14 @@ class CalculatorTableViewController: UITableViewController {
     @IBOutlet weak var missingAmountLabel: MissingAmountLabel!
     
     // MARK: - Properties
-    var calculator: Calculator?
+    var calculator: CalculatorOld?
     var card: Card?
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.calculator = Calculator()
+        self.calculator = CalculatorOld()
         self.calculator?.card = card
         
         self.setupView()
@@ -119,7 +119,7 @@ class CalculatorTableViewController: UITableViewController {
         
         let actionTitle = dateIntervalEdge == .start ? "Set start date" : "Set end date"
         alertController.addAction(UIAlertAction(title: actionTitle, style: .default, handler: { (action) in
-            let newDate = datePicker.date.startOfDay()
+            let newDate = datePicker.date.startOfDay
             
             switch dateIntervalEdge {
             case .start:

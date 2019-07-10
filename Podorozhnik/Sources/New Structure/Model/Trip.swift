@@ -9,29 +9,17 @@
 import Foundation
 
 struct Trip {
-    let transportTypeString: String
+    let transportType: TransportType
     let numberOfTrip: Int?
     let fare: Double
-    let month: Date
-}
-
-extension Trip {
-    var transportType: TransportType {
-        if self.transportTypeString == "metro" {
-            return TransportType.metro
-        } else if self.transportTypeString == "ground"{
-            return TransportType.ground
-        } else {
-            return TransportType.commercial
-        }
-    }
+    let date: Date
 }
 
 extension Trip: Codable {
-    enum CodingKeys: String, CodingKey {
-        case transportTypeString = "transportType"
+    private enum CodingKeys: String, CodingKey {
+        case transportType
         case numberOfTrip
         case fare
-        case month
+        case date
     }
 }

@@ -6,20 +6,9 @@
 		<key>code</key>
 		<string>1234</string>
 		<key>balance</key>
-		<integer>500</integer>
+		<integer>0</integer>
 		<key>trips</key>
-		<array>
-			<dict>
-				<key>transportType</key>
-				<string>metro</string>
-				<key>numberOfTrip</key>
-				<integer>1</integer>
-				<key>fare</key>
-				<integer>35</integer>
-				<key>month</key>
-				<date>2019-04-30T21:00:00Z</date>
-			</dict>
-		</array>
+		<array/>
 	</dict>
 </array>
 </plist>

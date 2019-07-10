@@ -1,5 +1,5 @@
 //
-//  TransportCardsController.swift
+//  TransportCardsStateController.swift
 //  Podorozhnik
 //
 //  Created by Виктория Бадисова on 17/05/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TransportCardsController {
+class TransportCardsStateController {
     
     private(set) var transportCards: [TransportCard] = []
     
@@ -56,7 +56,8 @@ class TransportCardsController {
         self.save()
     }
     
-    func setBalance(_ balance: Double, forTransportCard card: TransportCard) {
+    func setBalance(_ balance: Double, forTransportCard card: inout TransportCard) {
+        card.balance = balance
         for (index, transportCard) in self.transportCards.enumerated() {
             if transportCard.code == card.code {
                 self.transportCards[index].balance = balance
@@ -66,12 +67,42 @@ class TransportCardsController {
         }
     }
     
-    func addTrip(_ trip: Trip, forTransportCard card: TransportCard) {
-        for (index, transportCard) in self.transportCards.enumerated() {
-            if transportCard.code == card.code {
-                self.transportCards[index].trips.append(trip)
-                self.save()
-                break
+    func addTrip(_ trip: Trip, forTransportCard card: inout TransportCard) {
+        if card.balance >= trip.fare {
+            card.trips.append(trip)
+            card.balance -= trip.fare
+            for (index, transportCard) in self.transportCards.enumerated() {
+                if transportCard.code == card.code {
+                    self.transportCards[index].trips.append(trip)
+                    self.transportCards[index].balance -= trip.fare
+                    self.save()
+                    break
+                }
+            }
+        }
+    }
+    
+    func reduceTrip(by transportType: TransportType, fromTransportCard card: inout TransportCard) {
+        func reduceLastTrip(by transportType: TransportType, fromTransportCard card: inout TransportCard) -> Bool {
+            guard let index = card.trips.lastIndex(where: { $0.transportType == transportType }) else { return false }
+            let tripMonth = card.trips[index].date.monthFormatting
+            let currentMonth = Date().monthFormatting
+            if tripMonth == currentMonth {
+                let fare = card.trips[index].fare
+                card.trips.remove(at: index)
+                card.balance += fare
+                return true
+            } else {
+                return false
+            }
+        }
+        if reduceLastTrip(by: transportType, fromTransportCard: &card) {
+            for (index, transportCard) in self.transportCards.enumerated() {
+                if transportCard.code == card.code,
+                    reduceLastTrip(by: transportType, fromTransportCard: &self.transportCards[index]) {
+                    self.save()
+                    break
+                }
             }
         }
     }
