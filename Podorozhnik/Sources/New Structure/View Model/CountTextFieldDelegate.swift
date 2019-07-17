@@ -24,7 +24,6 @@ extension CountTextFieldDelegate: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        // TODO: - Обновить значения в калькуляторе, методы делегата
         guard let text = textField.text else { return }
         if let numberOfTrips = Int(text) {
             self.calculatorPublicTripsDelegate?.calculatorPublicTripsTextField(textField, numberOfTripsDidEndEditing: numberOfTrips)

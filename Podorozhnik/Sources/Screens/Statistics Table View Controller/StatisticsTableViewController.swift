@@ -40,7 +40,7 @@ class StatisticsTableViewController: UITableViewController {
         let section = indexPath.section
         
         if indexPath.row != 3 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: StatisticsTableViewCell.reuseIdentifier, for: indexPath) as? StatisticsTableViewCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: OldStatisticsTableViewCell.reuseIdentifier, for: indexPath) as? OldStatisticsTableViewCell else {
                 fatalError("Unexpected Index Path")
             }
             

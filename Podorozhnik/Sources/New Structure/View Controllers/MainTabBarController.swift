@@ -38,6 +38,8 @@ class MainTabBarController: UITabBarController {
             } else if let calculatorViewController = viewController as? CalculatorViewController {
                 calculatorViewController.transportCardsController = self.transportCardsController
                 calculatorViewController.publicTransportFaresController = self.publicTransportFaresController
+            } else if let statisticsViewController = viewController as? StatisticsViewController {
+                statisticsViewController.transportCardsController = self.transportCardsController
             }
         }
     }

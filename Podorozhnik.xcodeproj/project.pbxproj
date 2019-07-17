@@ -28,9 +28,12 @@
 		043010D6211ADB3C00ECA72B /* CalculatorTripsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010D5211ADB3C00ECA72B /* CalculatorTripsTextField.swift */; };
 		043010DA211AE7DF00ECA72B /* CalculatorCommercialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010D9211AE7DF00ECA72B /* CalculatorCommercialTextField.swift */; };
 		043010DD211AE96800ECA72B /* TotalAmountLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010DC211AE96800ECA72B /* TotalAmountLabel.swift */; };
-		043010E0211B432A00ECA72B /* StatisticsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010DF211B432A00ECA72B /* StatisticsTableViewCell.swift */; };
+		043010E0211B432A00ECA72B /* OldStatisticsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010DF211B432A00ECA72B /* OldStatisticsTableViewCell.swift */; };
 		043010E2211C897800ECA72B /* TotalAmountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010E1211C897800ECA72B /* TotalAmountTableViewCell.swift */; };
 		043010E4211CE31D00ECA72B /* CommercialTariffTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043010E3211CE31D00ECA72B /* CommercialTariffTextField.swift */; };
+		043CD82822D76A4E00C17D22 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043CD82722D76A4E00C17D22 /* StatisticsViewController.swift */; };
+		043CD82B22D7700E00C17D22 /* StatisticsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043CD82A22D7700E00C17D22 /* StatisticsTableViewCell.swift */; };
+		043CD82D22D77CED00C17D22 /* StatisticsTotalAmountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043CD82C22D77CED00C17D22 /* StatisticsTotalAmountTableViewCell.swift */; };
 		044531892292E6DA00866D59 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044531882292E6DA00866D59 /* Double+Extensions.swift */; };
 		0445318D229454F900866D59 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445318C229454F900866D59 /* MainTabBarController.swift */; };
 		0445318F2294565A00866D59 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445318E2294565A00866D59 /* String+Extensions.swift */; };
@@ -80,9 +83,12 @@
 		043010D5211ADB3C00ECA72B /* CalculatorTripsTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTripsTextField.swift; sourceTree = "<group>"; };
 		043010D9211AE7DF00ECA72B /* CalculatorCommercialTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorCommercialTextField.swift; sourceTree = "<group>"; };
 		043010DC211AE96800ECA72B /* TotalAmountLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalAmountLabel.swift; sourceTree = "<group>"; };
-		043010DF211B432A00ECA72B /* StatisticsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsTableViewCell.swift; sourceTree = "<group>"; };
+		043010DF211B432A00ECA72B /* OldStatisticsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldStatisticsTableViewCell.swift; sourceTree = "<group>"; };
 		043010E1211C897800ECA72B /* TotalAmountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalAmountTableViewCell.swift; sourceTree = "<group>"; };
 		043010E3211CE31D00ECA72B /* CommercialTariffTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommercialTariffTextField.swift; sourceTree = "<group>"; };
+		043CD82722D76A4E00C17D22 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		043CD82A22D7700E00C17D22 /* StatisticsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsTableViewCell.swift; sourceTree = "<group>"; };
+		043CD82C22D77CED00C17D22 /* StatisticsTotalAmountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsTotalAmountTableViewCell.swift; sourceTree = "<group>"; };
 		044531882292E6DA00866D59 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		0445318C229454F900866D59 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		0445318E2294565A00866D59 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -165,6 +171,7 @@
 				0445318C229454F900866D59 /* MainTabBarController.swift */,
 				0415DFD5228EF344003C2A0A /* TripsTrackerViewController.swift */,
 				047D3B5F22D33DD9007F5997 /* CalculatorViewController.swift */,
+				043CD82722D76A4E00C17D22 /* StatisticsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -174,6 +181,7 @@
 			children = (
 				0415DFDB228F062B003C2A0A /* TripsTrackerView.swift */,
 				047D3B6522D348B4007F5997 /* Calculator Table View Cells */,
+				043CD82922D76FC900C17D22 /* Statistics Table View Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -206,10 +214,19 @@
 		043010DE211B42E600ECA72B /* Table View Cells */ = {
 			isa = PBXGroup;
 			children = (
-				043010DF211B432A00ECA72B /* StatisticsTableViewCell.swift */,
+				043010DF211B432A00ECA72B /* OldStatisticsTableViewCell.swift */,
 				043010E1211C897800ECA72B /* TotalAmountTableViewCell.swift */,
 			);
 			path = "Table View Cells";
+			sourceTree = "<group>";
+		};
+		043CD82922D76FC900C17D22 /* Statistics Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				043CD82A22D7700E00C17D22 /* StatisticsTableViewCell.swift */,
+				043CD82C22D77CED00C17D22 /* StatisticsTotalAmountTableViewCell.swift */,
+			);
+			path = "Statistics Table View Cells";
 			sourceTree = "<group>";
 		};
 		0445318A2292E72700866D59 /* Extensions */ = {
@@ -492,7 +509,9 @@
 				0415DFC8228EF074003C2A0A /* PublicTransportFaresStateController.swift in Sources */,
 				0415DFCF228EF11E003C2A0A /* TransportType.swift in Sources */,
 				04BAD5D72136D63E0094FCCC /* MissingAmountLabel.swift in Sources */,
+				043CD82822D76A4E00C17D22 /* StatisticsViewController.swift in Sources */,
 				04223ED82125BEB700FFECC9 /* Transport.swift in Sources */,
+				043CD82D22D77CED00C17D22 /* StatisticsTotalAmountTableViewCell.swift in Sources */,
 				0415DFDF228F1B74003C2A0A /* CurrencyTextFieldDelegate.swift in Sources */,
 				04623732211844CB008AD497 /* OldCardBalanceTextField.swift in Sources */,
 				0429C95822B8192B0083BBE2 /* CalculatorController.swift in Sources */,
@@ -525,9 +544,10 @@
 				0451FBCA21130C27001346C4 /* AppDelegate.swift in Sources */,
 				043010E2211C897800ECA72B /* TotalAmountTableViewCell.swift in Sources */,
 				0415DFCD228EF0DF003C2A0A /* TransportCardsStateController.swift in Sources */,
+				043CD82B22D7700E00C17D22 /* StatisticsTableViewCell.swift in Sources */,
 				04940119213403FD002FC706 /* CalculatorOld.swift in Sources */,
 				0415DFCB228EF0CD003C2A0A /* TransportCard.swift in Sources */,
-				043010E0211B432A00ECA72B /* StatisticsTableViewCell.swift in Sources */,
+				043010E0211B432A00ECA72B /* OldStatisticsTableViewCell.swift in Sources */,
 				0415DFD3228EF162003C2A0A /* PublicTransportFares.swift in Sources */,
 				046237282114A204008AD497 /* Constants.swift in Sources */,
 			);

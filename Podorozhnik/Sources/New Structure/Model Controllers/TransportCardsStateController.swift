@@ -106,4 +106,17 @@ class TransportCardsStateController {
             }
         }
     }
+    
+    func getStatistics(for transportCard: TransportCard) -> [String: [Trip]] {
+        var statistics = [String: [Trip]]()
+        for trip in transportCard.trips {
+            let month = trip.date.monthFormatting
+            if statistics[month] != nil {
+                statistics[month]?.append(trip)
+            } else {
+                statistics[month] = [trip]
+            }
+        }
+        return statistics
+    }
 }

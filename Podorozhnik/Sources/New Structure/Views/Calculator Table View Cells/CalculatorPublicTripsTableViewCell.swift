@@ -20,9 +20,8 @@ class CalculatorPublicTripsTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var metroTripsTextField: UITextField!
-    @IBOutlet private weak var groundTripsTextField: UITextField!
-    
+    @IBOutlet weak var metroTripsTextField: UITextField!
+    @IBOutlet weak var groundTripsTextField: UITextField!
     
     // MARK: - Properties
     weak var delegate: CalculatorPublicTripsTableViewCellDelegate?

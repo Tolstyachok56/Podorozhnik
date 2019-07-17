@@ -52,4 +52,14 @@ extension TransportType {
             return 2
         }
     }
+    var imageName: String {
+        switch self {
+        case .metro:
+            return "Train"
+        case .ground:
+            return "Bus"
+        case .commercial:
+            return "Commercial"
+        }
+    }
 }

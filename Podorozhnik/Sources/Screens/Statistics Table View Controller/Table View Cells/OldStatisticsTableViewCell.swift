@@ -1,5 +1,5 @@
 //
-//  StatisticsTableViewCell.swift
+//  OldStatisticsTableViewCell.swift
 //  Podorozhnik
 //
 //  Created by Виктория Бадисова on 08.08.2018.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class StatisticsTableViewCell: UITableViewCell {
+class OldStatisticsTableViewCell: UITableViewCell {
     
     // MARK: - Static properties
-    static let reuseIdentifier = "StatisticsTableViewCell"
+    static let reuseIdentifier = "OldStatisticsTableViewCell"
     
     // MARK: - Properties
     @IBOutlet weak var transportImageView: UIImageView!

@@ -23,6 +23,7 @@ class CalculatorAmountTableViewCell: UITableViewCell {
             guard let viewModel = self.viewModel else { return }
             self.totalAmountLabel.text = viewModel.totalAmount
             self.missingAmountLabel.text = viewModel.missingAmount
+            self.missingAmountLabel.textColor = viewModel.missingAmountColor
         }
     }
 }
@@ -31,12 +32,15 @@ extension CalculatorAmountTableViewCell {
     struct ViewModel {
         var totalAmount: String
         var missingAmount: String
+        var missingAmountColor: UIColor
     }
 }
 
 extension CalculatorAmountTableViewCell.ViewModel {
     init(_ calculatorController: CalculatorController) {
-        self.totalAmount = String(calculatorController.getTotalAmount())
-        self.missingAmount = String(calculatorController.getMissingAmount() ?? 0)
+        self.totalAmount = String(calculatorController.getTotalAmount()).rublesGroupedFormatting!
+        let missAmount = calculatorController.getMissingAmount() ?? 0
+        self.missingAmount = String(missAmount).rublesGroupedFormatting ?? "?"
+        self.missingAmountColor = (missAmount == 0) ? .black : .red
     }
 }

@@ -19,7 +19,7 @@ class CalculatorCommercialAmountTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var commercialAmountTextField: UITextField!
+    @IBOutlet weak var commercialAmountTextField: UITextField!
     
     // MARK: - Properties
     weak var delegate: CalculatorCommercialAmountTableViewCellDelegate?

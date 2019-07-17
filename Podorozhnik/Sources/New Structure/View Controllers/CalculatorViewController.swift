@@ -11,9 +11,8 @@ import UIKit
 class CalculatorViewController: UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet private weak var tableView: UITableView! {
+    @IBOutlet fileprivate weak var tableView: UITableView! {
         didSet {
-            self.tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 44))
             self.tableView.estimatedRowHeight = 44
             self.tableView.rowHeight = UITableView.automaticDimension
         }
@@ -41,6 +40,19 @@ class CalculatorViewController: UIViewController {
             self.calculatorController = CalculatorController(calculator: Calculator(), transportCard: transportCard, publicTransportFares: self.publicTransportFaresController)
         }
         self.tableView.reloadData()
+    }
+    
+    // MARK: - Actions
+    @IBAction func viewTapped(_ gesture: UITapGestureRecognizer) {
+        let cells = self.tableView.visibleCells
+        for cell in cells {
+            if let cell = cell as? CalculatorPublicTripsTableViewCell {
+                cell.metroTripsTextField.resignFirstResponder()
+                cell.groundTripsTextField.resignFirstResponder()
+            } else if let cell = cell as? CalculatorCommercialAmountTableViewCell {
+                cell.commercialAmountTextField.resignFirstResponder()
+            }
+        }
     }
 }
 
