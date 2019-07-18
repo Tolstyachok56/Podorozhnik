@@ -36,4 +36,8 @@ extension String {
     var double: Double? {
         return Double(self.replacingOccurrences(of: Locale.current.groupingSeparator ?? " ", with: ""))
     }
+    
+    var localized: String {
+        return NSLocalizedString(self, comment: "")
+    }
 }

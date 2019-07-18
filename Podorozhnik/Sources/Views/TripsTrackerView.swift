@@ -105,8 +105,8 @@ extension TripsTrackerView.ViewModel {
         self.tripsByGround = String(card.numberOfTripsByGround)
         self.tripsByCommercial = String(card.numberOfTripsByCommercial)
         
-        self.metroFare = "Fare: " + self.publicTransportFaresController.getMetroFare(numberOfTrip: card.numberOfTripsByMetro + 1).rublesGroupedFormatting
-        self.groundFare = "Fare: " + self.publicTransportFaresController.getMetroFare(numberOfTrip: card.numberOfTripsByGround + 1).rublesGroupedFormatting
+        self.metroFare = "Fare: ".localized + self.publicTransportFaresController.getMetroFare(numberOfTrip: card.numberOfTripsByMetro + 1).rublesGroupedFormatting
+        self.groundFare = "Fare: ".localized + self.publicTransportFaresController.getMetroFare(numberOfTrip: card.numberOfTripsByGround + 1).rublesGroupedFormatting
         self.commercialFare = 0.0.rublesGroupedFormatting
     }
 }

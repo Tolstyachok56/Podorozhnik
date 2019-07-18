@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0412CE6422E0C25900A96D67 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0412CE6622E0C25900A96D67 /* Localizable.strings */; };
 		0415DFC1228ED735003C2A0A /* Cards.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0415DFC0228ED735003C2A0A /* Cards.plist */; };
 		0415DFC3228ED9F1003C2A0A /* PublicTransportFares.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0415DFC2228ED9F1003C2A0A /* PublicTransportFares.plist */; };
 		0415DFC8228EF074003C2A0A /* PublicTransportFaresStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415DFC7228EF074003C2A0A /* PublicTransportFaresStateController.swift */; };
@@ -45,6 +46,9 @@
 		0412CE5822E0AB6E00A96D67 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		0412CE5922E0AB6F00A96D67 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		0412CE5B22E0ABD800A96D67 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		0412CE6522E0C25900A96D67 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0412CE6722E0C25D00A96D67 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0412CE7D22E0CD2900A96D67 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0415DFC0228ED735003C2A0A /* Cards.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Cards.plist; sourceTree = "<group>"; };
 		0415DFC2228ED9F1003C2A0A /* PublicTransportFares.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PublicTransportFares.plist; sourceTree = "<group>"; };
 		0415DFC7228EF074003C2A0A /* PublicTransportFaresStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicTransportFaresStateController.swift; sourceTree = "<group>"; };
@@ -71,7 +75,6 @@
 		0451FBCE21130C28001346C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0451FBD021130C29001346C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0451FBD321130C29001346C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		0451FBD521130C29001346C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		046237392118AE11008AD497 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		047D3B5F22D33DD9007F5997 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		047D3B6322D348AE007F5997 /* CalculatorDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorDateTableViewCell.swift; sourceTree = "<group>"; };
@@ -212,6 +215,7 @@
 				0451FBDD21130C66001346C4 /* Storyboards */,
 				0415DFC0228ED735003C2A0A /* Cards.plist */,
 				0415DFC2228ED9F1003C2A0A /* PublicTransportFares.plist */,
+				0412CE6622E0C25900A96D67 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -219,7 +223,7 @@
 		0451FBDF21130C94001346C4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0451FBD521130C29001346C4 /* Info.plist */,
+				0412CE7D22E0CD2900A96D67 /* Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -330,6 +334,7 @@
 			files = (
 				0451FBD421130C29001346C4 /* LaunchScreen.storyboard in Resources */,
 				0415DFC1228ED735003C2A0A /* Cards.plist in Resources */,
+				0412CE6422E0C25900A96D67 /* Localizable.strings in Resources */,
 				0451FBD121130C29001346C4 /* Assets.xcassets in Resources */,
 				0451FBCF21130C28001346C4 /* Main.storyboard in Resources */,
 				0415DFC3228ED9F1003C2A0A /* PublicTransportFares.plist in Resources */,
@@ -376,6 +381,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		0412CE6622E0C25900A96D67 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0412CE6522E0C25900A96D67 /* en */,
+				0412CE6722E0C25D00A96D67 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		0451FBCD21130C28001346C4 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

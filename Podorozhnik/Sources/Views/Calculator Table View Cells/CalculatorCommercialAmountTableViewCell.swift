@@ -51,8 +51,8 @@ extension CalculatorCommercialAmountTableViewCell {
 
 extension CalculatorCommercialAmountTableViewCell.ViewModel {
     init(calculator: Calculator) {
-        self.title = "Commercial"
-        self.commercialAmount = "\(calculator.commercialAmount)"
+        self.title = "Commercial".localized
+        self.commercialAmount = "\(calculator.commercialAmount)".rublesFormatting ?? "0.00"
     }
 }
 

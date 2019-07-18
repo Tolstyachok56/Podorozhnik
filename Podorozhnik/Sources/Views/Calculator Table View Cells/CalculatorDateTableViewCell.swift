@@ -37,9 +37,9 @@ class CalculatorDateTableViewCell: UITableViewCell {
             var title: String
             switch viewModel.dateType {
             case .start:
-                title = "Choose start date"
+                title = "Choose start date".localized
             case .end:
-                title = "Choose end date"
+                title = "Choose end date".localized
                 
             }
         
@@ -57,8 +57,8 @@ class CalculatorDateTableViewCell: UITableViewCell {
             contentViewController.view.addSubview(datePicker)
             alertController.setValue(contentViewController, forKey: "contentViewController")
             
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
+            let okAction = UIAlertAction(title: "OK".localized, style: .default) { (action) in
                 self.delegate?.calculatorDateTableViewCell(self, didPickDate: datePicker.date.startOfDay, dateType: viewModel.dateType)
             }
             
@@ -105,9 +105,9 @@ extension CalculatorDateTableViewCell.ViewModel.CalculatorDateType {
     var title: String {
         switch self {
         case .start:
-            return "Start Date"
+            return "Start Date".localized
         case .end:
-            return "End Date"
+            return "End Date".localized
         }
     }
 }

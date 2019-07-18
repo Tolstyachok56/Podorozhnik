@@ -86,9 +86,9 @@ extension CalculatorPublicTripsTableViewCell.ViewModel.WeekdayType {
     var title: String {
         switch self {
         case .weekday:
-            return "Trips at Weekdays"
+            return "Trips at Weekdays".localized
         case .restday:
-            return "Trips at Restdays"
+            return "Trips at Restdays".localized
         }
     }
 }

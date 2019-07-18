@@ -1,0 +1,29 @@
+/* 
+  Localizable.strings
+  Podorozhnik
+
+  Created by Виктория Бадисова on 18/07/2019.
+  Copyright © 2019 Виктория Бадисова. All rights reserved.
+*/
+
+// TripsTrackerViewController
+"Fare: " = "Тариф: ";
+"Enter amount" = "Введите сумму";
+"Amount" = "Сумма";
+"Cancel" = "Отмена";
+"Confirm" = "Подтвердить";
+"Oops!" = "Упс!";
+"Your card balance is less than fare. You need to top up the balance." = "Баланс карты меньше стоимости проезда. Необходимо пополнить баланс.";
+"OK" = "OK";
+
+// CalculatorViewController
+"Start Date" = "Начало периода";
+"End Date" = "Конец периода";
+"Trips at Weekdays" = "Поездки в будни";
+"Trips at Restdays" = "Поездки в выходные";
+"Commercial" = "Коммерческий";
+
+"Choose start date" = "Выберите начало периода";
+"Choose end date" = "Выберите конец периода";
+
+// StatisticsViewController

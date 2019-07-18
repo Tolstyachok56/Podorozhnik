@@ -61,10 +61,10 @@ class TripsTrackerViewController: UIViewController {
 
     // MARK: - Actions
     @IBAction private func topUpTheBalance(_ sender: UIButton) {
-        let alertController = UIAlertController(title: "Enter amount", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Enter amount".localized, message: nil, preferredStyle: .alert)
         
         alertController.addTextField { (textField) in
-            textField.placeholder = "Amount"
+            textField.placeholder = "Amount".localized
             textField.keyboardType = .decimalPad
             textField.textAlignment = .center
         }
@@ -72,8 +72,8 @@ class TripsTrackerViewController: UIViewController {
             textField.delegate = self
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (action) in
+        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
+        let confirmAction = UIAlertAction(title: "Confirm".localized, style: .default) { (action) in
             if self.transportCard != nil,
                 let amountText = alertController.textFields?.first?.text,
                 let amount = Double(amountText) {
@@ -96,7 +96,7 @@ class TripsTrackerViewController: UIViewController {
                 self.transportCardsController.addTrip(trip, forTransportCard: &self.transportCard!)
                 self.updateView()
             } else {
-                self.showSimpleAlert(title: "Oops!", message: "Your card balance is less than fare. You need to top up the balance.")
+                self.showSimpleAlert(title: "Oops!".localized, message: "Your card balance is less than fare. You need to top up the balance.".localized)
             }
         }
         
