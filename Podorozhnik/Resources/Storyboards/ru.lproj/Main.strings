@@ -1,0 +1,105 @@
+
+/* Class = "UILabel"; text = "Fare:"; ObjectID = "1oY-BF-KR3"; */
+"1oY-BF-KR3.text" = "Тариф:";
+
+/* Class = "UIButton"; normalTitle = "+"; ObjectID = "4Lq-Hx-dki"; */
+"4Lq-Hx-dki.normalTitle" = "+";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "5ai-AI-I1X"; */
+"5ai-AI-I1X.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "8R8-Cm-cMu"; */
+"8R8-Cm-cMu.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "metro"; ObjectID = "BS2-wa-avK"; */
+"BS2-wa-avK.placeholder" = "метро";
+
+/* Class = "UILabel"; text = "Statistics is not enabled."; ObjectID = "CWn-5g-C3O"; */
+"CWn-5g-C3O.text" = "Статистика не доступна.";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "FQO-xT-o9h"; */
+"FQO-xT-o9h.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Fxx-67-I4C"; */
+"Fxx-67-I4C.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Hp6-fu-MP4"; */
+"Hp6-fu-MP4.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "J09-tJ-Ek2"; */
+"J09-tJ-Ek2.text" = "Label";
+
+/* Class = "UILabel"; text = "Total"; ObjectID = "JaT-C1-Uju"; */
+"JaT-C1-Uju.text" = "Сумма";
+
+/* Class = "UITabBarItem"; title = "Statistics"; ObjectID = "Ogl-vz-DAn"; */
+"Ogl-vz-DAn.title" = "Статистика";
+
+/* Class = "UILabel"; text = "x"; ObjectID = "RL3-n1-MiQ"; */
+"RL3-n1-MiQ.text" = "x";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "RcM-Gp-Ij1"; */
+"RcM-Gp-Ij1.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "-"; ObjectID = "SJR-qL-IE6"; */
+"SJR-qL-IE6.normalTitle" = "-";
+
+/* Class = "UIButton"; normalTitle = "+"; ObjectID = "Sgy-dX-QId"; */
+"Sgy-dX-QId.normalTitle" = "+";
+
+/* Class = "UILabel"; text = "Card's missing"; ObjectID = "WJV-JC-JcU"; */
+"WJV-JC-JcU.text" = "На карте не хватает";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "WPo-qi-hx7"; */
+"WPo-qi-hx7.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "XV3-Ra-PxN"; */
+"XV3-Ra-PxN.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Y00-ge-9o2"; */
+"Y00-ge-9o2.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "YKo-Sa-g80"; */
+"YKo-Sa-g80.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "aUk-c0-t6g"; */
+"aUk-c0-t6g.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "-"; ObjectID = "bIL-oh-q8H"; */
+"bIL-oh-q8H.normalTitle" = "-";
+
+/* Class = "UITabBarItem"; title = "Tracker"; ObjectID = "duh-ee-lIG"; */
+"duh-ee-lIG.title" = "Трекер";
+
+/* Class = "UILabel"; text = "="; ObjectID = "fGf-nR-bXf"; */
+"fGf-nR-bXf.text" = "=";
+
+/* Class = "UITextField"; placeholder = "amount"; ObjectID = "inv-QY-hN5"; */
+"inv-QY-hN5.placeholder" = "сумма";
+
+/* Class = "UIButton"; normalTitle = "-"; ObjectID = "kFS-4A-3S7"; */
+"kFS-4A-3S7.normalTitle" = "-";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "kwp-rM-FiV"; */
+"kwp-rM-FiV.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "qXt-bI-xQQ"; */
+"qXt-bI-xQQ.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "balance"; ObjectID = "tES-Sj-xBL"; */
+"tES-Sj-xBL.placeholder" = "баланс";
+
+/* Class = "UITextField"; placeholder = "ground"; ObjectID = "ubu-0E-zGB"; */
+"ubu-0E-zGB.placeholder" = "наземный";
+
+/* Class = "UITabBarItem"; title = "Calculator"; ObjectID = "vEq-LL-Se5"; */
+"vEq-LL-Se5.title" = "Калькулятор";
+
+/* Class = "UIButton"; normalTitle = "+"; ObjectID = "vo0-8S-fxt"; */
+"vo0-8S-fxt.normalTitle" = "+";
+
+/* Class = "UIButton"; normalTitle = "+"; ObjectID = "wfr-rX-kaK"; */
+"wfr-rX-kaK.normalTitle" = "+";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "xZ5-6a-6Kj"; */
+"xZ5-6a-6Kj.text" = "Label";

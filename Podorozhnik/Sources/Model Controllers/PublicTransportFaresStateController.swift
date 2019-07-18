@@ -14,24 +14,28 @@ class PublicTransportFaresStateController {
     
     private var fileURL: URL? {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-        let fileDocumentsURL = documentsDirectory?.appendingPathComponent("PublicTransportFares").appendingPathExtension("plist")
-        
-        if !FileManager.default.fileExists(atPath: fileDocumentsURL!.path) {
-            let fileBundleURL = Bundle.main.url(forResource: "PublicTransportFares", withExtension: "plist")
-            try? FileManager.default.copyItem(at: fileBundleURL!, to: fileDocumentsURL!)
-        }
-        return fileDocumentsURL
+        return documentsDirectory?.appendingPathComponent("PublicTransportFares").appendingPathExtension("plist")
     }
     
     init() {
         self.publicTransportFares = []
-        guard let fileURL = self.fileURL,
-            let faresData = try? Data(contentsOf: fileURL),
-            let fares = try? PropertyListDecoder().decode([PublicTransportFares].self, from: faresData) else {
-                self.publicTransportFares = []
-                return
-        }
+        guard let fileURL = self.fileURL else { return }
+        self.updatePublicTransportFaresFile(at: fileURL)
+        
+        guard let faresData = try? Data(contentsOf: fileURL),
+            let fares = try? PropertyListDecoder().decode([PublicTransportFares].self, from: faresData) else { return }
         self.publicTransportFares = fares
+    }
+    
+    private func updatePublicTransportFaresFile(at fileDocumentsURL: URL) {
+        let fileBundleURL = Bundle.main.url(forResource: "PublicTransportFares", withExtension: "plist")
+        if !FileManager.default.fileExists(atPath: fileDocumentsURL.path) {
+            try? FileManager.default.copyItem(at: fileBundleURL!, to: fileDocumentsURL)
+        }
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String, version != "1.0" {
+            try? FileManager.default.removeItem(at: fileDocumentsURL)
+            try? FileManager.default.copyItem(at: fileBundleURL!, to: fileDocumentsURL)
+        }
     }
     
     func getMetroFare(numberOfTrip: Int) -> Double {
