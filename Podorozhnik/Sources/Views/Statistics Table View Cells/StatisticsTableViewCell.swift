@@ -45,7 +45,7 @@ extension StatisticsTableViewCell.ViewModel {
         self.transportTypeImage = UIImage(named: transportType.imageName)!
         self.numberOfTrips = String(trips.count)
         let totalAmount = trips.map{$0.fare}.reduce(0, +)
-        self.averageFare = String(totalAmount / Double(trips.count)).rublesGroupedFormatting ?? "?"
+        self.averageFare = String(trips.count > 0 ? (totalAmount / Double(trips.count)) : 0).rublesGroupedFormatting ?? "?"
         self.totalAmount = String(totalAmount).rublesGroupedFormatting ?? "?"
     }
 }

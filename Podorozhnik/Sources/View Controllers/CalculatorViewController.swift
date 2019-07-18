@@ -79,11 +79,13 @@ extension CalculatorViewController: UITableViewDataSource {
         case IndexPath(row: 0, section: 0):
             let cell = tableView.dequeueReusableCell(withIdentifier: CalculatorDateTableViewCell.identifier, for: indexPath) as! CalculatorDateTableViewCell
             cell.viewModel = CalculatorDateTableViewCell.ViewModel(dateType: .start, calculator: calculator)
+            cell.delegate = self
             return cell
             
         case IndexPath(row: 1, section: 0):
             let cell = tableView.dequeueReusableCell(withIdentifier: CalculatorDateTableViewCell.identifier, for: indexPath) as! CalculatorDateTableViewCell
             cell.viewModel = CalculatorDateTableViewCell.ViewModel(dateType: .end, calculator: calculator)
+            cell.delegate = self
             return cell
             
         case IndexPath(row: 0, section: 1):
@@ -161,3 +163,19 @@ extension CalculatorViewController: CalculatorCommercialAmountTableViewCellDeleg
     }
 }
 
+// MARK: -
+extension CalculatorViewController: CalculatorDateTableViewCellDelegate {
+    func presentPickerAlertController(_ alertController: UIAlertController) {
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func calculatorDateTableViewCellDidPickDate(_ date: Date, dateType: CalculatorDateTableViewCell.ViewModel.CalculatorDateType) {
+        switch dateType {
+        case .start:
+            self.calculatorController.calculator.startDate = date
+        case .end:
+            self.calculatorController.calculator.endDate = date
+        }
+        self.tableView.reloadData()
+    }
+}
