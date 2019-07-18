@@ -163,13 +163,9 @@ extension CalculatorViewController: CalculatorCommercialAmountTableViewCellDeleg
     }
 }
 
-// MARK: -
+// MARK: - CalculatorDateTableViewCellDelegate
 extension CalculatorViewController: CalculatorDateTableViewCellDelegate {
-    func presentPickerAlertController(_ alertController: UIAlertController) {
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-    func calculatorDateTableViewCellDidPickDate(_ date: Date, dateType: CalculatorDateTableViewCell.ViewModel.CalculatorDateType) {
+    func calculatorDateTableViewCell(_ cell: CalculatorDateTableViewCell, didPickDate date: Date, dateType: CalculatorDateTableViewCell.ViewModel.CalculatorDateType) {
         switch dateType {
         case .start:
             self.calculatorController.calculator.startDate = date

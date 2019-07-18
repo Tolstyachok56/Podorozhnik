@@ -43,9 +43,9 @@ class TripsTrackerViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide(_:)), name: UIResponder.keyboardDidHideNotification, object: nil)
     }
     @objc private func keyboardDidShow(_ notification: Notification) {
-        if let keyboardSize = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect /*,
-            let tabBarHeight = tabBarController?.tabBar.frame.height*/ {
-                let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height/* - tabBarHeight*/ + 100, right: 0) // TODO: - Отступ расчитать
+        if let keyboardSize = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect,
+            let tabBarHeight = tabBarController?.tabBar.frame.height {
+                let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height - tabBarHeight + 100, right: 0) // TODO: - Отступ расчитать
             self.scrollView.contentInset = contentInsets
             self.scrollView.scrollIndicatorInsets = contentInsets
         }

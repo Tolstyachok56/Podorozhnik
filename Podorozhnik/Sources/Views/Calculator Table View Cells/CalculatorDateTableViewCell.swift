@@ -9,8 +9,7 @@
 import UIKit
 
 protocol CalculatorDateTableViewCellDelegate: UIViewController {
-    func presentPickerAlertController(_ alertController: UIAlertController)
-    func calculatorDateTableViewCellDidPickDate(_ date: Date, dateType: CalculatorDateTableViewCell.ViewModel.CalculatorDateType)
+    func calculatorDateTableViewCell(_ cell: CalculatorDateTableViewCell, didPickDate date: Date, dateType: CalculatorDateTableViewCell.ViewModel.CalculatorDateType)
 }
 
 class CalculatorDateTableViewCell: UITableViewCell {
@@ -59,14 +58,14 @@ class CalculatorDateTableViewCell: UITableViewCell {
             alertController.setValue(contentViewController, forKey: "contentViewController")
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            let okAction = UIAlertAction(title: "Ok", style: .default) { (action) in
-                self.delegate?.calculatorDateTableViewCellDidPickDate(datePicker.date.startOfDay, dateType: viewModel.dateType)
+            let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                self.delegate?.calculatorDateTableViewCell(self, didPickDate: datePicker.date.startOfDay, dateType: viewModel.dateType)
             }
             
             alertController.addAction(cancelAction)
             alertController.addAction(okAction)
             
-            self.delegate?.presentPickerAlertController(alertController)
+            self.delegate?.present(alertController, animated: true, completion: nil)
         }
     }
 }
