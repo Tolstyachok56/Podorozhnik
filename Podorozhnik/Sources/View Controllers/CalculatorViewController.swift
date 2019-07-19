@@ -130,6 +130,15 @@ extension CalculatorViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return  CGFloat(8)
     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let sectionHeight = tableView.frame.size.height / 6
+        switch indexPath.section {
+        case 0, 3:
+            return sectionHeight / 2
+        default:
+            return sectionHeight
+        }
+    }
 }
 
 // MARK: - CalculatorPublicTripsTableViewCellDelegate

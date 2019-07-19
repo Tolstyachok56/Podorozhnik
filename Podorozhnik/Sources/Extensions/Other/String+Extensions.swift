@@ -38,7 +38,6 @@ extension String {
         let formatter = NumberFormatter()
         formatter.decimalSeparator = "."
         if let result = formatter.number(from: string) {
-            print(result.doubleValue)
             return result.doubleValue
         } else {
             formatter.decimalSeparator = ","

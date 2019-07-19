@@ -215,10 +215,10 @@
 			isa = PBXGroup;
 			children = (
 				0451FBD021130C29001346C4 /* Assets.xcassets */,
+				0412CE6622E0C25900A96D67 /* Localizable.strings */,
 				0451FBDD21130C66001346C4 /* Storyboards */,
 				0415DFC0228ED735003C2A0A /* Cards.plist */,
 				0415DFC2228ED9F1003C2A0A /* PublicTransportFares.plist */,
-				0412CE6622E0C25900A96D67 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

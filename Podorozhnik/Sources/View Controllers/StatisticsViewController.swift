@@ -14,7 +14,6 @@ class StatisticsViewController: UIViewController {
     @IBOutlet fileprivate weak var tableView: UITableView! {
         didSet {
             self.tableView.estimatedRowHeight = 61
-            self.tableView.rowHeight = UITableView.automaticDimension
         }
     }
     @IBOutlet fileprivate weak var messageLabel: UILabel!
