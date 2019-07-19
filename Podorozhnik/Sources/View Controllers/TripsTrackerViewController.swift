@@ -76,7 +76,7 @@ class TripsTrackerViewController: UIViewController {
         let confirmAction = UIAlertAction(title: "Confirm".localized, style: .default) { (action) in
             if self.transportCard != nil,
                 let amountText = alertController.textFields?.first?.text,
-                let amount = Double(amountText) {
+                let amount = amountText.double {
                 let balance = self.transportCard!.balance + amount
                 self.transportCardsController.setBalance(balance, forTransportCard: &self.transportCard!)
                 self.updateView()
@@ -115,7 +115,7 @@ class TripsTrackerViewController: UIViewController {
         case TransportType.commercial.tag:
             guard self.transportCard != nil,
                 let text = self.fareOfCommercialTextField.text, !text.isEmpty,
-                let fare = Double(text) else { return }
+                let fare = text.double else { return }
             let numberOfTrip = self.transportCard!.numberOfTripsByCommercial + 1
             addTrip(by: .commercial, numberOfTrip: numberOfTrip, fare: fare)
             self.fareOfCommercialTextField.text = ""

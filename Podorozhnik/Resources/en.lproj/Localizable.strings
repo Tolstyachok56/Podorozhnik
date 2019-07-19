@@ -19,8 +19,8 @@
 // CalculatorViewController
 "Start Date" = "Start Date";
 "End Date" = "End Date";
-"Trips at Weekdays" = "Trips at Weekdays";
-"Trips at Restdays" = "Trips at Restdays";
+"Trips at Weekdays" = "Trips at Weekday";
+"Trips at Restdays" = "Trips at Restday";
 "Commercial" = "Commercial";
 
 "Choose start date" = "Choose start date";

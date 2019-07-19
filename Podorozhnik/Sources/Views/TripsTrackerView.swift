@@ -54,6 +54,8 @@ class TripsTrackerView: UIView {
     let balanceTextFieldDelegate = CurrencyTextFieldDelegate()
     
     override func awakeFromNib() {
+        self.balanceTextFieldDelegate.transportCardBalanceDelegate = self
+        
         self.cardBalanceTextField.delegate = balanceTextFieldDelegate
         self.cardBalanceTextField.tag = CurrencyTextFieldDelegate.Tag.transportCardBalance.rawValue
         
@@ -68,8 +70,6 @@ class TripsTrackerView: UIView {
         self.reduceTripByMetroButton.tag = TransportType.metro.tag
         self.reduceTripByGroundButton.tag = TransportType.ground.tag
         self.reduceTripByCommercialButton.tag = TransportType.commercial.tag
-        
-        self.balanceTextFieldDelegate.transportCardBalanceDelegate = self
     }
     
     @objc func didTapView(_ sender: UITapGestureRecognizer) {

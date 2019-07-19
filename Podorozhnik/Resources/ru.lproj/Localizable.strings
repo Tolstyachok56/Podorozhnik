@@ -19,8 +19,8 @@
 // CalculatorViewController
 "Start Date" = "Начало периода";
 "End Date" = "Конец периода";
-"Trips at Weekdays" = "Поездки в будни";
-"Trips at Restdays" = "Поездки в выходные";
+"Trips at Weekdays" = "Поездки в будний день";
+"Trips at Restdays" = "Поездки в выходной день";
 "Commercial" = "Коммерческий";
 
 "Choose start date" = "Выберите начало периода";

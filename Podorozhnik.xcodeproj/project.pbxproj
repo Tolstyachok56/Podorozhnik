@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0412CE6422E0C25900A96D67 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0412CE6622E0C25900A96D67 /* Localizable.strings */; };
+		0412CE8122E0CE2400A96D67 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0412CE8322E0CE2400A96D67 /* InfoPlist.strings */; };
 		0415DFC1228ED735003C2A0A /* Cards.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0415DFC0228ED735003C2A0A /* Cards.plist */; };
 		0415DFC3228ED9F1003C2A0A /* PublicTransportFares.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0415DFC2228ED9F1003C2A0A /* PublicTransportFares.plist */; };
 		0415DFC8228EF074003C2A0A /* PublicTransportFaresStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415DFC7228EF074003C2A0A /* PublicTransportFaresStateController.swift */; };
@@ -49,6 +50,8 @@
 		0412CE6522E0C25900A96D67 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0412CE6722E0C25D00A96D67 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0412CE7D22E0CD2900A96D67 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0412CE8222E0CE2400A96D67 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0412CE8422E0CE2700A96D67 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0415DFC0228ED735003C2A0A /* Cards.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Cards.plist; sourceTree = "<group>"; };
 		0415DFC2228ED9F1003C2A0A /* PublicTransportFares.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PublicTransportFares.plist; sourceTree = "<group>"; };
 		0415DFC7228EF074003C2A0A /* PublicTransportFaresStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicTransportFaresStateController.swift; sourceTree = "<group>"; };
@@ -224,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				0412CE7D22E0CD2900A96D67 /* Info.plist */,
+				0412CE8322E0CE2400A96D67 /* InfoPlist.strings */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -333,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0451FBD421130C29001346C4 /* LaunchScreen.storyboard in Resources */,
+				0412CE8122E0CE2400A96D67 /* InfoPlist.strings in Resources */,
 				0415DFC1228ED735003C2A0A /* Cards.plist in Resources */,
 				0412CE6422E0C25900A96D67 /* Localizable.strings in Resources */,
 				0451FBD121130C29001346C4 /* Assets.xcassets in Resources */,
@@ -388,6 +393,15 @@
 				0412CE6722E0C25D00A96D67 /* ru */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		0412CE8322E0CE2400A96D67 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0412CE8222E0CE2400A96D67 /* en */,
+				0412CE8422E0CE2700A96D67 /* ru */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		0451FBCD21130C28001346C4 /* Main.storyboard */ = {

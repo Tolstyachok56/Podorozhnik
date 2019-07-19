@@ -20,21 +20,30 @@ extension String {
     }
     
     var rublesFormatting: String? {
-        guard let double = Double(self.replacingOccurrences(of: Locale.current.groupingSeparator ?? " ", with: "")) else { return nil }
+        guard let double = self.double else { return nil }
         let formatter = self.rublesFormatter
         formatter.groupingSeparator = ""
         return formatter.string(from: NSNumber(value: double))!
     }
     
     var rublesGroupedFormatting: String? {
-        guard let double = Double(self.replacingOccurrences(of: Locale.current.groupingSeparator ?? " ", with: "")) else { return nil }
+        guard let double = self.double else { return nil }
         let formatter = self.rublesFormatter
         formatter.groupingSeparator = Locale.current.groupingSeparator ?? " "
         return formatter.string(from: NSNumber(value: double))!
     }
     
     var double: Double? {
-        return Double(self.replacingOccurrences(of: Locale.current.groupingSeparator ?? " ", with: ""))
+        let string = self.replacingOccurrences(of: Locale.current.groupingSeparator ?? " ", with: "")
+        let formatter = NumberFormatter()
+        formatter.decimalSeparator = "."
+        if let result = formatter.number(from: string) {
+            print(result.doubleValue)
+            return result.doubleValue
+        } else {
+            formatter.decimalSeparator = ","
+            return formatter.number(from: string)?.doubleValue
+        }
     }
     
     var localized: String {
