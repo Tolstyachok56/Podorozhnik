@@ -157,37 +157,47 @@ extension TripsTrackerViewController: TripsTrackerViewDelegate {
 // MARK: - UITextFieldDelegate
 extension TripsTrackerViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let decimalSeparator = Locale.current.decimalSeparator ?? "."
+        let dotDecimalSeparator = "."
+        let commaDecimalSeparator = ","
+        
         // check for decimal digits
-        let allowedCharacters = CharacterSet(charactersIn: "1234567890\(decimalSeparator)")
+        let allowedCharacters = CharacterSet(charactersIn: "1234567890\(dotDecimalSeparator)\(commaDecimalSeparator)")
         let characterSet = CharacterSet(charactersIn: string)
         let isNumber = allowedCharacters.isSuperset(of: characterSet)
+        
         if !isNumber {
             return false
+            
         } else {
             //check for more than one decimal separator
-            let hasMoreThanOneDecimalSeparator: Bool
-            guard let oldText = textField.text, let r = Range(range, in: oldText) else { return true }
-            let existingTextHasDecimalSeparator = oldText.range(of: decimalSeparator)
-            let replacementTextHasDecimalSeparator = string.range(of: decimalSeparator)
+            let newTextHasMoreThanOneDecimalSeparator: Bool
             
-            if existingTextHasDecimalSeparator != nil,
-                replacementTextHasDecimalSeparator != nil{
-                hasMoreThanOneDecimalSeparator = true
+            guard let oldText = textField.text, let r = Range(range, in: oldText) else { return true }
+            
+            let existingTextHasDecimalSeparator = oldText.contains(dotDecimalSeparator) || oldText.contains(commaDecimalSeparator)
+            let replacementTextHasDecimalSeparator = string.contains(dotDecimalSeparator) || string.contains(commaDecimalSeparator)
+            
+            if existingTextHasDecimalSeparator &&
+                replacementTextHasDecimalSeparator {
+                newTextHasMoreThanOneDecimalSeparator = true
             } else {
-                hasMoreThanOneDecimalSeparator = false
+                newTextHasMoreThanOneDecimalSeparator = false
             }
+            
             //get number of decimal digits
             let numberOfDecimalDigits: Int
+            
             let newText = oldText.replacingCharacters(in: r, with: string)
             
-            if let decimalSeparatorIndex = newText.firstIndex(of: Character(decimalSeparator)){
-                numberOfDecimalDigits = newText.distance(from: decimalSeparatorIndex, to: newText.endIndex) - 1
+            if let dotDecimalSeparatorIndex = newText.firstIndex(of: Character(dotDecimalSeparator)){
+                numberOfDecimalDigits = newText.distance(from: dotDecimalSeparatorIndex, to: newText.endIndex) - 1
+            } else if let commaDecimalSeparatorIndex = newText.firstIndex(of: Character(commaDecimalSeparator)) {
+                numberOfDecimalDigits = newText.distance(from: commaDecimalSeparatorIndex, to: newText.endIndex) - 1
             } else {
                 numberOfDecimalDigits = 0
             }
             
-            return !hasMoreThanOneDecimalSeparator && numberOfDecimalDigits <= 2
+            return !newTextHasMoreThanOneDecimalSeparator && numberOfDecimalDigits <= 2
         }
     }
 }

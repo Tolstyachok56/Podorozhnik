@@ -71,13 +71,8 @@ extension CurrencyTextFieldDelegate: UITextFieldDelegate {
             
             guard let oldText = textField.text, let r = Range(range, in: oldText) else { return true }
             
-            let existingTextHasDotDecimalSeparator = oldText.contains(dotDecimalSeparator)
-            let existingTextHasCommaDecimalSeparator = oldText.contains(commaDecimalSeparator)
-            let existingTextHasDecimalSeparator = existingTextHasDotDecimalSeparator || existingTextHasCommaDecimalSeparator
-            
-            let replacementTextHasDotDecimalSeparator = string.contains(dotDecimalSeparator)
-            let replacementTextHasCommaDecimalSeparator = string.contains(commaDecimalSeparator)
-            let replacementTextHasDecimalSeparator = replacementTextHasDotDecimalSeparator || replacementTextHasCommaDecimalSeparator
+            let existingTextHasDecimalSeparator = oldText.contains(dotDecimalSeparator) || oldText.contains(commaDecimalSeparator)
+            let replacementTextHasDecimalSeparator = string.contains(dotDecimalSeparator) || string.contains(commaDecimalSeparator)
             
             if existingTextHasDecimalSeparator &&
                 replacementTextHasDecimalSeparator {
