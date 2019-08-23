@@ -45,6 +45,7 @@ class TransportCardsStateController {
             let cardsData = try? encoder.encode(self.transportCards) {
             do {
                 try cardsData.write(to: fileURL)
+                self.update()
             } catch let error {
                 print(error)
             }
