@@ -10,19 +10,31 @@ import UIKit
 
 class StatisticsViewController: UIViewController {
     
+    // MARK: - Enums
+    private enum StatisticsDimension: Int {
+        case month = 0
+        case day
+    }
+    
     // MARK: - Outlets
-    @IBOutlet fileprivate weak var tableView: UITableView! {
+    @IBOutlet private weak var tableView: UITableView! {
         didSet {
             self.tableView.estimatedRowHeight = 61
             self.tableView.separatorColor = AppsColors.chateauGreen
         }
     }
-    @IBOutlet fileprivate weak var messageLabel: UILabel!
+    @IBOutlet private weak var messageLabel: UILabel!
+//    @IBOutlet private weak var dimensionSegmentedControl: UISegmentedControl!
     
     // MARK: - Properties
     var transportCardsController: TransportCardsStateController!
-    var statistics: [String: [Trip]]?
+    var statistics: [Date: [Trip]]?
     var transportCard: TransportCard? { return self.transportCardsController.transportCards.first }
+    private var statisticsDimension: StatisticsDimension = .month {
+        didSet {
+            self.updateViewWithStatistics()
+        }
+    }
 
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -30,21 +42,49 @@ class StatisticsViewController: UIViewController {
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        
+        let segmentedControl = UISegmentedControl(items: ["Month".localized, "Day".localized])
+        segmentedControl.addTarget(self, action: #selector(dimensionSegmentedControlPressed(_:)), for: .valueChanged)
+        segmentedControl.selectedSegmentIndex = self.statisticsDimension.rawValue
+        segmentedControl.autoresizingMask = .flexibleWidth
+        segmentedControl.frame = CGRect(x: 0, y: 0, width: self.view.frame.width - 40, height: 30)
+        self.navigationItem.titleView = segmentedControl
+        
+        self.navigationController?.navigationBar.addShadow(color: AppsColors.chateauGreen, radius: 4, opacity: 0.5)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let transportCard = self.transportCard {
-            self.statistics = transportCard.monthStatistics
-            if let statistics = self.statistics, statistics.isEmpty {
-                self.tableView.isHidden = true
-                self.messageLabel.isHidden = false
-            } else {
-                self.tableView.isHidden = false
-                self.messageLabel.isHidden = true
-            }
+        self.updateViewWithStatistics()
+    }
+    
+    // MARK: - View Methods
+    private func updateViewWithStatistics() {
+        self.updateStatistics(to: self.statisticsDimension)
+        if let statistics = self.statistics, statistics.isEmpty {
+            self.tableView.isHidden = true
+            self.messageLabel.isHidden = false
+        } else {
+            self.tableView.isHidden = false
+            self.messageLabel.isHidden = true
         }
         self.tableView.reloadData()
+    }
+    
+    // MARK: - Methods
+    private func updateStatistics(to dimension: StatisticsDimension) {
+        guard let transportCard = self.transportCard else { return }
+        switch dimension {
+        case .month:
+            self.statistics = transportCard.monthStatistics
+        case .day:
+            self.statistics = transportCard.dayStatistics
+        }
+    }
+    
+    // MARK: - Actions
+    @objc func dimensionSegmentedControlPressed(_ sender: UISegmentedControl) {
+        self.statisticsDimension = StatisticsDimension(rawValue: sender.selectedSegmentIndex) ?? .month
     }
 }
 
@@ -57,8 +97,8 @@ extension StatisticsViewController: UITableViewDataSource {
         return 4
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let month = self.statistics?.keys.sorted(by: { $0<$1 })[indexPath.section],
-            let trips = self.statistics?[month] else { return UITableViewCell() }
+        guard let dimension = self.statistics?.keys.sorted(by: { $0<$1 }).reversed()[indexPath.section],
+            let trips = self.statistics?[dimension] else { return UITableViewCell() }
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: StatisticsTableViewCell.identifier, for: indexPath) as! StatisticsTableViewCell
@@ -81,7 +121,12 @@ extension StatisticsViewController: UITableViewDataSource {
         }
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.statistics?.keys.sorted(by: { $0<$1 })[section] ?? "?"
+        switch self.statisticsDimension {
+        case .month:
+            return self.statistics?.keys.sorted(by: { $0<$1 }).reversed()[section].monthFormatting ?? "?"
+        case .day:
+            return self.statistics?.keys.sorted(by: { $0<$1 }).reversed()[section].dayFormatting ?? "?"
+        }
     }
 }
 

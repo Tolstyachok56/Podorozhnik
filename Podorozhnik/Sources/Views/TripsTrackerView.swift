@@ -15,28 +15,29 @@ protocol TripsTrackerViewDelegate: class {
 class TripsTrackerView: UIView {
     
     // MARK: - Outlets
-    @IBOutlet fileprivate weak var cardBalanceTextField: UITextField!
+    @IBOutlet private weak var cardBalanceTextField: UITextField!
+    @IBOutlet private weak var lastTripDateLabel: UILabel!
     
-    @IBOutlet fileprivate weak var cardBalanceViewContainer: UIView!
-    @IBOutlet fileprivate weak var metroViewContainer: UIView!
-    @IBOutlet fileprivate weak var groundViewContainer: UIView!
-    @IBOutlet fileprivate weak var commercialViewContainer: UIView!
+    @IBOutlet private weak var cardBalanceViewContainer: UIView!
+    @IBOutlet private weak var metroViewContainer: UIView!
+    @IBOutlet private weak var groundViewContainer: UIView!
+    @IBOutlet private weak var commercialViewContainer: UIView!
     
-    @IBOutlet fileprivate weak var tripsByMetroLabel: UILabel!
-    @IBOutlet fileprivate weak var tripsByGroundLabel: UILabel!
-    @IBOutlet fileprivate weak var tripsByCommercialLabel: UILabel!
+    @IBOutlet private weak var tripsByMetroLabel: UILabel!
+    @IBOutlet private weak var tripsByGroundLabel: UILabel!
+    @IBOutlet private weak var tripsByCommercialLabel: UILabel!
     
-    @IBOutlet fileprivate weak var fareOfMetroLabel: UILabel!
-    @IBOutlet fileprivate weak var fareOfGroundLabel: UILabel!
-    @IBOutlet fileprivate weak var fareOfCommercialTextField: UITextField!
+    @IBOutlet private weak var fareOfMetroLabel: UILabel!
+    @IBOutlet private weak var fareOfGroundLabel: UILabel!
+    @IBOutlet private weak var fareOfCommercialTextField: UITextField!
     
-    @IBOutlet fileprivate weak var addTripByMetroButton: UIButton!
-    @IBOutlet fileprivate weak var addTripByGroundButton: UIButton!
-    @IBOutlet fileprivate weak var addTripByCommercialButton: UIButton!
+    @IBOutlet private weak var addTripByMetroButton: UIButton!
+    @IBOutlet private weak var addTripByGroundButton: UIButton!
+    @IBOutlet private weak var addTripByCommercialButton: UIButton!
     
-    @IBOutlet fileprivate weak var reduceTripByMetroButton: UIButton!
-    @IBOutlet fileprivate weak var reduceTripByGroundButton: UIButton!
-    @IBOutlet fileprivate weak var reduceTripByCommercialButton: UIButton!
+    @IBOutlet private weak var reduceTripByMetroButton: UIButton!
+    @IBOutlet private weak var reduceTripByGroundButton: UIButton!
+    @IBOutlet private weak var reduceTripByCommercialButton: UIButton!
     
     
     // MARK: - Instance Properties
@@ -45,6 +46,7 @@ class TripsTrackerView: UIView {
         didSet {
             guard let viewModel = self.viewModel else { return }
             self.cardBalanceTextField.text = viewModel.cardBalance
+            self.lastTripDateLabel.text = viewModel.lastTripDate
             
             self.tripsByMetroLabel.text = viewModel.tripsByMetro
             self.tripsByGroundLabel.text = viewModel.tripsByGround
@@ -100,6 +102,7 @@ extension TripsTrackerView {
         private var publicTransportFaresController = PublicTransportFaresStateController()
         
         var cardBalance: String
+        var lastTripDate: String
         
         var tripsByMetro: String
         var tripsByGround: String
@@ -115,6 +118,7 @@ extension TripsTrackerView.ViewModel {
     
     init(_ card: TransportCard) {
         self.cardBalance = card.balance.rublesGroupedFormatting
+        self.lastTripDate = "Last: ".localized + (card.lastTrip?.date.dayTimeFormatting ?? "no trips".localized)
         
         self.tripsByMetro = String(card.numberOfTripsByMetro)
         self.tripsByGround = String(card.numberOfTripsByGround)

@@ -13,16 +13,21 @@ extension Date {
     var monthFormatting: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy.MM"
-        let str = dateFormatter.string(from: self)
-        return str
+        return dateFormatter.string(from: self)
     }
     
     var dayFormatting: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .none
-        let str = dateFormatter.string(from: self)
-        return str
+        return dateFormatter.string(from: self)
+    }
+    
+    var dayTimeFormatting: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        return dateFormatter.string(from: self)
     }
     
     var mediumFormatting: String {
@@ -56,5 +61,4 @@ extension Date {
     func add(days: Int) -> Date {
         return Calendar(identifier: .gregorian).date(byAdding: .day, value: days, to: self.startOfDay)!
     }
-    
 }

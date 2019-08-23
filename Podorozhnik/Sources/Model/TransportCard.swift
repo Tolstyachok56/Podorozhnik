@@ -23,6 +23,9 @@ extension TransportCard: Codable {
 }
 
 extension TransportCard {
+    var lastTrip: Trip? {
+        return self.trips.last
+    }
     var numberOfTripsByMetro: Int {
         return self.getNumberOfTrips(by: .metro)
     }
@@ -33,10 +36,10 @@ extension TransportCard {
         return self.getNumberOfTrips(by: .commercial)
     }
     
-    var monthStatistics: [String: [Trip]] {
-        var statistics = [String: [Trip]]()
+    var monthStatistics: [Date: [Trip]] {
+        var statistics = [Date: [Trip]]()
         for trip in self.trips {
-            let month = trip.date.monthFormatting
+            let month = trip.date.startOfMonth
             if statistics[month] != nil {
                 statistics[month]?.append(trip)
             } else {
@@ -46,10 +49,10 @@ extension TransportCard {
         return statistics
     }
     
-    var dayStatistics: [String: [Trip]] {
-        var statistics = [String: [Trip]]()
+    var dayStatistics: [Date: [Trip]] {
+        var statistics = [Date: [Trip]]()
         for trip in self.trips {
-            let day = trip.date.dayFormatting
+            let day = trip.date.startOfDay
             if statistics[day] != nil {
                 statistics[day]?.append(trip)
             } else {

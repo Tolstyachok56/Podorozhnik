@@ -7,6 +7,8 @@
 */
 
 // TripsTrackerViewController
+"Last: " = "Last: ";
+"no trips" = "no trips";
 "Fare: " = "Fare: ";
 "Enter amount" = "Enter amount";
 "Amount" = "Amount";
@@ -27,4 +29,5 @@
 "Choose end date" = "Choose end date";
 
 // StatisticsViewController
-
+"Month" = "Month";
+"Day" = "Day";

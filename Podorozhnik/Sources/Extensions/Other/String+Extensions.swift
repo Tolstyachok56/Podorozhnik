@@ -10,7 +10,7 @@ import Foundation
 
 extension String {
     
-    fileprivate var rublesFormatter: NumberFormatter {
+    private var rublesFormatter: NumberFormatter {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         formatter.minimumIntegerDigits = 1

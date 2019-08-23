@@ -11,9 +11,9 @@ import UIKit
 class TripsTrackerViewController: UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet fileprivate weak var scrollView: UIScrollView!
-    @IBOutlet fileprivate weak var tripsTrackerView: TripsTrackerView!
-    @IBOutlet fileprivate weak var fareOfCommercialTextField: UITextField!
+    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private weak var tripsTrackerView: TripsTrackerView!
+    @IBOutlet private weak var fareOfCommercialTextField: UITextField!
     
     // MARK: - Properties
     var publicTransportFaresController: PublicTransportFaresStateController!

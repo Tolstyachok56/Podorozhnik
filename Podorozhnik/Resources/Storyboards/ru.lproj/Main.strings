@@ -48,7 +48,7 @@
 "Sgy-dX-QId.normalTitle" = "+";
 
 /* Class = "UILabel"; text = "Card's missing"; ObjectID = "WJV-JC-JcU"; */
-"WJV-JC-JcU.text" = "На карте не хватает";
+"WJV-JC-JcU.text" = "Не хватает";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "WPo-qi-hx7"; */
 "WPo-qi-hx7.text" = "Label";

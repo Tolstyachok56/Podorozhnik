@@ -11,7 +11,7 @@ import UIKit
 class CalculatorViewController: UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet fileprivate weak var tableView: UITableView! {
+    @IBOutlet private weak var tableView: UITableView! {
         didSet {
             self.tableView.estimatedRowHeight = 44
             self.tableView.rowHeight = UITableView.automaticDimension
