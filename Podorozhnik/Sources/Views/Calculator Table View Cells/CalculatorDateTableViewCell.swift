@@ -12,7 +12,7 @@ protocol CalculatorDateTableViewCellDelegate: UIViewController {
     func calculatorDateTableViewCell(_ cell: CalculatorDateTableViewCell, didPickDate date: Date, dateType: CalculatorDateTableViewCell.ViewModel.CalculatorDateType)
 }
 
-class CalculatorDateTableViewCell: UITableViewCell {
+class CalculatorDateTableViewCell: ShadowedTableViewCell {
     
     // MARK: - Static Properties
     static let identifier: String = String(describing: CalculatorDateTableViewCell.self)
@@ -27,6 +27,12 @@ class CalculatorDateTableViewCell: UITableViewCell {
             guard let viewModel = self.viewModel else { return }
             self.titleLabel.text = viewModel.title
             self.dateButton.setTitle(viewModel.dateString, for: .normal)
+            switch viewModel.dateType {
+            case .start:
+                self.addShadow(isFirstRow: true)
+            case .end:
+                self.addShadow(isLastRow: true)
+            }
         }
     }
     weak var delegate: CalculatorDateTableViewCellDelegate?
@@ -40,7 +46,6 @@ class CalculatorDateTableViewCell: UITableViewCell {
                 title = "Choose start date".localized
             case .end:
                 title = "Choose end date".localized
-                
             }
         
             let alertController = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)

@@ -14,14 +14,15 @@ class StatisticsViewController: UIViewController {
     @IBOutlet fileprivate weak var tableView: UITableView! {
         didSet {
             self.tableView.estimatedRowHeight = 61
+            self.tableView.separatorColor = AppsColors.chateauGreen
         }
     }
     @IBOutlet fileprivate weak var messageLabel: UILabel!
     
     // MARK: - Properties
-    var transportCard: TransportCard?
     var transportCardsController: TransportCardsStateController!
     var statistics: [String: [Trip]]?
+    var transportCard: TransportCard? { return self.transportCardsController.transportCards.first }
 
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -33,9 +34,8 @@ class StatisticsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.transportCard = self.transportCardsController.transportCards.first
         if let transportCard = self.transportCard {
-            self.statistics = self.transportCardsController.getStatistics(for: transportCard)
+            self.statistics = transportCard.monthStatistics
             if let statistics = self.statistics, statistics.isEmpty {
                 self.tableView.isHidden = true
                 self.messageLabel.isHidden = false
@@ -89,8 +89,8 @@ extension StatisticsViewController: UITableViewDataSource {
 extension StatisticsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let headerView = view as! UITableViewHeaderFooterView
-        headerView.textLabel?.font = UIFont.systemFont(ofSize: CGFloat(24), weight: .semibold)
-        headerView.textLabel?.textColor = UIColor.black
+        headerView.textLabel?.font = UIFont.systemFont(ofSize: CGFloat(24), weight: .bold)
+        headerView.textLabel?.textColor = AppsColors.chateauGreen
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 8.0

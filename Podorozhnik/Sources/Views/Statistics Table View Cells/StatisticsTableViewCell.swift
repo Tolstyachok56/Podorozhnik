@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StatisticsTableViewCell: UITableViewCell {
+class StatisticsTableViewCell: ShadowedTableViewCell {
 
     // MARK: - Static properties
     static let identifier: String = String(describing: StatisticsTableViewCell.self)
@@ -27,12 +27,19 @@ class StatisticsTableViewCell: UITableViewCell {
             self.numberOfTripsLabel.text = viewModel.numberOfTrips
             self.averageFareLabel.text = viewModel.averageFare
             self.totalAmountLabel.text = viewModel.totalAmount
+            switch viewModel.transportType {
+            case .metro:
+                self.addShadow(isFirstRow: true)
+            default:
+                break
+            }
         }
     }
 }
 
 extension StatisticsTableViewCell {
     struct ViewModel {
+        var transportType: TransportType
         var transportTypeImage: UIImage
         var numberOfTrips: String
         var averageFare: String
@@ -42,6 +49,7 @@ extension StatisticsTableViewCell {
 
 extension StatisticsTableViewCell.ViewModel {
     init(transportType: TransportType, trips: [Trip]) {
+        self.transportType = transportType
         self.transportTypeImage = UIImage(named: transportType.imageName)!
         self.numberOfTrips = String(trips.count)
         let totalAmount = trips.map{$0.fare}.reduce(0, +)

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0412CE6422E0C25900A96D67 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0412CE6622E0C25900A96D67 /* Localizable.strings */; };
 		0412CE8122E0CE2400A96D67 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0412CE8322E0CE2400A96D67 /* InfoPlist.strings */; };
+		0412CE8622E8D9CF00A96D67 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412CE8522E8D9CF00A96D67 /* UIView+Extensions.swift */; };
 		0415DFC1228ED735003C2A0A /* Cards.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0415DFC0228ED735003C2A0A /* Cards.plist */; };
 		0415DFC3228ED9F1003C2A0A /* PublicTransportFares.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0415DFC2228ED9F1003C2A0A /* PublicTransportFares.plist */; };
 		0415DFC8228EF074003C2A0A /* PublicTransportFaresStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415DFC7228EF074003C2A0A /* PublicTransportFaresStateController.swift */; };
@@ -41,6 +42,7 @@
 		047D3B6922D3584A007F5997 /* CalculatorCommercialAmountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047D3B6822D3584A007F5997 /* CalculatorCommercialAmountTableViewCell.swift */; };
 		047D3B6B22D37084007F5997 /* CountTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047D3B6A22D37084007F5997 /* CountTextFieldDelegate.swift */; };
 		047D3B6D22D39259007F5997 /* CalculatorAmountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047D3B6C22D39259007F5997 /* CalculatorAmountTableViewCell.swift */; };
+		04E2247723048F9E00E5ACB8 /* ShadowedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2247623048F9E00E5ACB8 /* ShadowedTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,7 @@
 		0412CE7D22E0CD2900A96D67 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0412CE8222E0CE2400A96D67 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0412CE8422E0CE2700A96D67 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0412CE8522E8D9CF00A96D67 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		0415DFC0228ED735003C2A0A /* Cards.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Cards.plist; sourceTree = "<group>"; };
 		0415DFC2228ED9F1003C2A0A /* PublicTransportFares.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PublicTransportFares.plist; sourceTree = "<group>"; };
 		0415DFC7228EF074003C2A0A /* PublicTransportFaresStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicTransportFaresStateController.swift; sourceTree = "<group>"; };
@@ -85,6 +88,7 @@
 		047D3B6822D3584A007F5997 /* CalculatorCommercialAmountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorCommercialAmountTableViewCell.swift; sourceTree = "<group>"; };
 		047D3B6A22D37084007F5997 /* CountTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountTextFieldDelegate.swift; sourceTree = "<group>"; };
 		047D3B6C22D39259007F5997 /* CalculatorAmountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorAmountTableViewCell.swift; sourceTree = "<group>"; };
+		04E2247623048F9E00E5ACB8 /* ShadowedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowedTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				0415DFDB228F062B003C2A0A /* TripsTrackerView.swift */,
+				04E2247623048F9E00E5ACB8 /* ShadowedTableViewCell.swift */,
 				047D3B6522D348B4007F5997 /* Calculator Table View Cells */,
 				043CD82922D76FC900C17D22 /* Statistics Table View Cells */,
 			);
@@ -236,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				046237392118AE11008AD497 /* UIViewController+Extensions.swift */,
+				0412CE8522E8D9CF00A96D67 /* UIView+Extensions.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -302,7 +308,7 @@
 		0451FBBE21130C27001346C4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0940;
+				LastSwiftUpdateCheck = 1030;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Виктория Бадисова";
 				TargetAttributes = {
@@ -366,7 +372,9 @@
 				0429C95622B815A80083BBE2 /* AppColors.swift in Sources */,
 				047D3B6922D3584A007F5997 /* CalculatorCommercialAmountTableViewCell.swift in Sources */,
 				047D3B6B22D37084007F5997 /* CountTextFieldDelegate.swift in Sources */,
+				04E2247723048F9E00E5ACB8 /* ShadowedTableViewCell.swift in Sources */,
 				0445318F2294565A00866D59 /* String+Extensions.swift in Sources */,
+				0412CE8622E8D9CF00A96D67 /* UIView+Extensions.swift in Sources */,
 				047D3B6D22D39259007F5997 /* CalculatorAmountTableViewCell.swift in Sources */,
 				047D3B6722D35446007F5997 /* CalculatorPublicTripsTableViewCell.swift in Sources */,
 				044531892292E6DA00866D59 /* Double+Extensions.swift in Sources */,

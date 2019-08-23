@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StatisticsTotalAmountTableViewCell: UITableViewCell {
+class StatisticsTotalAmountTableViewCell: ShadowedTableViewCell {
     
     // MARK: - Static properties
     static let identifier: String = String(describing: StatisticsTotalAmountTableViewCell.self)
@@ -22,6 +22,13 @@ class StatisticsTotalAmountTableViewCell: UITableViewCell {
             guard let viewModel = self.viewModel else { return }
             self.totalAmountLabel.text = viewModel.totalAmount
         }
+    }
+    
+    // MARK: - Initialization
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.addShadow(isLastRow: true)
     }
 }
 

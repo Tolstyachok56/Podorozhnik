@@ -33,6 +33,32 @@ extension TransportCard {
         return self.getNumberOfTrips(by: .commercial)
     }
     
+    var monthStatistics: [String: [Trip]] {
+        var statistics = [String: [Trip]]()
+        for trip in self.trips {
+            let month = trip.date.monthFormatting
+            if statistics[month] != nil {
+                statistics[month]?.append(trip)
+            } else {
+                statistics[month] = [trip]
+            }
+        }
+        return statistics
+    }
+    
+    var dayStatistics: [String: [Trip]] {
+        var statistics = [String: [Trip]]()
+        for trip in self.trips {
+            let day = trip.date.dayFormatting
+            if statistics[day] != nil {
+                statistics[day]?.append(trip)
+            } else {
+                statistics[day] = [trip]
+            }
+        }
+        return statistics
+    }
+    
     private func getNumberOfTrips(by transportType: TransportType, at date: Date = Date()) -> Int {
         return self.trips.filter {
             $0.transportType == transportType &&

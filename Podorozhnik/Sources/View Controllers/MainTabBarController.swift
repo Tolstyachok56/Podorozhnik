@@ -25,6 +25,7 @@ class MainTabBarController: UITabBarController {
     // MARK: - View Methods
     private func setupView() {
         self.tabBar.tintColor = AppsColors.chateauGreen
+        self.tabBar.addShadow(color: AppsColors.chateauGreen, radius: 4, opacity: 0.5)
     }
     
     // MARK: - Methods

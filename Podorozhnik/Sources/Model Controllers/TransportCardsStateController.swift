@@ -56,10 +56,13 @@ class TransportCardsStateController {
         self.save()
     }
     
-    func setBalance(_ balance: Double, forTransportCard card: inout TransportCard) {
-        card.balance = balance
+    func getTransportCard(withCode code: String) -> TransportCard? {
+        return self.transportCards.first(where: {$0.code == code})
+    }
+    
+    func setBalance(_ balance: Double, forTransportCardWithCode code: String) {
         for (index, transportCard) in self.transportCards.enumerated() {
-            if transportCard.code == card.code {
+            if transportCard.code == code {
                 self.transportCards[index].balance = balance
                 self.save()
                 break
@@ -67,56 +70,34 @@ class TransportCardsStateController {
         }
     }
     
-    func addTrip(_ trip: Trip, forTransportCard card: inout TransportCard) {
-        if card.balance >= trip.fare {
-            card.trips.append(trip)
-            card.balance -= trip.fare
+    func addTrip(_ trip: Trip, forTransportCardWithCode code: String) {
+        guard let card = self.getTransportCard(withCode: code),
+            card.balance >= trip.fare else { return }
+        for (index, transportCard) in self.transportCards.enumerated() {
+            if transportCard.code == card.code {
+                self.transportCards[index].trips.append(trip)
+                self.transportCards[index].balance -= trip.fare
+                self.save()
+                break
+            }
+        }
+    }
+    
+    func reduceTrip(by transportType: TransportType, fromTransportCardWithCode code: String) {
+        guard let card = self.getTransportCard(withCode: code),
+            let lastTripIndex = card.trips.lastIndex(where: { $0.transportType == transportType }) else { return }
+        let lastTripMonth = card.trips[lastTripIndex].date.monthFormatting
+        let currentMonth = Date().monthFormatting
+        
+        if lastTripMonth == currentMonth {
             for (index, transportCard) in self.transportCards.enumerated() {
-                if transportCard.code == card.code {
-                    self.transportCards[index].trips.append(trip)
-                    self.transportCards[index].balance -= trip.fare
+                if transportCard.code == code {
+                    let removedTrip = self.transportCards[index].trips.remove(at: lastTripIndex)
+                    self.transportCards[index].balance += removedTrip.fare
                     self.save()
                     break
                 }
             }
         }
-    }
-    
-    func reduceTrip(by transportType: TransportType, fromTransportCard card: inout TransportCard) {
-        func reduceLastTrip(by transportType: TransportType, fromTransportCard card: inout TransportCard) -> Bool {
-            guard let index = card.trips.lastIndex(where: { $0.transportType == transportType }) else { return false }
-            let tripMonth = card.trips[index].date.monthFormatting
-            let currentMonth = Date().monthFormatting
-            if tripMonth == currentMonth {
-                let fare = card.trips[index].fare
-                card.trips.remove(at: index)
-                card.balance += fare
-                return true
-            } else {
-                return false
-            }
-        }
-        if reduceLastTrip(by: transportType, fromTransportCard: &card) {
-            for (index, transportCard) in self.transportCards.enumerated() {
-                if transportCard.code == card.code,
-                    reduceLastTrip(by: transportType, fromTransportCard: &self.transportCards[index]) {
-                    self.save()
-                    break
-                }
-            }
-        }
-    }
-    
-    func getStatistics(for transportCard: TransportCard) -> [String: [Trip]] {
-        var statistics = [String: [Trip]]()
-        for trip in transportCard.trips {
-            let month = trip.date.monthFormatting
-            if statistics[month] != nil {
-                statistics[month]?.append(trip)
-            } else {
-                statistics[month] = [trip]
-            }
-        }
-        return statistics
     }
 }

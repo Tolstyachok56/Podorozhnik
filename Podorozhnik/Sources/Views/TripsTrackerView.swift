@@ -17,6 +17,11 @@ class TripsTrackerView: UIView {
     // MARK: - Outlets
     @IBOutlet fileprivate weak var cardBalanceTextField: UITextField!
     
+    @IBOutlet fileprivate weak var cardBalanceViewContainer: UIView!
+    @IBOutlet fileprivate weak var metroViewContainer: UIView!
+    @IBOutlet fileprivate weak var groundViewContainer: UIView!
+    @IBOutlet fileprivate weak var commercialViewContainer: UIView!
+    
     @IBOutlet fileprivate weak var tripsByMetroLabel: UILabel!
     @IBOutlet fileprivate weak var tripsByGroundLabel: UILabel!
     @IBOutlet fileprivate weak var tripsByCommercialLabel: UILabel!
@@ -70,6 +75,16 @@ class TripsTrackerView: UIView {
         self.reduceTripByMetroButton.tag = TransportType.metro.tag
         self.reduceTripByGroundButton.tag = TransportType.ground.tag
         self.reduceTripByCommercialButton.tag = TransportType.commercial.tag
+        
+        self.addBorderAndShadow(to: self.cardBalanceViewContainer)
+        self.addBorderAndShadow(to: self.metroViewContainer)
+        self.addBorderAndShadow(to: self.groundViewContainer)
+        self.addBorderAndShadow(to: self.commercialViewContainer)
+    }
+    
+    private func addBorderAndShadow(to view: UIView) {
+        view.addBorder(width: 1, color: AppsColors.chateauGreen)
+        view.addShadow(color: AppsColors.chateauGreen, radius: 2, opacity: 0.5)
     }
     
     @objc func didTapView(_ sender: UITapGestureRecognizer) {
@@ -106,7 +121,7 @@ extension TripsTrackerView.ViewModel {
         self.tripsByCommercial = String(card.numberOfTripsByCommercial)
         
         self.metroFare = "Fare: ".localized + self.publicTransportFaresController.getMetroFare(numberOfTrip: card.numberOfTripsByMetro + 1).rublesGroupedFormatting
-        self.groundFare = "Fare: ".localized + self.publicTransportFaresController.getMetroFare(numberOfTrip: card.numberOfTripsByGround + 1).rublesGroupedFormatting
+        self.groundFare = "Fare: ".localized + self.publicTransportFaresController.getGroundFare(numberOfTrip: card.numberOfTripsByGround + 1).rublesGroupedFormatting
         self.commercialFare = 0.0.rublesGroupedFormatting
     }
 }

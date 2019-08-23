@@ -17,6 +17,14 @@ extension Date {
         return str
     }
     
+    var dayFormatting: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .none
+        let str = dateFormatter.string(from: self)
+        return str
+    }
+    
     var mediumFormatting: String {
         let df = DateFormatter()
         df.dateStyle = .medium

@@ -19,10 +19,10 @@ class CalculatorViewController: UIViewController {
     }
     
     // MARK: - Properties
-    var transportCard: TransportCard?
     var publicTransportFaresController: PublicTransportFaresStateController!
     var transportCardsController: TransportCardsStateController!
     var calculatorController: CalculatorController!
+    var transportCard: TransportCard? {return self.transportCardsController.transportCards.first}
 
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -35,7 +35,6 @@ class CalculatorViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.transportCard = self.transportCardsController.transportCards.first
         if let transportCard = self.transportCard {
             self.calculatorController = CalculatorController(calculator: Calculator(), transportCard: transportCard, publicTransportFares: self.publicTransportFaresController)
         }
@@ -119,16 +118,17 @@ extension CalculatorViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension CalculatorViewController: UITableViewDelegate {
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
         case 0:
-            return CGFloat(8)
+            return CGFloat(20)
         default:
-            return CGFloat(0.0001)
+            return CGFloat(4)
         }
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return  CGFloat(8)
+        return  CGFloat(4)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let sectionHeight = tableView.frame.size.height / 6
@@ -178,9 +178,59 @@ extension CalculatorViewController: CalculatorDateTableViewCellDelegate {
         switch dateType {
         case .start:
             self.calculatorController.calculator.startDate = date
+            if self.calculatorController.calculator.endDate < date {
+               self.calculatorController.calculator.endDate = date
+            }
         case .end:
             self.calculatorController.calculator.endDate = date
+            if self.calculatorController.calculator.startDate > date {
+                self.calculatorController.calculator.startDate = date
+            }
         }
         self.tableView.reloadData()
+    }
+}
+
+
+public class EdgeShadowLayer: CAGradientLayer {
+    public enum Edge {
+        case top
+        case left
+        case bottom
+        case right
+    }
+    public init(forView view: UIView,
+                edge: Edge = Edge.top,
+                shadowRadius radius: CGFloat = 20.0,
+                toColor: UIColor = UIColor.white,
+                fromColor: UIColor = UIColor.black) {
+        super.init()
+        self.colors = [fromColor.cgColor, toColor.cgColor]
+        self.shadowRadius = radius
+        
+        // Set up its frame.
+        let viewFrame = view.frame
+        
+        switch edge {
+        case .top:
+            startPoint = CGPoint(x: 0.5, y: 0.0)
+            endPoint = CGPoint(x: 0.5, y: 1.0)
+            self.frame = CGRect(x: 0.0, y: 0.0, width: viewFrame.width, height: shadowRadius)
+        case .bottom:
+            startPoint = CGPoint(x: 0.5, y: 1.0)
+            endPoint = CGPoint(x: 0.5, y: 0.0)
+            self.frame = CGRect(x: 0.0, y: viewFrame.height - shadowRadius, width: viewFrame.width, height: shadowRadius)
+        case .left:
+            startPoint = CGPoint(x: 0.0, y: 0.5)
+            endPoint = CGPoint(x: 1.0, y: 0.5)
+            self.frame = CGRect(x: 0.0, y: 0.0, width: shadowRadius, height: viewFrame.height)
+        case .right:
+            startPoint = CGPoint(x: 1.0, y: 0.5)
+            endPoint = CGPoint(x: 0.0, y: 0.5)
+            self.frame = CGRect(x: viewFrame.width - shadowRadius, y: 0.0, width: shadowRadius, height: viewFrame.height)
+        }
+    }
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

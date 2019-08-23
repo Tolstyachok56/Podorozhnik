@@ -13,7 +13,7 @@ protocol CalculatorPublicTripsTableViewCellDelegate: class {
     func calulatorPublicTripsTableViewCell(_ tableViewCell: CalculatorPublicTripsTableViewCell, numberOfGroundTripsDidEndEditing newNumberOfTrips: Int, weekdayType: CalculatorPublicTripsTableViewCell.ViewModel.WeekdayType)
 }
 
-class CalculatorPublicTripsTableViewCell: UITableViewCell {
+class CalculatorPublicTripsTableViewCell: ShadowedTableViewCell {
     
     // MARK: - Static Properties
     static let identifier: String = String(describing: CalculatorPublicTripsTableViewCell.self)
@@ -31,12 +31,12 @@ class CalculatorPublicTripsTableViewCell: UITableViewCell {
             self.titleLabel.text = viewModel.title
             self.metroTripsTextField.text = viewModel.tripsByMetro
             self.groundTripsTextField.text = viewModel.tripsByGround
-            switch viewModel.weekdayType {
-            case .weekday:
-                self.backgroundColor = AppsColors.mistyRose
-            case .restday:
-                self.backgroundColor = AppsColors.honeydew
-            }
+//            switch viewModel.weekdayType {
+//            case .weekday:
+//                self.backgroundColor = AppsColors.mistyRose
+//            case .restday:
+//                self.backgroundColor = AppsColors.honeydew
+//            }
         }
     }
     let countTextFieldDelegate = CountTextFieldDelegate()
@@ -48,6 +48,7 @@ class CalculatorPublicTripsTableViewCell: UITableViewCell {
         self.countTextFieldDelegate.calculatorPublicTripsDelegate = self
         self.metroTripsTextField.delegate = countTextFieldDelegate
         self.groundTripsTextField.delegate = countTextFieldDelegate
+        self.addShadow(isFirstRow: true, isLastRow: true)
     }
 }
 

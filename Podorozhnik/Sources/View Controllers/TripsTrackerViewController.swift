@@ -16,16 +16,16 @@ class TripsTrackerViewController: UIViewController {
     @IBOutlet fileprivate weak var fareOfCommercialTextField: UITextField!
     
     // MARK: - Properties
-    var transportCard: TransportCard?
     var publicTransportFaresController: PublicTransportFaresStateController!
     var transportCardsController: TransportCardsStateController!
+    var transportCard: TransportCard? { return self.transportCardsController.transportCards.first }
+    lazy var alertTextFieldDelegate = { return CurrencyTextFieldDelegate() }()
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.registerForKeyboardNotifications()
-        self.transportCard = self.transportCardsController.transportCards.first
         self.updateView()
         self.tripsTrackerView.delegate = self
     }
@@ -69,7 +69,7 @@ class TripsTrackerViewController: UIViewController {
             textField.textAlignment = .center
         }
         if let textField = alertController.textFields?.first {
-            textField.delegate = self
+            textField.delegate = self.alertTextFieldDelegate //self
         }
         
         let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
@@ -78,7 +78,7 @@ class TripsTrackerViewController: UIViewController {
                 let amountText = alertController.textFields?.first?.text,
                 let amount = amountText.double {
                 let balance = self.transportCard!.balance + amount
-                self.transportCardsController.setBalance(balance, forTransportCard: &self.transportCard!)
+                self.transportCardsController.setBalance(balance, forTransportCardWithCode: self.transportCard!.code)
                 self.updateView()
             }
         }
@@ -93,7 +93,7 @@ class TripsTrackerViewController: UIViewController {
             guard self.transportCard != nil else { return }
             if self.transportCard!.balance >= fare {
                 let trip = Trip(transportType: transportType, numberOfTrip: numberOfTrip, fare: fare, date: Date())
-                self.transportCardsController.addTrip(trip, forTransportCard: &self.transportCard!)
+                self.transportCardsController.addTrip(trip, forTransportCardWithCode: self.transportCard!.code)
                 self.updateView()
             } else {
                 self.showSimpleAlert(title: "Oops!".localized, message: "Your card balance is less than fare. You need to top up the balance.".localized)
@@ -127,7 +127,7 @@ class TripsTrackerViewController: UIViewController {
     @IBAction private func reduceTripPressed(_ sender: UIButton) {
         func reduceTrip(by transportType: TransportType) {
             guard self.transportCard != nil else { return }
-            self.transportCardsController.reduceTrip(by: transportType, fromTransportCard: &self.transportCard!)
+            self.transportCardsController.reduceTrip(by: transportType, fromTransportCardWithCode: self.transportCard!.code)
             self.updateView()
         }
         
@@ -143,61 +143,12 @@ class TripsTrackerViewController: UIViewController {
             break
         }
     }
-    
 }
 
 // MARK: - TransportCardBalanceDelegate
 extension TripsTrackerViewController: TripsTrackerViewDelegate {
     func tripsTrackerView(_ tripsTrackerView: TripsTrackerView, cardBalanceDidEndEditing newBalance: Double) {
         guard self.transportCard != nil else { return }
-        self.transportCardsController.setBalance(newBalance, forTransportCard: &self.transportCard!)
-    }
-}
-
-// MARK: - UITextFieldDelegate
-extension TripsTrackerViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let dotDecimalSeparator = "."
-        let commaDecimalSeparator = ","
-        
-        // check for decimal digits
-        let allowedCharacters = CharacterSet(charactersIn: "1234567890\(dotDecimalSeparator)\(commaDecimalSeparator)")
-        let characterSet = CharacterSet(charactersIn: string)
-        let isNumber = allowedCharacters.isSuperset(of: characterSet)
-        
-        if !isNumber {
-            return false
-            
-        } else {
-            //check for more than one decimal separator
-            let newTextHasMoreThanOneDecimalSeparator: Bool
-            
-            guard let oldText = textField.text, let r = Range(range, in: oldText) else { return true }
-            
-            let existingTextHasDecimalSeparator = oldText.contains(dotDecimalSeparator) || oldText.contains(commaDecimalSeparator)
-            let replacementTextHasDecimalSeparator = string.contains(dotDecimalSeparator) || string.contains(commaDecimalSeparator)
-            
-            if existingTextHasDecimalSeparator &&
-                replacementTextHasDecimalSeparator {
-                newTextHasMoreThanOneDecimalSeparator = true
-            } else {
-                newTextHasMoreThanOneDecimalSeparator = false
-            }
-            
-            //get number of decimal digits
-            let numberOfDecimalDigits: Int
-            
-            let newText = oldText.replacingCharacters(in: r, with: string)
-            
-            if let dotDecimalSeparatorIndex = newText.firstIndex(of: Character(dotDecimalSeparator)){
-                numberOfDecimalDigits = newText.distance(from: dotDecimalSeparatorIndex, to: newText.endIndex) - 1
-            } else if let commaDecimalSeparatorIndex = newText.firstIndex(of: Character(commaDecimalSeparator)) {
-                numberOfDecimalDigits = newText.distance(from: commaDecimalSeparatorIndex, to: newText.endIndex) - 1
-            } else {
-                numberOfDecimalDigits = 0
-            }
-            
-            return !newTextHasMoreThanOneDecimalSeparator && numberOfDecimalDigits <= 2
-        }
+        self.transportCardsController.setBalance(newBalance, forTransportCardWithCode: self.transportCard!.code)
     }
 }

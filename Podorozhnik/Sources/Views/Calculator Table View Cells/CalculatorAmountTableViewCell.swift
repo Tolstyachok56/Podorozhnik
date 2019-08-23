@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CalculatorAmountTableViewCell: UITableViewCell {
+class CalculatorAmountTableViewCell: ShadowedTableViewCell {
     
     // MARK: - Static Properties
     static let identifier: String = String(describing: CalculatorAmountTableViewCell.self)
@@ -25,6 +25,13 @@ class CalculatorAmountTableViewCell: UITableViewCell {
             self.missingAmountLabel.text = viewModel.missingAmount
             self.missingAmountLabel.textColor = viewModel.missingAmountColor
         }
+    }
+    
+    // MARK: - Initialization
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.addShadow(isFirstRow: true, isLastRow: true)
     }
 }
 

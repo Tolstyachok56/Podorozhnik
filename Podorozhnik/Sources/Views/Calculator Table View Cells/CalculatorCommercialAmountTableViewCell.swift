@@ -12,7 +12,7 @@ protocol CalculatorCommercialAmountTableViewCellDelegate: class {
     func calculatorCommercialAmountTableViewCell(_ tableViewCell: CalculatorCommercialAmountTableViewCell, commercialAmountDidEndEditing newAmount: Double)
 }
 
-class CalculatorCommercialAmountTableViewCell: UITableViewCell {
+class CalculatorCommercialAmountTableViewCell: ShadowedTableViewCell {
 
     // MARK: - Static Properties
     static let identifier: String = String(describing: CalculatorCommercialAmountTableViewCell.self)
@@ -39,6 +39,8 @@ class CalculatorCommercialAmountTableViewCell: UITableViewCell {
         self.currencyTextFieldDelegate.calculatorCommercialAmountDelegate = self
         self.commercialAmountTextField.delegate = currencyTextFieldDelegate
         self.commercialAmountTextField.tag = CurrencyTextFieldDelegate.Tag.calculatorCommercialAmount.rawValue
+        
+        self.addShadow(isFirstRow: true, isLastRow: true)
     }
 }
 
