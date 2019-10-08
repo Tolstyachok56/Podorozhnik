@@ -31,12 +31,6 @@ class CalculatorPublicTripsTableViewCell: ShadowedTableViewCell {
             self.titleLabel.text = viewModel.title
             self.metroTripsTextField.text = viewModel.tripsByMetro
             self.groundTripsTextField.text = viewModel.tripsByGround
-//            switch viewModel.weekdayType {
-//            case .weekday:
-//                self.backgroundColor = AppsColors.mistyRose
-//            case .restday:
-//                self.backgroundColor = AppsColors.honeydew
-//            }
         }
     }
     let countTextFieldDelegate = CountTextFieldDelegate()

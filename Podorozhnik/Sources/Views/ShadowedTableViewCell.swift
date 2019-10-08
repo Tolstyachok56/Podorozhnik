@@ -10,6 +10,7 @@ import UIKit
 
 class ShadowedTableViewCell: UITableViewCell {
     func addShadow(isFirstRow: Bool = false, isLastRow: Bool = false) {
+        self.clipsToBounds = false
         self.layer.masksToBounds = false
         if isFirstRow && isLastRow {
             self.addShadow(color: AppsColors.chateauGreen, radius: 3, offset: .zero, opacity: 0.5)

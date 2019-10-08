@@ -24,7 +24,6 @@ class StatisticsViewController: UIViewController {
         }
     }
     @IBOutlet private weak var messageLabel: UILabel!
-//    @IBOutlet private weak var dimensionSegmentedControl: UISegmentedControl!
     
     // MARK: - Properties
     var transportCardsController: TransportCardsStateController!
@@ -48,6 +47,13 @@ class StatisticsViewController: UIViewController {
         segmentedControl.selectedSegmentIndex = self.statisticsDimension.rawValue
         segmentedControl.autoresizingMask = .flexibleWidth
         segmentedControl.frame = CGRect(x: 0, y: 0, width: self.view.frame.width - 40, height: 30)
+        if #available(iOS 13.0, *) {
+            segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+            segmentedControl.setTitleTextAttributes([.foregroundColor: AppsColors.chateauGreen], for: .normal)
+            segmentedControl.selectedSegmentTintColor = AppsColors.chateauGreen
+        } else {
+            segmentedControl.tintColor = AppsColors.chateauGreen
+        }
         self.navigationItem.titleView = segmentedControl
         
         self.navigationController?.navigationBar.addShadow(color: AppsColors.chateauGreen, radius: 4, opacity: 0.5)
