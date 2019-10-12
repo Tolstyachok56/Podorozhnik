@@ -98,6 +98,7 @@ class TripsTrackerViewController: UIViewController {
             } else {
                 self.showSimpleAlert(title: "Oops!".localized, message: "Your card balance is less than fare. You need to top up the balance.".localized)
             }
+            self.tripsTrackerView.hideKeyboard()
         }
         
         switch sender.tag {
@@ -129,6 +130,7 @@ class TripsTrackerViewController: UIViewController {
             guard self.transportCard != nil else { return }
             self.transportCardsController.reduceTrip(by: transportType, fromTransportCardWithCode: self.transportCard!.code)
             self.updateView()
+            self.tripsTrackerView.hideKeyboard()
         }
         
         switch sender.tag {

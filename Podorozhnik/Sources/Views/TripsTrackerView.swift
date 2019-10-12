@@ -93,6 +93,11 @@ class TripsTrackerView: UIView {
         self.cardBalanceTextField.resignFirstResponder()
         self.fareOfCommercialTextField.resignFirstResponder()
     }
+    
+    func hideKeyboard() {
+        self.cardBalanceTextField.resignFirstResponder()
+        self.fareOfCommercialTextField.resignFirstResponder()
+    }
 
 }
 
