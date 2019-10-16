@@ -8,7 +8,8 @@
 
 import UIKit
 
-struct AppsColors {
+struct AppColors {
+    
     static let chateauGreen: UIColor = UIColor(named: "chateauGreen") ?? colorFromRGBA(red: 38, green: 145, blue: 91)
     static let backColor: UIColor = UIColor(named: "backColor") ?? UIColor.white
     

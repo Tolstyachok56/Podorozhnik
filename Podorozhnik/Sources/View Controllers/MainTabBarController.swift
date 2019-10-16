@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainTabBarController: UITabBarController {
+class MainTabBarController: SwipeableTabBarController {
     
     // MARK: - Properties
     private let transportCardsController = TransportCardsStateController()
@@ -24,8 +24,8 @@ class MainTabBarController: UITabBarController {
     
     // MARK: - View Methods
     private func setupView() {
-        self.tabBar.tintColor = AppsColors.chateauGreen
-        self.tabBar.addShadow(color: AppsColors.chateauGreen, radius: 4, opacity: 0.5)
+        self.tabBar.tintColor = AppColors.chateauGreen
+        self.tabBar.addShadow(color: AppColors.chateauGreen, radius: 4, opacity: 0.5)
     }
     
     // MARK: - Methods

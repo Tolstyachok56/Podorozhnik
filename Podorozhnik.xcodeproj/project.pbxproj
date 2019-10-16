@@ -42,6 +42,12 @@
 		047D3B6922D3584A007F5997 /* CalculatorCommercialAmountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047D3B6822D3584A007F5997 /* CalculatorCommercialAmountTableViewCell.swift */; };
 		047D3B6B22D37084007F5997 /* CountTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047D3B6A22D37084007F5997 /* CountTextFieldDelegate.swift */; };
 		047D3B6D22D39259007F5997 /* CalculatorAmountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047D3B6C22D39259007F5997 /* CalculatorAmountTableViewCell.swift */; };
+		0488B2E0235756FE00ECCCB6 /* SwipeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488B2DA235756FD00ECCCB6 /* SwipeInteractor.swift */; };
+		0488B2E1235756FE00ECCCB6 /* SwipeableTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488B2DB235756FD00ECCCB6 /* SwipeableTabBarController.swift */; };
+		0488B2E2235756FE00ECCCB6 /* UIKit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488B2DC235756FE00ECCCB6 /* UIKit+Extensions.swift */; };
+		0488B2E3235756FE00ECCCB6 /* SwipeAnimationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488B2DD235756FE00ECCCB6 /* SwipeAnimationType.swift */; };
+		0488B2E4235756FE00ECCCB6 /* SwipeTransitioningProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488B2DE235756FE00ECCCB6 /* SwipeTransitioningProtocol.swift */; };
+		0488B2E5235756FE00ECCCB6 /* SwipeTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488B2DF235756FE00ECCCB6 /* SwipeTransitionAnimator.swift */; };
 		04E2247723048F9E00E5ACB8 /* ShadowedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2247623048F9E00E5ACB8 /* ShadowedTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +94,12 @@
 		047D3B6822D3584A007F5997 /* CalculatorCommercialAmountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorCommercialAmountTableViewCell.swift; sourceTree = "<group>"; };
 		047D3B6A22D37084007F5997 /* CountTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountTextFieldDelegate.swift; sourceTree = "<group>"; };
 		047D3B6C22D39259007F5997 /* CalculatorAmountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorAmountTableViewCell.swift; sourceTree = "<group>"; };
+		0488B2DA235756FD00ECCCB6 /* SwipeInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeInteractor.swift; sourceTree = "<group>"; };
+		0488B2DB235756FD00ECCCB6 /* SwipeableTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeableTabBarController.swift; sourceTree = "<group>"; };
+		0488B2DC235756FE00ECCCB6 /* UIKit+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Extensions.swift"; sourceTree = "<group>"; };
+		0488B2DD235756FE00ECCCB6 /* SwipeAnimationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeAnimationType.swift; sourceTree = "<group>"; };
+		0488B2DE235756FE00ECCCB6 /* SwipeTransitioningProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeTransitioningProtocol.swift; sourceTree = "<group>"; };
+		0488B2DF235756FE00ECCCB6 /* SwipeTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeTransitionAnimator.swift; sourceTree = "<group>"; };
 		04E2247623048F9E00E5ACB8 /* ShadowedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowedTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +139,7 @@
 		0415DFD4228EF31F003C2A0A /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0488B2D9235756D000ECCCB6 /* SwipeableTabBarController */,
 				0445318C229454F900866D59 /* MainTabBarController.swift */,
 				0415DFD5228EF344003C2A0A /* TripsTrackerViewController.swift */,
 				047D3B5F22D33DD9007F5997 /* CalculatorViewController.swift */,
@@ -282,6 +295,19 @@
 			path = "Calculator Table View Cells";
 			sourceTree = "<group>";
 		};
+		0488B2D9235756D000ECCCB6 /* SwipeableTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				0488B2DB235756FD00ECCCB6 /* SwipeableTabBarController.swift */,
+				0488B2DD235756FE00ECCCB6 /* SwipeAnimationType.swift */,
+				0488B2DA235756FD00ECCCB6 /* SwipeInteractor.swift */,
+				0488B2DF235756FE00ECCCB6 /* SwipeTransitionAnimator.swift */,
+				0488B2DE235756FE00ECCCB6 /* SwipeTransitioningProtocol.swift */,
+				0488B2DC235756FE00ECCCB6 /* UIKit+Extensions.swift */,
+			);
+			path = SwipeableTabBarController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -360,6 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0462373A2118AE11008AD497 /* UIViewController+Extensions.swift in Sources */,
+				0488B2E3235756FE00ECCCB6 /* SwipeAnimationType.swift in Sources */,
 				042679462119B16C008BF17E /* Date+Extensions.swift in Sources */,
 				0445318D229454F900866D59 /* MainTabBarController.swift in Sources */,
 				0415DFC8228EF074003C2A0A /* PublicTransportFaresStateController.swift in Sources */,
@@ -377,16 +404,21 @@
 				0412CE8622E8D9CF00A96D67 /* UIView+Extensions.swift in Sources */,
 				047D3B6D22D39259007F5997 /* CalculatorAmountTableViewCell.swift in Sources */,
 				047D3B6722D35446007F5997 /* CalculatorPublicTripsTableViewCell.swift in Sources */,
+				0488B2E2235756FE00ECCCB6 /* UIKit+Extensions.swift in Sources */,
 				044531892292E6DA00866D59 /* Double+Extensions.swift in Sources */,
 				0415DFD6228EF344003C2A0A /* TripsTrackerViewController.swift in Sources */,
 				0429C95A22B824E70083BBE2 /* Calculator.swift in Sources */,
 				0415DFD1228EF138003C2A0A /* Trip.swift in Sources */,
+				0488B2E1235756FE00ECCCB6 /* SwipeableTabBarController.swift in Sources */,
 				047D3B6422D348AE007F5997 /* CalculatorDateTableViewCell.swift in Sources */,
 				0415DFDC228F062B003C2A0A /* TripsTrackerView.swift in Sources */,
 				0451FBCA21130C27001346C4 /* AppDelegate.swift in Sources */,
 				0415DFCD228EF0DF003C2A0A /* TransportCardsStateController.swift in Sources */,
 				043CD82B22D7700E00C17D22 /* StatisticsTableViewCell.swift in Sources */,
+				0488B2E0235756FE00ECCCB6 /* SwipeInteractor.swift in Sources */,
+				0488B2E5235756FE00ECCCB6 /* SwipeTransitionAnimator.swift in Sources */,
 				0415DFCB228EF0CD003C2A0A /* TransportCard.swift in Sources */,
+				0488B2E4235756FE00ECCCB6 /* SwipeTransitioningProtocol.swift in Sources */,
 				0415DFD3228EF162003C2A0A /* PublicTransportFares.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

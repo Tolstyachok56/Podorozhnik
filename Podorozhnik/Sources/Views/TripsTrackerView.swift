@@ -85,8 +85,8 @@ class TripsTrackerView: UIView {
     }
     
     private func addBorderAndShadow(to view: UIView) {
-        view.addBorder(width: 1, color: AppsColors.chateauGreen)
-        view.addShadow(color: AppsColors.chateauGreen, radius: 2, opacity: 0.5)
+        view.addBorder(width: 1, color: AppColors.chateauGreen)
+        view.addShadow(color: AppColors.chateauGreen, radius: 2, opacity: 0.5)
     }
     
     @objc func didTapView(_ sender: UITapGestureRecognizer) {

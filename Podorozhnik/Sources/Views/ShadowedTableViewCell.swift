@@ -13,11 +13,11 @@ class ShadowedTableViewCell: UITableViewCell {
         self.clipsToBounds = false
         self.layer.masksToBounds = false
         if isFirstRow && isLastRow {
-            self.addShadow(color: AppsColors.chateauGreen, radius: 3, offset: .zero, opacity: 0.5)
+            self.addShadow(color: AppColors.chateauGreen, radius: 3, offset: .zero, opacity: 0.5)
         } else if isFirstRow {
-            self.addShadow(color: AppsColors.chateauGreen, radius: 1.5, offset: CGSize(width: 0, height: -1.5), opacity: 0.3)
+            self.addShadow(color: AppColors.chateauGreen, radius: 1.5, offset: CGSize(width: 0, height: -1.5), opacity: 0.3)
         } else if isLastRow {
-            self.addShadow(color: AppsColors.chateauGreen, radius: 1.5, offset: CGSize(width: 0, height: 1.5), opacity: 0.3)
+            self.addShadow(color: AppColors.chateauGreen, radius: 1.5, offset: CGSize(width: 0, height: 1.5), opacity: 0.3)
         }
     }
 }

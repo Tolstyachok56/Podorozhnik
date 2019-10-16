@@ -20,7 +20,7 @@ class StatisticsViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
             self.tableView.estimatedRowHeight = 61
-            self.tableView.separatorColor = AppsColors.chateauGreen
+            self.tableView.separatorColor = AppColors.chateauGreen
         }
     }
     @IBOutlet private weak var messageLabel: UILabel!
@@ -49,14 +49,14 @@ class StatisticsViewController: UIViewController {
         segmentedControl.frame = CGRect(x: 0, y: 0, width: self.view.frame.width - 40, height: 30)
         if #available(iOS 13.0, *) {
             segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-            segmentedControl.setTitleTextAttributes([.foregroundColor: AppsColors.chateauGreen], for: .normal)
-            segmentedControl.selectedSegmentTintColor = AppsColors.chateauGreen
+            segmentedControl.setTitleTextAttributes([.foregroundColor: AppColors.chateauGreen], for: .normal)
+            segmentedControl.selectedSegmentTintColor = AppColors.chateauGreen
         } else {
-            segmentedControl.tintColor = AppsColors.chateauGreen
+            segmentedControl.tintColor = AppColors.chateauGreen
         }
         self.navigationItem.titleView = segmentedControl
         
-        self.navigationController?.navigationBar.addShadow(color: AppsColors.chateauGreen, radius: 4, opacity: 0.5)
+        self.navigationController?.navigationBar.addShadow(color: AppColors.chateauGreen, radius: 4, opacity: 0.5)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -141,7 +141,7 @@ extension StatisticsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let headerView = view as! UITableViewHeaderFooterView
         headerView.textLabel?.font = UIFont.systemFont(ofSize: CGFloat(24), weight: .bold)
-        headerView.textLabel?.textColor = AppsColors.chateauGreen
+        headerView.textLabel?.textColor = AppColors.chateauGreen
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 8.0
