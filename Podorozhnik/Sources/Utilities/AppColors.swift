@@ -9,7 +9,8 @@
 import UIKit
 
 struct AppsColors {
-    static let chateauGreen: UIColor = colorFromRGBA(red: 38, green: 145, blue: 91)
+    static let chateauGreen: UIColor = UIColor(named: "chateauGreen") ?? colorFromRGBA(red: 38, green: 145, blue: 91)
+    static let backColor: UIColor = UIColor(named: "backColor") ?? UIColor.white
     
     static private func colorFromRGBA(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat = 1.0) -> UIColor {
         return UIColor(red: red/255.0, green: green/255.0, blue: blue/255.0, alpha: alpha)

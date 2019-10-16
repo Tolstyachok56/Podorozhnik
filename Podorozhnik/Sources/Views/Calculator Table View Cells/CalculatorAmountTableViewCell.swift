@@ -48,6 +48,10 @@ extension CalculatorAmountTableViewCell.ViewModel {
         self.totalAmount = String(calculatorController.getTotalAmount()).rublesGroupedFormatting!
         let missAmount = calculatorController.getMissingAmount() ?? 0
         self.missingAmount = String(missAmount).rublesGroupedFormatting ?? "?"
-        self.missingAmountColor = (missAmount == 0) ? .black : .red
+        if #available(iOS 13.0, *) {
+            self.missingAmountColor = (missAmount == 0) ? .label : .red
+        } else {
+            self.missingAmountColor = (missAmount == 0) ? .black : .red
+        }
     }
 }
