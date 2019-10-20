@@ -28,6 +28,7 @@ class TripsTrackerViewController: UIViewController {
         self.registerForKeyboardNotifications()
         self.updateView()
         self.tripsTrackerView.delegate = self
+        self.view.addShadow(color: AppColors.chateauGreen, radius: 4, offset: .zero, opacity: 0.5)
     }
     
     // MARK: - View methods
@@ -116,7 +117,7 @@ class TripsTrackerViewController: UIViewController {
         case TransportType.commercial.tag:
             guard self.transportCard != nil,
                 let text = self.fareOfCommercialTextField.text, !text.isEmpty,
-                let fare = text.double else { return }
+                let fare = text.double, fare > 0 else { return }
             let numberOfTrip = self.transportCard!.numberOfTripsByCommercial + 1
             addTrip(by: .commercial, numberOfTrip: numberOfTrip, fare: fare)
             self.fareOfCommercialTextField.text = ""

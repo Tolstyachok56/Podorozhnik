@@ -42,6 +42,17 @@ class StatisticsViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+        self.setupSegmentedControl()
+        self.addShadows()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.updateViewWithStatistics()
+    }
+    
+    // MARK: - View Methods
+    private func setupSegmentedControl() {
         let segmentedControl = UISegmentedControl(items: ["Month".localized, "Day".localized])
         segmentedControl.addTarget(self, action: #selector(dimensionSegmentedControlPressed(_:)), for: .valueChanged)
         segmentedControl.selectedSegmentIndex = self.statisticsDimension.rawValue
@@ -55,16 +66,12 @@ class StatisticsViewController: UIViewController {
             segmentedControl.tintColor = AppColors.chateauGreen
         }
         self.navigationItem.titleView = segmentedControl
-        
+    }
+    private func addShadows() {
         self.navigationController?.navigationBar.addShadow(color: AppColors.chateauGreen, radius: 4, opacity: 0.5)
+        self.navigationController?.view.layer.masksToBounds = false
+        self.navigationController?.view.addShadow(color: AppColors.chateauGreen, radius: 4, offset: .zero, opacity: 0.5)
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.updateViewWithStatistics()
-    }
-    
-    // MARK: - View Methods
     private func updateViewWithStatistics() {
         self.updateStatistics(to: self.statisticsDimension)
         if let statistics = self.statistics, statistics.isEmpty {

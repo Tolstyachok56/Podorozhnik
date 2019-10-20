@@ -31,8 +31,7 @@ class CalculatorViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-        self.view.layer.borderWidth = 0.5
-        self.view.layer.borderColor = AppColors.chateauGreen.cgColor
+        self.view.addShadow(color: AppColors.chateauGreen, radius: 4, offset: .zero, opacity: 0.5)
     }
     
     override func viewWillAppear(_ animated: Bool) {
