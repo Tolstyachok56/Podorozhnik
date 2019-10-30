@@ -1,3 +1,8 @@
+![iOS](https://img.shields.io/badge/iOS-11.0_or_later-green) 
+![Xcode](https://img.shields.io/badge/Xcode-11-green)
+![Swift Version](https://img.shields.io/badge/Swift-5-green)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/Tolstyachok56/Podorozhnik?color=green)
+
 # Podorozhnik
 Podorozhnik helps residents of St. Petersburg to control their transport expenses with ease and convenience.
 
