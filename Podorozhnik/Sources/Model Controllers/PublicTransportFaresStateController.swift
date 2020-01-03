@@ -23,16 +23,16 @@ class PublicTransportFaresStateController {
         self.updatePublicTransportFaresFile(at: fileURL)
         
         guard let faresData = try? Data(contentsOf: fileURL),
-            let fares = try? PropertyListDecoder().decode([PublicTransportFares].self, from: faresData) else { return }
-        self.publicTransportFares = fares
+            let fares = try? PropertyListDecoder().decode([Int:[PublicTransportFares]].self, from: faresData) else { return }
+        let year = Calendar.current.component(.year, from: Date())
+        self.publicTransportFares = fares[year] ?? fares[year - 1] ?? []
     }
     
     private func updatePublicTransportFaresFile(at fileDocumentsURL: URL) {
         let fileBundleURL = Bundle.main.url(forResource: "PublicTransportFares", withExtension: "plist")
         if !FileManager.default.fileExists(atPath: fileDocumentsURL.path) {
             try? FileManager.default.copyItem(at: fileBundleURL!, to: fileDocumentsURL)
-        }
-        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String, version != "1.0" {
+        } else {
             try? FileManager.default.removeItem(at: fileDocumentsURL)
             try? FileManager.default.copyItem(at: fileBundleURL!, to: fileDocumentsURL)
         }
