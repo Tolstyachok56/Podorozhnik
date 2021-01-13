@@ -36,6 +36,7 @@ class CalculatorDateTableViewCell: ShadowedTableViewCell {
         }
     }
     weak var delegate: CalculatorDateTableViewCellDelegate?
+    private var dateChecked: Date? = nil
     
     // MARK: - Actions
     @IBAction private func dateButtonPressed(_ sender: UIButton) {
@@ -47,24 +48,20 @@ class CalculatorDateTableViewCell: ShadowedTableViewCell {
             case .end:
                 title = "Choose end date".localized
             }
+            self.dateChecked = viewModel.date.startOfDay
         
             let alertController = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
-            let size = CGSize(width: alertController.view.bounds.width, height: CGFloat(216))
             
-            let contentViewController = UIViewController()
-            contentViewController.preferredContentSize = size
+            alertController.addDatePicker(mode: .date, date: viewModel.date, minimumDate: Date().startOfDay) { (date) in
+                self.dateChecked = date.startOfDay
+            }
             
-            let datePicker = UIDatePicker(frame: CGRect(origin: .zero, size: size))
-            datePicker.datePickerMode = .date
-            datePicker.minimumDate = Date()
-            datePicker.date = viewModel.date
-            
-            contentViewController.view.addSubview(datePicker)
-            alertController.setValue(contentViewController, forKey: "contentViewController")
-            
-            let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
+            let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel) { (action) in
+                self.dateChecked = nil
+            }
             let okAction = UIAlertAction(title: "OK".localized, style: .default) { (action) in
-                self.delegate?.calculatorDateTableViewCell(self, didPickDate: datePicker.date.startOfDay, dateType: viewModel.dateType)
+                self.delegate?.calculatorDateTableViewCell(self, didPickDate: self.dateChecked!, dateType: viewModel.dateType)
+                self.dateChecked = nil
             }
             
             alertController.addAction(cancelAction)

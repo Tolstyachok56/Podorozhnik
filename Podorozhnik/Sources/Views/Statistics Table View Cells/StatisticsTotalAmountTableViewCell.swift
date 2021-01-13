@@ -14,7 +14,7 @@ class StatisticsTotalAmountTableViewCell: ShadowedTableViewCell {
     static let identifier: String = String(describing: StatisticsTotalAmountTableViewCell.self)
     
     // MARK: - Outlets
-    @IBOutlet weak var totalAmountLabel: UILabel!
+    @IBOutlet private weak var totalAmountLabel: UILabel!
 
     // MARK: - Properties
     var viewModel: ViewModel? {

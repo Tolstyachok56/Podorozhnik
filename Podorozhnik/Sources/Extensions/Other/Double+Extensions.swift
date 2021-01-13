@@ -19,18 +19,5 @@ extension Double {
         formatter.groupingSeparator = " "
         return formatter.string(from: NSNumber(value: self))!
     }
-}
-
-
-// OLD
-extension Double {
-    
-    func priceFormat() -> String? {
-        let nf = NumberFormatter()
-        nf.minimumIntegerDigits = 1
-        nf.minimumFractionDigits = 2
-        nf.maximumFractionDigits = 2
-        return nf.string(from: self as NSNumber)
-    }
     
 }

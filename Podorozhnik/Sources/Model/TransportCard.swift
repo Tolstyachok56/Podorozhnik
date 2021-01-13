@@ -23,6 +23,7 @@ extension TransportCard: Codable {
 }
 
 extension TransportCard {
+    
     var lastTrip: Trip? {
         return self.trips.last
     }
@@ -62,7 +63,7 @@ extension TransportCard {
         return statistics
     }
     
-    private func getNumberOfTrips(by transportType: TransportType, at date: Date = Date()) -> Int {
+    func getNumberOfTrips(by transportType: TransportType, at date: Date = Date()) -> Int {
         return self.trips.filter {
             $0.transportType == transportType &&
             $0.date >= date.startOfMonth.startOfDay &&
