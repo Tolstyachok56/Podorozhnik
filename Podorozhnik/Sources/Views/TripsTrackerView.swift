@@ -102,10 +102,7 @@ class TripsTrackerView: UIView {
 }
 
 extension TripsTrackerView {
-    
     struct ViewModel {
-        private var publicTransportFaresController = PublicTransportFaresStateController()
-        
         var cardBalance: String
         var lastTripDate: String
         
@@ -116,11 +113,12 @@ extension TripsTrackerView {
         var metroFare: String
         var groundFare: String
         var commercialFare: String
+        
+        let publicTransportFaresController = PublicTransportFaresStateController()
     }
 }
 
 extension TripsTrackerView.ViewModel {
-    
     init(_ card: TransportCard) {
         self.cardBalance = card.balance.rublesGroupedFormatting
         self.lastTripDate = "Last: ".localized + (card.lastTrip?.date.dayTimeFormatting ?? "no trips".localized)
@@ -129,8 +127,8 @@ extension TripsTrackerView.ViewModel {
         self.tripsByGround = String(card.numberOfTripsByGround)
         self.tripsByCommercial = String(card.numberOfTripsByCommercial)
         
-        self.metroFare = "Fare: ".localized + self.publicTransportFaresController.getMetroFare(numberOfTrip: card.numberOfTripsByMetro + 1).rublesGroupedFormatting
-        self.groundFare = "Fare: ".localized + self.publicTransportFaresController.getGroundFare(numberOfTrip: card.numberOfTripsByGround + 1).rublesGroupedFormatting
+        self.metroFare = "Fare: ".localized + publicTransportFaresController.getMetroFare(numberOfTrip: card.numberOfTripsByMetro + 1).rublesGroupedFormatting
+        self.groundFare = "Fare: ".localized + publicTransportFaresController.getGroundFare(numberOfTrip: card.numberOfTripsByGround + 1).rublesGroupedFormatting
         self.commercialFare = 0.0.rublesGroupedFormatting
     }
 }

@@ -26,7 +26,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
@@ -41,7 +42,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "044D7B98230D45F300EA5A33"
+               BlueprintIdentifier = "04935C0223ED49B4007FA392"
                BuildableName = "PodorozhnikTests.xctest"
                BlueprintName = "PodorozhnikTests"
                ReferencedContainer = "container:Podorozhnik.xcodeproj">

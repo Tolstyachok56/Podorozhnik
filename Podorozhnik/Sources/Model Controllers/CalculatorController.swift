@@ -27,37 +27,45 @@ class CalculatorController {
     }
     
     // MARK: - Methods
-    func getTotalAmount() -> Double {
-        return self.getAmount(for: .metro) + self.getAmount(for: .ground) + self.calculator.commercialAmount
+    func getTotalAmount(at currentDate: Date = Date()) -> Double {
+        return self.getAmount(for: .metro, at: currentDate) + self.getAmount(for: .ground, at: currentDate) + self.calculator.commercialAmount
     }
-    func getMissingAmount() -> Double? {
+    func getMissingAmount(at currentDate: Date = Date()) -> Double? {
         let cardBalance = self.transportCard.balance
-        let totalAmount = self.getTotalAmount()
+        let totalAmount = self.getTotalAmount(at: currentDate)
         return (cardBalance < totalAmount) ? (totalAmount - cardBalance) : nil
     }
     
-    private func getAmount(for transportType: TransportType) -> Double {
+    private func getTripsAtWeekday(for publicTransportType: TransportType) -> Int {
+        switch publicTransportType {
+        case .metro:
+            return self.calculator.tripsByMetroAtWeekday
+        case .ground:
+            return self.calculator.tripsByGroundAtWeekday
+        default:
+            return 0
+        }
+    }
+    
+    private func getTripsAtRestday(for publicTransportType: TransportType) -> Int {
+        switch publicTransportType {
+        case .metro:
+            return self.calculator.tripsByMetroAtRestday
+        case .ground:
+            return self.calculator.tripsByGroundAtRestday
+        default:
+            return 0
+        }
+    }
+    
+    private func getAmount(for transportType: TransportType, at currentDate: Date = Date()) -> Double {
         var amount: Double = 0
         
-        let today = Date()
-        var startOfNextMonth = today.startOfNextMonth
+        var startOfNextMonth = currentDate.startOfNextMonth
         
-        var currentNumberOfTrips: Int
-        let tripsAtWeekday: Int
-        let tripsAtRestday: Int
-        
-        switch transportType {
-        case .metro:
-            currentNumberOfTrips = self.transportCard.numberOfTripsByMetro
-            tripsAtWeekday = self.calculator.tripsByMetroAtWeekday
-            tripsAtRestday = self.calculator.tripsByMetroAtRestday
-        case .ground:
-            currentNumberOfTrips = self.transportCard.numberOfTripsByGround
-            tripsAtWeekday = self.calculator.tripsByGroundAtWeekday
-            tripsAtRestday = self.calculator.tripsByGroundAtRestday
-        default:
-            fatalError("Unexpected type of transport")
-        }
+        var currentNumberOfTrips: Int = self.transportCard.getNumberOfTrips(by: transportType, at: currentDate)
+        let tripsAtWeekday: Int = self.getTripsAtWeekday(for: transportType)
+        let tripsAtRestday: Int = self.getTripsAtRestday(for: transportType)
         
         if self.calculatingDays > 0 {
             for numberOfDay in 1...self.calculatingDays {

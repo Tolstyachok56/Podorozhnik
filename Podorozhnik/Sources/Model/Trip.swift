@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Trip {
+struct Trip: Equatable {
     let transportType: TransportType
     let numberOfTrip: Int?
     let fare: Double

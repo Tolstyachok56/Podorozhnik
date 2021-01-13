@@ -2,6 +2,43 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>2021</key>
+	<array>
+		<dict>
+			<key>transportType</key>
+			<dict>
+				<key>rawValue</key>
+				<string>metro</string>
+			</dict>
+			<key>fareForTripsFrom1To10</key>
+			<integer>41</integer>
+			<key>fareForTripsFrom11To20</key>
+			<integer>41</integer>
+			<key>fareForTripsFrom21To30</key>
+			<integer>41</integer>
+			<key>fareForTripsFrom31To40</key>
+			<integer>41</integer>
+			<key>fareForTripsFrom41</key>
+			<integer>41</integer>
+		</dict>
+		<dict>
+			<key>transportType</key>
+			<dict>
+				<key>rawValue</key>
+				<string>ground</string>
+			</dict>
+			<key>fareForTripsFrom1To10</key>
+			<integer>36</integer>
+			<key>fareForTripsFrom11To20</key>
+			<integer>36</integer>
+			<key>fareForTripsFrom21To30</key>
+			<integer>36</integer>
+			<key>fareForTripsFrom31To40</key>
+			<integer>36</integer>
+			<key>fareForTripsFrom41</key>
+			<integer>36</integer>
+		</dict>
+	</array>
 	<key>2020</key>
 	<array>
 		<dict>

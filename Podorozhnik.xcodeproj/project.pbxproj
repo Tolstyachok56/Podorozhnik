@@ -21,6 +21,7 @@
 		0415DFD6228EF344003C2A0A /* TripsTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415DFD5228EF344003C2A0A /* TripsTrackerViewController.swift */; };
 		0415DFDC228F062B003C2A0A /* TripsTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415DFDB228F062B003C2A0A /* TripsTrackerView.swift */; };
 		0415DFDF228F1B74003C2A0A /* CurrencyTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415DFDE228F1B74003C2A0A /* CurrencyTextFieldDelegate.swift */; };
+		0425A01223EDB9B200713F84 /* CalculatorControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425A01123EDB9B200713F84 /* CalculatorControllerTests.swift */; };
 		042679462119B16C008BF17E /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042679452119B16C008BF17E /* Date+Extensions.swift */; };
 		0429C95622B815A80083BBE2 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0429C95522B815A80083BBE2 /* AppColors.swift */; };
 		0429C95822B8192B0083BBE2 /* CalculatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0429C95722B8192B0083BBE2 /* CalculatorController.swift */; };
@@ -48,8 +49,28 @@
 		0488B2E3235756FE00ECCCB6 /* SwipeAnimationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488B2DD235756FE00ECCCB6 /* SwipeAnimationType.swift */; };
 		0488B2E4235756FE00ECCCB6 /* SwipeTransitioningProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488B2DE235756FE00ECCCB6 /* SwipeTransitioningProtocol.swift */; };
 		0488B2E5235756FE00ECCCB6 /* SwipeTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488B2DF235756FE00ECCCB6 /* SwipeTransitionAnimator.swift */; };
+		04935C0E23ED4A63007FA392 /* TransportCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04935C0D23ED4A63007FA392 /* TransportCardTests.swift */; };
+		04935C1023ED6D00007FA392 /* PublicTransportFaresStateControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04935C0F23ED6D00007FA392 /* PublicTransportFaresStateControllerTests.swift */; };
+		049A229F25AF25CD008997C5 /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A229E25AF25CC008997C5 /* UIAlertController+Extensions.swift */; };
+		04D9D8FA23F5A25900C5DA5C /* StatisticsTotalAmountTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D9D8F923F5A25900C5DA5C /* StatisticsTotalAmountTableViewCellTests.swift */; };
+		04D9D8FC23F5A87300C5DA5C /* StatisticsTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D9D8FB23F5A87300C5DA5C /* StatisticsTableViewCellTests.swift */; };
+		04D9D90123F681B800C5DA5C /* TripsTrackerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D9D90023F681B800C5DA5C /* TripsTrackerViewTests.swift */; };
+		04D9D90323F6927300C5DA5C /* CalculatorDateTableViewCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D9D90223F6927300C5DA5C /* CalculatorDateTableViewCellTest.swift */; };
+		04D9D90623F69B9C00C5DA5C /* CalculatorPublicTripsTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D9D90523F69B9C00C5DA5C /* CalculatorPublicTripsTableViewCellTests.swift */; };
+		04D9D90823F6A1BC00C5DA5C /* CalculatorCommercialAmountTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D9D90723F6A1BC00C5DA5C /* CalculatorCommercialAmountTableViewCellTests.swift */; };
+		04D9D90A23F6A7D500C5DA5C /* CalculatorAmountTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D9D90923F6A7D500C5DA5C /* CalculatorAmountTableViewCellTests.swift */; };
 		04E2247723048F9E00E5ACB8 /* ShadowedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2247623048F9E00E5ACB8 /* ShadowedTableViewCell.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		04935C0823ED49B4007FA392 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0451FBBE21130C27001346C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0451FBC521130C27001346C4;
+			remoteInfo = Podorozhnik;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0412CE5822E0AB6E00A96D67 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
@@ -72,6 +93,7 @@
 		0415DFD5228EF344003C2A0A /* TripsTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTrackerViewController.swift; sourceTree = "<group>"; };
 		0415DFDB228F062B003C2A0A /* TripsTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTrackerView.swift; sourceTree = "<group>"; };
 		0415DFDE228F1B74003C2A0A /* CurrencyTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextFieldDelegate.swift; sourceTree = "<group>"; };
+		0425A01123EDB9B200713F84 /* CalculatorControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorControllerTests.swift; sourceTree = "<group>"; };
 		042679452119B16C008BF17E /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		0429C95522B815A80083BBE2 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		0429C95722B8192B0083BBE2 /* CalculatorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorController.swift; sourceTree = "<group>"; };
@@ -100,11 +122,30 @@
 		0488B2DD235756FE00ECCCB6 /* SwipeAnimationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeAnimationType.swift; sourceTree = "<group>"; };
 		0488B2DE235756FE00ECCCB6 /* SwipeTransitioningProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeTransitioningProtocol.swift; sourceTree = "<group>"; };
 		0488B2DF235756FE00ECCCB6 /* SwipeTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeTransitionAnimator.swift; sourceTree = "<group>"; };
+		04935C0323ED49B4007FA392 /* PodorozhnikTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PodorozhnikTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04935C0723ED49B4007FA392 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04935C0D23ED4A63007FA392 /* TransportCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportCardTests.swift; sourceTree = "<group>"; };
+		04935C0F23ED6D00007FA392 /* PublicTransportFaresStateControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicTransportFaresStateControllerTests.swift; sourceTree = "<group>"; };
+		049A229E25AF25CC008997C5 /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
+		04D9D8F923F5A25900C5DA5C /* StatisticsTotalAmountTableViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsTotalAmountTableViewCellTests.swift; sourceTree = "<group>"; };
+		04D9D8FB23F5A87300C5DA5C /* StatisticsTableViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsTableViewCellTests.swift; sourceTree = "<group>"; };
+		04D9D90023F681B800C5DA5C /* TripsTrackerViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsTrackerViewTests.swift; sourceTree = "<group>"; };
+		04D9D90223F6927300C5DA5C /* CalculatorDateTableViewCellTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorDateTableViewCellTest.swift; sourceTree = "<group>"; };
+		04D9D90523F69B9C00C5DA5C /* CalculatorPublicTripsTableViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorPublicTripsTableViewCellTests.swift; sourceTree = "<group>"; };
+		04D9D90723F6A1BC00C5DA5C /* CalculatorCommercialAmountTableViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorCommercialAmountTableViewCellTests.swift; sourceTree = "<group>"; };
+		04D9D90923F6A7D500C5DA5C /* CalculatorAmountTableViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorAmountTableViewCellTests.swift; sourceTree = "<group>"; };
 		04E2247623048F9E00E5ACB8 /* ShadowedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowedTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		0451FBC321130C27001346C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04935C0023ED49B4007FA392 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -198,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				0451FBC821130C27001346C4 /* Podorozhnik */,
+				04935C0423ED49B4007FA392 /* PodorozhnikTests */,
 				0451FBC721130C27001346C4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -206,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				0451FBC621130C27001346C4 /* Podorozhnik.app */,
+				04935C0323ED49B4007FA392 /* PodorozhnikTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -255,6 +298,7 @@
 			children = (
 				046237392118AE11008AD497 /* UIViewController+Extensions.swift */,
 				0412CE8522E8D9CF00A96D67 /* UIView+Extensions.swift */,
+				049A229E25AF25CC008997C5 /* UIAlertController+Extensions.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -308,6 +352,56 @@
 			path = SwipeableTabBarController;
 			sourceTree = "<group>";
 		};
+		04935C0423ED49B4007FA392 /* PodorozhnikTests */ = {
+			isa = PBXGroup;
+			children = (
+				04935C0723ED49B4007FA392 /* Info.plist */,
+				04D9D8FD23F5A8CE00C5DA5C /* Model Controllers */,
+				04D9D8FE23F5A8DD00C5DA5C /* Views */,
+			);
+			path = PodorozhnikTests;
+			sourceTree = "<group>";
+		};
+		04D9D8FD23F5A8CE00C5DA5C /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				04935C0D23ED4A63007FA392 /* TransportCardTests.swift */,
+				04935C0F23ED6D00007FA392 /* PublicTransportFaresStateControllerTests.swift */,
+				0425A01123EDB9B200713F84 /* CalculatorControllerTests.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		04D9D8FE23F5A8DD00C5DA5C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				04D9D90023F681B800C5DA5C /* TripsTrackerViewTests.swift */,
+				04D9D90423F6927A00C5DA5C /* Calculator Table View Cells */,
+				04D9D8FF23F5A98800C5DA5C /* Statistics Table View Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		04D9D8FF23F5A98800C5DA5C /* Statistics Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				04D9D8FB23F5A87300C5DA5C /* StatisticsTableViewCellTests.swift */,
+				04D9D8F923F5A25900C5DA5C /* StatisticsTotalAmountTableViewCellTests.swift */,
+			);
+			path = "Statistics Table View Cells";
+			sourceTree = "<group>";
+		};
+		04D9D90423F6927A00C5DA5C /* Calculator Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				04D9D90223F6927300C5DA5C /* CalculatorDateTableViewCellTest.swift */,
+				04D9D90523F69B9C00C5DA5C /* CalculatorPublicTripsTableViewCellTests.swift */,
+				04D9D90723F6A1BC00C5DA5C /* CalculatorCommercialAmountTableViewCellTests.swift */,
+				04D9D90923F6A7D500C5DA5C /* CalculatorAmountTableViewCellTests.swift */,
+			);
+			path = "Calculator Table View Cells";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -328,19 +422,41 @@
 			productReference = 0451FBC621130C27001346C4 /* Podorozhnik.app */;
 			productType = "com.apple.product-type.application";
 		};
+		04935C0223ED49B4007FA392 /* PodorozhnikTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04935C0C23ED49B5007FA392 /* Build configuration list for PBXNativeTarget "PodorozhnikTests" */;
+			buildPhases = (
+				04935BFF23ED49B4007FA392 /* Sources */,
+				04935C0023ED49B4007FA392 /* Frameworks */,
+				04935C0123ED49B4007FA392 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04935C0923ED49B4007FA392 /* PBXTargetDependency */,
+			);
+			name = PodorozhnikTests;
+			productName = PodorozhnikTests;
+			productReference = 04935C0323ED49B4007FA392 /* PodorozhnikTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		0451FBBE21130C27001346C4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1030;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Виктория Бадисова";
 				TargetAttributes = {
 					0451FBC521130C27001346C4 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1020;
+					};
+					04935C0223ED49B4007FA392 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 0451FBC521130C27001346C4;
 					};
 				};
 			};
@@ -359,6 +475,7 @@
 			projectRoot = "";
 			targets = (
 				0451FBC521130C27001346C4 /* Podorozhnik */,
+				04935C0223ED49B4007FA392 /* PodorozhnikTests */,
 			);
 		};
 /* End PBXProject section */
@@ -375,6 +492,13 @@
 				0451FBD121130C29001346C4 /* Assets.xcassets in Resources */,
 				0451FBCF21130C28001346C4 /* Main.storyboard in Resources */,
 				0415DFC3228ED9F1003C2A0A /* PublicTransportFares.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04935C0123ED49B4007FA392 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,11 +543,37 @@
 				0488B2E5235756FE00ECCCB6 /* SwipeTransitionAnimator.swift in Sources */,
 				0415DFCB228EF0CD003C2A0A /* TransportCard.swift in Sources */,
 				0488B2E4235756FE00ECCCB6 /* SwipeTransitioningProtocol.swift in Sources */,
+				049A229F25AF25CD008997C5 /* UIAlertController+Extensions.swift in Sources */,
 				0415DFD3228EF162003C2A0A /* PublicTransportFares.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		04935BFF23ED49B4007FA392 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04D9D8FA23F5A25900C5DA5C /* StatisticsTotalAmountTableViewCellTests.swift in Sources */,
+				04935C1023ED6D00007FA392 /* PublicTransportFaresStateControllerTests.swift in Sources */,
+				04D9D90123F681B800C5DA5C /* TripsTrackerViewTests.swift in Sources */,
+				04D9D90323F6927300C5DA5C /* CalculatorDateTableViewCellTest.swift in Sources */,
+				04D9D8FC23F5A87300C5DA5C /* StatisticsTableViewCellTests.swift in Sources */,
+				04D9D90623F69B9C00C5DA5C /* CalculatorPublicTripsTableViewCellTests.swift in Sources */,
+				04935C0E23ED4A63007FA392 /* TransportCardTests.swift in Sources */,
+				0425A01223EDB9B200713F84 /* CalculatorControllerTests.swift in Sources */,
+				04D9D90A23F6A7D500C5DA5C /* CalculatorAmountTableViewCellTests.swift in Sources */,
+				04D9D90823F6A1BC00C5DA5C /* CalculatorCommercialAmountTableViewCellTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		04935C0923ED49B4007FA392 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0451FBC521130C27001346C4 /* Podorozhnik */;
+			targetProxy = 04935C0823ED49B4007FA392 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0412CE6622E0C25900A96D67 /* Localizable.strings */ = {
@@ -594,7 +744,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vbadisova.Podorozhnik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -614,11 +764,58 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vbadisova.Podorozhnik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		04935C0A23ED49B4007FA392 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9E7V52UM47;
+				INFOPLIST_FILE = PodorozhnikTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vbadisova.PodorozhnikTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Podorozhnik.app/Podorozhnik";
+			};
+			name = Debug;
+		};
+		04935C0B23ED49B4007FA392 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9E7V52UM47;
+				INFOPLIST_FILE = PodorozhnikTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vbadisova.PodorozhnikTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Podorozhnik.app/Podorozhnik";
 			};
 			name = Release;
 		};
@@ -639,6 +836,15 @@
 			buildConfigurations = (
 				0451FBD921130C29001346C4 /* Debug */,
 				0451FBDA21130C29001346C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04935C0C23ED49B5007FA392 /* Build configuration list for PBXNativeTarget "PodorozhnikTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04935C0A23ED49B4007FA392 /* Debug */,
+				04935C0B23ED49B4007FA392 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
